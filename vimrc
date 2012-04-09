@@ -1,5 +1,11 @@
 " Required by pathogen.vim for loading plugins
-call pathogen#infect('~/.vim/bundle')
+" call pathogen#infect('~/.vim/bundle')
+" for some reason pathogen#infect's default thing doesn't work for me in ubuntu
+if has("win32") || has("win64")
+   call pathogen#infect()
+else
+   call pathogen#infect('~/.vim/bundle')
+end
 
 " Fix for my shell, otherwise some scripts break
 if $SHELL =~ 'bin/fish'

@@ -1,0 +1,15 @@
+Commonly used plugins for vim, to be installed using pathogen:
+
+https://github.com/tpope/vim-pathogen
+
+git://github.com/majutsushi/tagbar.git
+git://github.com/tpope/vim-fugitive.git
+git://github.com/tpope/vim-surround.git
+git://github.com/tpope/vim-commentary.git
+git://github.com/tpope/vim-repeat.git
+git://github.com/tpope/vim-unimpaired.git
+git://github.com/tpope/vim-abolish.git
+
+Non-github plugins:
+
+http://vim-latex.sourceforge.net/
