@@ -13,3 +13,4 @@ git://github.com/tpope/vim-abolish.git
 Non-github plugins:
 
 http://vim-latex.sourceforge.net/
+http://www.vim.org/scripts/script.php?script_id=152   showmarks

@@ -3,6 +3,10 @@
 " for some reason pathogen#infect's default thing doesn't work for me in ubuntu
 if has("win32") || has("win64")
    call pathogen#infect()
+   "Required by vim-latex on windows machines
+   set shellslash
+   "Otherwise vim will try to write temp files in sys32 folder when editing new file
+   set directory=.,$TEMP
 else
    call pathogen#infect('~/.vim/bundle')
 end
@@ -164,7 +168,6 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 "" vim-latex.org
 ""
 
-set shellslash
 set grepprg=grep\ -nH\ $*
 
 let g:Tex_DefaultTargetFormat = 'pdf'
