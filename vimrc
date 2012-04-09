@@ -1,3 +1,6 @@
+" Required by pathogen.vim for loading plugins
+call pathogen#infect('~/.vim/bundle')
+
 " Fix for my shell, otherwise some scripts break
 if $SHELL =~ 'bin/fish'
     set shell=/bin/sh
@@ -26,6 +29,7 @@ command! Cdpwd lcd %:p:h
 "" Basic settings
 ""
 
+syntax enable		" Enables syntax highlighting with custom colors
 filetype plugin indent on	" React on filetypes with plugins and syntax
 set autoread		" Files changed from outside are automatically reread
 set hlsearch            " Highlight search results
@@ -53,7 +57,6 @@ set backspace=indent,eol,start whichwrap+=<,>,[,] "backspace functionality
 set formatprg=par	" user par to format text with the gq command
 "set listchars=tab:\|_,trail:.,extends:>,precedes:>,eol:~ "list mode shit
 
-syntax enable
 
 
 """""""""""""""""""""""""""""""""""""""""""""

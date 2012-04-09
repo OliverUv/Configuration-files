@@ -1,1 +1,13 @@
 Just some of my configuration files for dev environment. :)
+
+The vimrc file is meant to be sourced by vim-clients on all my setups.
+On unix, simply replace your .vimrc with a symlink to vimrc.
+On windows, put the following into your _vimrc:
+
+set runtimepath=~/PATH-TO-.VIMRC,$VIMRUNTIME
+source PATH-TO-.VIMRC
+
+" :Configure to edit this file in a split window
+command! Configure edit PATH-TO-.VIMRC
+command! SConfigure split PATH-TO-.VIMRC
+command! VConfigure vsplit PATH-TO-.VIMRC
