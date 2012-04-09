@@ -47,6 +47,15 @@ hi CursorIM     gui=NONE guifg=#ffffff guibg=#8800ff
 hi Folded       gui=NONE guifg=#40f0f0 guibg=#006090
 hi FoldColumn   gui=NONE guifg=#40c0ff guibg=#404040
 
+" Signs
+hi SignColumn   gui=NONE guifg=#40c0ff guibg=#272727
+
+"ShowMarks - plugin
+hi ShowMarksHLl gui=NONE guifg=#40c0ff guibg=#272727
+hi ShowMarksHLu gui=NONE guifg=#40c0ff guibg=#272727
+hi ShowMarksHLo gui=NONE guifg=#40c0ff guibg=#272727
+hi ShowMarksHLm gui=NONE guifg=#ff9040 guibg=#272727
+
 " Other
 hi Directory    gui=NONE guifg=#c8c8ff guibg=NONE
 hi LineNr       gui=NONE guifg=#707070 guibg=NONE
