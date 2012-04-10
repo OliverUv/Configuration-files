@@ -188,6 +188,12 @@ let g:snips_author = 'Oliver Uvman'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
+"" showmarks settings
+"" 
+let g:showmarks_ignore_type = 'hmpqr'
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
 "" In visual mode you press * or # to search for the current selection
 "" 
 
