@@ -15,6 +15,7 @@ git://github.com/Raimondi/delimitMate.git
 
 Non-github plugins:
 
+http://www.vim.org/scripts/script.php?script_id=2540
 http://vim-latex.sourceforge.net/
 http://www.vim.org/scripts/script.php?script_id=152   showmarks
 	when this is first installed it will cause highlighting errors,
