@@ -1,14 +1,16 @@
-" Required by pathogen.vim for loading plugins
-" call pathogen#infect('~/.vim/bundle')
-" for some reason pathogen#infect's default thing doesn't work for me in ubuntu
 if has("win32") || has("win64")
+   " Required by pathogen.vim for loading plugins
    call pathogen#infect()
+   
    "Required by vim-latex on windows machines
    set shellslash
+
    "Otherwise vim will try to write temp files in sys32 folder when editing new file
    set directory=.,$TEMP
 else
    call pathogen#infect('~/.vim/bundle')
+   set t_Co=256
+   colorscheme neon-approx
 end
 
 " Fix for my shell, otherwise some scripts break
