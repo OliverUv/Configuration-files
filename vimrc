@@ -182,6 +182,12 @@ nmap <leader>lg :execute "!makeglossaries " . shellescape(expand('%:r'), 1)<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
+"" snipMate settings
+"" 
+let g:snips_author = 'Oliver Uvman'
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
 "" In visual mode you press * or # to search for the current selection
 "" 
 
