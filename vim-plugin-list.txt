@@ -2,6 +2,8 @@ Commonly used plugins for vim, to be installed using pathogen:
 
 https://github.com/tpope/vim-pathogen
 
+git://github.com/vim-scripts/LycosaExplorer.git
+	Had to comment out a python line to make this work in ubuntu
 git://github.com/majutsushi/tagbar.git
 git://github.com/tpope/vim-fugitive.git
 git://github.com/tpope/vim-surround.git
@@ -14,3 +16,5 @@ Non-github plugins:
 
 http://vim-latex.sourceforge.net/
 http://www.vim.org/scripts/script.php?script_id=152   showmarks
+	when this is first installed it will cause highlighting errors,
+	close vim, remove .viminfo and restart vim to fix this issue.
