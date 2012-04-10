@@ -11,6 +11,7 @@ git://github.com/tpope/vim-commentary.git
 git://github.com/tpope/vim-repeat.git
 git://github.com/tpope/vim-unimpaired.git
 git://github.com/tpope/vim-abolish.git
+git://github.com/Raimondi/delimitMate.git
 
 Non-github plugins:
 

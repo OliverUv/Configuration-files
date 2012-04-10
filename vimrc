@@ -51,6 +51,7 @@ set shiftwidth=4	" Amount of spaces for tab to insert
 set autoindent          " Automatically set the indent when creating new lines.
 set showcmd             " Shows current command in statusline
 set ruler               " Show cursor position information in statusline
+set number		" Show line numbers by default
 set wrap                " Wrap text
 set ttyfast             " 'Smooth' scrolling
 set showmatch           " Briefly display matching brackets when inserting such.
@@ -181,50 +182,6 @@ nmap <leader>lg :execute "!makeglossaries " . shellescape(expand('%:r'), 1)<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
-"" Lusty explorer bindings
-"" http://www.vim.org/scripts/script.php?script_id=1890
-
-nmap <silent> <Leader>Qf :LustyFilesystemExplorer<CR>
-nmap <silent> <Leader>Qr :LustyFilesystemExplorerFromHere<CR>
-nmap <silent> <Leader>Qb :LustyBufferExplorer<CR>
-nmap <silent> <Leader>Qg :LustyBufferGrep<CR>
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Slimv specific settings
-"" http://www.vim.org/scripts/script.php?script_id=2531
-"let g:slimv_clhs_root = '/home/oliver/lisp/hyperspec/HyperSpec/'
-"let g:lisp_rainbow = 1
-"let g:slimv_ctags = "ctags -a --language-force=lisp *.lisp *.clj *.cl"
-
-"map <leader>V %v%<leader>W<esc>
-"i<Space><esc>i
-"command! CorrectISK :call CorrectISKF()
-"function! CorrectISKF()
-    ":set isk +=å
-    ":set isk +=ä
-    ":set isk +=ö
-    ":set isk +=Å
-    ":set isk +=Ä
-    ":set isk +=Ö
-"endfunction
-
-"function! IndentOuterList()
-    ":let a = winsaveview()
-    ":normal 99[(v%=
-    ":call winrestview(a)
-    ":unlet a
-"endfunction
-"map <leader>I ms99[(v%=`s
-"map <leader>I :call IndentOuterList()<CR>
-
-"automatically test project
-"map <leader>M \v(mm)<CR>
-"map <leader>N \v(mmö)<CR>
-"let g:slimv_ctags = ctags
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
 "" In visual mode you press * or # to search for the current selection
 "" 
 
@@ -328,15 +285,11 @@ map <C-p> :bp<cr>
 " keybindings and settings for the minibufexpl plugin
 " http://www.vim.org/scripts/script.php?script_id=159
 " open the explorer window (focus it)
-map <Leader>q :MiniBufExplorer<cr>
-map <Leader>Q :LustyFilesystemExplorer<cr>
+"map <Leader>q :MiniBufExplorer<cr>
+"map <Leader>Q :LustyFilesystemExplorer<cr>
 
 "supposed to fix a syntax highlighting bug, haven't needed it yet
 "let g:miniBufExplForceSyntaxEnable = 1
-
-" Toggle NERDtree visible
-" http://www.vim.org/scripts/script.php?script_id=1658
-map <Leader>W :NERDTreeToggle<cr>
 
 " Use up and down keys to scroll up and down
 nmap <Up> 3<C-y>
@@ -351,6 +304,3 @@ cnoremap <C-N>	<Down>
 
 "Like D for yanking
 map Y y$
-
-"Send lisp files to ida for almavis
-"map <leader>X :!almv<cr>
