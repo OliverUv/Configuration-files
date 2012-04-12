@@ -13,6 +13,9 @@ git://github.com/tpope/vim-unimpaired.git
 git://github.com/tpope/vim-abolish.git
 git://github.com/Raimondi/delimitMate.git
 
+git://github.com/jelera/vim-javascript-syntax.git
+
+
 Non-github plugins:
 
 http://www.vim.org/scripts/script.php?script_id=2540
