@@ -96,7 +96,7 @@ set statusline=%<%F\ %r%h%w[%Y\ %{&ff}]%{fugitive#statusline()}%m%=[%c\,\ %l/%L\
 
 " change status line colour if it is in insert mode
 if version >= 700
-  au InsertEnter * hi StatusLine term=reverse ctermbg=5 gui=undercurl guisp=Magenta
+  au InsertEnter * hi StatusLine term=reverse ctermbg=3 gui=undercurl guisp=Magenta
   au InsertLeave * hi StatusLine term=reverse ctermfg=0 ctermbg=2 gui=bold,reverse
 endif
 
