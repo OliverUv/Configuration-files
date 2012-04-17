@@ -27,9 +27,9 @@ hi MoreMsg      gui=BOLD guifg=#70ffc0 guibg=#8040ff
 hi Question     gui=BOLD guifg=#e8e800 guibg=NONE
 
 " Split area
-hi StatusLine   gui=NONE guifg=#000000 guibg=#c4c4c4
-hi StatusLineNC gui=NONE guifg=#707070 guibg=#c4c4c4
-hi VertSplit    gui=NONE guifg=#707070 guibg=#c4c4c4
+hi StatusLine   gui=NONE guifg=#000000 guibg=#c2c2c2
+hi StatusLineNC gui=NONE guifg=#707070 guibg=#c0c0c0
+hi VertSplit    gui=NONE guifg=#707070 guibg=#c0c0c0
 hi WildMenu     gui=NONE guifg=#000000 guibg=#ff80c0
 
 " Diff
