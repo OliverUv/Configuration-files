@@ -137,18 +137,18 @@ command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | d
 
 " Pressing ,ff will toggle and untoggle spell checking, fe sets checking
 " to english and fs sets checking to swedish.
-map <silent> <leader>ff :setlocal spell!<cr>
-map <silent> <leader>fs :setlocal spelllang=sv<cr>
-map <silent> <leader>fe :setlocal spelllang=en<cr>
+nnoremap <silent> <leader>ff :setlocal spell!<cr>
+nnoremap <silent> <leader>fs :setlocal spelllang=sv<cr>
+nnoremap <silent> <leader>fe :setlocal spelllang=en<cr>
 
 "go to next error
-map <leader>fn ]s
+nnoremap <leader>fn ]s
 "go to previous error
-map <leader>fp [s
+nnoremap <leader>fp [s
 "add to spellfile
-map <leader>fa zg
+nnoremap <leader>fa zg
 "suggest correct words
-map <leader>f? z=
+nnoremap <leader>f? z=
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -170,14 +170,22 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 "" FuzzyFinder configuration
 "" vim-latex.org
 ""
-map <silent> <leader>lf :FufFile<cr>
-map <silent> <leader>lr :FufCoverageFile<cr>
-map <silent> <leader>lb :FufBuffer<cr>
-map <silent> <leader>lm :FufMruFile<cr>
-map <silent> <leader>lq :FufQuickfix<cr>
-map <silent> <leader>ll :FufLine<cr>
-map <silent> <leader>lt :FufTag<cr>
-map <silent> <leader>ly :FufBufferTag<cr>
+nnoremap <silent> <leader>lf :FufFile<cr>
+nnoremap <silent> <leader>lr :FufCoverageFile<cr>
+nnoremap <silent> <leader>lb :FufBuffer<cr>
+nnoremap <silent> <leader>lm :FufMruFile<cr>
+nnoremap <silent> <leader>lq :FufQuickfix<cr>
+nnoremap <silent> <leader>ll :FufLine<cr>
+nnoremap <silent> <leader>lt :FufTag<cr>
+nnoremap <silent> <leader>ly :FufBufferTag<cr>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Tagbar configuration
+""
+nnoremap <silent> <leader>tt :TagbarToggle<cr>
+nnoremap <silent> <leader>tg :TagbarOpen fj<cr>
+let g:tagbar_compact = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" Vim-latex bindings
@@ -191,7 +199,7 @@ let g:tex_flavor='latex'
 let g:Tex_SmartKeyQuote=0
 let g:Tex_MultipleCompileFormats = 'dvi,pdf'
 
-nmap <silent> <leader>lg :execute "!makeglossaries " . shellescape(expand('%:r'), 1)<CR>
+nnoremap <silent> <leader>lg :execute "!makeglossaries " . shellescape(expand('%:r'), 1)<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -288,18 +296,18 @@ endfunction
 ""
 
 " Pull word under cursor into LHS of a substitute
-nmap <leader>z :s#\<<c-r>=expand("<cword>")<cr>\>##g<left><left>
-nmap <leader>Z :%s#\<<c-r>=expand("<cword>")<cr>\>##gc<left><left><left>
+nnoremap <leader>z :s#\<<c-r>=expand("<cword>")<cr>\>##g<left><left>
+nnoremap <leader>Z :%s#\<<c-r>=expand("<cword>")<cr>\>##gc<left><left><left>
 
 " move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
 
 " change buffers with ctrl-n and ctrl-p
-map <silent> <C-n> :bn<cr>
-map <silent> <C-p> :bp<cr>
+nnoremap <silent> <C-n> :bn<cr>
+nnoremap <silent> <C-p> :bp<cr>
 
 " Shows the ctags definition of keyword under
 " the cursor in a preview window
