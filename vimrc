@@ -137,9 +137,9 @@ command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | d
 
 " Pressing ,ff will toggle and untoggle spell checking, fe sets checking
 " to english and fs sets checking to swedish.
-map <leader>ff :setlocal spell!<cr>
-map <leader>fs :setlocal spelllang=sv<cr>
-map <leader>fe :setlocal spelllang=en<cr>
+map <silent> <leader>ff :setlocal spell!<cr>
+map <silent> <leader>fs :setlocal spelllang=sv<cr>
+map <silent> <leader>fe :setlocal spelllang=en<cr>
 
 "go to next error
 map <leader>fn ]s
@@ -170,14 +170,14 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 "" FuzzyFinder configuration
 "" vim-latex.org
 ""
-map <leader>lf :FufFile<cr>
-map <leader>lr :FufCoverageFile<cr>
-map <leader>lb :FufBuffer<cr>
-map <leader>lm :FufMruFile<cr>
-map <leader>lq :FufQuickfix<cr>
-map <leader>ll :FufLine<cr>
-map <leader>lt :FufTag<cr>
-map <leader>ly :FufBufferTag<cr>
+map <silent> <leader>lf :FufFile<cr>
+map <silent> <leader>lr :FufCoverageFile<cr>
+map <silent> <leader>lb :FufBuffer<cr>
+map <silent> <leader>lm :FufMruFile<cr>
+map <silent> <leader>lq :FufQuickfix<cr>
+map <silent> <leader>ll :FufLine<cr>
+map <silent> <leader>lt :FufTag<cr>
+map <silent> <leader>ly :FufBufferTag<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" Vim-latex bindings
@@ -191,7 +191,7 @@ let g:tex_flavor='latex'
 let g:Tex_SmartKeyQuote=0
 let g:Tex_MultipleCompileFormats = 'dvi,pdf'
 
-nmap <leader>lg :execute "!makeglossaries " . shellescape(expand('%:r'), 1)<CR>
+nmap <silent> <leader>lg :execute "!makeglossaries " . shellescape(expand('%:r'), 1)<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -298,20 +298,14 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " change buffers with ctrl-n and ctrl-p
-map <C-n> :bn<cr>
-map <C-p> :bp<cr>
+map <silent> <C-n> :bn<cr>
+map <silent> <C-p> :bp<cr>
 
 " Shows the ctags definition of keyword under
 " the cursor in a preview window
 "map <C-[> :call PreviewWord()<cr>
 " Closes the preview window
 "map <leader>[ <C-W>z
-
-" keybindings and settings for the minibufexpl plugin
-" http://www.vim.org/scripts/script.php?script_id=159
-" open the explorer window (focus it)
-"map <Leader>q :MiniBufExplorer<cr>
-"map <Leader>Q :LustyFilesystemExplorer<cr>
 
 "supposed to fix a syntax highlighting bug, haven't needed it yet
 "let g:miniBufExplForceSyntaxEnable = 1
