@@ -167,6 +167,19 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
+"" FuzzyFinder configuration
+"" vim-latex.org
+""
+map <leader>lf :FufFile<cr>
+map <leader>lr :FufCoverageFile<cr>
+map <leader>lb :FufBuffer<cr>
+map <leader>lm :FufMruFile<cr>
+map <leader>lq :FufQuickfix<cr>
+map <leader>ll :FufLine<cr>
+map <leader>lt :FufTag<cr>
+map <leader>ly :FufBufferTag<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Vim-latex bindings
 "" vim-latex.org
 ""
