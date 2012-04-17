@@ -14,6 +14,7 @@ git://github.com/tpope/vim-abolish.git
 git://github.com/Raimondi/delimitMate.git
 
 git://github.com/jelera/vim-javascript-syntax.git
+git://github.com/joestelmach/javaScriptLint.vim.git
 
 
 Non-github plugins:
