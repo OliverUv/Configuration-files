@@ -62,7 +62,7 @@ set noexpandtab		" Makes <tab> not insert spaces in insert mode
 set wildchar=<TAB>      " Key that triggers command-line expansion.
 set noerrorbells        " Disables beeping.
 set hidden		" Allow switch buffer without saving
-set previewheight=7	" Height of the preview window
+set previewheight=15	" Height of the preview window
 set winwidth=80		" Current window will be resized to this width
 set switchbuf=usetab	" If switching to a buffer that is already open, go
 			" to where it is already open instead of here.
@@ -186,6 +186,7 @@ nnoremap <silent> <leader>ly :FufBufferTag<cr>
 nnoremap <silent> <leader>tt :TagbarToggle<cr>
 nnoremap <silent> <leader>tg :TagbarOpen fj<cr>
 let g:tagbar_compact = 1
+let g:tagbar_width = 28
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" Vim-latex bindings
@@ -306,8 +307,8 @@ nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
 
 " change buffers with ctrl-n and ctrl-p
-nnoremap <silent> <C-n> :bn<cr>
-nnoremap <silent> <C-p> :bp<cr>
+nnoremap <silent> <C-p> :BufSurfBack<cr>
+nnoremap <silent> <C-n> :BufSurfForward<cr>
 
 " Shows the ctags definition of keyword under
 " the cursor in a preview window
