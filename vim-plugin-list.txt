@@ -13,6 +13,7 @@ git://github.com/tpope/vim-unimpaired.git
 git://github.com/tpope/vim-abolish.git
 git://github.com/Raimondi/delimitMate.git
 git://github.com/ton/vim-bufsurf.git
+git://github.com/scrooloose/vim-space.git
 
 git://github.com/jelera/vim-javascript-syntax.git
 git://github.com/vim-scripts/JavaScript-Indent.git
