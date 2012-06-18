@@ -14,6 +14,10 @@ git://github.com/tpope/vim-abolish.git
 git://github.com/Raimondi/delimitMate.git
 git://github.com/ton/vim-bufsurf.git
 git://github.com/scrooloose/vim-space.git
+git://github.com/mattn/webapi-vim.git
+git://github.com/mattn/gist-vim.git
+
+git://github.com/klen/python-mode.git
 
 git://github.com/jelera/vim-javascript-syntax.git
 git://github.com/vim-scripts/JavaScript-Indent.git
@@ -22,8 +26,8 @@ git://github.com/joestelmach/javaScriptLint.vim.git
 
 Non-github plugins:
 
-http://www.vim.org/scripts/script.php?script_id=2540
+http://www.vim.org/scripts/script.php?script_id=2540  (snipMate)
 http://vim-latex.sourceforge.net/
-http://www.vim.org/scripts/script.php?script_id=152   showmarks
+http://www.vim.org/scripts/script.php?script_id=152  (showmarks)
 	when this is first installed it will cause highlighting errors,
 	close vim, remove .viminfo and restart vim to fix this issue.

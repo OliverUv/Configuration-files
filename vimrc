@@ -63,13 +63,19 @@ set wildchar=<TAB>      " Key that triggers command-line expansion.
 set noerrorbells        " Disables beeping.
 set hidden		" Allow switch buffer without saving
 set previewheight=15	" Height of the preview window
-set winwidth=80		" Current window will be resized to this width
+"set winwidth=80		" Current window will be resized to this width
 set switchbuf=usetab	" If switching to a buffer that is already open, go
 			" to where it is already open instead of here.
 set backspace=indent,eol,start whichwrap+=<,>,[,] "backspace functionality
 set formatprg=par	" user par to format text with the gq command
 "set listchars=tab:\|_,trail:.,extends:>,precedes:>,eol:~ "list mode shit
 
+
+"""""""""""""""""""""""""""""""""""""""""""""
+"" Settings for specific filetypes
+""
+
+au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
 
 
 """""""""""""""""""""""""""""""""""""""""""""
@@ -162,6 +168,8 @@ autocmd User fugitive
   \   nnoremap <buffer> .. :edit %:h<CR> |
   \ endif
 
+nnoremap <silent> <leader>.. :edit %:h<CR>
+
 " Automatically delete hidden fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
@@ -214,6 +222,11 @@ let g:snips_author = 'Oliver Uvman'
 "" 
 let g:showmarks_ignore_type = 'hmpqr'
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Ropevim settings
+"" 
+"let g:pymode_rope_extended_autocomplete=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" In visual mode you press * or # to search for the current selection
@@ -322,6 +335,8 @@ nnoremap <silent> <C-n> :BufSurfForward<cr>
 " Use up and down keys to scroll up and down
 nmap <Up> 3<C-y>
 nmap <Down> 3<C-e>
+nmap <Left> 10zh
+nmap <Right> 10zl
 
 " Bash-like keys for the command line
 cnoremap <C-A>	<Home>
