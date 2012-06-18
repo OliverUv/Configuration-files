@@ -16,6 +16,7 @@ git://github.com/ton/vim-bufsurf.git
 git://github.com/scrooloose/vim-space.git
 git://github.com/mattn/webapi-vim.git
 git://github.com/mattn/gist-vim.git
+git://github.com/altercation/vim-colors-solarized.git
 
 git://github.com/klen/python-mode.git
 
