@@ -5,7 +5,8 @@ https://github.com/tpope/vim-pathogen
 git://github.com/garbas/vim-snipmate.git
 git://github.com/tomtom/tlib_vim.git
 git://github.com/MarcWeber/vim-addon-mw-utils.git
-git://github.com/honza/snipmate-snippets.gitgit://github.com/vim-scripts/L9.git
+git://github.com/honza/snipmate-snippets.git
+git://github.com/vim-scripts/L9.git
 
 git://github.com/vim-scripts/FuzzyFinder.git
 git://github.com/majutsushi/tagbar.git
