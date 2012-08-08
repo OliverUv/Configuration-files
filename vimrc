@@ -175,8 +175,15 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
+"" Gist configuration
+"" https://github.com/mattn/gist-vim
+""
+let g:gist_clip_command = 'xsel --clipboard -i'
+let g:gist_detect_filetype = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
 "" FuzzyFinder configuration
-"" vim-latex.org
+"" 
 ""
 nnoremap <silent> <leader>lf :FufFile<cr>
 nnoremap <silent> <leader>lr :FufCoverageFile<cr>
@@ -224,9 +231,10 @@ let g:showmarks_ignore_type = 'hmpqr'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
-"" Ropevim settings
+"" python-mode, ropevim settings
 "" 
 "let g:pymode_rope_extended_autocomplete=1
+let g:pymode_lint_ignore = "W901,E501"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" In visual mode you press * or # to search for the current selection

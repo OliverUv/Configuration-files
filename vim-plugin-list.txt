@@ -2,7 +2,11 @@ Commonly used plugins for vim, to be installed using pathogen:
 
 https://github.com/tpope/vim-pathogen
 
-git://github.com/vim-scripts/L9.git
+git://github.com/garbas/vim-snipmate.git
+git://github.com/tomtom/tlib_vim.git
+git://github.com/MarcWeber/vim-addon-mw-utils.git
+git://github.com/honza/snipmate-snippets.gitgit://github.com/vim-scripts/L9.git
+
 git://github.com/vim-scripts/FuzzyFinder.git
 git://github.com/majutsushi/tagbar.git
 git://github.com/tpope/vim-fugitive.git
@@ -27,7 +31,6 @@ git://github.com/joestelmach/javaScriptLint.vim.git
 
 Non-github plugins:
 
-http://www.vim.org/scripts/script.php?script_id=2540  (snipMate)
 http://vim-latex.sourceforge.net/
 http://www.vim.org/scripts/script.php?script_id=152  (showmarks)
 	when this is first installed it will cause highlighting errors,
