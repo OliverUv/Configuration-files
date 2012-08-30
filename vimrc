@@ -194,6 +194,14 @@ nnoremap <silent> <leader>ll :FufLine<cr>
 nnoremap <silent> <leader>lt :FufTag<cr>
 nnoremap <silent> <leader>ly :FufBufferTag<cr>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Gundo configuration
+"" http://sjl.bitbucket.org/gundo.vim/
+""
+nnoremap <silent> <leader>u :GundoToggle<cr>
+nnoremap <silent> <leader>tg :TagbarOpen fj<cr>
+let g:tagbar_compact = 1
+let g:tagbar_width = 40
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" Tagbar configuration
@@ -201,7 +209,7 @@ nnoremap <silent> <leader>ly :FufBufferTag<cr>
 nnoremap <silent> <leader>tt :TagbarToggle<cr>
 nnoremap <silent> <leader>tg :TagbarOpen fj<cr>
 let g:tagbar_compact = 1
-let g:tagbar_width = 28
+let g:tagbar_width = 40
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" Vim-latex bindings
