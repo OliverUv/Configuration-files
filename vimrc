@@ -237,6 +237,12 @@ let g:snips_author = 'Oliver Uvman'
 "" 
 let g:showmarks_ignore_type = 'hmpqr'
 
+""""""""""""""""""""""""""""""""""""""""""""""""""
+"" togglelist settings
+"" https://github.com/xaimus/vim-togglelist
+"" 
+nnoremap <silent> <leader>a :Ltoggle<cr>
+nnoremap <silent> <leader>q :Ctoggle<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" python-mode, ropevim settings

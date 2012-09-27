@@ -2,7 +2,8 @@ Commonly used plugins for vim, to be installed using pathogen:
 
 https://github.com/tpope/vim-pathogen
 
-git://github.com/garbas/vim-snipmate.git
+git://github.com/kien/rainbow_parentheses.vim.git
+git://gi thub.com/garbas/vim-snipmate.git
 git://github.com/tomtom/tlib_vim.git
 git://github.com/MarcWeber/vim-addon-mw-utils.git
 git://github.com/honza/snipmate-snippets.git
