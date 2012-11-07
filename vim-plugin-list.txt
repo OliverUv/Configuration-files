@@ -26,6 +26,7 @@ git://github.com/altercation/vim-colors-solarized.git
 git://github.com/sjl/gundo.vim.git
 
 git://github.com/klen/python-mode.git
+git://github.com/benwh/vim-nesc.git
 
 git://github.com/jelera/vim-javascript-syntax.git
 git://github.com/vim-scripts/JavaScript-Indent.git
