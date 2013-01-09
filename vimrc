@@ -367,5 +367,8 @@ cnoremap <C-K>	<C-U>
 cnoremap <C-P>	<Up>
 cnoremap <C-N>	<Down>
 
+" Indent the entire file
+nnoremap <leader>= gg=G`'
+
 "Like D for yanking
 map Y y$
