@@ -1,3 +1,11 @@
+New plugins maybe to add since submodulazation:
+git://github.com/juanpabloaj/ShowMarks.git
+git://github.com/vim-scripts/Rainbow-Parentheses-Improved-and2.git
+git@github.com:vim-scripts/VST.git
+git@github.com:vim-scripts/rest.vim.git
+git@github.com:vim-scripts/RST-Tables.git
+git://github.com/guns/ultisnips.git
+
 Commonly used plugins for vim, to be installed using pathogen:
 
 https://github.com/tpope/vim-pathogen
@@ -22,8 +30,8 @@ git://github.com/ton/vim-bufsurf.git
 git://github.com/scrooloose/vim-space.git
 git://github.com/mattn/webapi-vim.git
 git://github.com/mattn/gist-vim.git
-git://github.com/altercation/vim-colors-solarized.git
 git://github.com/sjl/gundo.vim.git
+git://github.com/ihameed/vim-togglelist.git
 
 git://github.com/klen/python-mode.git
 git://github.com/benwh/vim-nesc.git
