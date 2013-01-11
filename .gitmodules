@@ -1,9 +1,0 @@
-[submodule "unix-vimfiles/bundle/FuzzyFinder"]
-	path = unix-vimfiles/bundle/FuzzyFinder
-	url = git://github.com/vim-scripts/FuzzyFinder.git
-[submodule "unix-vimfiles/bundle/L9"]
-	path = unix-vimfiles/bundle/L9
-	url = git://github.com/vim-scripts/L9.git
-[submodule "unix-vimfiles/bundle/vim-space"]
-	path = unix-vimfiles/bundle/vim-space
-	url = git://github.com/scrooloose/vim-space.git
