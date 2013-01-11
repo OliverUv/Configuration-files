@@ -175,6 +175,13 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
+"" vim-space configuration
+"" http://github.com/jfelchner/vim-space
+""
+let g:space_no_buffers = 1
+let g:space_no_tabs = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Gist configuration
 "" https://github.com/mattn/gist-vim
 ""
