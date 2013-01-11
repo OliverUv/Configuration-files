@@ -1,0 +1,60 @@
+[submodule "dotvim/bundle/python-mode"]
+	path = dotvim/bundle/python-mode
+	url = git://github.com/klen/python-mode.git
+[submodule "dotvim/bundle/L9"]
+	path = dotvim/bundle/L9
+	url = git://github.com/vim-scripts/L9.git
+[submodule "dotvim/bundle/gundo.vim"]
+	path = dotvim/bundle/gundo.vim
+	url = git://github.com/sjl/gundo.vim.git
+[submodule "dotvim/bundle/gist-vim"]
+	path = dotvim/bundle/gist-vim
+	url = git://github.com/mattn/gist-vim.git
+[submodule "dotvim/bundle/FuzzyFinder"]
+	path = dotvim/bundle/FuzzyFinder
+	url = git://github.com/vim-scripts/FuzzyFinder.git
+[submodule "dotvim/bundle/delimitMate"]
+	path = dotvim/bundle/delimitMate
+	url = git://github.com/Raimondi/delimitMate.git
+[submodule "dotvim/bundle/ShowMarks"]
+	path = dotvim/bundle/ShowMarks
+	url = git://github.com/juanpabloaj/ShowMarks.git
+[submodule "dotvim/bundle/tagbar"]
+	path = dotvim/bundle/tagbar
+	url = git://github.com/majutsushi/tagbar.git
+[submodule "dotvim/bundle/tlib_vim"]
+	path = dotvim/bundle/tlib_vim
+	url = git://github.com/tomtom/tlib_vim.git
+[submodule "dotvim/bundle/vim-abolish"]
+	path = dotvim/bundle/vim-abolish
+	url = git://github.com/tpope/vim-abolish.git
+[submodule "dotvim/bundle/vim-addon-mw-utils"]
+	path = dotvim/bundle/vim-addon-mw-utils
+	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule "dotvim/bundle/vim-bufsurf"]
+	path = dotvim/bundle/vim-bufsurf
+	url = git://github.com/ton/vim-bufsurf.git
+[submodule "dotvim/bundle/vim-commentary"]
+	path = dotvim/bundle/vim-commentary
+	url = git://github.com/tpope/vim-commentary.git
+[submodule "dotvim/bundle/vim-fugitive"]
+	path = dotvim/bundle/vim-fugitive
+	url = git://github.com/tpope/vim-fugitive.git
+[submodule "dotvim/bundle/vim-repeat"]
+	path = dotvim/bundle/vim-repeat
+	url = git://github.com/tpope/vim-repeat.git
+[submodule "dotvim/bundle/vim-space"]
+	path = dotvim/bundle/vim-space
+	url = git://github.com/scrooloose/vim-space.git
+[submodule "dotvim/bundle/vim-surround"]
+	path = dotvim/bundle/vim-surround
+	url = git://github.com/tpope/vim-surround.git
+[submodule "dotvim/bundle/vim-unimpaired"]
+	path = dotvim/bundle/vim-unimpaired
+	url = git://github.com/tpope/vim-unimpaired.git
+[submodule "dotvim/bundle/webapi-vim"]
+	path = dotvim/bundle/webapi-vim
+	url = git://github.com/mattn/webapi-vim.git
+[submodule "dotvim/bundle/vim-togglelist"]
+	path = dotvim/bundle/vim-togglelist
+	url = git://github.com/ihameed/vim-togglelist.git
