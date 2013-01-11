@@ -58,3 +58,18 @@
 [submodule "dotvim/bundle/vim-togglelist"]
 	path = dotvim/bundle/vim-togglelist
 	url = git://github.com/ihameed/vim-togglelist.git
+[submodule "dotvim/bundle/Rainbow-Parentheses-Improved-and2"]
+	path = dotvim/bundle/Rainbow-Parentheses-Improved-and2
+	url = git://github.com/vim-scripts/Rainbow-Parentheses-Improved-and2.git
+[submodule "dotvim/bundle/VST"]
+	path = dotvim/bundle/VST
+	url = git://github.com/vim-scripts/VST.git
+[submodule "dotvim/bundle/rest.vim"]
+	path = dotvim/bundle/rest.vim
+	url = git://github.com/vim-scripts/rest.vim.git
+[submodule "dotvim/bundle/RST-Tables"]
+	path = dotvim/bundle/RST-Tables
+	url = git://github.com/vim-scripts/RST-Tables.git
+[submodule "dotvim/bundle/ultisnips"]
+	path = dotvim/bundle/ultisnips
+	url = git://github.com/guns/ultisnips.git

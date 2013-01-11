@@ -1,40 +1,63 @@
-New plugins maybe to add since submodulazation:
-git://github.com/juanpabloaj/ShowMarks.git
-git://github.com/vim-scripts/Rainbow-Parentheses-Improved-and2.git
-git@github.com:vim-scripts/VST.git
-git@github.com:vim-scripts/rest.vim.git
-git@github.com:vim-scripts/RST-Tables.git
-git://github.com/guns/ultisnips.git
-
 Commonly used plugins for vim, to be installed using pathogen:
 
 https://github.com/tpope/vim-pathogen
 
-git://github.com/kien/rainbow_parentheses.vim.git
-git://gi thub.com/garbas/vim-snipmate.git
-git://github.com/tomtom/tlib_vim.git
-git://github.com/MarcWeber/vim-addon-mw-utils.git
-git://github.com/honza/snipmate-snippets.git
-git://github.com/vim-scripts/L9.git
+Utilites for other plugins
+    git://github.com/tomtom/tlib_vim.git
+    git://github.com/MarcWeber/vim-addon-mw-utils.git
+    git://github.com/vim-scripts/L9.git
+    git://github.com/mattn/webapi-vim.git
 
-git://github.com/vim-scripts/FuzzyFinder.git
-git://github.com/majutsushi/tagbar.git
-git://github.com/tpope/vim-fugitive.git
-git://github.com/tpope/vim-surround.git
-git://github.com/tpope/vim-commentary.git
-git://github.com/tpope/vim-repeat.git
-git://github.com/tpope/vim-unimpaired.git
-git://github.com/tpope/vim-abolish.git
-git://github.com/Raimondi/delimitMate.git
-git://github.com/ton/vim-bufsurf.git
-git://github.com/scrooloose/vim-space.git
-git://github.com/mattn/webapi-vim.git
-git://github.com/mattn/gist-vim.git
-git://github.com/sjl/gundo.vim.git
-git://github.com/ihameed/vim-togglelist.git
+Shows file's marks (movement helpers) left of line numbers.
+    git://github.com/juanpabloaj/ShowMarks.git
+Colours paren pairs so you can see which matches which
+    git://github.com/vim-scripts/Rainbow-Parentheses-Improved-and2.git
+Great snippet plugin
+    git://github.com/guns/ultisnips.git
+Great file/buffer/tag/etc switching plugin
+    git://github.com/vim-scripts/FuzzyFinder.git
+ctag navigator
+    git://github.com/majutsushi/tagbar.git
+git interoperability
+    git://github.com/tpope/vim-fugitive.git
+comment binds for coding
+    git://github.com/tpope/vim-commentary.git
+repeat (.) support for plugins
+    git://github.com/tpope/vim-repeat.git
+jump to places (quickfix, lots more)
+    git://github.com/tpope/vim-unimpaired.git
+substitution for word variations
+    git://github.com/tpope/vim-abolish.git
 
-git://github.com/klen/python-mode.git
-git://github.com/benwh/vim-nesc.git
+(), [], html-tags, etc
+    git://github.com/Raimondi/delimitMate.git
+	auto match when typing
+    git://github.com/tpope/vim-surround.git
+	commands for surrounding existing text
+    
+browser-like back/forward commands for buffers
+    git://github.com/ton/vim-bufsurf.git
+publish code snippets to gist
+    git://github.com/mattn/gist-vim.git
+graphical view of undo tree
+    git://github.com/sjl/gundo.vim.git
+toggle quick and location lists visible and invisible
+    git://github.com/ihameed/vim-togglelist.git
+make space and shift-space/backspace repeat last movement command
+    git://github.com/jfelchner/vim-space.git
+
+ReStructuredText (rst)
+    git://github.com/vim-scripts/VST.git
+	compiling
+    git://github.com/vim-scripts/rest.vim.git
+	Syntax hilighting
+    git://github.com/vim-scripts/RST-Tables.git
+	Generate tables
+
+lots of python support
+    git://github.com/klen/python-mode.git
+syntax hilighting for nesC
+    git://github.com/benwh/vim-nesc.git
 
 git://github.com/jelera/vim-javascript-syntax.git
 git://github.com/vim-scripts/JavaScript-Indent.git
@@ -42,8 +65,4 @@ git://github.com/joestelmach/javaScriptLint.vim.git
 
 
 Non-github plugins:
-
 http://vim-latex.sourceforge.net/
-http://www.vim.org/scripts/script.php?script_id=152  (showmarks)
-	when this is first installed it will cause highlighting errors,
-	close vim, remove .viminfo and restart vim to fix this issue.
