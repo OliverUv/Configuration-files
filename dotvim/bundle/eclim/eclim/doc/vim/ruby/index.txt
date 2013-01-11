@@ -1,0 +1,15 @@
+*vim-ruby-index*
+
+Ruby
+****
+
+- Ruby Build Path (vim-ruby-buildpath)
+- Ruby Code Completion (vim-ruby-complete)
+- Ruby Validation (vim-ruby-validate)
+  - Configuration (vim-ruby-validate#configuration)
+- Ruby Search (vim-ruby-search)
+  - Pattern Search (vim-ruby-search#pattern-search)
+  - Element Search (vim-ruby-search#element-search)
+  - Configuration (vim-ruby-search#configuration)
+
+vim:ft=eclimhelp
