@@ -36,6 +36,10 @@ command! VConfigure vsplit $MYVIMRC
 " :Cdpwd to set current window's pwd to the edited file's directory
 command! Cdpwd lcd %:p:h
 
+" :Q to quit
+command! Q q
+command! Qall qall
+
 
 """""""""""""""""""""""""""""""""
 "" Basic settings
@@ -408,3 +412,9 @@ nnoremap <leader>= gg=G`'
 
 "Like D for yanking
 map Y y$
+
+" Save file
+nnoremap <silent> <leader>s :w<cr>
+
+" Disable Ex mode
+map Q <Nop>
