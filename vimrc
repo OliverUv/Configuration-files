@@ -234,12 +234,6 @@ nnoremap <silent> <leader>lg :execute "!makeglossaries " . shellescape(expand('%
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
-"" snipMate settings
-"" 
-let g:snips_author = 'Oliver Uvman'
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
 "" showmarks settings
 "" 
 let g:showmarks_ignore_type = 'hmpqr'
@@ -261,11 +255,27 @@ nnoremap <silent> <leader>a :Ltoggle<cr>
 nnoremap <silent> <leader>q :Ctoggle<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
+"" neocomplcache completion
+"" http://github.com/Shougo/neocomplcache
+"" 
+let g:neocomplcache_enable_at_startup = 1
+imap <C-k> <Plug>(neocomplcache_snippets_expand)
+smap <C-k> <Plug>(neocomplcache_snippets_expand)
+inoremap <expr><C-g> neocomplcache#undo_completion()
+inoremap <expr><C-l> neocomplcache#complete_common_string()
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
 "" python-mode, ropevim settings
 "" 
 let g:pymode_rope_extended_autocomplete=1
 let g:pymode_rope_autoimport_modules = ["os", "django.*"]
 let g:pymode_lint_ignore = "W901,E501"
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Settings for misc plugins
+"" 
+let g:gist_detect_filetype = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" In visual mode you press * or # to search for the current selection

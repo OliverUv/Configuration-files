@@ -31,8 +31,8 @@ substitution for word variations
     git://github.com/tpope/vim-abolish.git
 make indents movement objects
     git://github.com/michaeljsmith/vim-indent-object.git
-make tab complete loads of stuff
-    git://github.com/ervandew/supertab.git
+strongest completion plugin
+    git://github.com/Shougo/neocomplcache.git
 place tabs properly after enter when eg if () {|}
     git://github.com/vim-scripts/Enter-Indent.git
 
