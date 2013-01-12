@@ -73,3 +73,18 @@
 [submodule "dotvim/bundle/vim-space"]
 	path = dotvim/bundle/vim-space
 	url = git://github.com/jfelchner/vim-space.git
+[submodule "dotvim/bundle/vim-indent-object"]
+	path = dotvim/bundle/vim-indent-object
+	url = git://github.com/michaeljsmith/vim-indent-object.git
+[submodule "dotvim/bundle/supertab"]
+	path = dotvim/bundle/supertab
+	url = git://github.com/ervandew/supertab.git
+[submodule "dotvim/bundle/Enter-Indent"]
+	path = dotvim/bundle/Enter-Indent
+	url = git://github.com/vim-scripts/Enter-Indent.git
+[submodule "dotvim/bundle/vim-git"]
+	path = dotvim/bundle/vim-git
+	url = git://github.com/tpope/vim-git.git
+[submodule "dotvim/bundle/httplog"]
+	path = dotvim/bundle/httplog
+	url = git://github.com/vim-scripts/httplog.git

@@ -15,6 +15,7 @@ Colours paren pairs so you can see which matches which
 Great snippet plugin
     git://github.com/guns/ultisnips.git
 Great file/buffer/tag/etc switching plugin
+    git://github.com/kien/ctrlp.vim.git
     git://github.com/vim-scripts/FuzzyFinder.git
 ctag navigator
     git://github.com/majutsushi/tagbar.git
@@ -28,6 +29,12 @@ jump to places (quickfix, lots more)
     git://github.com/tpope/vim-unimpaired.git
 substitution for word variations
     git://github.com/tpope/vim-abolish.git
+make indents movement objects
+    git://github.com/michaeljsmith/vim-indent-object.git
+make tab complete loads of stuff
+    git://github.com/ervandew/supertab.git
+place tabs properly after enter when eg if () {|}
+    git://github.com/vim-scripts/Enter-Indent.git
 
 (), [], html-tags, etc
     git://github.com/Raimondi/delimitMate.git
@@ -54,10 +61,11 @@ ReStructuredText (rst)
     git://github.com/vim-scripts/RST-Tables.git
 	Generate tables
 
-lots of python support
-    git://github.com/klen/python-mode.git
-syntax hilighting for nesC
-    git://github.com/benwh/vim-nesc.git
+Filetype supports:
+git://github.com/tpope/vim-git.git		syntax
+git://github.com/klen/python-mode.git		lots
+git://github.com/benwh/vim-nesc.git		syntax
+git://github.com/vim-scripts/httplog.git	apache etc log syntax
 
 git://github.com/jelera/vim-javascript-syntax.git
 git://github.com/vim-scripts/JavaScript-Indent.git
