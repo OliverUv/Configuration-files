@@ -245,6 +245,15 @@ let g:snips_author = 'Oliver Uvman'
 let g:showmarks_ignore_type = 'hmpqr'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
+"" Rainbow-Parentheses-Improved-and2 settings
+"" http://github.com/vim-scripts/Rainbow-Parentheses-Improved-and2
+"" 
+let g:rainbow_ctermfgs = [184, 39, 170, 162, 154, 9, 10, 11, 13, 14, 15]
+let g:rainbow_active = 1
+let g:rainbow_operators = 2
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
 "" togglelist settings
 "" https://github.com/xaimus/vim-togglelist
 "" 
