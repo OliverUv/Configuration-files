@@ -10,9 +10,6 @@
 [submodule "dotvim/bundle/gist-vim"]
 	path = dotvim/bundle/gist-vim
 	url = git://github.com/mattn/gist-vim.git
-[submodule "dotvim/bundle/FuzzyFinder"]
-	path = dotvim/bundle/FuzzyFinder
-	url = git://github.com/vim-scripts/FuzzyFinder.git
 [submodule "dotvim/bundle/delimitMate"]
 	path = dotvim/bundle/delimitMate
 	url = git://github.com/Raimondi/delimitMate.git
@@ -88,3 +85,6 @@
 [submodule "dotvim/bundle/neocomplcache"]
 	path = dotvim/bundle/neocomplcache
 	url = git://github.com/Shougo/neocomplcache.git
+[submodule "dotvim/bundle/ctrlp"]
+	path = dotvim/bundle/ctrlp
+	url = git://github.com/kien/ctrlp.vim.git

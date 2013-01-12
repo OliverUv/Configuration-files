@@ -189,17 +189,26 @@ let g:gist_clip_command = 'xsel --clipboard -i'
 let g:gist_detect_filetype = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
-"" FuzzyFinder configuration
-"" 
-""
-nnoremap <silent> <leader>lf :FufFile<cr>
-nnoremap <silent> <leader>lr :FufCoverageFile<cr>
-nnoremap <silent> <leader>lb :FufBuffer<cr>
-nnoremap <silent> <leader>lm :FufMruFile<cr>
-nnoremap <silent> <leader>lq :FufQuickfix<cr>
-nnoremap <silent> <leader>ll :FufLine<cr>
-nnoremap <silent> <leader>lt :FufTag<cr>
-nnoremap <silent> <leader>ly :FufBufferTag<cr>
+"" CtrlP configuration
+"" http://github.com/kien/ctrlp.vim
+" Remove history
+" Bind up/down to c-p c-n
+" Bind vert/hor splits to c-k c-j
+  let g:ctrlp_prompt_mappings = {
+    \ 'PrtBS()':              ['<bs>'],
+    \ 'PrtSelectMove("j")':   ['<c-n>', '<down>'],
+    \ 'PrtSelectMove("k")':   ['<c-p>', '<up>'],
+    \ 'PrtHistory(-1)':       ['<c-[>'],
+    \ 'PrtHistory(1)':        ['<c-]>'],
+    \ 'AcceptSelection("h")': ['<c-x>', '<c-cr>', '<c-s>', '<c-j>'],
+    \ 'AcceptSelection("v")': ['<c-v>', '<RightMouse>', '<c-k>'],
+    \ 'ToggleFocus()':        ['<s-tab>'],
+    \ }
+" Don't muck about with pwd
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.pyc
+let g:ctrlp_working_path_mode = '0'
+let g:ctrlp_map = '<leader>lr'
+nnoremap <silent> <leader>lb :CtrlPBuffer<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" Gundo configuration
