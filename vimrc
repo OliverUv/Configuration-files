@@ -263,7 +263,8 @@ nnoremap <silent> <leader>q :Ctoggle<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" python-mode, ropevim settings
 "" 
-"let g:pymode_rope_extended_autocomplete=1
+let g:pymode_rope_extended_autocomplete=1
+let g:pymode_rope_autoimport_modules = ["os", "django.*"]
 let g:pymode_lint_ignore = "W901,E501"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
