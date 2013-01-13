@@ -72,6 +72,7 @@ set switchbuf=usetab	" If switching to a buffer that is already open, go
 			" to where it is already open instead of here.
 set backspace=indent,eol,start whichwrap+=<,>,[,] "backspace functionality
 set formatprg=par	" user par to format text with the gq command
+set noea		" prevent equalizing of split sizes on closed split
 "set listchars=tab:\|_,trail:.,extends:>,precedes:>,eol:~ "list mode shit
 
 
@@ -202,8 +203,8 @@ let g:gist_detect_filetype = 1
     \ 'PrtBS()':              ['<bs>'],
     \ 'PrtSelectMove("j")':   ['<c-n>', '<down>'],
     \ 'PrtSelectMove("k")':   ['<c-p>', '<up>'],
-    \ 'PrtHistory(-1)':       ['<c-[>'],
-    \ 'PrtHistory(1)':        ['<c-]>'],
+    \ 'PrtHistory(-1)':       ['<c-]>'],
+    \ 'PrtHistory(1)':        ['<c-[>'],
     \ 'AcceptSelection("h")': ['<c-x>', '<c-cr>', '<c-s>', '<c-j>'],
     \ 'AcceptSelection("v")': ['<c-v>', '<RightMouse>', '<c-k>'],
     \ 'ToggleFocus()':        ['<s-tab>'],
@@ -213,15 +214,6 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.pyc
 let g:ctrlp_working_path_mode = '0'
 let g:ctrlp_map = '<leader>lr'
 nnoremap <silent> <leader>lb :CtrlPBuffer<cr>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Gundo configuration
-"" http://sjl.bitbucket.org/gundo.vim/
-""
-nnoremap <silent> <leader>u :GundoToggle<cr>
-nnoremap <silent> <leader>tg :TagbarOpen fj<cr>
-let g:tagbar_compact = 1
-let g:tagbar_width = 40
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" Tagbar configuration
@@ -276,6 +268,7 @@ imap <C-k> <Plug>(neocomplcache_snippets_expand)
 smap <C-k> <Plug>(neocomplcache_snippets_expand)
 inoremap <expr><C-g> neocomplcache#undo_completion()
 inoremap <expr><C-l> neocomplcache#complete_common_string()
+inoremap <expr><C-j> neocomplcache#manual_filename_complete()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" python-mode, ropevim settings
@@ -289,6 +282,7 @@ let g:pymode_lint_ignore = "W901,E501"
 "" Settings for misc plugins
 "" 
 let g:gist_detect_filetype = 1
+let g:UltiSnipsEditSplit='horizontal'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" In visual mode you press * or # to search for the current selection
@@ -381,6 +375,9 @@ nnoremap <C-k> <C-W>k
 nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
 
+" make window 40 chars wide, useful for CSS files
+nnoremap <silent> <leader>4 :vertical resize 40<cr>
+
 " change buffers with ctrl-n and ctrl-p
 nnoremap <silent> <C-p> :BufSurfBack<cr>
 nnoremap <silent> <C-n> :BufSurfForward<cr>
@@ -413,8 +410,23 @@ nnoremap <leader>= gg=G`'
 "Like D for yanking
 map Y y$
 
-" Save file
+" Save, quit, etc
 nnoremap <silent> <leader>s :w<cr>
+nnoremap <silent> <leader>w :wa<cr>
+nnoremap <silent> <leader>x :wq<cr>
+nnoremap <silent> <leader>d :q<cr>
+nnoremap <silent> <leader>c :qa<cr>
 
 " Disable Ex mode
 map Q <Nop>
+
+" Mappings to interact with fugitive
+nnoremap <silent> <leader>gs :Gstatus<cr>
+nnoremap <silent> <leader>gg :Ggrep 
+nnoremap <silent> <leader>gl :Glog<cr> 
+nnoremap <silent> <leader>gd :Gdiff<cr> 
+
+" Misc mappings
+nnoremap <silent> <leader>e :UltiSnipsEdit<cr>
+nnoremap <silent> <leader>u :GundoToggle<cr>
+nnoremap <leader>' /leader>
