@@ -283,6 +283,9 @@ let g:pymode_lint_ignore = "W901,E501"
 "" 
 let g:gist_detect_filetype = 1
 let g:UltiSnipsEditSplit='horizontal'
+let g:UltiSnipsJumpForwardTrigger='<c-n>'
+let g:UltiSnipsJumpBackwardTrigger='<c-p>'
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" In visual mode you press * or # to search for the current selection
