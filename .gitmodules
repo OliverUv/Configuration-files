@@ -88,3 +88,6 @@
 [submodule "dotvim/bundle/ctrlp"]
 	path = dotvim/bundle/ctrlp
 	url = git://github.com/kien/ctrlp.vim.git
+[submodule "dotvim/bundle/ctrlp-funky"]
+	path = dotvim/bundle/ctrlp-funky
+	url = git://github.com/tacahiroy/ctrlp-funky.git
