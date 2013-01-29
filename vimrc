@@ -208,12 +208,15 @@ let g:gist_detect_filetype = 1
     \ 'AcceptSelection("h")': ['<c-x>', '<c-cr>', '<c-s>', '<c-j>'],
     \ 'AcceptSelection("v")': ['<c-v>', '<RightMouse>', '<c-k>'],
     \ 'ToggleFocus()':        ['<s-tab>'],
+    \ 'PrtExit()':            ['<c-c>', '<c-g>'],
     \ }
-" Don't muck about with pwd
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.pyc
+" Don't muck about with pwd
 let g:ctrlp_working_path_mode = '0'
+let g:ctrlp_extensions = ['funky']
 let g:ctrlp_map = '<leader>lr'
 nnoremap <silent> <leader>lb :CtrlPBuffer<cr>
+nnoremap <silent> <leader>lf :CtrlPFunky<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" Tagbar configuration
@@ -264,11 +267,8 @@ nnoremap <silent> <leader>q :Ctoggle<cr>
 "" http://github.com/Shougo/neocomplcache
 "" 
 let g:neocomplcache_enable_at_startup = 1
-imap <C-k> <Plug>(neocomplcache_snippets_expand)
-smap <C-k> <Plug>(neocomplcache_snippets_expand)
 inoremap <expr><C-g> neocomplcache#undo_completion()
 inoremap <expr><C-l> neocomplcache#complete_common_string()
-inoremap <expr><C-j> neocomplcache#manual_filename_complete()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" python-mode, ropevim settings
@@ -404,6 +404,10 @@ cnoremap <C-K>	<C-U>
 cnoremap <C-P>	<Up>
 cnoremap <C-N>	<Down>
 
+" Move up and down in autocomplete with <c-j> and <c-k>
+inoremap <expr> <c-j> ("\<C-n>")
+inoremap <expr> <c-k> ("\<C-p>")
+
 " Indent the entire file
 nnoremap <leader>= gg=G`'
 
@@ -416,6 +420,8 @@ nnoremap <silent> <leader>w :wa<cr>
 nnoremap <silent> <leader>x :wq<cr>
 nnoremap <silent> <leader>d :q<cr>
 nnoremap <silent> <leader>c :qa<cr>
+" w!! -> write even if you forgot sudo
+cmap w!! w !sudo tee >/dev/null %
 
 " Disable Ex mode
 map Q <Nop>
@@ -425,6 +431,8 @@ nnoremap <silent> <leader>gs :Gstatus<cr>
 nnoremap <silent> <leader>gg :Ggrep 
 nnoremap <silent> <leader>gl :Glog<cr> 
 nnoremap <silent> <leader>gd :Gdiff<cr> 
+nnoremap <silent> <leader>gh :Git hub<cr> 
+nnoremap <silent> <leader>gp :Git push 
 
 " Misc mappings
 nnoremap <silent> <leader>e :UltiSnipsEdit<cr>
