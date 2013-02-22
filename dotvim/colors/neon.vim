@@ -1,7 +1,6 @@
 " Vim color file
-"  Maintainer: Tiza
-" Last Change: 2002/10/25 Fri 16:23.
-"     version: 1.2
+"  Maintainer: OliverUv
+" Last Change: 2013-02-22
 " This color scheme uses a dark background.
 
 set background=dark
@@ -38,6 +37,11 @@ hi DiffChange   gui=NONE guifg=#f0f0f0 guibg=#916B1F
 hi DiffDelete   gui=NONE guifg=#903D3D guibg=#903D3D
 hi DiffAdd      gui=NONE guifg=#f0f0f0 guibg=#367D38
 
+" Autocompletion menu
+hi Pmenu	gui=NONE guifg=#f0f0f0 guibg=#903D3D
+hi PmenuSel	gui=NONE guifg=#ffffff guibg=#BF4545
+hi PmenuSbar	gui=NONE guifg=#f0f0f0 guibg=#B67171
+
 " Cursor
 hi Cursor       gui=NONE guifg=#70ffc0 guibg=#8040ff
 hi lCursor      gui=NONE guifg=#ffffff guibg=#8800ff
@@ -62,8 +66,8 @@ hi LineNr       gui=NONE guifg=#707070 guibg=NONE
 hi NonText      gui=BOLD guifg=#d84070 guibg=#383838
 hi SpecialKey   gui=BOLD guifg=#8888ff guibg=NONE
 hi Title        gui=BOLD guifg=fg      guibg=NONE
-hi Visual       gui=NONE guifg=#b0ffb0 guibg=#008000
-hi VisualNOS    gui=NONE guifg=#ffe8c8 guibg=#c06800
+hi Visual       gui=NONE guifg=NONE guibg=#7C2B7C
+hi VisualNOS    gui=NONE guifg=NONE guibg=#7C2B7C
 
 " Syntax group
 hi Comment      gui=NONE guifg=#c0c0c0 guibg=NONE

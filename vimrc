@@ -22,11 +22,10 @@ endif
 if has("autocmd")
     " Automatically load vimrc when it is saved
     autocmd bufwritepost .vimrc source $MYVIMRC
+    " Set ghc as compiler for haskell files
     autocmd BufEnter *.hs compiler ghc
-    " Adds åäöÅÄÖ to iskeyword for lisp-files
-    "autocmd BufNewFile,BufRead *.lisp call CorrectISKF()
-    "autocmd BufNewFile,BufRead *.cl call CorrectISKF()
-    "autocmd BufNewFile,BufRead *.asd call CorrectISKF()
+    " Disable foldcolumn in diff windows
+    au FilterWritePre * if &diff | set fdc=0 | endif
 endif
 
 " :Configure to edit this file in a split window
