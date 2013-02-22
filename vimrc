@@ -122,8 +122,8 @@ set statusline=%<%F\ %m%r%h%w%{fugitive#statusline()}\ %Y\ %{FileEncoding()}\ %{
 
 " change status line colour if it is in insert mode
 if version >= 700
-  au InsertEnter * hi StatusLine term=reverse ctermbg=3 gui=undercurl guisp=Magenta
-  au InsertLeave * hi StatusLine term=reverse ctermfg=0 ctermbg=2 gui=bold,reverse
+  au InsertEnter * hi StatusLine gui=NONE guifg=#FFFFFF guibg=#BD5589
+  au InsertLeave * hi StatusLine gui=NONE guifg=#FFFFFF guibg=#905070
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""

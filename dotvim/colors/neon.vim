@@ -27,16 +27,16 @@ hi MoreMsg      gui=BOLD guifg=#70ffc0 guibg=#8040ff
 hi Question     gui=BOLD guifg=#e8e800 guibg=NONE
 
 " Split area
-hi StatusLine   gui=NONE guifg=#000000 guibg=#c2c2c2
-hi StatusLineNC gui=NONE guifg=#707070 guibg=#c0c0c0
-hi VertSplit    gui=NONE guifg=#707070 guibg=#c0c0c0
+hi StatusLine	gui=NONE guifg=#ffffff guibg=#905070
+hi StatusLineNC gui=NONE guifg=#000000 guibg=#909090
+hi VertSplit    gui=NONE guifg=#909090 guibg=NONE
 hi WildMenu     gui=NONE guifg=#000000 guibg=#ff80c0
 
 " Diff
-hi DiffText     gui=NONE guifg=#ff78f0 guibg=#a02860
-hi DiffChange   gui=NONE guifg=#e03870 guibg=#601830
-hi DiffDelete   gui=NONE guifg=#a0d0ff guibg=#0020a0
-hi DiffAdd      gui=NONE guifg=#a0d0ff guibg=#0020a0
+hi DiffText     gui=NONE guifg=#000000 guibg=#FFCC33
+hi DiffChange   gui=NONE guifg=#f0f0f0 guibg=#916B1F
+hi DiffDelete   gui=NONE guifg=#903D3D guibg=#903D3D
+hi DiffAdd      gui=NONE guifg=#f0f0f0 guibg=#367D38
 
 " Cursor
 hi Cursor       gui=NONE guifg=#70ffc0 guibg=#8040ff
@@ -44,11 +44,11 @@ hi lCursor      gui=NONE guifg=#ffffff guibg=#8800ff
 hi CursorIM     gui=NONE guifg=#ffffff guibg=#8800ff
 
 " Fold
-hi Folded       gui=NONE guifg=#40f0f0 guibg=#006090
-hi FoldColumn   gui=NONE guifg=#40c0ff guibg=#404040
+hi Folded       gui=NONE guifg=#c8c8c8 guibg=#212121
+hi FoldColumn   gui=NONE guifg=#c8c8c8 guibg=#212121
 
 " Signs
-hi SignColumn   gui=NONE guifg=#40c0ff guibg=#272727
+hi SignColumn   gui=NONE guifg=#f0f0f0 guibg=#303030
 
 "ShowMarks - plugin
 hi ShowMarksHLl gui=NONE guifg=#40c0ff guibg=#272727
