@@ -285,6 +285,14 @@ let g:neocomplcache_enable_at_startup = 1
 inoremap <expr><C-g> neocomplcache#undo_completion()
 inoremap <expr><C-l> neocomplcache#complete_common_string()
 
+" Fix <cr> behaviour
+function! s:my_cr_function()
+  return neocomplcache#smart_close_popup() . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+endfunction
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" python-mode, ropevim settings
 "" 
