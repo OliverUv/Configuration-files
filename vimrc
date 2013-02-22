@@ -257,11 +257,6 @@ nnoremap <silent> <leader>lg :execute "!makeglossaries " . shellescape(expand('%
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
-"" showmarks settings
-"" 
-let g:showmarks_ignore_type = 'hmpqr'
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Rainbow-Parentheses-Improved-and2 settings
 "" http://github.com/vim-scripts/Rainbow-Parentheses-Improved-and2
 "" 

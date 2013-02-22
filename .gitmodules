@@ -13,9 +13,6 @@
 [submodule "dotvim/bundle/delimitMate"]
 	path = dotvim/bundle/delimitMate
 	url = git://github.com/Raimondi/delimitMate.git
-[submodule "dotvim/bundle/ShowMarks"]
-	path = dotvim/bundle/ShowMarks
-	url = git://github.com/juanpabloaj/ShowMarks.git
 [submodule "dotvim/bundle/tagbar"]
 	path = dotvim/bundle/tagbar
 	url = git://github.com/majutsushi/tagbar.git
