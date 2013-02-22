@@ -22,6 +22,7 @@ endif
 if has("autocmd")
     " Automatically load vimrc when it is saved
     autocmd bufwritepost .vimrc source $MYVIMRC
+    autocmd BufEnter *.hs compiler ghc
     " Adds åäöÅÄÖ to iskeyword for lisp-files
     "autocmd BufNewFile,BufRead *.lisp call CorrectISKF()
     "autocmd BufNewFile,BufRead *.cl call CorrectISKF()
@@ -89,17 +90,31 @@ au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
 
 set laststatus=2	" always show status line
 
-set statusline=%<%F\ %r%h%w[%Y\ %{&ff}]%{fugitive#statusline()}%m%=[%c\,\ %l/%L\ (%p%%)]
+" Returns current file encoding.
+" Currently used for status line.
+function! FileEncoding()
+    if &fileencoding == ''
+        return "NONE"
+    else
+        return &fenc
+    endif
+endfunction
+
+set statusline=%<%F\ %m%r%h%w%{fugitive#statusline()}\ %Y\ %{FileEncoding()}\ %{&ff}%=%#warningmsg#%{SyntasticStatuslineFlag()}%*\ %c\,\ %l/%L\ %p%%\ 
 " <	truncation point
 " F	full path to file
+" m	modified marker
 " r	read-only flag
 " h	help buffer flag
 " w	preview window flag
+" {fug..Shows branch if file is in git repo
 " Y	file type
 " {&ff}	output of command ff (file format)
-" {fug..Shows branch if file is in git repo
-" m	modified marker
+" {FileEncoding} function defined above
 " =	split point for left/rigth justification
+" #warningmsg# no idea
+" {SyntasticStatuslineFlag()} syntax error stuff from syntastic
+" *	no idea
 " c	column number
 " l	line number
 " L	total line numbers
@@ -288,6 +303,26 @@ let g:UltiSnipsJumpBackwardTrigger='<c-p>'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
+"" Settings for syntastic
+"" 
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_style_error_symbol = '✠'
+let g:syntastic_style_warning_symbol = '≈'
+let g:syntastic_enable_balloons = 0
+" Use pythonmode's linter
+let g:syntastic_mode_map = { 'mode': 'active',
+			   \ 'passive_filetypes': ['python'] }
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Settings for haskellmode-vim
+"" 
+let g:haddock_browser = "/usr/bin/google-chrome"
+let g:ghc = "/usr/bin/ghc"
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
 "" In visual mode you press * or # to search for the current selection
 "" 
 
@@ -413,6 +448,11 @@ inoremap <expr> <c-k> ("\<C-p>")
 
 " Indent the entire file
 nnoremap <leader>= gg=G`'
+
+" Ctrl-h for enter<backspace>
+" Ctrl-o for next line
+inoremap <c-h> <cr><BS>
+inoremap <c-o> <esc>o
 
 "Like D for yanking
 map Y y$

@@ -91,3 +91,15 @@
 [submodule "dotvim/bundle/ctrlp-funky"]
 	path = dotvim/bundle/ctrlp-funky
 	url = git://github.com/tacahiroy/ctrlp-funky.git
+[submodule "dotvim/bundle/haskellmode-vim"]
+	path = dotvim/bundle/haskellmode-vim
+	url = git://github.com/lukerandall/haskellmode-vim.git
+[submodule "dotvim/bundle/haskell.vim"]
+	path = dotvim/bundle/haskell.vim
+	url = git://github.com/vim-scripts/haskell.vim.git
+[submodule "dotvim/bundle/syntastic"]
+	path = dotvim/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
+[submodule "dotvim/bundle/neco-ghc"]
+	path = dotvim/bundle/neco-ghc
+	url = git://github.com/ujihisa/neco-ghc.git
