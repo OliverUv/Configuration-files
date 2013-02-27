@@ -432,9 +432,6 @@ nnoremap <silent> <C-n> :BufSurfForward<cr>
 " Closes the preview window
 "map <leader>[ <C-W>z
 
-"supposed to fix a syntax highlighting bug, haven't needed it yet
-"let g:miniBufExplForceSyntaxEnable = 1
-
 " Use up and down keys to scroll up and down
 nmap <Up> 3<C-y>
 nmap <Down> 3<C-e>
@@ -455,9 +452,9 @@ inoremap <expr> <c-k> ("\<C-p>")
 " Indent the entire file
 nnoremap <leader>= gg=G`'
 
-" Ctrl-h for enter<backspace>
+" Ctrl-h for next line + <backspace>
 " Ctrl-o for next line
-inoremap <c-h> <cr><BS>
+inoremap <c-h> <esc>o<BS>
 inoremap <c-o> <esc>o
 
 "Like D for yanking
