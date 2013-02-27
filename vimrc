@@ -482,4 +482,5 @@ nnoremap <silent> <leader>gp :Git push
 " Misc mappings
 nnoremap <silent> <leader>e :UltiSnipsEdit<cr>
 nnoremap <silent> <leader>u :GundoToggle<cr>
+nnoremap <silent> <leader>m :w<cr>:make<cr>
 nnoremap <leader>' /leader>
