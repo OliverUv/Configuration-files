@@ -76,6 +76,9 @@ set noea		" prevent equalizing of split sizes on closed split
 set fillchars=fold:\ ,vert:\  " fill characters for fold lines and lines between vsplits
 set listchars=tab:▷⋅,trail:⋅,nbsp:⋅ " fill characters for tabs etc when set list
 
+" Yeah baby I went there. Only use with very subtle colour theme.
+set cursorcolumn
+set cursorline
 
 """""""""""""""""""""""""""""""""""""""""""""
 "" Settings for specific filetypes

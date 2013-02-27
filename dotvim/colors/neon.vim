@@ -43,9 +43,12 @@ hi PmenuSel     gui=NONE guifg=#ffffff guibg=#BF4545
 hi PmenuSbar    gui=NONE guifg=#f0f0f0 guibg=#B67171
 
 " Cursor
-hi Cursor       gui=NONE guifg=#70ffc0 guibg=#8040ff
+hi Cursor       gui=BOLD guifg=#ffffff guibg=#99004c
+hi MatchParen   gui=BOLD guifg=#ffffff guibg=#6600cc
 hi lCursor      gui=NONE guifg=#ffffff guibg=#8800ff
 hi CursorIM     gui=NONE guifg=#ffffff guibg=#8800ff
+hi CursorLine   gui=NONE guifg=NONE    guibg=#111111
+hi CursorColumn gui=NONE guifg=NONE    guibg=#111111
 
 " Fold
 hi Folded       gui=NONE guifg=#c8c8c8 guibg=#0d0d0d
