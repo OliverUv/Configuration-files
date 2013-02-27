@@ -73,7 +73,8 @@ set switchbuf=usetab	" If switching to a buffer that is already open, go
 set backspace=indent,eol,start whichwrap+=<,>,[,] "backspace functionality
 set formatprg=par	" user par to format text with the gq command
 set noea		" prevent equalizing of split sizes on closed split
-"set listchars=tab:\|_,trail:.,extends:>,precedes:>,eol:~ "list mode shit
+set fillchars=fold:\ ,vert:\  " fill characters for fold lines and lines between vsplits
+set listchars=tab:▷⋅,trail:⋅,nbsp:⋅ " fill characters for tabs etc when set list
 
 
 """""""""""""""""""""""""""""""""""""""""""""
@@ -121,8 +122,8 @@ set statusline=%<%F\ %m%r%h%w%{fugitive#statusline()}\ %Y\ %{FileEncoding()}\ %{
 
 " change status line colour if it is in insert mode
 if version >= 700
-  au InsertEnter * hi StatusLine gui=NONE guifg=#FFFFFF guibg=#BD5589
-  au InsertLeave * hi StatusLine gui=NONE guifg=#FFFFFF guibg=#905070
+  au InsertEnter * hi StatusLine gui=NONE guifg=#FFFFFF guibg=#9D3569
+  au InsertLeave * hi StatusLine gui=NONE guifg=#d6d6d6 guibg=#602040
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""

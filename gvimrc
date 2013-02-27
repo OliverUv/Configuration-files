@@ -31,6 +31,9 @@ set guioptions+=c
 "set background=dark
 colorscheme neon
 
+" Shorter spacing between lines
+set linespace=-2
+
 " Set GUI Font depending on the kind of gui/platform being loaded.
 if has("gui_win32")
 	:set guifont=Consolas:h11:cANSI
