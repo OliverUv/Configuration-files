@@ -34,8 +34,8 @@ hi WildMenu     gui=NONE guifg=#000000 guibg=#ff80c0
 " Diff
 hi DiffText     gui=NONE guifg=NONE guibg=#1A1800
 hi DiffChange   gui=NONE guifg=#f0f0f0 guibg=#714B00
-hi DiffDelete   gui=NONE guifg=#903D3D guibg=#903D3D
-hi DiffAdd      gui=NONE guifg=#f0f0f0 guibg=#165D18
+hi DiffDelete   gui=NONE guifg=#701D1D guibg=#701D1D
+hi DiffAdd      gui=NONE guifg=NONE guibg=#064D08
 
 " Autocompletion menu
 hi Pmenu        gui=NONE guifg=#f0f0f0 guibg=#903D3D

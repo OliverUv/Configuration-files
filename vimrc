@@ -26,6 +26,9 @@ if has("autocmd")
     autocmd BufEnter *.hs compiler ghc
     " Disable foldcolumn in diff windows
     au FilterWritePre * if &diff | set fdc=0 | endif
+    " Disable ugly-making things in diff window
+    au FilterWritePre * if &diff | set nocursorcolumn | endif
+    au FilterWritePre * if &diff | set nocursorline | endif
 endif
 
 " :Configure to edit this file in a split window
