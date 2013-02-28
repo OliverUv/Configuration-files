@@ -314,11 +314,13 @@ let g:UltiSnipsJumpBackwardTrigger='<c-p>'
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" Settings for syntastic
 "" 
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_style_error_symbol = '✠'
 let g:syntastic_style_warning_symbol = '≈'
 let g:syntastic_enable_balloons = 0
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_loc_list_height = 6
 " Use pythonmode's linter
 let g:syntastic_mode_map = { 'mode': 'active',
 			   \ 'passive_filetypes': ['python'] }
@@ -487,4 +489,5 @@ nnoremap <silent> <leader>gp :Git push
 nnoremap <silent> <leader>e :UltiSnipsEdit<cr>
 nnoremap <silent> <leader>u :GundoToggle<cr>
 nnoremap <silent> <leader>m :w<cr>:make<cr>
+nnoremap <silent> <leader>A :sign unplace *<cr>
 nnoremap <leader>' /leader>
