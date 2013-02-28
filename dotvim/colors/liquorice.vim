@@ -78,6 +78,11 @@ hi FoldColumn   gui=NONE guifg=#c8c8c8 guibg=#212121
 " Signs
 hi SignColumn   gui=NONE guifg=#f0f0f0 guibg=#303030
 
+" Spelling - SpellCap (and maybe others) also used by Syntastic
+hi SpellLocal	gui=UNDERCURL guifg=NONE guibg=NONE guisp=#FF99CC
+hi SpellCap	gui=UNDERCURL guifg=NONE guibg=NONE guisp=#00FF00
+hi SpellBad	gui=UNDERCURL guifg=NONE guibg=NONE guisp=#FF0000
+
 " Other
 hi Directory    gui=NONE guifg=#c8c8ff guibg=NONE
 hi LineNr       gui=NONE guifg=#727272 guibg=#0e0e0e
