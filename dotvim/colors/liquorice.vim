@@ -1,11 +1,12 @@
-" Vim colour theme
-" Maintainer: github.com/OliverUv
+" Maintainer: Oliver Uvman
+" License: Public Domain, attribution appreciated.
 " Last Change: 2013-02-28
-" This color scheme uses a dark background.
 " Based on the neon theme by Tiza. Thanks Tiza! You got taste bro.
+" http://github.com/OliverUv/Configuration-files/blob/master/dotvim/colors/liquorice.vim
+
 
 " Uncomment this or put it in your vimrc if you feel like it!
-"
+
 "set cursorcolumn " this theme has subtle lines
 "set cursorline
 "
@@ -76,12 +77,6 @@ hi FoldColumn   gui=NONE guifg=#c8c8c8 guibg=#212121
 
 " Signs
 hi SignColumn   gui=NONE guifg=#f0f0f0 guibg=#303030
-
-"ShowMarks - plugin
-hi ShowMarksHLl gui=NONE guifg=#40c0ff guibg=#272727
-hi ShowMarksHLu gui=NONE guifg=#40c0ff guibg=#272727
-hi ShowMarksHLo gui=NONE guifg=#40c0ff guibg=#272727
-hi ShowMarksHLm gui=NONE guifg=#ff9040 guibg=#272727
 
 " Other
 hi Directory    gui=NONE guifg=#c8c8ff guibg=NONE
