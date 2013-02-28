@@ -1,8 +1,28 @@
-" Vim color file
-"  Maintainer: OliverUv
-" Last Change: 2013-02-22
+" Vim colour theme
+" Maintainer: github.com/OliverUv
+" Last Change: 2013-02-28
 " This color scheme uses a dark background.
-" Based on neon by somedude
+" Based on the neon theme by Tiza. Thanks Tiza! You got taste bro.
+
+" Uncomment this or put it in your vimrc if you feel like it!
+"
+"set cursorcolumn " this theme has subtle lines
+"set cursorline
+"
+" if has("autocmd")
+"     " Disable foldcolumn in diff windows, because it looks bad.
+"     " You probably don't want to do this unless you've got that
+"     " disabled in your own vimrc.
+"     au FilterWritePre * if &diff | setlocal fdc=0 | endif
+
+"     " CursorLine and CursorColumn override DiffAdd and DiffDelete,
+"     " which looks ugly. This disables cursorline and cursorcolumn
+"     " when a split goes into diff mode. Haven't yet figured out how
+"     " to re-enable the setting (consider that we only want to do this
+"     " if it was on in the first place!)
+"     au FilterWritePre * if &diff | setlocal nocursorcolumn | endif
+"     au FilterWritePre * if &diff | setlocal nocursorline | endif
+" endif
 
 set background=dark
 hi clear
@@ -10,7 +30,7 @@ if exists("syntax_on")
    syntax reset
 endif
 
-let colors_name = "neon"
+let colors_name = "liquorice"
 
 hi Normal       guifg=#f0f0f0 guibg=#141414
 

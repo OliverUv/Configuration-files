@@ -29,7 +29,7 @@ set guioptions+=c
 
 " colorscheme to use for GUI
 "set background=dark
-colorscheme neon
+colorscheme liquorice
 
 " Shorter spacing between lines
 set linespace=-2

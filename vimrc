@@ -10,7 +10,7 @@ if has("win32") || has("win64")
 else
    call pathogen#infect('~/.vim/bundle')
    set t_Co=256
-   colorscheme neon
+   colorscheme liquorice
 end
 
 " Fix for my shell, otherwise some scripts break
@@ -25,10 +25,10 @@ if has("autocmd")
     " Set ghc as compiler for haskell files
     autocmd BufEnter *.hs compiler ghc
     " Disable foldcolumn in diff windows
-    au FilterWritePre * if &diff | set fdc=0 | endif
+    au FilterWritePre * if &diff | setlocal fdc=0 | endif
     " Disable ugly-making things in diff window
-    au FilterWritePre * if &diff | set nocursorcolumn | endif
-    au FilterWritePre * if &diff | set nocursorline | endif
+    au FilterWritePre * if &diff | setlocal nocursorcolumn | endif
+    au FilterWritePre * if &diff | setlocal nocursorline | endif
 endif
 
 " :Configure to edit this file in a split window
