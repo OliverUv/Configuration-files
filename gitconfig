@@ -20,6 +20,7 @@
 	xa = commit -a -m
 	master = checkout master
 	hub = push origin
+	buh = pull origin
 	alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\t=> \\2/' | sort
 [github]
 	user = OliverUv
