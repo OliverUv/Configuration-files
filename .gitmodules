@@ -100,3 +100,6 @@
 [submodule "dotvim/bundle/neco-ghc"]
 	path = dotvim/bundle/neco-ghc
 	url = git://github.com/ujihisa/neco-ghc.git
+[submodule "dotvim/bundle/neocomplcache-ultisnips"]
+	path = dotvim/bundle/neocomplcache-ultisnips
+	url = https://github.com/JazzCore/neocomplcache-ultisnips.git
