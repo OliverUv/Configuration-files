@@ -103,3 +103,6 @@
 [submodule "dotvim/bundle/neocomplcache-ultisnips"]
 	path = dotvim/bundle/neocomplcache-ultisnips
 	url = https://github.com/JazzCore/neocomplcache-ultisnips.git
+[submodule "dotvim/bundle/vim-indent-guides"]
+	path = dotvim/bundle/vim-indent-guides
+	url = git://github.com/nathanaelkane/vim-indent-guides.git

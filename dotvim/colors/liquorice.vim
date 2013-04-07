@@ -75,6 +75,10 @@ hi CursorColumn gui=NONE guifg=NONE    guibg=#111111
 hi Folded       gui=NONE guifg=#c8c8c8 guibg=#0d0d0d
 hi FoldColumn   gui=NONE guifg=#c8c8c8 guibg=#212121
 
+" vim-indent-guides
+hi IndentGuidesOdd  gui=NONE guifg=NONE guibg=#0a0a0a
+hi IndentGuidesEven gui=NONE guifg=NONE guibg=#0d0d0d
+
 " Signs
 hi SignColumn   gui=NONE guifg=#f0f0f0 guibg=#303030
 
