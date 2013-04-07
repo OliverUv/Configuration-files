@@ -302,8 +302,8 @@ let g:pymode_lint_ignore = "W901,E501"
 "" 
 let g:gist_detect_filetype = 1
 let g:UltiSnipsEditSplit='horizontal'
-let g:UltiSnipsJumpForwardTrigger='<c-n>'
-let g:UltiSnipsJumpBackwardTrigger='<c-p>'
+let g:UltiSnipsJumpForwardTrigger='<tab>'
+let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -481,6 +481,7 @@ nnoremap <silent> <leader>gh :Git hub<cr>
 nnoremap <silent> <leader>gp :Git push 
 
 " Misc mappings
+nnoremap <silent> <leader>< :noh<cr>
 nnoremap <silent> <leader>e :UltiSnipsEdit<cr>
 nnoremap <silent> <leader>u :GundoToggle<cr>
 nnoremap <silent> <leader>m :w<cr>:make<cr>
