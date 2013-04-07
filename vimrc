@@ -279,6 +279,7 @@ nnoremap <silent> <leader>q :Ctoggle<cr>
 "" http://github.com/Shougo/neocomplcache
 "" 
 let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_fuzzy_completion = 1
 inoremap <expr><C-g> neocomplcache#undo_completion()
 inoremap <expr><C-l> neocomplcache#complete_common_string()
 
