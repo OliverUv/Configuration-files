@@ -84,6 +84,7 @@ set fillchars=fold:\ ,vert:\  " fill characters for fold lines and lines between
 ""
 
 au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
+au FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2
 
 
 """""""""""""""""""""""""""""""""""""""""""""
