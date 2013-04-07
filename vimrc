@@ -65,7 +65,8 @@ set showmatch           " Briefly display matching brackets when inserting such.
 set incsearch           " Incremental searching as soon as typing begins.
 set ignorecase          " Ignores case when searching
 set smartcase           " Will override ignorecase if searching w/ diff cases.
-set noexpandtab		" Makes <tab> not insert spaces in insert mode
+set modeline	        " Use moelines
+set expandtab						" Makes <tab> insert spaces in insert mode
 set wildchar=<TAB>      " Key that triggers command-line expansion.
 set noerrorbells        " Disables beeping.
 set hidden		" Allow switch buffer without saving
@@ -320,6 +321,12 @@ let g:syntastic_loc_list_height = 6
 let g:syntastic_mode_map = { 'mode': 'active',
 			   \ 'passive_filetypes': ['python'] }
 
+""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Settings for vim-indent-guides
+"" 
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" Settings for haskellmode-vim
