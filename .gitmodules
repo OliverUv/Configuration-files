@@ -109,3 +109,6 @@
 [submodule "dotvim/bundle/vim-dispatch"]
 	path = dotvim/bundle/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch.git
+[submodule "vim-javascript"]
+	path = vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
