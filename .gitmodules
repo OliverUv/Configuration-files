@@ -106,3 +106,6 @@
 [submodule "dotvim/bundle/vim-indent-guides"]
 	path = dotvim/bundle/vim-indent-guides
 	url = git://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "dotvim/bundle/vim-dispatch"]
+	path = dotvim/bundle/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch.git
