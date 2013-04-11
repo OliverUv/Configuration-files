@@ -1,6 +1,6 @@
 " Thanks to Alexandre Gauthier <alex@underwares.org> for almost
 " all of the stuff in this :)
-set guifont=Lucida_Console:h11:cANSI
+set guifont=Liberation\ Mono\ 10
 
 " Remove toolbar and scrollbars from gVim,
 " because, frankly, they are a waste of space.
