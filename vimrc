@@ -272,7 +272,7 @@ let g:rainbow_operators = 2
 "" togglelist settings
 "" https://github.com/xaimus/vim-togglelist
 "" 
-nnoremap <silent> <leader>a :Ltoggle<cr>
+nnoremap <silent> <leader>A :Ltoggle<cr>
 nnoremap <silent> <leader>q :Ctoggle<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -291,6 +291,7 @@ function! s:my_cr_function()
   "return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
 endfunction
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" python-mode, ropevim settings
@@ -494,5 +495,5 @@ nnoremap <silent> <leader>< :noh<cr>
 nnoremap <silent> <leader>e :UltiSnipsEdit<cr>
 nnoremap <silent> <leader>u :GundoToggle<cr>
 nnoremap <silent> <leader>m :w<cr>:make<cr>
-nnoremap <silent> <leader>A :sign unplace *<cr>
+nnoremap <silent> <leader>a :sign unplace *<cr>:Lclose<cr>
 nnoremap <leader>' /leader>
