@@ -488,6 +488,7 @@ nnoremap <silent> <leader>gg :Ggrep
 nnoremap <silent> <leader>gl :Glog<cr> 
 nnoremap <silent> <leader>gd :Gdiff<cr> 
 nnoremap <silent> <leader>gh :Git hub<cr> 
+nnoremap <silent> <leader>gH :Git buh<cr> 
 nnoremap <silent> <leader>gp :Git push 
 
 " Misc mappings
