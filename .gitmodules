@@ -112,3 +112,6 @@
 [submodule "vim-javascript"]
 	path = vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
+[submodule "dotvim/bundle/csapprox"]
+	path = dotvim/bundle/csapprox
+	url = https://github.com/godlygeek/csapprox.git
