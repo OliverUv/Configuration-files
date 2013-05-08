@@ -115,3 +115,6 @@
 [submodule "dotvim/bundle/csapprox"]
 	path = dotvim/bundle/csapprox
 	url = https://github.com/godlygeek/csapprox.git
+[submodule "dotvim/bundle/tabular"]
+	path = dotvim/bundle/tabular
+	url = https://github.com/godlygeek/tabular.git
