@@ -10,7 +10,7 @@ if has("win32") || has("win64")
 else
    call pathogen#infect('~/.vim/bundle')
    set t_Co=256
-   colorscheme liquorice
+   colorscheme liquorice-approx
 end
 
 " Fix for my shell, otherwise some scripts break
