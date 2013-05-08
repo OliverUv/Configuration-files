@@ -1,7 +1,5 @@
-if status --is-login
-	set PATH $PATH ~/bin
-        set TERM screen-256color
-end
+set PATH $PATH ~/bin
+set TERM screen-256color
 
 if type ksshaskpass >/dev/null ^/dev/null
     set SSH_ASKPASS ksshaskpass
