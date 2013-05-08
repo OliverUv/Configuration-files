@@ -9,8 +9,11 @@ if has("win32") || has("win64")
    set directory=.,$TEMP
 else
    call pathogen#infect('~/.vim/bundle')
-   set t_Co=256
-   colorscheme liquorice-approx
+   " Unless we're in gvim, set up colors
+   if !has("gui_running")
+       set t_Co=256
+       colorscheme liquorice-approx
+   end
 end
 
 " Fix for my shell, otherwise some scripts break
