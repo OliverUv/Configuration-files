@@ -1,5 +1,5 @@
 [core]
-	excludesfile = /home/oliver/.gitignoreglobal
+	excludesfile = ~/.gitignoreglobal
 	editor = vim
 [user]
 	email = oliver.uvman@gmail.com
