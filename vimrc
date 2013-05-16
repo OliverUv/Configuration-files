@@ -495,6 +495,7 @@ nnoremap <silent> <leader>gH :Git buh<cr>
 nnoremap <silent> <leader>gp :Git push 
 
 " Misc mappings
+nnoremap <leader><space> i <esc>la <esc>h
 nnoremap <silent> <leader>< :noh<cr>
 nnoremap <silent> <leader>e :UltiSnipsEdit<cr>
 nnoremap <silent> <leader>u :GundoToggle<cr>
