@@ -8,6 +8,7 @@
 	tool = vimdiff
 [alias]
 	unstage = reset HEAD --
+	undo = checkout --
 	last = log -l HEAD
         olog = log --oneline
         oo = log --oneline -15
