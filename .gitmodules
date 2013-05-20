@@ -118,3 +118,6 @@
 [submodule "dotvim/bundle/tabular"]
 	path = dotvim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
+[submodule "dotvim/bundle/CoVim"]
+	path = dotvim/bundle/CoVim
+	url = https://github.com/FredKSchott/CoVim.git
