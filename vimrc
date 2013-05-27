@@ -324,6 +324,7 @@ let g:syntastic_style_warning_symbol = '≈'
 let g:syntastic_enable_balloons = 0
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_loc_list_height = 6
+let g:syntastic_always_populate_loc_list = 1
 " Use pythonmode's linter
 let g:syntastic_mode_map = { 'mode': 'active',
 			   \ 'passive_filetypes': ['python'] }
