@@ -465,6 +465,14 @@ inoremap <expr> <c-k> ("\<C-p>")
 " Indent the entire file
 nnoremap <leader>= gg=G`'
 
+" Drag current line(s) up/down
+noremap <leader>j :m+<CR>
+noremap <leader>k :m-2<CR>
+inoremap <leader>j <Esc>:m+<CR>
+inoremap <leader>k <Esc>:m-2<CR>
+vnoremap <leader>j :m'>+<CR>gv
+vnoremap <leader>k :m-2<CR>gv
+
 " Ctrl-h for next line + <backspace>
 " Ctrl-o for next line
 inoremap <c-h> <esc>o<BS>
