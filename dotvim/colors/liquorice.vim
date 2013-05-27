@@ -82,6 +82,10 @@ hi IndentGuidesEven gui=NONE guifg=NONE guibg=#0d0d0d
 " Signs
 hi SignColumn   gui=NONE guifg=#f0f0f0 guibg=#303030
 
+" ColorColumn
+hi ColorColumn   gui=NONE guifg=NONE guibg=#303030
+
+
 " Spelling - SpellCap (and maybe others) also used by Syntastic
 hi SpellLocal	gui=UNDERCURL guifg=NONE guibg=NONE guisp=#FF99CC
 hi SpellCap	gui=UNDERCURL guifg=NONE guibg=NONE guisp=#00FF00

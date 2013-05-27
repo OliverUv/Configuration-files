@@ -88,6 +88,7 @@ set fillchars=fold:\ ,vert:\  " fill characters for fold lines and lines between
 
 au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
 au FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2
+au FileType c setlocal colorcolumn=79
 
 
 """""""""""""""""""""""""""""""""""""""""""""
@@ -333,6 +334,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
+let g:indent_guides_enable_on_vim_startup = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" Settings for haskellmode-vim
