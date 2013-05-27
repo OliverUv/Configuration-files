@@ -20,7 +20,7 @@ font xft:NanumGothic Regular 10, FreeSans 10
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-workspace_auto_back_and_forth yes
+workspace_auto_back_and_forth no
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -56,7 +56,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+g split h
+bindsym $mod+y split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -84,6 +84,16 @@ bindsym $mod+a focus parent
 # vim-like marks
 bindsym $mod+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
 bindsym $mod+n exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Go to: '
+bindsym $mod+Shift+I mark I
+bindsym $mod+Shift+G mark G
+bindsym $mod+Shift+semicolon mark ";"
+bindsym $mod+Shift+apostrophe mark "'"
+bindsym $mod+Shift+comma mark ","
+bindsym $mod+i [con_mark="i"] focus
+bindsym $mod+g [con_mark="g"] focus
+bindsym $mod+semicolon [con_mark=";"] focus
+bindsym $mod+apostrophe [con_mark="'"] focus
+bindsym $mod+comma [con_mark=","] focus
 
 # switch to workspace
 bindsym $mod+1 workspace 1
