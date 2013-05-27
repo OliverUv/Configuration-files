@@ -12,7 +12,10 @@
 set $mod Mod1
 
 # font for window titles. ISO 10646 = Unicode
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+
+# This requires a recent version of i3 with xft support.
+font xft:NanumGothic Regular 10, FreeSans 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -26,7 +29,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+Q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec dmenu_run -i -fn 'DejaVu Sans 10'
 
 # change focus
 bindsym $mod+h focus left
@@ -77,6 +80,10 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindcode $mod+d focus child
+
+# vim-like marks
+bindsym $mod+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
+bindsym $mod+n exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Go to: '
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -161,4 +168,6 @@ bar {
 }
 
 # Autostart programs
-exec dropbox start
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id dropbox start
+exec i3-msg 'workspace 1; exec google-chrome' &
