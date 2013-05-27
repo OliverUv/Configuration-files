@@ -1,14 +1,14 @@
 " Maintainer: Oliver Uvman
 " License: Public Domain, attribution appreciated.
-" Last Change: 2013-02-28
+" Last Change: 2013-05-28
 " Based on the neon theme by Tiza. Thanks Tiza! You got taste bro.
 " http://github.com/OliverUv/Configuration-files/blob/master/dotvim/colors/liquorice.vim
 
 
 " Uncomment this or put it in your vimrc if you feel like it!
 
-"set cursorcolumn " this theme has subtle lines
-"set cursorline
+"set cursorcolumn " this theme has subtle lines, but they interfere
+"set cursorline   " with diff background colors which is a tragedy.
 "
 " if has("autocmd")
 "     " Disable foldcolumn in diff windows, because it looks bad.
@@ -33,7 +33,7 @@ endif
 
 let colors_name = "liquorice"
 
-hi Normal       guifg=#f0f0f0 guibg=#141414
+hi Normal       guifg=#e0e0e0 guibg=#141414
 
 " Search
 hi IncSearch    gui=BOLD guifg=#ffffff guibg=#99004c
@@ -101,7 +101,7 @@ hi Visual       gui=NONE guifg=NONE guibg=#7C2B7C
 hi VisualNOS    gui=NONE guifg=NONE guibg=#7C2B7C
 
 " Syntax group
-hi Comment      gui=NONE guifg=#c0c0c0 guibg=NONE
+hi Comment      gui=NONE guifg=#929292 guibg=NONE
 hi Constant     gui=NONE guifg=#92d4ff guibg=NONE
 hi Error        gui=BOLD guifg=#ffffff guibg=#8000ff
 hi Identifier   gui=NONE guifg=#40f8f8 guibg=NONE
