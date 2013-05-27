@@ -84,8 +84,8 @@ bindsym $mod+a focus parent
 # vim-like marks
 bindsym $mod+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
 bindsym $mod+n exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Go to: '
-bindsym $mod+Shift+I mark I
-bindsym $mod+Shift+G mark G
+bindsym $mod+Shift+I mark i
+bindsym $mod+Shift+G mark g
 bindsym $mod+Shift+semicolon mark ";"
 bindsym $mod+Shift+apostrophe mark "'"
 bindsym $mod+Shift+comma mark ","
@@ -130,6 +130,10 @@ bindsym $mod+Shift+E exit
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
 bindsym XF86AudioMute exec amixer -q set Master toggle
+
+# Change brightness with media keys
+bindsym XF86KbdBrightnessUp exec xbacklight -inc 15
+bindsym XF86KbdBrightnessDown exec xbacklight -dec 15
 
 # Switch language
 bindsym $mod+o exec setxkbmap en_US -option 'ctrl:nocaps'
