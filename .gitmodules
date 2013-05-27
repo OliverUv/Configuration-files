@@ -4,9 +4,6 @@
 [submodule "dotvim/bundle/L9"]
 	path = dotvim/bundle/L9
 	url = git://github.com/vim-scripts/L9.git
-[submodule "dotvim/bundle/gundo.vim"]
-	path = dotvim/bundle/gundo.vim
-	url = git://github.com/sjl/gundo.vim.git
 [submodule "dotvim/bundle/gist-vim"]
 	path = dotvim/bundle/gist-vim
 	url = git://github.com/mattn/gist-vim.git
