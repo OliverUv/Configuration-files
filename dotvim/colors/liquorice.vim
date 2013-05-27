@@ -33,7 +33,7 @@ endif
 
 let colors_name = "liquorice"
 
-hi Normal       guifg=#e0e0e0 guibg=#141414
+hi Normal       guifg=#eaeaea guibg=#141414
 
 " Search
 hi IncSearch    gui=BOLD guifg=#ffffff guibg=#99004c
