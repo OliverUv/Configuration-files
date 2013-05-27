@@ -508,7 +508,7 @@ nnoremap <silent> <leader>gp :Git push
 nnoremap <leader><space> i <esc>la <esc>h
 nnoremap <silent> <leader>< :noh<cr>
 nnoremap <silent> <leader>e :UltiSnipsEdit<cr>
-nnoremap <silent> <leader>u :GundoToggle<cr>
+nnoremap <silent> <leader>u :UndotreeToggle<cr>
 nnoremap <silent> <leader>m :w<cr>:make<cr>
 nnoremap <silent> <leader>a :sign unplace *<cr>:Lclose<cr>
 nnoremap <leader>' /leader>

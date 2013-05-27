@@ -118,3 +118,6 @@
 [submodule "dotvim/bundle/CoVim"]
 	path = dotvim/bundle/CoVim
 	url = https://github.com/FredKSchott/CoVim.git
+[submodule "dotvim/bundle/undotree"]
+	path = dotvim/bundle/undotree
+	url = https://github.com/mbbill/undotree.git
