@@ -26,7 +26,7 @@ workspace_auto_back_and_forth no
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+Shift+Q kill
+bindsym $mod+Shift+W kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run -i -fn 'DejaVu Sans 10'
@@ -62,7 +62,7 @@ bindsym $mod+y split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+u fullscreen
+bindsym $mod+Tab fullscreen
 
 # change container layout (stacked, tabbed, default)
 bindsym $mod+s layout stacking
@@ -76,7 +76,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+u focus parent
 
 # focus the child container
 #bindcode $mod+d focus child
@@ -86,11 +86,13 @@ bindsym $mod+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
 bindsym $mod+n exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Go to: '
 bindsym $mod+Shift+I mark i
 bindsym $mod+Shift+G mark g
+bindsym $mod+Shift+Q mark q
 bindsym $mod+Shift+semicolon mark ";"
 bindsym $mod+Shift+apostrophe mark "'"
 bindsym $mod+Shift+comma mark ","
 bindsym $mod+i [con_mark="i"] focus
 bindsym $mod+g [con_mark="g"] focus
+bindsym $mod+q [con_mark="q"] focus
 bindsym $mod+semicolon [con_mark=";"] focus
 bindsym $mod+apostrophe [con_mark="'"] focus
 bindsym $mod+comma [con_mark=","] focus
