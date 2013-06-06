@@ -12,9 +12,7 @@
 	last = log -l HEAD
         olog = log --oneline
         oo = log --oneline -15
-	this = !git init && git add . && git commit -m \"initial commit\"
 	amend = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
-	ignore=!([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
 	s = status
 	a = add
 	x = commit -m
@@ -22,7 +20,30 @@
 	master = checkout master
 	hub = push origin
 	buh = pull origin
+
+        # will put a file into gitignore
+	ignore=!([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
+
+        # Will start a repo in this directory
+	this = !git init && git add . && git commit -m \"initial commit\"
+
+        # list aliases
 	alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\t=> \\2/' | sort
+
+        # ignore/unignore file without .gitignore
+        assume   = update-index --assume-unchanged
+        unassume = update-index --no-assume-unchanged
+
+        # list ignored files
+        assumed  = "!git ls-files -v | grep ^h | cut -c 3-"
+
+        # take named stash
+        snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
+
+        # Select the entirety of either our or their file in a 3 way merge.
+        ours   = "!f() { git checkout --ours $@ && git add $@; }; f"
+        theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
+
 [github]
 	user = OliverUv
 [giggle]
@@ -31,3 +52,5 @@
 	history-view-vpane-position = 438
 	file-view-vpane-position = 484
 	main-window-view = HistoryView
+[diff]
+	algorithm = patience
