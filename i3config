@@ -132,10 +132,6 @@ bindsym XF86AudioMute exec amixer -q set Master toggle
 bindsym XF86KbdBrightnessUp exec xbacklight -inc 15
 bindsym XF86KbdBrightnessDown exec xbacklight -dec 15
 
-# Switch language
-bindsym $mod+o exec setxkbmap en_US -option 'ctrl:nocaps'
-bindsym $mod+p exec setxkbmap se -option 'ctrl:nocaps'
-
 # Scratchpad
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
@@ -184,6 +180,7 @@ bar {
 }
 
 # Autostart programs
+exec --no-startup-id setxkbmap -layout "en_US,se" -option "grp:lalt_lshift_toggle,ctrl:nocaps"
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id dropbox start
 exec --no-startup-id volumeicon
