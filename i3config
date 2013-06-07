@@ -164,10 +164,10 @@ mode "resize" {
         bindsym Shift+L resize grow width 5 px or 5 ppt
 
         # same bindings, but for the arrow keys
-        bindsym 113 resize shrink width 10 px or 10 ppt
-        bindsym 116 resize grow height 10 px or 10 ppt
-        bindsym 111 resize shrink height 10 px or 10 ppt
-        bindsym 114 resize grow width 10 px or 10 ppt
+        bindsym 113 resize shrink width 3 px or 3 ppt
+        bindsym 116 resize grow height 3 px or 3 ppt
+        bindsym 111 resize shrink height 3 px or 3 ppt
+        bindsym 114 resize grow width 3 px or 3 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -182,6 +182,13 @@ bar {
         position top
         status_command i3status --config ~/.i3/status.conf
 }
+
+# colors colours
+# class                 border  backgr. text    indicator
+client.focused          #6c98b9 #386587 #ffffff #4ebeff
+client.focused_inactive #020202 #3f474a #dddddd #181e20
+client.unfocused        #020202 #222222 #888888 #191d1e
+client.urgent           #2f343a #900000 #ffffff #900000
 
 # Autostart programs
 exec --no-startup-id setxkbmap -layout "en_US,se" -option "grp:lalt_lshift_toggle,ctrl:nocaps"
