@@ -84,12 +84,16 @@ bindsym $mod+n exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Go to: '
 bindsym $mod+Shift+I mark i
 bindsym $mod+Shift+G mark g
 bindsym $mod+Shift+Q mark q
+bindsym $mod+Shift+O mark o
+bindsym $mod+Shift+P mark p
 bindsym $mod+Shift+semicolon mark ";"
 bindsym $mod+Shift+apostrophe mark "'"
 bindsym $mod+Shift+comma mark ","
 bindsym $mod+i [con_mark="i"] focus
 bindsym $mod+g [con_mark="g"] focus
 bindsym $mod+q [con_mark="q"] focus
+bindsym $mod+o [con_mark="o"] focus
+bindsym $mod+p [con_mark="p"] focus
 bindsym $mod+semicolon [con_mark=";"] focus
 bindsym $mod+apostrophe [con_mark="'"] focus
 bindsym $mod+comma [con_mark=","] focus
@@ -176,7 +180,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         position top
-        status_command /home/oliver/Configuration-files/i3status_script.sh --config ~/.i3/status.conf
+        status_command i3status --config ~/.i3/status.conf
 }
 
 # Autostart programs
