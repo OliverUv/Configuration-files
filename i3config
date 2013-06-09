@@ -27,7 +27,7 @@ new_window 1pixel
 workspace_auto_back_and_forth no
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec /home/oliver/bin/color_urxvt
 
 # kill focused window
 bindsym $mod+Shift+W kill
