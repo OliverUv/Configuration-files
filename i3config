@@ -192,7 +192,7 @@ bar {
 # class                 border  backgr. text    indicator
 client.focused          #6c98b9 #386587 #ffffff #4ebeff
 client.focused_inactive #020202 #3f474a #dddddd #181e20
-client.unfocused        #020202 #222222 #888888 #191d1e
+client.unfocused        #000000 #000000 #666666 #191d1e
 client.urgent           #2f343a #900000 #ffffff #900000
 
 # Autostart programs
