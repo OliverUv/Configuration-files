@@ -52,9 +52,10 @@ URxvt.perl-ext-common: default,matcher,clipboard
 !URxvt.keysym.C-M-p: perl:url-select:select_next
 !URxvt.url-select.launcher: /usr/bin/google-chrome
 !URxvt.url-select.underline: true
-!
+! Requires xclip
+! sudo cp Configuration-files/urxvtclip /usr/lib/urxvt/perl/clipboard
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
-!URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 !URxvt.keysym.C-A-V: perl:clipboard:paste_escaped
 
 URxvt.url-launcher:  /usr/bin/google-chrome
