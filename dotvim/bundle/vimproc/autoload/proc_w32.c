@@ -1,5 +1,5 @@
 /*-----------------------------------------------------------------------------
- * Copyright (c) 2009       
+ * Copyright (c) 2009
  * Kazuo Ishii        - <k-ishii at wb4.so-net.ne.jp> original version(ckw)
  * Yukihiro Nakadaira - <yukihiro.nakadaira at gmail.com> original version(vimproc)
  * Shougo Matsushita  - <Shougo.Matsu at gmail.com> modified version
@@ -481,18 +481,14 @@ vp_pipe_open(char *args)
 
     ZeroMemory(&si, sizeof(STARTUPINFO));
     si.cb = sizeof(STARTUPINFO);
-    /*si.dwFlags = STARTF_USESTDHANDLES;*/
     si.dwFlags = STARTF_USESTDHANDLES | STARTF_USESHOWWINDOW;
-    si.wShowWindow = SW_HIDE;
+    si.wShowWindow = SW_SHOW;
     si.hStdInput = hInputRead;
     si.hStdOutput = hOutputWrite;
     si.hStdError = hErrorWrite;
 
     if (!CreateProcess(NULL, cmdline, NULL, NULL, TRUE,
-                        CREATE_NEW_CONSOLE, NULL, NULL, &si, &pi))
-                        /*0, NULL, NULL, &si, &pi))*/
-                        /*DETACHED_PROCESS, NULL, NULL, &si, &pi))*/
-                        /*CREATE_NO_WINDOW, NULL, NULL, &si, &pi))*/
+                        CREATE_NO_WINDOW, NULL, NULL, &si, &pi))
         return vp_stack_return_error(&_result, "CreateProcess() error: %s %s",
                 lasterror());
 
@@ -530,8 +526,8 @@ vp_pipe_close(char *args)
     VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
     VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &fd));
 
-    if (!CloseHandle((HANDLE)_get_osfhandle(fd)))
-        return vp_stack_return_error(&_result, "CloseHandle() error: %s",
+    if (_close(fd))
+        return vp_stack_return_error(&_result, "_close() error: %s",
                 lasterror());
     return NULL;
 }
@@ -710,6 +706,37 @@ vp_close_handle(char *args)
  */
 static int sockets_number = 0;
 
+static int
+detain_winsock()
+{
+    WSADATA wsadata;
+    int res = 0;
+
+    if (sockets_number == 0)    /* Need startup process. */
+    {
+        res = WSAStartup(MAKEWORD(2, 0), &wsadata);
+        if(res) return res;   /* Fail */
+    }
+    ++sockets_number;
+    return res;
+}
+
+static int
+release_winsock()
+{
+    int res = 0;
+
+    if (sockets_number != 0)
+    {
+        res = WSACleanup();
+        if(res) return res;   /* Fail */
+
+        --sockets_number;
+    }
+    return res;
+}
+
+
 const char *
 vp_socket_open(char *args)
 {
@@ -728,10 +755,10 @@ vp_socket_open(char *args)
     VP_RETURN_IF_FAIL(vp_stack_pop_str(&stack, &host));
     VP_RETURN_IF_FAIL(vp_stack_pop_str(&stack, &port));
 
-    if (sockets_number++ == 0)
+    if(detain_winsock())
     {
-        WSADATA wsadata;
-        WSAStartup(2, &wsadata);
+        return vp_stack_return_error(&_result, "WSAStartup() error: %s",
+            lasterror());
     }
 
     if (sscanf(port, "%d%n", &port_nr, &n) == 1 && port[n] == '\0') {
@@ -772,10 +799,7 @@ vp_socket_close(char *args)
         return vp_stack_return_error(&_result, "closesocket() error: %d",
                 WSAGetLastError());
     }
-    if (--sockets_number == 0)
-    {
-        WSACleanup();
-    }
+    release_winsock();
     return NULL;
 }
 
@@ -894,7 +918,14 @@ vp_host_exists(char *args)
     VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
     VP_RETURN_IF_FAIL(vp_stack_pop_str(&stack, &host));
 
+    if(detain_winsock())
+    {
+        return vp_stack_return_error(&_result, "WSAStartup() error: %s",
+            lasterror());
+    }
     hostent = gethostbyname(host);
+    release_winsock();
+
     if (hostent) {
         vp_stack_push_num(&_result, "%d", 1);
     } else {

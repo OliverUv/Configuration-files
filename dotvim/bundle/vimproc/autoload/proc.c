@@ -34,13 +34,15 @@
 #endif
 
 /* for forkpty() / login_tty() */
-#if defined __linux__ || defined __CYGWIN__
+#if (defined __linux__ || defined __CYGWIN__) && !defined __ANDROID__
 # include <pty.h>
 # include <utmp.h>
 #elif defined __APPLE__ || defined __NetBSD__
 # include <util.h>
-#elif defined __sun
-# include "ptytty.c"
+#elif defined __sun__ || defined __ANDROID__
+# include <termios.h>
+int openpty(int *, int *, char *, struct termios *, struct winsize *);
+int forkpty(int *, char *, struct termios *, struct winsize *);
 #else
 # include <termios.h>
 # include <libutil.h>
@@ -63,6 +65,8 @@
 #include <sys/wait.h>
 #if defined __NetBSD__
 #define WIFCONTINUED(x) (_WSTATUS(x) == _WSTOPPED && WSTOPSIG(x) == 0x13)
+#elif defined __ANDROID__
+#define WIFCONTINUED(x) (WIFSTOPPED(x) && WSTOPSIG(x) == 0x13)
 #endif
 
 /* for socket */
@@ -505,7 +509,7 @@ vp_pipe_open(char *args)
             vp_stack_push_num(&_result, "%d", fd[2][0]);
         return vp_stack_return(&_result);
     }
-    /* DO NOT REACH HEAR */
+    /* DO NOT REACH HERE */
     return NULL;
 
 
@@ -741,15 +745,18 @@ vp_kill(char *args)
     vp_stack_t stack;
     pid_t pid;
     int sig;
+    int ret;
 
     VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
     VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &pid));
     VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &sig));
 
-    if (kill(pid, sig) == -1)
+    ret = kill(pid, sig);
+    if (ret < 0)
         return vp_stack_return_error(&_result, "kill() error: %s",
                 strerror(errno));
-    return NULL;
+    vp_stack_push_num(&_result, "%d", ret);
+    return vp_stack_return(&_result);
 }
 
 const char *

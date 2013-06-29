@@ -4,17 +4,19 @@
 #include <sys/ioctl.h>
 
 #include <fcntl.h>
-#include <limits.h>
 #include <stdlib.h>
 #include <string.h>
+#if defined __sun__
 #include <stropts.h>
+#endif
 #include <unistd.h>
-
-#include <signal.h>
 #include <termios.h>
 
+int openpty(int *, int *, char *, struct termios *, struct winsize *);
+int forkpty(int *, char *, struct termios *, struct winsize *);
+
 static int
-_sunos_get_pty(int *master, char **path)
+_internal_get_pty(int *master, char **path)
 {
     if ((*master = open("/dev/ptmx", O_RDWR|O_NOCTTY)) == -1)
         return -1;
@@ -29,7 +31,7 @@ _sunos_get_pty(int *master, char **path)
 }
 
 static int
-_sunos_get_tty(int *slave, char *path,
+_internal_get_tty(int *slave, char *path,
                struct termios *termp, struct winsize *winp, int ctty)
 {
     if ((*slave = open(path, O_RDWR|O_NOCTTY)) == -1)
@@ -38,12 +40,16 @@ _sunos_get_tty(int *slave, char *path,
     if (ctty && ioctl(*slave, TIOCSCTTY, NULL) == -1)
         return -1;
 #endif
+#ifdef I_PUSH
     if (ioctl(*slave, I_PUSH, "ptem") == -1)
         return -1;
     if (ioctl(*slave, I_PUSH, "ldterm") == -1)
         return -1;
+#if defined __sun__
     if (ioctl(*slave, I_PUSH, "ttcompat") == -1)
         return -1;
+#endif
+#endif
 
     if (termp != NULL)
         tcsetattr(*slave, TCSAFLUSH, termp);
@@ -63,12 +69,12 @@ openpty(int *amaster, int *aslave, char *name,
     if (amaster == NULL || aslave == NULL)
         return -1;
 
-    if (_sunos_get_pty(&master, &path) != 0)
+    if (_internal_get_pty(&master, &path) != 0)
         goto out;
-    if (_sunos_get_tty(&slave, path, termp, winp, 0) != 0)
+    if (_internal_get_tty(&slave, path, termp, winp, 0) != 0)
         goto out;
     if (name != NULL)
-        strlcpy(name, path, TTYNAME_MAX);
+        strcpy(name, path);
 
     *amaster = master;
     *aslave = slave;
@@ -93,10 +99,10 @@ forkpty(int *amaster, char *name,
     if (amaster == NULL)
         return -1;
 
-    if (_sunos_get_pty(&master, &path) != 0)
+    if (_internal_get_pty(&master, &path) != 0)
         goto out;
     if (name != NULL)
-        strlcpy(name, path, TTYNAME_MAX);
+        strcpy(name, path);
 
     if ((pid = fork()) == -1)
         goto out;
@@ -107,7 +113,7 @@ forkpty(int *amaster, char *name,
 
         setsid();
 
-        if (_sunos_get_tty(&slave, path, termp, winp, 1) != 0)
+        if (_internal_get_tty(&slave, path, termp, winp, 1) != 0)
             _exit(EXIT_FAILURE);
 
         dup2(slave, 0);
