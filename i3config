@@ -191,7 +191,7 @@ bar {
 # colors colours
 # class                 border  backgr. text    indicator
 client.focused          #6c98b9 #386587 #ffffff #4ebeff
-client.focused_inactive #020202 #3f474a #dddddd #181e20
+client.focused_inactive #000000 #000000 #dddddd #181e20
 client.unfocused        #000000 #000000 #666666 #191d1e
 client.urgent           #2f343a #900000 #ffffff #900000
 
