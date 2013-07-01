@@ -188,7 +188,7 @@ bar {
             focused_workspace  #E17800 #E17800 #000000
             active_workspace   #000000 #000000 #ffffff
             inactive_workspace #000000 #000000 #999999
-            urgent_workspace   #FFE662 #900000 #ffffff
+            urgent_workspace   #FFE662 #222222 #ffffff
         }
         position top
         status_command i3status --config ~/.i3/status.conf
