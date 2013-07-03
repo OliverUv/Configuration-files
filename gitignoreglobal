@@ -1,4 +1,8 @@
 #vim
 *~
 *.sw?
+#vimpython ?
 .ropeproject/
+#compiled files
+*.pyc
+*.o
