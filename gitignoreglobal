@@ -6,3 +6,5 @@
 #compiled files
 *.pyc
 *.o
+#tagfiles
+tags
