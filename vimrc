@@ -302,7 +302,7 @@ inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 "" 
 let g:pymode_rope_extended_autocomplete=1
 let g:pymode_rope_autoimport_modules = ["os", "django.*"]
-let g:pymode_lint_ignore = "W901,E501"
+let g:pymode_lint = 0
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -317,14 +317,16 @@ let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" Settings for syntastic
 "" 
+let g:syntastic_error_symbol = '✗✗'
+let g:syntastic_warning_symbol = '⚠⚠'
+let g:syntastic_style_error_symbol = '✠✠'
+let g:syntastic_style_warning_symbol = '≈≈'
 let g:syntastic_enable_balloons = 0
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_loc_list_height = 6
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_wq = 0
-" Use pythonmode's linter
-let g:syntastic_mode_map = { 'mode': 'active',
-			   \ 'passive_filetypes': ['python'] }
+let g:syntastic_python_checkers = ['flake8']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" Settings for vim-indent-guides
