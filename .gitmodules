@@ -4,6 +4,7 @@
 [submodule "dotvim/bundle/L9"]
 	path = dotvim/bundle/L9
 	url = git://github.com/vim-scripts/L9.git
+        ignore = dirty
 [submodule "dotvim/bundle/gist-vim"]
 	path = dotvim/bundle/gist-vim
 	url = git://github.com/mattn/gist-vim.git
@@ -73,6 +74,7 @@
 [submodule "dotvim/bundle/vim-git"]
 	path = dotvim/bundle/vim-git
 	url = git://github.com/tpope/vim-git.git
+    ignore = dirty
 [submodule "dotvim/bundle/httplog"]
 	path = dotvim/bundle/httplog
 	url = git://github.com/vim-scripts/httplog.git
@@ -85,6 +87,7 @@
 [submodule "dotvim/bundle/ctrlp-funky"]
 	path = dotvim/bundle/ctrlp-funky
 	url = git://github.com/tacahiroy/ctrlp-funky.git
+    ignore = dirty
 [submodule "dotvim/bundle/haskellmode-vim"]
 	path = dotvim/bundle/haskellmode-vim
 	url = git://github.com/lukerandall/haskellmode-vim.git
@@ -118,6 +121,7 @@
 [submodule "dotvim/bundle/CoVim"]
 	path = dotvim/bundle/CoVim
 	url = https://github.com/FredKSchott/CoVim.git
+        ignore = dirty
 [submodule "dotvim/bundle/undotree"]
 	path = dotvim/bundle/undotree
 	url = https://github.com/mbbill/undotree.git

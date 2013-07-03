@@ -54,5 +54,3 @@
 	main-window-view = HistoryView
 [diff]
 	algorithm = patience
-[push]
-	default = simple
