@@ -195,6 +195,7 @@ bar {
             urgent_workspace   #E17800 #332200 #ffffff
         }
         position top
+        tray_output primary
         font xft:WenQuanYi Micro Hei Mono Bold 10
         status_command /home/oliver/bin/i3conky.sh
 }
