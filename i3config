@@ -16,7 +16,8 @@ set $mod Mod1
 
 # This requires a recent version of i3 with xft support.
 # font xft:NanumGothic Regular 10, FreeSans 10
-font xft:WenQuanYi Micro Hei Mono Bold 8
+# font xft:DejaVu Sans Bold 8
+font xft:WenQuanYi Micro Hei Mono 9.4
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -191,7 +192,7 @@ bar {
             focused_workspace  #E17800 #E17800 #000000
             active_workspace   #000000 #000000 #ffffff
             inactive_workspace #000000 #000000 #999999
-            urgent_workspace   #FFE662 #222222 #ffffff
+            urgent_workspace   #E17800 #332200 #ffffff
         }
         position top
         font xft:WenQuanYi Micro Hei Mono Bold 10
@@ -200,7 +201,7 @@ bar {
 
 # colors colours
 # class                 border  backgr. text    indicator
-client.focused          #FFE662 #E17800 #000000 #4ebeff
+client.focused          #D05A00 #E17800 #000000 #4ebeff
 client.focused_inactive #000000 #000000 #dddddd #181e20
 client.unfocused        #000000 #000000 #666666 #191d1e
 client.urgent           #2f343a #900000 #ffffff #900000
