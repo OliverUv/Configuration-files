@@ -15,7 +15,8 @@ set $mod Mod1
 #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 
 # This requires a recent version of i3 with xft support.
-font pango:NanumGothic Regular 10, FreeSans 10
+font xft:NanumGothic Regular 10, FreeSans 10
+
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -183,7 +184,7 @@ bar {
         colors {
             background #000000
             statusline #999999
-            separator #0a1015
+            separator #000000
 
             # colorclass       border  backg.  text
             focused_workspace  #E17800 #E17800 #000000
@@ -192,7 +193,8 @@ bar {
             urgent_workspace   #FFE662 #222222 #ffffff
         }
         position top
-        status_command i3status --config ~/.i3/status.conf
+        font xft:Liberation Mono 11
+        status_command /home/oliver/bin/i3conky.sh
 }
 
 # colors colours
