@@ -15,7 +15,10 @@ set $mod Mod1
 #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 
 # This requires a recent version of i3 with xft support.
-font pango:NanumGothic Regular 10, FreeSans 10
+# font xft:NanumGothic Regular 10, FreeSans 10
+# font xft:DejaVu Sans Bold 8
+font xft:WenQuanYi Micro Hei Mono 9.4
+
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -77,7 +80,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+u focus parent
 
 # focus the child container
-bindsym $mod+Shift+U focus parent
+bindsym $mod+Shift+U focus child
 
 # vim-like marks
 bindsym $mod+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
@@ -183,21 +186,23 @@ bar {
         colors {
             background #000000
             statusline #999999
-            separator #0a1015
+            separator #000000
 
             # colorclass       border  backg.  text
             focused_workspace  #E17800 #E17800 #000000
             active_workspace   #000000 #000000 #ffffff
             inactive_workspace #000000 #000000 #999999
-            urgent_workspace   #FFE662 #222222 #ffffff
+            urgent_workspace   #E17800 #332200 #ffffff
         }
         position top
-        status_command i3status --config ~/.i3/status.conf
+        tray_output primary
+        font xft:WenQuanYi Micro Hei Mono Bold 10
+        status_command /home/oliver/bin/i3conky.sh
 }
 
 # colors colours
 # class                 border  backgr. text    indicator
-client.focused          #FFE662 #E17800 #000000 #4ebeff
+client.focused          #D05A00 #E17800 #000000 #4ebeff
 client.focused_inactive #000000 #000000 #dddddd #181e20
 client.unfocused        #000000 #000000 #666666 #191d1e
 client.urgent           #2f343a #900000 #ffffff #900000

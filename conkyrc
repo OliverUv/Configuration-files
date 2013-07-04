@@ -1,0 +1,53 @@
+## i3barConky
+out_to_x no
+own_window no
+out_to_console yes
+background no
+use_xft yes
+
+##avoid flicke## Update interval in seconds
+update_interval 2
+
+## This is the number of times Conky will update before quitting.
+## Set to zero to run forever
+total_run_times 0
+ 
+## How strict should if_up be when testing an interface for being up?
+if_up_strictness address
+
+## Force UTF8? note that UTF8 support required XFT
+override_utf8_locale yes
+ 
+## number of cpu samples to average
+## set to 1 to disable averaging
+cpu_avg_samples 2
+short_units yes
+
+## Stuff after 'TEXT' will be formatted on screen
+TEXT
+[
+	{ 
+	  "full_text" : "~${fs_free /home}", 
+	  "min_width": 72,
+	  "color" : "\#999999"
+	},
+	{ 
+	  "full_text" : "/${fs_free /}", 
+	  "min_width": 72,
+	  "color" : "\#999999"
+	},
+	{ 
+	  "full_text" : "${execi 60 curl -p icanhazip.com}", 
+	  "color" : "\#999999",
+	  "min_width": 72
+	},
+	{ 
+	  "full_text" : "${time %A %d %B   }${time %H:%M}", 
+	  "separator" : false, 
+	  "separator_block_width" : 3, 
+	  "color" : "\#E17800", 
+	  "min_width": 300,
+	  "align" : "center"
+	}
+],
+
