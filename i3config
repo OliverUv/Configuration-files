@@ -15,7 +15,8 @@ set $mod Mod1
 #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 
 # This requires a recent version of i3 with xft support.
-font xft:NanumGothic Regular 10, FreeSans 10
+# font xft:NanumGothic Regular 10, FreeSans 10
+font xft:WenQuanYi Micro Hei Mono Bold 8
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -193,7 +194,7 @@ bar {
             urgent_workspace   #FFE662 #222222 #ffffff
         }
         position top
-        font xft:Liberation Mono 11
+        font xft:WenQuanYi Micro Hei Mono Bold 10
         status_command /home/oliver/bin/i3conky.sh
 }
 
