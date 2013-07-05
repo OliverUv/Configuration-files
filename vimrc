@@ -87,9 +87,13 @@ set fillchars=fold:\ ,vert:\  " fill characters for fold lines and lines between
 "" Settings for specific filetypes
 ""
 
-au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
-au FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2
-au FileType c setlocal colorcolumn=79
+if has("autocmd")
+    au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
+    au FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2
+    au BufNewFile,BufReadPost *.coffee setlocal foldmethod=indent shiftwidth=2 softtabstop=2 expandtab
+    au FileType c setlocal colorcolumn=79
+endif
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""
