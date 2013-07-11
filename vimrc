@@ -250,9 +250,9 @@ let g:gist_detect_filetype = 1
 " Don't muck about with pwd
 let g:ctrlp_working_path_mode = '0'
 let g:ctrlp_extensions = ['funky']
-let g:ctrlp_map = '<leader>lr'
-nnoremap <silent> <leader>lb :CtrlPBuffer<cr>
-nnoremap <silent> <leader>lf :CtrlPFunky<cr>
+let g:ctrlp_map = '<leader>,r'
+nnoremap <silent> <leader>,b :CtrlPBuffer<cr>
+nnoremap <silent> <leader>,f :CtrlPFunky<cr>
 
 
 
@@ -264,8 +264,15 @@ nnoremap <silent> <leader>lf :CtrlPFunky<cr>
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 
-" Fuzzy matching for external plugins.
+" Fuzzy matching for plugins not using matcher_default as filter
 call unite#custom#source('outline,line,grep', 'filters', ['matcher_fuzzy'])
+
+" Ignore some things
+call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
+            \ 'ignore_pattern', join([
+            \ '\.git/',
+            \ '\.pyc$',
+            \ ], '\|'))
 
 " Situate on bottom or right by default
 let g:unite_split_rule = "botright"
@@ -277,12 +284,9 @@ let g:unite_prompt = '» '
 let g:unite_update_time = 200
 " Always start in insert mode
 let g:unite_enable_start_insert = 1
-" Ignore some things
-call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
-            \ 'ignore_pattern', join([
-            \ '\.git/',
-            \ '\.pyc$',
-            \ ], '\|'))
+" Set to some better time formats
+let g:unite_source_buffer_time_format = " %Y-%m-%d  %H:%M:%S "
+let g:unite_source_file_mru_time_format = " %Y-%m-%d  %H:%M:%S "
 
 " Use ag or ack as grep command if possible
 if executable('ag')
@@ -297,17 +301,17 @@ elseif executable('ack-grep')
 endif
 
 " Bindings
-nnoremap <silent><leader>,r :<C-u>Unite -buffer-name=files buffer file_mru bookmark file_rec/async<CR>
-nnoremap <silent><leader>,b :<C-u>Unite -buffer-name=buffers buffer<CR>
-nnoremap <silent><leader>,y :<C-u>Unite -buffer-name=yanks history/yank<CR>
-nnoremap <silent><leader>,o :<C-u>Unite -buffer-name=outline outline<CR>
-nnoremap <silent><leader>,a :<C-u>Unite -buffer-name=outline -vertical outline<CR>
-nnoremap <silent><leader>,l :<C-u>Unite -buffer-name=search line<CR>
-nnoremap <silent><leader>,w :<C-u>UniteWithCursorWord -buffer-name=search line<CR>
-nnoremap <silent><leader>,g :<C-u>Unite grep<CR>
-nnoremap <silent><leader>,t :<C-u>Unite -buffer-name=tags tag tag/file<CR>
-nnoremap <silent><leader>,i :<C-u>Unite -buffer-name=included-tags tag/include<CR>
-nnoremap <silent><leader>,d :<C-u>Unite -buffer-name=change-cwd -default-action=lcd directory_mru directory<CR>
+nnoremap <silent><leader>lr :<C-u>Unite -buffer-name=files file_mru bookmark file_rec/async file/new<CR>
+nnoremap <silent><leader>lb :<C-u>Unite -buffer-name=buffers buffer<CR>
+nnoremap <silent><leader>ly :<C-u>Unite -buffer-name=yanks history/yank<CR>
+nnoremap <silent><leader>lo :<C-u>Unite -buffer-name=outline outline<CR>
+nnoremap <silent><leader>la :<C-u>Unite -buffer-name=outline -vertical outline<CR>
+nnoremap <silent><leader>ll :<C-u>Unite -buffer-name=search line<CR>
+nnoremap <silent><leader>lw :<C-u>UniteWithCursorWord -buffer-name=search line<CR>
+nnoremap <silent><leader>lg :<C-u>Unite grep<CR>
+nnoremap <silent><leader>lt :<C-u>Unite -buffer-name=tags tag tag/file<CR>
+nnoremap <silent><leader>li :<C-u>Unite -buffer-name=included-tags tag/include<CR>
+nnoremap <silent><leader>ld :<C-u>Unite -buffer-name=change-cwd -default-action=lcd directory_mru directory<CR>
 
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()
@@ -315,6 +319,9 @@ function! s:unite_my_settings()
   nmap <buffer> <leader>d <Plug>(unite_exit)
   nmap <buffer> <C-c> <Plug>(unite_exit)
   imap <buffer> <C-c> <Plug>(unite_exit)
+
+  nnoremap <buffer> <C-n> <Plug>(unite_select_next_line)
+  nnoremap <buffer> <C-p> <Plug>(unite_select_previous_line)
 
   inoremap <silent><buffer><expr> <C-j> unite#do_action('split')
   nnoremap <silent><buffer><expr> <C-j> unite#do_action('split')
@@ -342,7 +349,7 @@ let g:tex_flavor='latex'
 let g:Tex_SmartKeyQuote=0
 let g:Tex_MultipleCompileFormats = 'dvi,pdf'
 
-nnoremap <silent> <leader>lg :execute "!makeglossaries " . shellescape(expand('%:r'), 1)<CR>
+nnoremap <silent> <leader>,g :execute "!makeglossaries " . shellescape(expand('%:r'), 1)<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
