@@ -23,8 +23,11 @@ endif
 
 " Automatic commands
 if has("autocmd")
+    augroup MyAutoCmd
     " Automatically load vimrc when it is saved
     autocmd bufwritepost .vimrc source $MYVIMRC
+    autocmd BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc
+          \ so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
     " Set ghc as compiler for haskell files
     autocmd BufEnter *.hs compiler ghc
     " Disable foldcolumn in diff windows
@@ -54,6 +57,7 @@ command! Qall qall
 
 syntax enable		" Enables syntax highlighting with custom colors
 filetype plugin indent on	" React on filetypes with plugins and syntax
+set scrolloff=10        " Minimum number of lines to display around cursor
 set autoread		" Files changed from outside are automatically reread
 set hlsearch            " Highlight search results
 set mousehide           " Hide the mouse when typing text
@@ -82,6 +86,11 @@ set backspace=indent,eol,start whichwrap+=<,>,[,] "backspace functionality
 set formatprg=par	" user par to format text with the gq command
 set noea		" prevent equalizing of split sizes on closed split
 set fillchars=fold:\ ,vert:\  " fill characters for fold lines and lines between vsplits
+
+" Completion ignores
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.pyc
+set wildignore+=log/**
+set wildignore+=tmp/**
 
 """""""""""""""""""""""""""""""""""""""""""""
 "" Settings for specific filetypes
@@ -238,13 +247,80 @@ let g:gist_detect_filetype = 1
     \ 'ToggleFocus()':        ['<s-tab>'],
     \ 'PrtExit()':            ['<c-c>', '<c-g>'],
     \ }
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.pyc
 " Don't muck about with pwd
 let g:ctrlp_working_path_mode = '0'
 let g:ctrlp_extensions = ['funky']
 let g:ctrlp_map = '<leader>lr'
 nnoremap <silent> <leader>lb :CtrlPBuffer<cr>
 nnoremap <silent> <leader>lf :CtrlPFunky<cr>
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Unite configuration
+""
+
+" Fuzzy match by default
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+
+" Fuzzy matching for external plugins.
+call unite#custom#source('outline,line,grep', 'filters', ['matcher_fuzzy'])
+
+" Situate on bottom or right by default
+let g:unite_split_rule = "botright"
+" Keep track of yanks
+let g:unite_source_history_yank_enable = 1
+" Prettier prompt
+let g:unite_prompt = '» '
+" Faster update time after keypresses
+let g:unite_update_time = 200
+" Always start in insert mode
+let g:unite_enable_start_insert = 1
+" Ignore some things
+call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
+            \ 'ignore_pattern', join([
+            \ '\.git/',
+            \ '\.pyc$',
+            \ ], '\|'))
+
+" Use ag or ack as grep command if possible
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nocolor --nogroup --hidden'
+  let g:unite_source_grep_recursive_opt = ''
+elseif executable('ack-grep')
+  let g:unite_source_grep_command = 'ack-grep'
+  let g:unite_source_grep_default_opts =
+              \ '--no-heading --no-color -a -H'
+  let g:unite_source_grep_recursive_opt = ''
+endif
+
+" Bindings
+nnoremap <silent><leader>,r :<C-u>Unite -buffer-name=files buffer file_mru bookmark file_rec/async<CR>
+nnoremap <silent><leader>,b :<C-u>Unite -buffer-name=buffers buffer<CR>
+nnoremap <silent><leader>,y :<C-u>Unite -buffer-name=yanks history/yank<CR>
+nnoremap <silent><leader>,o :<C-u>Unite -buffer-name=outline outline<CR>
+nnoremap <silent><leader>,a :<C-u>Unite -buffer-name=outline -vertical outline<CR>
+nnoremap <silent><leader>,l :<C-u>Unite -buffer-name=search line<CR>
+nnoremap <silent><leader>,w :<C-u>UniteWithCursorWord -buffer-name=search line<CR>
+nnoremap <silent><leader>,g :<C-u>Unite grep<CR>
+nnoremap <silent><leader>,t :<C-u>Unite -buffer-name=tags tag tag/file<CR>
+nnoremap <silent><leader>,i :<C-u>Unite -buffer-name=included-tags tag/include<CR>
+nnoremap <silent><leader>,d :<C-u>Unite -buffer-name=change-cwd -default-action=lcd directory_mru directory<CR>
+
+autocmd FileType unite call s:unite_my_settings()
+function! s:unite_my_settings()
+  "Keymaps inside the unite split
+  nmap <buffer> <leader>d <Plug>(unite_exit)
+  nmap <buffer> <C-c> <Plug>(unite_exit)
+  imap <buffer> <C-c> <Plug>(unite_exit)
+
+  inoremap <silent><buffer><expr> <C-j> unite#do_action('split')
+  nnoremap <silent><buffer><expr> <C-j> unite#do_action('split')
+  inoremap <silent><buffer><expr> <C-k> unite#do_action('vsplit')
+  nnoremap <silent><buffer><expr> <C-k> unite#do_action('vsplit')
+endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" Tagbar configuration

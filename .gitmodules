@@ -128,3 +128,15 @@
 [submodule "dotvim/bundle/vim-coffee-script"]
 	path = dotvim/bundle/vim-coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule "dotvim/bundle/unite.vim"]
+	path = dotvim/bundle/unite.vim
+	url = https://github.com/Shougo/unite.vim.git
+[submodule "dotvim/bundle/unite-outline"]
+	path = dotvim/bundle/unite-outline
+	url = https://github.com/h1mesuke/unite-outline.git
+[submodule "dotvim/bundle/unite-help"]
+	path = dotvim/bundle/unite-help
+	url = https://github.com/tsukkee/unite-help.git
+[submodule "dotvim/bundle/unite-tag"]
+	path = dotvim/bundle/unite-tag
+	url = https://github.com/tsukkee/unite-tag.git
