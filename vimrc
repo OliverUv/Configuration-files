@@ -89,6 +89,7 @@ set fillchars=fold:\ ,vert:\  " fill characters for fold lines and lines between
 
 " Completion ignores
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.pyc
+set wildignore+=.ropeproject/**
 set wildignore+=log/**
 set wildignore+=tmp/**
 
@@ -271,6 +272,7 @@ call unite#custom#source('outline,line,grep,session', 'filters', ['matcher_fuzzy
 call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
             \ 'ignore_pattern', join([
             \ '\.git/',
+            \ '\.ropeproject/',
             \ '\.pyc$',
             \ ], '\|'))
 
