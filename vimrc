@@ -23,15 +23,19 @@ endif
 
 " Automatic commands
 if has("autocmd")
+    augroup MyAutoCmd
     " Automatically load vimrc when it is saved
     autocmd bufwritepost .vimrc source $MYVIMRC
+    autocmd BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc
+          \ so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
     " Set ghc as compiler for haskell files
     autocmd BufEnter *.hs compiler ghc
     " Disable foldcolumn in diff windows
     au FilterWritePre * if &diff | setlocal fdc=0 | endif
-    " Disable ugly-making things in diff window
+    " Disable things that disturb diff-colors in diff window
     au FilterWritePre * if &diff | setlocal nocursorcolumn | endif
     au FilterWritePre * if &diff | setlocal nocursorline | endif
+    au FilterWritePre * if &diff | IndentGuidesDisable | endif
 endif
 
 " :Configure to edit this file in a split window
@@ -53,6 +57,7 @@ command! Qall qall
 
 syntax enable		" Enables syntax highlighting with custom colors
 filetype plugin indent on	" React on filetypes with plugins and syntax
+set scrolloff=4        " Minimum number of lines to display around cursor
 set autoread		" Files changed from outside are automatically reread
 set hlsearch            " Highlight search results
 set mousehide           " Hide the mouse when typing text
@@ -82,13 +87,24 @@ set formatprg=par	" user par to format text with the gq command
 set noea		" prevent equalizing of split sizes on closed split
 set fillchars=fold:\ ,vert:\  " fill characters for fold lines and lines between vsplits
 
+" Completion ignores
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.pyc
+set wildignore+=.ropeproject/**
+set wildignore+=log/**
+set wildignore+=tmp/**
+
 """""""""""""""""""""""""""""""""""""""""""""
 "" Settings for specific filetypes
 ""
 
-au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
-au FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2
-au FileType c setlocal colorcolumn=79
+if has("autocmd")
+    au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
+    au FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2
+    au BufNewFile,BufReadPost *.coffee setlocal foldmethod=indent shiftwidth=2 softtabstop=2 expandtab
+    au BufWritePost,FileWritePost *.coffee silent CoffeeMake! | cwindow
+    au FileType c setlocal colorcolumn=79
+endif
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""
@@ -232,13 +248,96 @@ let g:gist_detect_filetype = 1
     \ 'ToggleFocus()':        ['<s-tab>'],
     \ 'PrtExit()':            ['<c-c>', '<c-g>'],
     \ }
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.pyc
 " Don't muck about with pwd
 let g:ctrlp_working_path_mode = '0'
 let g:ctrlp_extensions = ['funky']
-let g:ctrlp_map = '<leader>lr'
-nnoremap <silent> <leader>lb :CtrlPBuffer<cr>
-nnoremap <silent> <leader>lf :CtrlPFunky<cr>
+let g:ctrlp_map = '<leader>,r'
+nnoremap <silent> <leader>,b :CtrlPBuffer<cr>
+nnoremap <silent> <leader>,f :CtrlPFunky<cr>
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Unite configuration
+""
+
+" Fuzzy match by default
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+
+" Fuzzy matching for plugins not using matcher_default as filter
+call unite#custom#source('outline,line,grep,session', 'filters', ['matcher_fuzzy'])
+
+" Ignore some things
+call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
+            \ 'ignore_pattern', join([
+            \ '\.git/',
+            \ '\.ropeproject/',
+            \ '\.pyc$',
+            \ ], '\|'))
+
+" Situate on bottom or right by default
+let g:unite_split_rule = "botright"
+" Keep track of yanks
+let g:unite_source_history_yank_enable = 1
+" Prettier prompt
+let g:unite_prompt = '» '
+" Faster update time after keypresses
+let g:unite_update_time = 200
+" Always start in insert mode
+let g:unite_enable_start_insert = 1
+" Autosave sessions for unite-sessions
+let g:unite_source_session_enable_auto_save = 1
+" Non-ugly colors for selected item, requires you to set 'hi UnitedSelectedLine'
+let g:unite_cursor_line_highlight = "UniteSelectedLine"
+" Set to some better time formats
+let g:unite_source_buffer_time_format = " %Y-%m-%d  %H:%M:%S "
+let g:unite_source_file_mru_time_format = " %Y-%m-%d  %H:%M:%S "
+
+" Use ag or ack as grep command if possible
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nocolor --nogroup --hidden'
+  let g:unite_source_grep_recursive_opt = ''
+elseif executable('ack-grep')
+  let g:unite_source_grep_command = 'ack-grep'
+  let g:unite_source_grep_default_opts =
+              \ '--no-heading --no-color -a -H'
+  let g:unite_source_grep_recursive_opt = ''
+endif
+
+" Bindings
+nnoremap <silent><leader>lr :<C-u>Unite -buffer-name=files file_rec/async file/new<CR>
+nnoremap <silent><leader>le :<C-u>Unite -buffer-name=files file_mru bookmark file_rec/async file/new<CR>
+nnoremap <silent><leader>lb :<C-u>Unite -buffer-name=buffers buffer<CR>
+nnoremap <silent><leader>ly :<C-u>Unite -buffer-name=yanks history/yank<CR>
+nnoremap <silent><leader>lo :<C-u>Unite -buffer-name=outline outline<CR>
+nnoremap <silent><leader>la :<C-u>Unite -buffer-name=outline -vertical outline<CR>
+nnoremap <silent><leader>ll :<C-u>Unite -buffer-name=search line<CR>
+nnoremap <silent><leader>lw :<C-u>UniteWithCursorWord -buffer-name=search line<CR>
+nnoremap <silent><leader>lg :<C-u>Unite grep<CR>
+nnoremap <silent><leader>ls :<C-u>Unite session<CR>
+nnoremap <silent><leader>lt :<C-u>Unite -buffer-name=tags tag tag/file<CR>
+nnoremap <silent><leader>li :<C-u>Unite -buffer-name=included-tags tag/include<CR>
+nnoremap <silent><leader>ld :<C-u>Unite -buffer-name=change-cwd -default-action=lcd directory_mru directory<CR>
+
+nnoremap <leader>lS :<C-u>UniteSessionSave 
+
+autocmd FileType unite call s:unite_my_settings()
+function! s:unite_my_settings()
+  "Keymaps inside the unite split
+  nmap <buffer> <leader>d <Plug>(unite_exit)
+  nmap <buffer> <C-c> <Plug>(unite_exit)
+  imap <buffer> <C-c> <Plug>(unite_exit)
+
+  nnoremap <buffer> <C-n> <Plug>(unite_select_next_line)
+  nnoremap <buffer> <C-p> <Plug>(unite_select_previous_line)
+
+  inoremap <silent><buffer><expr> <C-j> unite#do_action('split')
+  nnoremap <silent><buffer><expr> <C-j> unite#do_action('split')
+  inoremap <silent><buffer><expr> <C-k> unite#do_action('vsplit')
+  nnoremap <silent><buffer><expr> <C-k> unite#do_action('vsplit')
+endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" Tagbar configuration
@@ -260,7 +359,7 @@ let g:tex_flavor='latex'
 let g:Tex_SmartKeyQuote=0
 let g:Tex_MultipleCompileFormats = 'dvi,pdf'
 
-nnoremap <silent> <leader>lg :execute "!makeglossaries " . shellescape(expand('%:r'), 1)<CR>
+nnoremap <silent> <leader>,g :execute "!makeglossaries " . shellescape(expand('%:r'), 1)<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""

@@ -5,6 +5,7 @@
 .ropeproject/
 #compiled files
 *.pyc
+**/*.pyc
 *.o
 #tagfiles
 tags
