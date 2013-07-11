@@ -57,7 +57,7 @@ command! Qall qall
 
 syntax enable		" Enables syntax highlighting with custom colors
 filetype plugin indent on	" React on filetypes with plugins and syntax
-set scrolloff=10        " Minimum number of lines to display around cursor
+set scrolloff=4        " Minimum number of lines to display around cursor
 set autoread		" Files changed from outside are automatically reread
 set hlsearch            " Highlight search results
 set mousehide           " Hide the mouse when typing text
@@ -265,7 +265,7 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 
 " Fuzzy matching for plugins not using matcher_default as filter
-call unite#custom#source('outline,line,grep', 'filters', ['matcher_fuzzy'])
+call unite#custom#source('outline,line,grep,session', 'filters', ['matcher_fuzzy'])
 
 " Ignore some things
 call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
@@ -284,6 +284,10 @@ let g:unite_prompt = '» '
 let g:unite_update_time = 200
 " Always start in insert mode
 let g:unite_enable_start_insert = 1
+" Autosave sessions for unite-sessions
+let g:unite_source_session_enable_auto_save = 1
+" Non-ugly colors for selected item, requires you to set 'hi UnitedSelectedLine'
+let g:unite_cursor_line_highlight = "UniteSelectedLine"
 " Set to some better time formats
 let g:unite_source_buffer_time_format = " %Y-%m-%d  %H:%M:%S "
 let g:unite_source_file_mru_time_format = " %Y-%m-%d  %H:%M:%S "
@@ -301,7 +305,8 @@ elseif executable('ack-grep')
 endif
 
 " Bindings
-nnoremap <silent><leader>lr :<C-u>Unite -buffer-name=files file_mru bookmark file_rec/async file/new<CR>
+nnoremap <silent><leader>lr :<C-u>Unite -buffer-name=files file_rec/async file/new<CR>
+nnoremap <silent><leader>le :<C-u>Unite -buffer-name=files file_mru bookmark file_rec/async file/new<CR>
 nnoremap <silent><leader>lb :<C-u>Unite -buffer-name=buffers buffer<CR>
 nnoremap <silent><leader>ly :<C-u>Unite -buffer-name=yanks history/yank<CR>
 nnoremap <silent><leader>lo :<C-u>Unite -buffer-name=outline outline<CR>
@@ -309,9 +314,12 @@ nnoremap <silent><leader>la :<C-u>Unite -buffer-name=outline -vertical outline<C
 nnoremap <silent><leader>ll :<C-u>Unite -buffer-name=search line<CR>
 nnoremap <silent><leader>lw :<C-u>UniteWithCursorWord -buffer-name=search line<CR>
 nnoremap <silent><leader>lg :<C-u>Unite grep<CR>
+nnoremap <silent><leader>ls :<C-u>Unite session<CR>
 nnoremap <silent><leader>lt :<C-u>Unite -buffer-name=tags tag tag/file<CR>
 nnoremap <silent><leader>li :<C-u>Unite -buffer-name=included-tags tag/include<CR>
 nnoremap <silent><leader>ld :<C-u>Unite -buffer-name=change-cwd -default-action=lcd directory_mru directory<CR>
+
+nnoremap <leader>lS :<C-u>UniteSessionSave 
 
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()

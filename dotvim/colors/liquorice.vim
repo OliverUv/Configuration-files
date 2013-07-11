@@ -63,6 +63,9 @@ hi Pmenu        gui=NONE guifg=#f0f0f0 guibg=#903D3D
 hi PmenuSel     gui=NONE guifg=#ffffff guibg=#BF4545
 hi PmenuSbar    gui=NONE guifg=#f0f0f0 guibg=#B67171
 
+" Unite selected line
+hi UniteSelectedLine gui=NONE guifg=NONE guibg=#301020
+
 " Cursor
 hi Cursor       gui=BOLD guifg=#ffffff guibg=#99004c
 hi MatchParen   gui=BOLD guifg=#ffffff guibg=#6600cc

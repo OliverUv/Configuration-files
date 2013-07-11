@@ -140,3 +140,6 @@
 [submodule "dotvim/bundle/unite-tag"]
 	path = dotvim/bundle/unite-tag
 	url = https://github.com/tsukkee/unite-tag.git
+[submodule "dotvim/bundle/unite-session"]
+	path = dotvim/bundle/unite-session
+	url = https://github.com/Shougo/unite-session.git
