@@ -597,12 +597,14 @@ map Q <Nop>
 
 " Mappings to interact with fugitive
 nnoremap <silent> <leader>gs :Gstatus<cr>
-nnoremap <silent> <leader>gg :Ggrep 
 nnoremap <silent> <leader>gl :Glog<cr> 
 nnoremap <silent> <leader>gd :Gdiff<cr> 
+nnoremap <silent> <leader>gw :Gwrite<cr> 
 nnoremap <silent> <leader>gh :Git hub<cr> 
 nnoremap <silent> <leader>gH :Git buh<cr> 
 nnoremap <silent> <leader>gp :Git push 
+nnoremap <leader>gg :Ggrep 
+nnoremap <leader>gc :Gcommit -m '
 
 " Misc mappings
 nnoremap <leader><space> i <esc>la <esc>h
