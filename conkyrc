@@ -6,7 +6,11 @@ background no
 use_xft yes
 
 ##avoid flicke## Update interval in seconds
-update_interval 2
+update_interval 20
+
+# Add spaces to keep things from moving about?  This only affects certain objects.
+# use_spacer should have an argument of left, right, or none
+use_spacer left
 
 ## This is the number of times Conky will update before quitting.
 ## Set to zero to run forever
