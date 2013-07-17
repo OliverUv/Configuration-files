@@ -143,3 +143,18 @@
 [submodule "dotvim/bundle/unite-session"]
 	path = dotvim/bundle/unite-session
 	url = https://github.com/Shougo/unite-session.git
+[submodule "dotvim/bundle/vim-lesscss"]
+	path = dotvim/bundle/vim-lesscss
+	url = git@github.com:OliverUv/vim-lesscss.git
+[submodule "dotvim/bundle/vim-less"]
+	path = dotvim/bundle/vim-less
+	url = https://github.com/groenewege/vim-less.git
+[submodule "dotvim/bundle/vim-css-color"]
+	path = dotvim/bundle/vim-css-color
+	url = https://github.com/skammer/vim-css-color.git
+[submodule "dotvim/bundle/vim-css3-syntax"]
+	path = dotvim/bundle/vim-css3-syntax
+	url = https://github.com/hail2u/vim-css3-syntax.git
+[submodule "dotvim/bundle/colorv.vim"]
+	path = dotvim/bundle/colorv.vim
+	url = https://github.com/vim-scripts/colorv.vim.git
