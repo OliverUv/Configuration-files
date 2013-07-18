@@ -208,9 +208,8 @@ client.unfocused        #000000 #000000 #666666 #191d1e
 client.urgent           #2f343a #900000 #ffffff #900000
 
 # Autostart programs
-exec --no-startup-id setxkbmap -model applealu_iso -layout "en_US,se" -option 'ctrl:nocaps,altwin:swap_lalt_lwin,grp:lalt_lshift_toggle'
-
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id dropbox start
 exec --no-startup-id volumeicon
 exec google-chrome
+
