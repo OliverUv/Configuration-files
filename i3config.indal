@@ -1,0 +1,3 @@
+# Host specific settings
+
+exec --no-startup-id setxkbmap -model applealu_iso -layout "en_US,se" -option 'ctrl:nocaps,altwin:swap_lalt_lwin,grp:lalt_lshift_toggle'
