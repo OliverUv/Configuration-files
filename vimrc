@@ -88,7 +88,7 @@ set noea		" prevent equalizing of split sizes on closed split
 set fillchars=fold:\ ,vert:\  " fill characters for fold lines and lines between vsplits
 
 " Completion ignores
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.pyc
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.pyc,*.class
 set wildignore+=.ropeproject/**
 set wildignore+=log/**
 set wildignore+=tmp/**
@@ -274,6 +274,8 @@ call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
             \ '\.git/',
             \ '\.ropeproject/',
             \ '\.pyc$',
+            \ '\.class$', '.jar$',
+            \ '\.jpg$', '.jpeg$', '.bmp$', '.png$', '.gif$'
             \ ], '\|'))
 
 " Situate on bottom or right by default
