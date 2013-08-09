@@ -1,0 +1,5 @@
+#! /bin/bash
+
+if [ -e $HOME/.i3/config.base -a -e $HOME/.i3/config.local ]; then
+    cat $HOME/.i3/config.base $HOME/.i3/config.local > $HOME/.i3/config
+fi
