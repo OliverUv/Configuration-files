@@ -86,6 +86,7 @@ set backspace=indent,eol,start whichwrap+=<,>,[,] "backspace functionality
 set formatprg=par	" user par to format text with the gq command
 set noea		" prevent equalizing of split sizes on closed split
 set fillchars=fold:\ ,vert:\  " fill characters for fold lines and lines between vsplits
+set ttimeoutlen=50      " Faster twitchin' for everything
 
 " Completion ignores
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.pyc,*.class
