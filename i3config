@@ -36,9 +36,9 @@ bindsym $mod+Return exec /home/oliver/bin/color_urxvt
 bindsym $mod+Shift+W kill
 
 # start dmenu
-bindsym $mod+d exec dmenu_run -i -fn 'DejaVu Sans 10' -sb '#E17800' -sf '#000000'
+bindsym $mod+d exec dmenu_run -i -fn 'DejaVu Sans 10' -sb '#E17800' -sf '#000000' -h 23
 # start dmenu for .desktop entries
-bindsym $mod+Shift+D exec i3-dmenu-desktop --dmenu "dmenu -i -fn 'DejaVu Sans 10' -sb '#E17800' -sf '#000000'"
+bindsym $mod+Shift+D exec i3-dmenu-desktop --dmenu "dmenu -i -fn 'DejaVu Sans 10' -sb '#E17800' -sf '#000000' -h 23"
 
 # start apps
 bindsym $mod+Control+g exec google-chrome
