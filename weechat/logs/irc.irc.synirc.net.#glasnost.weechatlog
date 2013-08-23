@@ -1,0 +1,169 @@
+2013-08-23 04:33:22	-->	oliver (~oliver@synIRC-D087E2D6.a163.priv.bahnhof.se) has joined #glasnost
+2013-08-23 04:33:22	--	Topic for #glasnost is "Гла́сность: Glory to Arstotzka. | !stats | http://stats.enhasa.org/comics/ updated 2013-08-04 | <tanasinn> THIS THREAD IS USELESS AND CCFREAK2K ISN'T MUCH BETTER."
+2013-08-23 04:33:22	--	Topic set by Emberstrife on mån, 19 aug 2013 11:55:25
+2013-08-23 04:33:22	--	Nicks #glasnost: [~mr_daemon &AforAnonymous &ccfreak2k &Drizt &Emberstrife &iwakura &plus &Zera @Serge %tH +cake +moebius [ComicGuy] Bloopy br0 Coolguy cyanure Davidf88 DriztWork Elixir GhostFreeman InfinityB Knifa|irssi Lemon Nam-Ereh-Won OceanSpray oliver r4v5 sney tanasinn xaimus_ ycm]
+2013-08-23 04:33:22	--	Channel #glasnost: 32 nicks (9 ops, 1 halfop, 2 voices, 20 normals)
+2013-08-23 04:33:24	--	Mode #glasnost [+snrSl 68000]
+2013-08-23 04:33:24	--	Channel created on tor, 27 nov 2008 19:01:08
+2013-08-23 04:33:39	oliver	so
+2013-08-23 04:33:41	--	You are now known as eMb
+2013-08-23 04:33:54	--	Mode #glasnost [+ao eMb eMb] by ChanServ
+2013-08-23 04:34:14	&eMb	apparently i fucked it up
+2013-08-23 04:34:15	&eMb	lol
+2013-08-23 04:35:34	&ccfreak2k	http://nginx.com/products/
+2013-08-23 04:35:35	&iwakura	Title: The High Performance Reverse Proxy, Load Balancer, Edge Cache, Origin Server | NGINX (at nginx.com)
+2013-08-23 04:35:42	&ccfreak2k	nginx plus announced
+2013-08-23 04:40:19	&eMb	mr_daemon: anyway so i'm going to run weechat locally until i have time to fix this computer
+2013-08-23 04:40:29	&eMb	so if you could hand over the configs, I'd love that
+2013-08-23 04:53:42	&plus	.translate de en Poppen
+2013-08-23 04:53:43	&iwakura	plus: An error has occurred and has been logged. Please contact this bot's administrator for more information.
+2013-08-23 04:53:45	&plus	wut
+2013-08-23 04:54:37	&plus	AforAnonymous: https://www.youtube.com/watch?v=wH_BFEiJ6Os
+2013-08-23 04:54:39	&iwakura	Title: Helmut Poppen - YouTube (at www.youtube.com)
+2013-08-23 04:57:05	~mr_daemon	That's p. cool
+2013-08-23 04:57:22	&plus	http://www.youtube.com/watch?v=RfVbiefMdNU
+2013-08-23 04:57:24	~mr_daemon	eMb: https://gist.github.com/mrdaemon/6314890https://gist.github.com/mrdaemon/6314890
+2013-08-23 04:57:26	~mr_daemon	err
+2013-08-23 04:57:28	~mr_daemon	eMb: https://gist.github.com/mrdaemon/6314890
+2013-08-23 04:57:30	&iwakura	Title: alias.conf (at gist.github.com)
+2013-08-23 04:58:01	&eMb	oh, had no idea you could put several files in the same gist
+2013-08-23 04:58:02	&eMb	neat
+2013-08-23 04:58:05	&eMb	ty
+2013-08-23 04:58:30	~mr_daemon	eMb: I suggest you don't just go ahead and use them as-is but instead selectively /set shit
+2013-08-23 04:58:42	&eMb	k
+2013-08-23 04:59:07	~mr_daemon	also do note that this is set according to my preference
+2013-08-23 04:59:14	~mr_daemon	for instanced I turned off a lot of default things
+2013-08-23 04:59:18	~mr_daemon	that I just dislike
+2013-08-23 04:59:33	~mr_daemon	like the right aligned nicks
+2013-08-23 04:59:37	~mr_daemon	and vertical bar
+2013-08-23 04:59:41	~mr_daemon	and the users bar
+2013-08-23 04:59:59	~mr_daemon	and I also moved input lines and bars around so they looked like irssis
+2013-08-23 05:00:02	~mr_daemon	and merged some as root bars
+2013-08-23 05:00:07	~mr_daemon	instead of unique per window
+2013-08-23 05:00:26	&eMb	yes i saw sshot
+2013-08-23 05:00:36	&eMb	your settings looked v nice
+2013-08-23 05:00:42	&eMb	very similar to mine
+2013-08-23 05:01:46	sney	waifu gets into this mode sometimes where she'll just start listing things that were related to the last thing she was talking about 
+2013-08-23 05:01:54	-->	_Sata_ (~no@ridi.pagliaccio.sul.tuo.amore.infranto) has joined #glasnost
+2013-08-23 05:01:54	--	Mode #glasnost [+h _Sata_] by ChanServ
+2013-08-23 05:01:59	sney	I do'nt know how to stop it 
+2013-08-23 05:02:22	&eMb	:cutto:
+2013-08-23 05:02:31	~mr_daemon	( ﾟ∀ﾟ)✂╰⋃╯
+2013-08-23 05:02:43	~mr_daemon	sney: what do you mean
+2013-08-23 05:04:06	sney	she uh
+2013-08-23 05:04:58	sney	will tangent off from a conversation about, for instance, movies and will just start listing the movies she's seen in like the past year without really talking about them she just has to go down the list
+2013-08-23 05:05:05	sney	it almost seems like a compulsive thing idk 
+2013-08-23 05:05:31	~mr_daemon	Like
+2013-08-23 05:05:35	~mr_daemon	just enumerating?
+2013-08-23 05:05:41	sney	yeah basically 
+2013-08-23 05:05:51	~mr_daemon	Or like wrapping it up in a comment
+2013-08-23 05:05:56	~mr_daemon	about every movie
+2013-08-23 05:06:30	sney	yeah usually there's a comment about every item and then it continues 
+2013-08-23 05:07:07	sney	and it's sort of anti-conversation because it just keeps going and there's nothing to hang onto and talk about 
+2013-08-23 05:08:22	~mr_daemon	Maybe she just doesn't notice
+2013-08-23 05:09:28	sney	it's possible. she gets kinda defensive too so I try to be careful about that shit
+2013-08-23 05:09:37	~mr_daemon	Yeah
+2013-08-23 05:09:59	~mr_daemon	I was thinking 'SURELY THAT COULD BE BROACHED' and then my gut feeling was like 'this could be tricky, watch out'
+2013-08-23 05:10:02	~mr_daemon	out of sheer
+2013-08-23 05:10:05	~mr_daemon	primal response
+2013-08-23 05:10:11	sney	way
+2013-08-23 05:10:18	&eMb	mr_daemon: all these conf files go in .weechat ?
+2013-08-23 05:10:21	&eMb	or something?
+2013-08-23 05:10:25	&eMb	can't find in the docs
+2013-08-23 05:10:38	~mr_daemon	Like, you know, when you burn yourself on stuff and your /body/ just avoids the place out of primal instinct
+2013-08-23 05:10:42	~mr_daemon	it was like that
+2013-08-23 05:10:45	~mr_daemon	but for relationships
+2013-08-23 05:10:48	&eMb	they seem to have very good docs though!
+2013-08-23 05:10:55	~mr_daemon	that's p. shitty when you think about it
+2013-08-23 05:10:59	~mr_daemon	but still!
+2013-08-23 05:11:14	~mr_daemon	eMb: It goes in ~/.weechat but
+2013-08-23 05:11:18	~mr_daemon	eMb: you should just run weechat-curses
+2013-08-23 05:11:21	~mr_daemon	eMb: and then /save
+2013-08-23 05:11:29	~mr_daemon	eMb: The best help is actuall in-program
+2013-08-23 05:11:32	&eMb	aham
+2013-08-23 05:11:35	~mr_daemon	eMb: you can tab out shit out of /set
+2013-08-23 05:11:39	~mr_daemon	and /help every bit of it
+2013-08-23 05:11:39	&eMb	neat
+2013-08-23 05:11:43	&eMb	:D\
+2013-08-23 05:11:44	~mr_daemon	to get the current value
+2013-08-23 05:11:46	~mr_daemon	the default value
+2013-08-23 05:11:50	~mr_daemon	and what it actually does
+2013-08-23 05:11:53	&eMb	oh nice
+2013-08-23 05:12:53	~mr_daemon	Yeah it's p. good
+2013-08-23 05:12:58	~mr_daemon	my favorite bit in it so far is the remoting
+2013-08-23 05:13:10	~mr_daemon	They built a purpose-specific protocol
+2013-08-23 05:13:18	~mr_daemon	that is minimal and highly compressed
+2013-08-23 05:13:24	~mr_daemon	for remoting
+2013-08-23 05:13:24	&eMb	wait so you no longer do this via ssh+tmux ?
+2013-08-23 05:13:34	~mr_daemon	I still do but I also have that weechat socket open
+2013-08-23 05:13:38	~mr_daemon	So I can grab my phone
+2013-08-23 05:13:44	~mr_daemon	and run the weechat client for android
+2013-08-23 05:13:45	&eMb	ah
+2013-08-23 05:13:48	&eMb	nice1
+2013-08-23 05:13:53	~mr_daemon	and it brings up an ssh tunnel
+2013-08-23 05:14:02	~mr_daemon	and then speaks to my weechat instance inside tmux
+2013-08-23 05:14:10	~mr_daemon	and I can interact with and see every buffer
+2013-08-23 05:14:17	~mr_daemon	it's literally
+2013-08-23 05:14:21	~mr_daemon	the best thing in the entire world
+2013-08-23 05:14:38	~mr_daemon	instant access to whatever is going on in my client from my phone at all times
+2013-08-23 05:14:44	~mr_daemon	It's just an extra interface to the same data
+2013-08-23 05:15:03	&eMb	:/ doesn't seem like the config has centralized theming ://
+2013-08-23 05:15:10	~mr_daemon	No :(
+2013-08-23 05:15:12	&eMb	maybe that's a good thing though
+2013-08-23 05:15:12	~mr_daemon	BUT
+2013-08-23 05:15:16	&eMb	for extra configurability
+2013-08-23 05:15:16	~mr_daemon	You could make a split conf file
+2013-08-23 05:15:18	~mr_daemon	for you looks
+2013-08-23 05:15:22	~mr_daemon	Also it's a bit dumb because
+2013-08-23 05:15:25	~mr_daemon	colors are spread /all over/
+2013-08-23 05:15:30	~mr_daemon	some belong to weechat core
+2013-08-23 05:15:35	~mr_daemon	and some are specific to the irc protocol
+2013-08-23 05:15:40	~mr_daemon	and go in respective sections
+2013-08-23 05:15:49	&eMb	gosh
+2013-08-23 05:15:50	~mr_daemon	but you can tell they are like, in the process of moving them to one
+2013-08-23 05:15:59	&eMb	gosh weechat pull yourself together!
+2013-08-23 05:16:10	~mr_daemon	From what I read they had it everywhere before
+2013-08-23 05:16:19	~mr_daemon	and they created the weechat.look namespace
+2013-08-23 05:16:26	~mr_daemon	and moved /most/ of the settings there
+2013-08-23 05:16:36	~mr_daemon	you can just circular tab through weechat.look.*
+2013-08-23 05:16:39	~mr_daemon	and check it out
+2013-08-23 05:16:45	~mr_daemon	it's p. hierarchical and easy to browse
+2013-08-23 05:17:00	~mr_daemon	it's just the bearded version of poking around drop down menus
+2013-08-23 05:17:17	~mr_daemon	until you find a label that says something that roughly matches what you want to do
+2013-08-23 05:17:22	&plus	mr_daemon: http://i.imgur.com/2Jf7XaY.jpg
+2013-08-23 05:17:36	~mr_daemon	plus: I actually lol'd
+2013-08-23 05:17:42	~mr_daemon	it echoed
+2013-08-23 05:17:59	&eMb	mr_daemon: iset is a plugin or so?
+2013-08-23 05:18:06	~mr_daemon	yeah but
+2013-08-23 05:18:09	~mr_daemon	it's p. shit
+2013-08-23 05:18:14	~mr_daemon	so don't install it
+2013-08-23 05:18:14	&eMb	what do?
+2013-08-23 05:18:16	&eMb	k
+2013-08-23 05:18:34	~mr_daemon	I mean you can try it but it looks like it was made for a prehistoric version of weechat that didn't have all of the /set features
+2013-08-23 05:18:42	&eMb	wait mr_daemon why do you have iso as default decoder?
+2013-08-23 05:18:44	&eMb	are you some kind of monster
+2013-08-23 05:18:48	~mr_daemon	Do I?
+2013-08-23 05:18:58	~mr_daemon	wait do I that is a really good question
+2013-08-23 05:19:19	&eMb	charset.defualt.decode
+2013-08-23 05:19:29	&eMb	iso-8859-1
+2013-08-23 05:19:32	&eMb	disgusting
+2013-08-23 05:20:31	~mr_daemon	well
+2013-08-23 05:20:36	~mr_daemon	it's the default value
+2013-08-23 05:20:39	~mr_daemon	I didn't alter it
+2013-08-23 05:20:45	~mr_daemon	According to the help
+2013-08-23 05:20:56	~mr_daemon	it sets the default encoding for /decoding/ and whenever it fails
+2013-08-23 05:20:59	~mr_daemon	it falls back to UTF-8
+2013-08-23 05:21:10	~mr_daemon	which is used internally through weechat
+2013-08-23 05:21:23	~mr_daemon	this is probably on the off chance something starts feeding you latin1
+2013-08-23 05:21:37	~mr_daemon	It's easier to go from one to the other
+2013-08-23 05:21:40	~mr_daemon	than the other way around
+2013-08-23 05:22:06	~mr_daemon	But yeah since it's the default value I don't really want to change it.
+2013-08-23 05:22:10	~mr_daemon	There's probably a valid reason anyways
+2013-08-23 05:22:15	~mr_daemon	and everything works
+2013-08-23 05:22:16	&eMb	hm yeah
+2013-08-23 05:22:19	~mr_daemon	I can CATCH IT! MY JIZZ! ( ' ヮ')ノ.・ﾟ*｡・.・ﾟ*｡・.・ﾟ*｡・ヽ(ﾟДﾟ,,)ノ
+2013-08-23 05:22:20	&eMb	weird
+2013-08-23 05:22:22	&eMb	yeah that works
+2013-08-23 05:22:33	~mr_daemon	Default /encoding/ is not set
+2013-08-23 05:22:37	~mr_daemon	so it probably is UTF-8
+2013-08-23 05:22:48	~mr_daemon	at least according to whatever the dev wrote
