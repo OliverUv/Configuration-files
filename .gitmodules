@@ -158,3 +158,6 @@
 [submodule "dotvim/bundle/colorv.vim"]
 	path = dotvim/bundle/colorv.vim
 	url = https://github.com/vim-scripts/colorv.vim.git
+[submodule "dotvim/bundle/jedi-vim"]
+	path = dotvim/bundle/jedi-vim
+	url = https://github.com/davidhalter/jedi-vim.git
