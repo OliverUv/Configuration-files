@@ -57,8 +57,8 @@ hi VertSplit    gui=NONE guifg=#909090 guibg=#111111
 hi WildMenu     gui=NONE guifg=#000000 guibg=#ff80c0
 
 " Diff
-hi DiffText     gui=NONE guifg=NONE guibg=#1A1800
-hi DiffChange   gui=NONE guifg=#f0f0f0 guibg=#714B00
+hi DiffText     gui=NONE guifg=NONE guibg=#1f1500
+hi DiffChange   gui=NONE guifg=#f0f0f0 guibg=#573700
 hi DiffDelete   gui=NONE guifg=#701D1D guibg=#701D1D
 hi DiffAdd      gui=NONE guifg=NONE guibg=#064D08
 
@@ -80,7 +80,7 @@ hi CursorLine   gui=NONE guifg=NONE    guibg=#111111
 hi CursorColumn gui=NONE guifg=NONE    guibg=#111111
 
 " Fold
-hi Folded       gui=NONE guifg=#c8c8c8 guibg=#0d0d0d
+hi Folded       gui=NONE guifg=#c8c8c8 guibg=#0c0c0c
 hi FoldColumn   gui=NONE guifg=#c8c8c8 guibg=#212121
 
 " vim-indent-guides
@@ -109,13 +109,13 @@ hi Visual       gui=NONE guifg=NONE guibg=#7C2B7C
 hi VisualNOS    gui=NONE guifg=NONE guibg=#7C2B7C
 
 " Syntax group
-hi Comment      gui=NONE guifg=#929292 guibg=NONE
+hi Comment      gui=NONE guifg=#8a8a8a guibg=NONE
 hi Constant     gui=NONE guifg=#92d4ff guibg=NONE
-hi Error        gui=BOLD guifg=#ffffff guibg=#7000aa
+hi Error        gui=BOLD guifg=#000000 guibg=#f2ca03
 hi Identifier   gui=NONE guifg=#40f8f8 guibg=NONE
 hi Ignore       gui=NONE guifg=bg      guibg=NONE
 hi PreProc      gui=NONE guifg=#ffa8ff guibg=NONE
-hi Special      gui=NONE guifg=#ffc890 guibg=NONE
+hi Special      gui=NONE guifg=#ff9a4c guibg=#0f0f0f
 hi Statement    gui=NONE guifg=#6699cc guibg=NONE
 hi Todo         gui=BOLD,UNDERLINE guifg=#ff80d0 guibg=NONE
 hi Type         gui=NONE guifg=#60f0a8 guibg=NONE
@@ -207,7 +207,11 @@ hi javaScriptEventListenerKeyword guifg=#6699CC
 hi link javaScriptNumber      Number 
 hi link javaScriptPropietaryObjects javaScriptAjaxObjects
 
+" Special for CoffeeScript
+hi coffeeSpecialVar gui=NONE guifg=#edc37c guibg=NONE
+
 " Special for fugitive
 hi link gitcommitSummary Conditional
+hi link gitcommitOverflow Error
 " lots more available here:
 " https://github.com/altercation/vim-colors-solarized/commit/7a7e5c8818d717084730133ed6b84a3ffc9d0447
