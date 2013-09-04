@@ -1,26 +1,30 @@
-" Maintainer: Oliver Uvman
+" Maintainer: Oliver Uvman, @OliverUv
 " License: Public Domain, attribution appreciated.
-" Last Change: 2013-05-28
+" Last Changed: 2013-09-04
 " Based on the neon theme by Tiza. Thanks Tiza! You got taste bro.
+" Also some ideas taken from the theme nazca by Jose Elera Compana,
+" who also has a super nice theme called gummybears.
+
+" Located and updated at
 " http://github.com/OliverUv/Configuration-files/blob/master/dotvim/colors/liquorice.vim
 
 
-" Uncomment this or put it in your vimrc if you feel like it!
+" Uncomment the following or put it in your vimrc if you feel like it!
 
 "set cursorcolumn " this theme has subtle lines, but they interfere
 "set cursorline   " with diff background colors which is a tragedy.
 "
 " if has("autocmd")
 "     " Disable foldcolumn in diff windows, because it looks bad.
-"     " You probably don't want to do this unless you've got that
+"     " You probably don't want to do this unless you've got it
 "     " disabled in your own vimrc.
 "     au FilterWritePre * if &diff | setlocal fdc=0 | endif
 
 "     " CursorLine and CursorColumn override DiffAdd and DiffDelete,
 "     " which looks ugly. This disables cursorline and cursorcolumn
 "     " when a split goes into diff mode. Haven't yet figured out how
-"     " to re-enable the setting (consider that we only want to do this
-"     " if it was on in the first place!)
+"     " to re-enable the setting (and consider that we only want to do
+"     " this if it was on in the first place!)
 "     au FilterWritePre * if &diff | setlocal nocursorcolumn | endif
 "     au FilterWritePre * if &diff | setlocal nocursorline | endif
 " endif
@@ -59,12 +63,13 @@ hi DiffDelete   gui=NONE guifg=#701D1D guibg=#701D1D
 hi DiffAdd      gui=NONE guifg=NONE guibg=#064D08
 
 " Autocompletion menu
-hi Pmenu        gui=NONE guifg=#f0f0f0 guibg=#903D3D
-hi PmenuSel     gui=NONE guifg=#ffffff guibg=#BF4545
-hi PmenuSbar    gui=NONE guifg=#f0f0f0 guibg=#B67171
+hi Pmenu        guifg=#f6f3e8 guibg=#303030 gui=NONE
+hi PmenuSel     guifg=#f6f3e8 guibg=#000000 gui=NONE
+hi PmenuSbar    guifg=#000000 guibg=#444444 gui=NONE
+hi PmenuThumb   guifg=#000000 guibg=#8a8a8a gui=NONE
 
 " Unite selected line
-hi UniteSelectedLine gui=NONE guifg=NONE guibg=#301020
+hi UniteSelectedLine gui=NONE guifg=NONE guibg=#000000
 
 " Cursor
 hi Cursor       gui=BOLD guifg=#ffffff guibg=#99004c
@@ -106,12 +111,103 @@ hi VisualNOS    gui=NONE guifg=NONE guibg=#7C2B7C
 " Syntax group
 hi Comment      gui=NONE guifg=#929292 guibg=NONE
 hi Constant     gui=NONE guifg=#92d4ff guibg=NONE
-hi Error        gui=BOLD guifg=#ffffff guibg=#8000ff
+hi Error        gui=BOLD guifg=#ffffff guibg=#7000aa
 hi Identifier   gui=NONE guifg=#40f8f8 guibg=NONE
 hi Ignore       gui=NONE guifg=bg      guibg=NONE
 hi PreProc      gui=NONE guifg=#ffa8ff guibg=NONE
 hi Special      gui=NONE guifg=#ffc890 guibg=NONE
-hi Statement    gui=NONE guifg=#dcdc78 guibg=NONE
+hi Statement    gui=NONE guifg=#6699cc guibg=NONE
 hi Todo         gui=BOLD,UNDERLINE guifg=#ff80d0 guibg=NONE
 hi Type         gui=NONE guifg=#60f0a8 guibg=NONE
 hi Underlined   gui=UNDERLINE guifg=fg guibg=NONE
+hi String       gui=NONE guifg=#bccf72 guibg=#0f0f0f
+hi Number       gui=NONE guifg=#acdd82 guibg=NONE
+hi Conditional  gui=BOLD guifg=#86bbee guibg=NONE
+hi Function     gui=NONE guifg=#ffd2a7 guibg=NONE
+hi Delimiter    gui=NONE guifg=#00a0a0 guibg=NONE
+hi Operator     gui=NONE guifg=#86bbee guibg=NONE
+
+
+" Dependent syntax groups
+hi link Character       String
+hi link Boolean         Constant
+hi link Float           Number
+hi link Repeat          Statement
+hi link Label           Statement
+hi link Exception       Statement
+hi link Keyword         Statement
+hi link Include         PreProc
+hi link Define          PreProc
+hi link Macro           PreProc
+hi link PreCondit       PreProc
+hi link StorageClass    Type
+hi link Structure       Type
+hi link Typedef         Type
+hi link Tag             Special
+hi link SpecialChar     Special
+hi link SpecialComment  Special
+hi link Debug           Special
+
+" Special for Java
+" hi link javaClassDecl    Type
+hi link javaScopeDecl         Identifier 
+hi link javaCommentTitle      javaDocSeeTag 
+hi link javaDocTags           javaDocSeeTag 
+hi link javaDocParam          javaDocSeeTag 
+hi link javaDocSeeTagParam    javaDocSeeTag 
+
+hi  javaDocSeeTag guifg=#CCCCCC guibg=NONE gui=NONE
+hi  javaDocSeeTag guifg=#CCCCCC guibg=NONE gui=NONE
+"hi javaClassDecl guifg=#CCFFCC guibg=NONE gui=NONE
+
+" Special for XML
+hi link xmlTag          Keyword 
+hi link xmlTagName      Conditional 
+hi link xmlEndTag       Identifier 
+
+" Special for HTML
+hi htmlH1 guifg=#de675c   gui=underline
+hi htmlLink guifg=#c777ff gui=underline
+hi link htmlTag         Keyword
+hi link htmlEndTag      Keyword 
+hi link htmlTagName     Conditional 
+hi link htmlH2          htmlH1
+hi link htmlH3          htmlH1
+hi link htmlH4          htmlH1
+
+" Special for CSS
+hi cssTagName guifg=#70a8dd gui=BOLD
+hi cssBoxProp guifg=#d0af76  gui=NONE
+hi link cssColorProp cssBoxProp
+hi link cssFontProp cssBoxProp
+hi link cssTextProp cssBoxProp
+hi cssPseudoClassId guifg=#9ccfdd gui=italic
+hi cssIdentifier    guifg=#a2ddb8 gui=italic
+
+" Special for Markdown
+hi markdownUrl guifg=#e48944
+hi markdownCode guifg=#a7bee4 gui=BOLD
+hi markdownCodeBlock guifg=#c5b1e4
+
+" Special for Javascript
+hi javaScriptBrowserObjects       guifg=#DBB6D2      gui=italic
+
+hi javaScriptDOMObjects           guifg=#DBB6D2      gui=BOLD
+hi javaScriptDOMMethods           guifg=#D4FA9B
+hi link javaScriptDOMProperties Keyword
+
+hi javaScriptAjaxObjects          guifg=#5d91d3      gui=underline
+hi javaScriptAjaxMethods          guifg=#6699CC
+hi javaScriptAjaxProperties       guifg=#FF9494
+
+hi javaScriptFuncName             guifg=#B5E4F7
+hi javaScriptHtmlElemProperties   guifg=#FF9494
+hi javaScriptEventListenerKeyword guifg=#6699CC
+
+hi link javaScriptNumber      Number 
+hi link javaScriptPropietaryObjects javaScriptAjaxObjects
+
+" Special for fugitive
+hi link gitcommitSummary Conditional
+" lots more available here:
+" https://github.com/altercation/vim-colors-solarized/commit/7a7e5c8818d717084730133ed6b84a3ffc9d0447
