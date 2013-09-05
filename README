@@ -1,1 +1,32 @@
 Just some of my configuration files for dev environment. :)
+
+# shell stuff
+profile -> .profile
+tmux.conf -> .tmux.conf
+config.fish -> .config/fish/config.fish
+Xdefaults -> .Xdefaults
+
+# i3 window manager n stuff
+i3status.conf -> .i3/status.conf
+i3config.base -> .i3/config.base
+i3config.indal -> .i3/config.local
+i3config.amitofo -> .i3/config.local
+conkyrc -> .conkyrc
+
+# urxvt-256color
+# requires xclip
+urxvtclip -> /usr/lib/urxvt/perl/clipboard
+
+# programming
+vimrc -> .vimrc
+gvimrc -> .gvimrc
+dotvim -> .vim
+gitconfig -> .gitconfig
+gitignoreglobal -> .gitignoreglobal
+
+# linters
+coffeelint.json -> .config/coffeelint.json
+flake8 -> .config/flake8
+
+# not in use
+xprofile -> .xprofile
