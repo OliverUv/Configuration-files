@@ -385,8 +385,18 @@ nnoremap <silent> <leader>q :Ctoggle<cr>
 "" neocomplcache completion
 "" http://github.com/Shougo/neocomplcache
 "" 
+if !exists('g:neocomplcache_omni_functions')
+    let g:neocomplcache_omni_functions = {}
+endif
+if !exists('g:neocomplcache_force_omni_patterns')
+    let g:neocomplcache_force_omni_patterns = {}
+endif
+
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_fuzzy_completion = 1
+" let g:neocomplcache_force_overwrite_completefunc = 1
+let g:neocomplcache_force_omni_patterns['python'] = '[^. t].w*'
+let g:neocomplcache_omni_functions['python'] = 'jedi#completions'
 inoremap <expr><C-g> neocomplcache#undo_completion()
 inoremap <expr><C-l> neocomplcache#complete_common_string()
 
@@ -397,6 +407,25 @@ function! s:my_cr_function()
   "return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
 endfunction
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+"" jedi-vim
+"" 
+" play nice with neocomplcache
+let g:jedi#auto_initialization = 1
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#popup_on_dot = 0
+
+let g:jedi#goto_assignments_command = "<leader>jg"
+let g:jedi#goto_definitions_command = "<leader>jd"
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>ju"
+let g:jedi#completions_command = "<leader>jc"
+let g:jedi#rename_command = "<leader>jr"
+let g:jedi#show_call_signatures = "1"
+
+autocmd FileType python setlocal omnifunc=jedi#complete
+autocmd FileType python let b:did_ftplugin = 1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
