@@ -161,3 +161,6 @@
 [submodule "dotvim/bundle/vim-javascript"]
 	path = dotvim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
+[submodule "dotvim/bundle/vim-scala"]
+	path = dotvim/bundle/vim-scala
+	url = https://github.com/tobym/vim-scala.git
