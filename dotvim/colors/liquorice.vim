@@ -73,7 +73,7 @@ hi UniteSelectedLine gui=NONE guifg=NONE guibg=#000000
 
 " Cursor
 hi Cursor       gui=BOLD guifg=#ffffff guibg=#99004c
-hi MatchParen   gui=BOLD guifg=#ffffff guibg=#6600cc
+hi MatchParen   gui=NONE guifg=#ffffff guibg=#146666
 hi lCursor      gui=NONE guifg=#ffffff guibg=#8800ff
 hi CursorIM     gui=NONE guifg=#ffffff guibg=#8800ff
 hi CursorLine   gui=NONE guifg=NONE    guibg=#111111
