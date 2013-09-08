@@ -89,7 +89,7 @@ set fillchars=fold:\ ,vert:\  " fill characters for fold lines and lines between
 set ttimeoutlen=50      " Faster twitchin' for everything
 
 " Completion ignores
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.pyc,*.class
+set wildignore+=*/.hg/*,*/.svn/*,*.pyc,*.class
 set wildignore+=.ropeproject/**
 set wildignore+=log/**
 set wildignore+=tmp/**
