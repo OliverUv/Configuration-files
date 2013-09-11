@@ -76,6 +76,8 @@ set smartcase           " Will override ignorecase if searching w/ diff cases.
 set modeline	        " Use moelines
 set expandtab						" Makes <tab> insert spaces in insert mode
 set wildchar=<TAB>      " Key that triggers command-line expansion.
+set wildmenu
+set wildmode=longest:full
 set noerrorbells        " Disables beeping.
 set hidden		" Allow switch buffer without saving
 set previewheight=15	" Height of the preview window
@@ -84,6 +86,12 @@ set switchbuf=usetab	" If switching to a buffer that is already open, go
 			" to where it is already open instead of here.
 set backspace=indent,eol,start whichwrap+=<,>,[,] "backspace functionality
 set formatprg=par	" user par to format text with the gq command
+set formatoptions=croqlj " auto formatting options
+                         " c - autowrap using textwidth
+                         " r - autoinsert comment leader on i_<enter>
+                         " q - allow formatting of comments with gq
+                         " l - long lines aren't broken
+                         " j - remove comment leader when joining lines
 set noea		" prevent equalizing of split sizes on closed split
 set fillchars=fold:\ ,vert:\  " fill characters for fold lines and lines between vsplits
 set ttimeoutlen=50      " Faster twitchin' for everything
@@ -418,11 +426,11 @@ let g:jedi#popup_on_dot = 0
 
 let g:jedi#goto_assignments_command = "<leader>jg"
 let g:jedi#goto_definitions_command = "<leader>jd"
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>ju"
-let g:jedi#completions_command = "<leader>jc"
-let g:jedi#rename_command = "<leader>jr"
-let g:jedi#show_call_signatures = "1"
+let g:jedi#documentation_command    = "K"
+let g:jedi#usages_command           = "<leader>ju"
+let g:jedi#completions_command      = "<leader>jc"
+let g:jedi#rename_command           = "<leader>jr"
+let g:jedi#show_call_signatures     = "1"
 
 autocmd FileType python setlocal omnifunc=jedi#complete
 autocmd FileType python let b:did_ftplugin = 1
