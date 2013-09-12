@@ -617,8 +617,10 @@ vnoremap <leader>k :m-2<CR>gv
 
 " Ctrl-h for next line + <backspace>
 " Ctrl-o for next line
+" ;a for <esc>
 inoremap <c-h> <esc>o<BS>
 inoremap <c-o> <esc>o
+inoremap ;a <esc>
 
 "Like D for yanking
 map Y y$
