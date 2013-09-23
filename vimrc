@@ -193,8 +193,8 @@ command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | d
 "" Spell checking
 ""
 
-" Pressing ,ff will toggle and untoggle spell checking, fe sets checking
-" to english and fs sets checking to swedish.
+" Pressing <leader>ff will toggle and untoggle spell checking,
+" fe sets checking to english and fs sets checking to swedish.
 nnoremap <silent> <leader>ff :setlocal spell!<cr>
 nnoremap <silent> <leader>fs :setlocal spelllang=sv<cr>
 nnoremap <silent> <leader>fe :setlocal spelllang=en<cr>
