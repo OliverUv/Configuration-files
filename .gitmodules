@@ -164,3 +164,6 @@
 [submodule "dotvim/bundle/vim-scala"]
 	path = dotvim/bundle/vim-scala
 	url = https://github.com/tobym/vim-scala.git
+[submodule "dotvim/bundle/vim-unite-history"]
+	path = dotvim/bundle/vim-unite-history
+	url = https://github.com/thinca/vim-unite-history.git
