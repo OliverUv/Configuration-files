@@ -623,6 +623,7 @@ vnoremap <leader>k :m-2<CR>gv
 inoremap <c-h> <esc>o<BS>
 inoremap <c-o> <esc>o
 noremap ;a <esc>
+inoremap ;a <esc>
 
 "Like D for yanking
 map Y y$
