@@ -167,3 +167,6 @@
 [submodule "dotvim/bundle/vim-unite-history"]
 	path = dotvim/bundle/vim-unite-history
 	url = https://github.com/thinca/vim-unite-history.git
+[submodule "dotvim/bundle/gruvbox"]
+	path = dotvim/bundle/gruvbox
+	url = https://github.com/morhetz/gruvbox.git

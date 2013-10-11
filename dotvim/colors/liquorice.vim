@@ -101,7 +101,7 @@ hi SpellBad	gui=UNDERCURL guifg=NONE guibg=NONE guisp=#FF0000
 
 " Other
 hi Directory    gui=NONE guifg=#c8c8ff guibg=NONE
-hi LineNr       gui=NONE guifg=#727272 guibg=#0e0e0e
+hi LineNr       gui=ITALIC guifg=#727272 guibg=#0e0e0e
 hi NonText      gui=BOLD guifg=#d84070 guibg=#0b0b0b
 hi SpecialKey   gui=BOLD guifg=#8888ff guibg=NONE
 hi Title        gui=BOLD guifg=fg      guibg=NONE
@@ -117,7 +117,7 @@ hi Ignore       gui=NONE guifg=bg      guibg=NONE
 hi PreProc      gui=NONE guifg=#ffa8ff guibg=NONE
 hi Special      gui=NONE guifg=#ff9a4c guibg=#0f0f0f
 hi Statement    gui=NONE guifg=#6699cc guibg=NONE
-hi Todo         gui=BOLD,UNDERLINE guifg=#ff80d0 guibg=NONE
+hi Todo         gui=UNDERLINE,ITALIC guifg=#ff80d0 guibg=NONE
 hi Type         gui=NONE guifg=#60f0a8 guibg=NONE
 hi Underlined   gui=UNDERLINE guifg=fg guibg=NONE
 hi String       gui=NONE guifg=#bccf72 guibg=#0f0f0f
