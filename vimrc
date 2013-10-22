@@ -647,6 +647,11 @@ inoremap ;a <esc>
 "Like D for yanking
 map Y y$
 
+" Copy/Paste with os buffer
+map <leader>y "+y
+nmap <leader>p "+p
+nmap <leader>P "+P
+
 " Save, quit, etc
 nnoremap <silent> <leader>s :w<cr>
 nnoremap <silent> <leader>w :wa<cr>
