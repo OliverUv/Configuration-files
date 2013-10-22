@@ -102,6 +102,24 @@ set wildignore+=.ropeproject/**
 set wildignore+=log/**
 set wildignore+=tmp/**
 
+" Ignore output and VCS files: Note: do not ignore .git! It breaks fugitive's :Gdiff
+set wildignore+=*.o,*.out,*.obj,*.rbc,*.rbo,*.class,.svn,*.gem
+
+" Ignore archive files
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
+
+" Ignore bundler and sass cache
+set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
+
+" Ignore rails temporary asset caches
+set wildignore+=*/tmp/cache/assets/*/sprockets/*,*/tmp/cache/assets/*/sass/*
+
+" Ignore node modules
+set wildignore+=node_modules/*
+
+" Ignore temp and backup files
+set wildignore+=*.swp,*~,._*
+
 """""""""""""""""""""""""""""""""""""""""""""
 "" Settings for specific filetypes
 ""
