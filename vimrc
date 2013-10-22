@@ -130,6 +130,7 @@ if has("autocmd")
     au BufNewFile,BufReadPost *.coffee setlocal foldmethod=indent shiftwidth=2 softtabstop=2 expandtab
     au BufWritePost,FileWritePost *.coffee silent CoffeeMake! | cwindow
     au FileType c setlocal colorcolumn=79
+    au FileType {make,gitconfig} set noexpandtab sw=4
 endif
 
 
