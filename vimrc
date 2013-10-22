@@ -82,7 +82,7 @@ set noerrorbells        " Disables beeping.
 set hidden		" Allow switch buffer without saving
 set previewheight=15	" Height of the preview window
 "set winwidth=80		" Current window will be resized to this width
-set switchbuf=usetab	" If switching to a buffer that is already open, go
+set switchbuf=useopen	" If switching to a buffer that is already open, go
 			" to where it is already open instead of here.
 set backspace=indent,eol,start whichwrap+=<,>,[,] "backspace functionality
 set formatprg=par	" user par to format text with the gq command
