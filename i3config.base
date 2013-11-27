@@ -212,5 +212,6 @@ client.urgent           #2f343a #900000 #ffffff #900000
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id dropbox start
 exec --no-startup-id volumeicon
+exec --no-startup-id xflux -l 58.411975 -g 15.559395
 exec google-chrome
 
