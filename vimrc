@@ -687,6 +687,7 @@ nnoremap <silent> <leader>gp :Git push
 nnoremap <leader>gl :Glog 
 nnoremap <leader>gg :Ggrep 
 nnoremap <leader>gc :Gcommit -m '
+nnoremap <leader>gA :Git checkout -- %
 
 " Misc mappings
 nnoremap <leader><space> i <esc>la <esc>h
