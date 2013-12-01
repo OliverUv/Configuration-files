@@ -97,6 +97,8 @@ set fillchars=fold:\ ,vert:\  " fill characters for fold lines and lines between
 set ttimeoutlen=50      " Faster twitchin' for everything
 
 " Completion ignores
+" KEEP THESE IN SYNC WITH UNITE IGNORES!
+
 set wildignore+=*/.hg/*,*/.svn/*,*.pyc,*.class
 set wildignore+=.ropeproject/**
 set wildignore+=log/**
@@ -107,6 +109,9 @@ set wildignore+=*.o,*.out,*.obj,*.rbc,*.rbo,*.class,.svn,*.gem
 
 " Ignore archive files
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
+
+" Ignore image files
+set wildignore+=*.jpg,*.jpeg,*.bmp,*.png,*.gif
 
 " Ignore bundler and sass cache
 set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
@@ -297,13 +302,20 @@ call unite#filters#sorter_default#use(['sorter_rank'])
 call unite#custom#source('outline,line,grep,session', 'filters', ['matcher_fuzzy'])
 
 " Ignore some things
+" KEEP THESE IN SYNC WITH WILDIGNORE!
+" Need to escape dots in the patterns!
 call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
             \ 'ignore_pattern', join([
-            \ '\.git/',
+            \ '\.swp', '\.swo', '\~$',
+            \ '\.git/', '\.svn/', '\.hg/',
             \ '\.ropeproject/',
-            \ '\.pyc$',
-            \ '\.class$', '.jar$',
-            \ '\.jpg$', '.jpeg$', '.bmp$', '.png$', '.gif$'
+            \ 'node_modules/', 'log/', 'tmp/',
+            \ '/vendor/gems/', '/vendor/cache/', '\.bundle/', '\.sass-cache/',
+            \ '/tmp/cache/assets/.*/sprockets/', '/tmp/cache/assets/.*/sass/',
+            \ '\.pyc$', '\.class$', '\.jar$',
+            \ '\.jpg$', '\.jpeg$', '\.bmp$', '\.png$', '\.gif$',
+            \ '\.o$', '\.out$', '\.obj$', '\.rbc$', '\.rbo$', '\.gem$',
+            \ '\.zip$', '\.tar\.gz$', '\.tar\.bz2$', '\.rar$', '\.tar\.xz$'
             \ ], '\|'))
 
 " Situate on bottom or right by default
@@ -675,6 +687,7 @@ nnoremap <silent> <leader>gp :Git push
 nnoremap <leader>gl :Glog 
 nnoremap <leader>gg :Ggrep 
 nnoremap <leader>gc :Gcommit -m '
+nnoremap <leader>gA :Git checkout -- %
 
 " Misc mappings
 nnoremap <leader><space> i <esc>la <esc>h
