@@ -176,3 +176,6 @@
 [submodule "dotvim/bundle/vim-fswitch"]
 	path = dotvim/bundle/vim-fswitch
 	url = https://github.com/derekwyatt/vim-fswitch.git
+[submodule "dotvim/bundle/vim-sneak"]
+	path = dotvim/bundle/vim-sneak
+	url = https://github.com/justinmk/vim-sneak.git

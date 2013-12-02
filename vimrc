@@ -1,3 +1,5 @@
+let g:pathogen_disabled = ['vim-sneak']
+
 if has("win32") || has("win64")
    " Required by pathogen.vim for loading plugins
    call pathogen#infect()
