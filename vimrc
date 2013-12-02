@@ -412,7 +412,7 @@ nnoremap <silent> <leader>,g :execute "!makeglossaries " . shellescape(expand('%
 "" 
 let g:rainbow_ctermfgs = [184, 39, 170, 162, 154, 9, 10, 11, 13, 14, 15]
 let g:rainbow_active = 1
-let g:rainbow_operators = 2
+let g:rainbow_operators = 1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
