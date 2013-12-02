@@ -28,6 +28,9 @@ if has("autocmd")
     autocmd bufwritepost .vimrc source $MYVIMRC
     autocmd BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc
           \ so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+    " Mapping for checking for existing mappings in vimrc
+    autocmd BufEnter .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc
+          \ nnoremap <leader>' /leader>
     " Set ghc as compiler for haskell files
     autocmd BufEnter *.hs compiler ghc
     " Disable foldcolumn in diff windows
@@ -701,4 +704,3 @@ nnoremap <silent> <leader>e :UltiSnipsEdit<cr>
 nnoremap <silent> <leader>u :UndotreeToggle<cr>
 nnoremap <silent> <leader>m :w<cr>:make<cr>
 nnoremap <silent> <leader>a :sign unplace *<cr>:Lclose<cr>
-nnoremap <leader>' /leader>
