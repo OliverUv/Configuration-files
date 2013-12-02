@@ -100,6 +100,8 @@ set formatoptions=croqlj " auto formatting options
 set noea		" prevent equalizing of split sizes on closed split
 set fillchars=fold:\ ,vert:\  " fill characters for fold lines and lines between vsplits
 set ttimeoutlen=50      " Faster twitchin' for everything
+set cursorcolumn        "visually mark the column the cursor is in
+set cursorline          "visually mark the column the cursor is in
 
 " Completion ignores
 " KEEP THESE IN SYNC WITH UNITE IGNORES!

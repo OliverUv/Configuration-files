@@ -76,8 +76,8 @@ hi Cursor       gui=BOLD guifg=#ffffff guibg=#99004c
 hi MatchParen   gui=NONE guifg=#ffffff guibg=#146666
 hi lCursor      gui=NONE guifg=#ffffff guibg=#8800ff
 hi CursorIM     gui=NONE guifg=#ffffff guibg=#8800ff
-hi CursorLine   gui=NONE guifg=NONE    guibg=#111111
-hi CursorColumn gui=NONE guifg=NONE    guibg=#111111
+hi CursorLine   gui=NONE guifg=NONE    guibg=#0f0f0f
+hi CursorColumn gui=NONE guifg=NONE    guibg=#0f0f0f
 
 " Fold
 hi Folded       gui=NONE guifg=#c8c8c8 guibg=#0c0c0c
@@ -102,6 +102,7 @@ hi SpellBad	gui=UNDERCURL guifg=NONE guibg=NONE guisp=#FF0000
 " Other
 hi Directory    gui=NONE guifg=#c8c8ff guibg=NONE
 hi LineNr       gui=ITALIC guifg=#727272 guibg=#0e0e0e
+hi CursorLineNr gui=ITALIC,BOLD guifg=#0e0e0e guibg=#99004c
 hi NonText      gui=BOLD guifg=#d84070 guibg=#0b0b0b
 hi SpecialKey   gui=BOLD guifg=#8888ff guibg=NONE
 hi Title        gui=BOLD guifg=fg      guibg=NONE
