@@ -33,8 +33,8 @@ colorscheme liquorice
 set listchars=tab:▷⋅,trail:⋅,nbsp:⋅ " fill characters for tabs etc when set list
 
 " Yeah baby I went there. Only use with very subtle colour theme.
-" set cursorcolumn
-" set cursorline
+set cursorcolumn
+set cursorline
 
 " Shorter spacing between lines
 set linespace=-2
