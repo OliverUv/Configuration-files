@@ -661,6 +661,7 @@ map Y y$
 
 " Copy/Paste with os buffer
 map <leader>y "+y
+map <leader>Y "+y$
 nmap <leader>p "+p
 nmap <leader>P "+P
 
@@ -670,6 +671,10 @@ nnoremap <silent> <leader>w :wa<cr>
 nnoremap <silent> <leader>x :wq<cr>
 nnoremap <silent> <leader>d :q<cr>
 nnoremap <silent> <leader>c :qa<cr>
+nnoremap <silent> <leader>h :FSHere<cr>
+nnoremap <silent> <leader>hh :FSHere<cr>
+nnoremap <silent> <leader>hu :FSSplitAbove<cr>
+nnoremap <silent> <leader>hl :FSSplitLeft<cr>
 " w!! -> write even if you forgot sudo
 cmap w!! w !sudo tee >/dev/null %
 
