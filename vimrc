@@ -26,17 +26,22 @@ endif
 " Automatic commands
 if has("autocmd")
     augroup MyAutoCmd
+
     " Automatically load vimrc when it is saved
     autocmd bufwritepost .vimrc source $MYVIMRC
     autocmd BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc
           \ so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+
     " Mapping for checking for existing mappings in vimrc
     autocmd BufEnter .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc
           \ nnoremap <leader>' /leader>
+
     " Set ghc as compiler for haskell files
     autocmd BufEnter *.hs compiler ghc
+
     " Disable foldcolumn in diff windows
     au FilterWritePre * if &diff | setlocal fdc=0 | endif
+
     " Disable things that disturb diff-colors in diff window
     au FilterWritePre * if &diff | setlocal nocursorcolumn | endif
     au FilterWritePre * if &diff | setlocal nocursorline | endif
@@ -601,6 +606,17 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" Keymaps
 ""
+
+" Toggle colorcolumn TODO make this save previous value
+" instead of using 79 all the time.
+function! g:ToggleColorColumn()
+  if &colorcolumn != ''
+    setlocal colorcolumn&
+  else
+    setlocal colorcolumn=79
+  endif
+endfunction
+nnoremap <silent> <leader>cc :call g:ToggleColorColumn()<cr>
 
 " Pull word under cursor into LHS of a substitute
 nnoremap <leader>z :s#\<<c-r>=expand("<cword>")<cr>\>##g<left><left>
