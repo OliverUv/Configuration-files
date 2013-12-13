@@ -495,6 +495,8 @@ let g:UltiSnipsEditSplit='horizontal'
 let g:UltiSnipsJumpForwardTrigger='<tab>'
 let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
 
+let g:maximizer_set_default_mapping = 0
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" Settings for syntastic
@@ -696,6 +698,10 @@ nnoremap <silent> <leader>h :FSHere<cr>
 nnoremap <silent> <leader>hh :FSHere<cr>
 nnoremap <silent> <leader>hu :FSSplitAbove<cr>
 nnoremap <silent> <leader>hl :FSSplitLeft<cr>
+" Maximize buffer toggling
+nnoremap <silent> <leader><tab> :MaximizerToggle<cr>
+vnoremap <silent> <leader><tab> :MaximizerToggle<cr>gv
+inoremap <silent> <leader><tab> <c-o>:MaximizerToggle<cr>
 " w!! -> write even if you forgot sudo
 cmap w!! w !sudo tee >/dev/null %
 

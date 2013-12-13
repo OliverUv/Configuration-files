@@ -179,3 +179,6 @@
 [submodule "dotvim/bundle/vim-sneak"]
 	path = dotvim/bundle/vim-sneak
 	url = https://github.com/justinmk/vim-sneak.git
+[submodule "dotvim/bundle/vim-maximizer"]
+	path = dotvim/bundle/vim-maximizer
+	url = https://github.com/szw/vim-maximizer.git
