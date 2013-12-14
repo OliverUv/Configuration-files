@@ -512,6 +512,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_coffee_coffeelint_args = '-f ~/.config/coffeelint.json'
+let g:syntastic_c_config_file = '.syntasticconf'
+let g:syntastic_cpp_config_file = '.syntasticconf'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" Settings for vim-indent-guides
