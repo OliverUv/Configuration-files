@@ -44,6 +44,7 @@ bindsym $mod+Shift+D exec i3-dmenu-desktop --dmenu "dmenu -i -fn 'DejaVu Sans 10
 bindsym $mod+Control+g exec google-chrome
 bindsym $mod+Control+s exec skype
 bindsym $mod+Control+v exec gvim
+bindsym $mod+Control+a exec urxvt -e alsamixer
 
 # move focus
 bindsym $mod+h focus left
