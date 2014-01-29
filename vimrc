@@ -1,4 +1,4 @@
-let g:pathogen_disabled = ['vim-sneak', 'CoVim']
+let g:pathogen_disabled = ['vim-sneak', 'CoVim', 'neocomplcache', 'neocomplcache-ultisnips']
 
 if has("win32") || has("win64")
    " Required by pathogen.vim for loading plugins
@@ -433,46 +433,89 @@ let g:rainbow_operators = 1
 nnoremap <silent> <leader>A :Ltoggle<cr>
 nnoremap <silent> <leader>q :Ctoggle<cr>
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+"" neocomplete.vim completion
+"" http://github.com/Shougo/neocomplete.vim
+"" 
+let g:neocomplete#enable_at_startup = 1
+
+if !exists('g:neocomplete#sources#omni#functions')
+    let g:neocomplete#sources#omni#functions = {}
+endif
+if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_overwrite_completefunc = 1
+
+inoremap <expr><C-g> neocomplete#undo_completion()
+inoremap <expr><C-l> neocomplete#complete_common_string()
+
+" To complete in python with jedi-vim
+autocmd FileType python setlocal omnifunc=jedi#completions
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+let g:neocomplete#force_omni_input_patterns.python =
+            \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+
+" To complete in c++ with clang_complete
+let g:neocomplete#force_omni_input_patterns.c =
+            \ '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplete#force_omni_input_patterns.cpp =
+            \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplete#force_omni_input_patterns.objc =
+            \ '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplete#force_omni_input_patterns.objcpp =
+            \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+    " <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return neocomplete#close_popup() . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+endfunction
+
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" neocomplcache completion
 "" http://github.com/Shougo/neocomplcache
 "" 
-if !exists('g:neocomplcache_omni_functions')
-    let g:neocomplcache_omni_functions = {}
-endif
-if !exists('g:neocomplcache_force_omni_patterns')
-    let g:neocomplcache_force_omni_patterns = {}
-endif
+" if !exists('g:neocomplcache_omni_functions')
+"     let g:neocomplcache_omni_functions = {}
+" endif
+" if !exists('g:neocomplcache_force_omni_patterns')
+"     let g:neocomplcache_force_omni_patterns = {}
+" endif
 
-let g:neocomplcache_force_overwrite_completefunc = 1
+"let g:neocomplcache_force_overwrite_completefunc = 1
 
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_fuzzy_completion = 1
+" let g:neocomplcache_enable_at_startup = 1
+" let g:neocomplcache_enable_fuzzy_completion = 1
 
-inoremap <expr><C-g> neocomplcache#undo_completion()
-inoremap <expr><C-l> neocomplcache#complete_common_string()
+" inoremap <expr><C-g> neocomplcache#undo_completion()
+" inoremap <expr><C-l> neocomplcache#complete_common_string()
 
 " To complete in python with jedi-vim
-let g:neocomplcache_force_omni_patterns['python'] = '[^. t].w*'
-let g:neocomplcache_omni_functions['python'] = 'jedi#completions'
+" let g:neocomplcache_force_omni_patterns['python'] = '[^. t].w*'
+" let g:neocomplcache_omni_functions['python'] = 'jedi#completions'
 
 " To complete in c++ with clang_complete
-let g:neocomplcache_force_omni_patterns.c =
-            \ '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_force_omni_patterns.cpp =
-            \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-let g:neocomplcache_force_omni_patterns.objc =
-            \ '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_force_omni_patterns.objcpp =
-            \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+" let g:neocomplcache_force_omni_patterns.c =
+"             \ '[^.[:digit:] *\t]\%(\.\|->\)'
+" let g:neocomplcache_force_omni_patterns.cpp =
+"             \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+" let g:neocomplcache_force_omni_patterns.objc =
+"             \ '[^.[:digit:] *\t]\%(\.\|->\)'
+" let g:neocomplcache_force_omni_patterns.objcpp =
+"             \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 " Fix <cr> behaviour
-function! s:my_cr_function()
-  return neocomplcache#smart_close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
-endfunction
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+" function! s:my_cr_function()
+"   return neocomplcache#smart_close_popup() . "\<CR>"
+"   " For no inserting <CR> key.
+"   "return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+" endfunction
+" inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" jedi-vim
