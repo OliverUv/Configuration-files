@@ -113,6 +113,7 @@ set wildignore+=*/.hg/*,*/.svn/*,*.pyc,*.class
 set wildignore+=.ropeproject/**
 set wildignore+=log/**
 set wildignore+=tmp/**
+set wildignore+=obj/**
 
 " Ignore output and VCS files: Note: do not ignore .git! It breaks fugitive's :Gdiff
 set wildignore+=*.o,*.out,*.obj,*.rbc,*.rbo,*.class,.svn,*.gem
@@ -319,7 +320,7 @@ call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
             \ '\.swp', '\.swo', '\~$',
             \ '\.git/', '\.svn/', '\.hg/',
             \ '\.ropeproject/',
-            \ 'node_modules/', 'log/', 'tmp/',
+            \ 'node_modules/', 'log/', 'tmp/', 'obj/',
             \ '/vendor/gems/', '/vendor/cache/', '\.bundle/', '\.sass-cache/',
             \ '/tmp/cache/assets/.*/sprockets/', '/tmp/cache/assets/.*/sass/',
             \ '\.pyc$', '\.class$', '\.jar$',
