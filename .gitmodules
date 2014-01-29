@@ -182,3 +182,6 @@
 [submodule "dotvim/bundle/vim-maximizer"]
 	path = dotvim/bundle/vim-maximizer
 	url = https://github.com/szw/vim-maximizer.git
+[submodule "dotvim/bundle/clang_complete"]
+	path = dotvim/bundle/clang_complete
+	url = https://github.com/Rip-Rip/clang_complete.git

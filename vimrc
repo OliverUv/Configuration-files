@@ -1,4 +1,4 @@
-let g:pathogen_disabled = ['vim-sneak']
+let g:pathogen_disabled = ['vim-sneak', 'CoVim']
 
 if has("win32") || has("win64")
    " Required by pathogen.vim for loading plugins
@@ -444,13 +444,27 @@ if !exists('g:neocomplcache_force_omni_patterns')
     let g:neocomplcache_force_omni_patterns = {}
 endif
 
+let g:neocomplcache_force_overwrite_completefunc = 1
+
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_fuzzy_completion = 1
-" let g:neocomplcache_force_overwrite_completefunc = 1
-let g:neocomplcache_force_omni_patterns['python'] = '[^. t].w*'
-let g:neocomplcache_omni_functions['python'] = 'jedi#completions'
+
 inoremap <expr><C-g> neocomplcache#undo_completion()
 inoremap <expr><C-l> neocomplcache#complete_common_string()
+
+" To complete in python with jedi-vim
+let g:neocomplcache_force_omni_patterns['python'] = '[^. t].w*'
+let g:neocomplcache_omni_functions['python'] = 'jedi#completions'
+
+" To complete in c++ with clang_complete
+let g:neocomplcache_force_omni_patterns.c =
+            \ '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_force_omni_patterns.cpp =
+            \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplcache_force_omni_patterns.objc =
+            \ '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_force_omni_patterns.objcpp =
+            \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 " Fix <cr> behaviour
 function! s:my_cr_function()
@@ -513,8 +527,22 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_coffee_coffeelint_args = '-f ~/.config/coffeelint.json'
-let g:syntastic_c_config_file = '.syntasticconf'
-let g:syntastic_cpp_config_file = '.syntasticconf'
+let g:syntastic_c_config_file = '.clang_complete'
+let g:syntastic_cpp_config_file = '.clang_complete'
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Settings for clang_complete
+"" 
+
+let g:clang_complete_auto = 0
+let g:clang_auto_select = 0
+let g:clang_snippets = 1
+let g:clang_snippets_engine = 'ultisnips'
+let g:clang_use_library = 1
+let g:clang_complete_macros = 1
+"let g:clang_user_options = '|| exit 0'
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" Settings for vim-indent-guides
