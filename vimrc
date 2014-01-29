@@ -1,4 +1,4 @@
-let g:pathogen_disabled = ['vim-sneak', 'CoVim', 'neocomplcache', 'neocomplcache-ultisnips']
+let g:pathogen_disabled = ['ctrlp', 'ctrlp-funky', 'vim-sneak', 'CoVim', 'neocomplcache', 'neocomplcache-ultisnips']
 
 if has("win32") || has("win64")
    " Required by pathogen.vim for loading plugins
