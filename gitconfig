@@ -13,8 +13,10 @@
         olog = log --oneline
         oo = log --oneline -15
 	amend = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
-	s = status
+	s = status -sb
 	a = add
+        b = branch
+        c = checkout
 	x = commit -m
 	xa = commit -a -m
 	master = checkout master
