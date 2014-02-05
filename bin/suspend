@@ -1,0 +1,11 @@
+#! /bin/sh
+dbus-send --system --print-reply \
+    --dest="org.freedesktop.UPower" \
+    /org/freedesktop/UPower \
+    org.freedesktop.UPower.AboutToSleep
+
+i3lock -c E17800 && \
+dbus-send --system --print-reply \
+    --dest="org.freedesktop.UPower" \
+    /org/freedesktop/UPower \
+    org.freedesktop.UPower.Suspend
