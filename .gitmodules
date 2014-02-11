@@ -193,3 +193,6 @@
 	path = dotvim/bundle/context_filetype.vim
 	url = https://github.com/Shougo/context_filetype.vim.git
         ignore = dirty
+[submodule "dotvim/bundle/vim-glsl"]
+	path = dotvim/bundle/vim-glsl
+	url = https://github.com/tikhomirov/vim-glsl.git
