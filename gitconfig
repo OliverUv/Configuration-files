@@ -22,6 +22,7 @@
 	master = checkout master
 	hub = push origin
 	buh = pull origin
+        sm = submodule
 
         # will put a file into gitignore
 	ignore=!([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
