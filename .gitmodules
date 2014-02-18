@@ -191,3 +191,6 @@
 [submodule "dotvim/bundle/context_filetype.vim"]
 	path = dotvim/bundle/context_filetype.vim
 	url = https://github.com/Shougo/context_filetype.vim.git
+[submodule "dotvim/bundle/vim-capslock"]
+	path = dotvim/bundle/vim-capslock
+	url = https://github.com/tpope/vim-capslock.git
