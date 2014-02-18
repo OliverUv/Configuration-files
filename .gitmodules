@@ -199,3 +199,6 @@
 [submodule "dotvim/bundle/vim-capslock"]
 	path = dotvim/bundle/vim-capslock
 	url = https://github.com/tpope/vim-capslock.git
+[submodule "dotvim/bundle/php.vim"]
+	path = dotvim/bundle/php.vim
+	url = https://github.com/StanAngeloff/php.vim.git
