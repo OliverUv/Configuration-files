@@ -71,6 +71,7 @@
 [submodule "dotvim/bundle/Enter-Indent"]
 	path = dotvim/bundle/Enter-Indent
 	url = git://github.com/vim-scripts/Enter-Indent.git
+        ignore = dirty
 [submodule "dotvim/bundle/vim-git"]
 	path = dotvim/bundle/vim-git
 	url = git://github.com/tpope/vim-git.git
@@ -191,6 +192,10 @@
 [submodule "dotvim/bundle/context_filetype.vim"]
 	path = dotvim/bundle/context_filetype.vim
 	url = https://github.com/Shougo/context_filetype.vim.git
+        ignore = dirty
+[submodule "dotvim/bundle/vim-glsl"]
+	path = dotvim/bundle/vim-glsl
+	url = https://github.com/tikhomirov/vim-glsl.git
 [submodule "dotvim/bundle/vim-capslock"]
 	path = dotvim/bundle/vim-capslock
 	url = https://github.com/tpope/vim-capslock.git

@@ -452,7 +452,6 @@ inoremap <expr><C-g> neocomplete#undo_completion()
 inoremap <expr><C-l> neocomplete#complete_common_string()
 
 " To complete in python with jedi-vim
-autocmd FileType python setlocal omnifunc=jedi#completions
 let g:jedi#completions_enabled = 0
 let g:jedi#auto_vim_configuration = 0
 let g:neocomplete#force_omni_input_patterns.python =
@@ -549,9 +548,11 @@ let g:pymode_lint = 0
 "" Settings for misc plugins
 "" 
 let g:gist_detect_filetype = 1
-let g:UltiSnipsEditSplit='horizontal'
-let g:UltiSnipsJumpForwardTrigger='<tab>'
-let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
+
+let g:UltiSnipsEditSplit = 'horizontal'
+let g:UltiSnipsExpandTrigger = '<c-cr>'
+let g:UltiSnipsJumpForwardTrigger = '<c-cr>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-cr>'
 
 let g:maximizer_set_default_mapping = 0
 
