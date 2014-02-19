@@ -76,7 +76,8 @@ set shiftwidth=4	" Amount of spaces for tab to insert
 set autoindent          " Automatically set the indent when creating new lines.
 set showcmd             " Shows current command in statusline
 set ruler               " Show cursor position information in statusline
-set number		" Show line numbers by default
+set relativenumber      " Show relative line numbers by default
+set number		" Show absolute line number of current line
 set wrap                " Wrap text
 set ttyfast             " 'Smooth' scrolling
 set showmatch           " Briefly display matching brackets when inserting such.
