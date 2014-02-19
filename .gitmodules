@@ -202,3 +202,6 @@
 [submodule "dotvim/bundle/php.vim"]
 	path = dotvim/bundle/php.vim
 	url = https://github.com/StanAngeloff/php.vim.git
+[submodule "dotvim/bundle/targets.vim"]
+	path = dotvim/bundle/targets.vim
+	url = https://github.com/wellle/targets.vim.git
