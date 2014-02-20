@@ -214,5 +214,6 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id dropbox start
 exec --no-startup-id volumeicon
 exec --no-startup-id xflux -l 58.411975 -g 15.559395 -k 3000
+exec --no-startup-id xset r rate 210 30
 exec google-chrome
 
