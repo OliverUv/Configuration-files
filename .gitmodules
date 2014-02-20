@@ -211,3 +211,6 @@
 [submodule "dotvim/bundle/ultisnips"]
 	path = dotvim/bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
+[submodule "dotvim/bundle/unite-quickfix"]
+	path = dotvim/bundle/unite-quickfix
+	url = https://github.com/osyo-manga/unite-quickfix.git

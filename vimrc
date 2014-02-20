@@ -375,8 +375,8 @@ nnoremap <silent><leader>l/ :<C-u>Unite -buffer-name=commands history/search<CR>
 nnoremap <silent><leader>lo :<C-u>Unite -buffer-name=outline outline<CR>
 nnoremap <silent><leader>la :<C-u>Unite -buffer-name=outline -vertical outline<CR>
 nnoremap <silent><leader>ll :<C-u>Unite -buffer-name=search line<CR>
-nnoremap <silent><leader>lq :<C-u>Unite -buffer-name=quickfix qf<CR>
-nnoremap <silent><leader>lw :<C-u>Unite -buffer-name=locationlist locationlist<CR>
+nnoremap <silent><leader>lq :<C-u>Unite -buffer-name=quickfix quickfix<CR>
+nnoremap <silent><leader>lw :<C-u>Unite -buffer-name=locationlist location_list<CR>
 nnoremap <silent><leader>l* :<C-u>UniteWithCursorWord -buffer-name=search line<CR>
 nnoremap <silent><leader>lg :<C-u>Unite grep<CR>
 nnoremap <silent><leader>ls :<C-u>Unite session<CR>
