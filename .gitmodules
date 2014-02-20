@@ -211,3 +211,6 @@
 [submodule "dotvim/bundle/unite-outline"]
 	path = dotvim/bundle/unite-outline
 	url = https://github.com/Shougo/unite-outline.git
+[submodule "dotvim/bundle/unite-help"]
+	path = dotvim/bundle/unite-help
+	url = https://github.com/Shougo/unite-help.git
