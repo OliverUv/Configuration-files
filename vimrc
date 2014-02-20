@@ -362,6 +362,7 @@ elseif executable('ack-grep')
 endif
 
 " Bindings
+nnoremap <silent><leader>l<tab> :<C-u>Unite -buffer-name=ultisnips -vertical ultisnips<CR>
 nnoremap <silent><leader>lr :<C-u>Unite -buffer-name=files file_rec/async file/new<CR>
 nnoremap <silent><leader>le :<C-u>Unite -buffer-name=files file_mru bookmark file_rec/async file/new<CR>
 nnoremap <silent><leader>lb :<C-u>Unite -buffer-name=buffers buffer<CR>
@@ -567,6 +568,7 @@ let g:UltiSnipsEditSplit = 'horizontal'
 let g:UltiSnipsExpandTrigger = '<c-cr>'
 let g:UltiSnipsJumpForwardTrigger = '<c-cr>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-cr>'
+let g:UltiSnipsUsePythonVersion = 2
 
 let g:maximizer_set_default_mapping = 0
 

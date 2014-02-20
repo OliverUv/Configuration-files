@@ -208,3 +208,6 @@
 [submodule "dotvim/bundle/unite-neocomplete-ultisnips"]
 	path = dotvim/bundle/unite-neocomplete-ultisnips
 	url = https://github.com/skeept/Ultisnips-neocomplete-unite.git
+[submodule "dotvim/bundle/ultisnips"]
+	path = dotvim/bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
