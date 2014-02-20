@@ -375,7 +375,9 @@ nnoremap <silent><leader>l/ :<C-u>Unite -buffer-name=commands history/search<CR>
 nnoremap <silent><leader>lo :<C-u>Unite -buffer-name=outline outline<CR>
 nnoremap <silent><leader>la :<C-u>Unite -buffer-name=outline -vertical outline<CR>
 nnoremap <silent><leader>ll :<C-u>Unite -buffer-name=search line<CR>
-nnoremap <silent><leader>lw :<C-u>UniteWithCursorWord -buffer-name=search line<CR>
+nnoremap <silent><leader>lq :<C-u>Unite -buffer-name=quickfix qf<CR>
+nnoremap <silent><leader>lw :<C-u>Unite -buffer-name=locationlist locationlist<CR>
+nnoremap <silent><leader>l* :<C-u>UniteWithCursorWord -buffer-name=search line<CR>
 nnoremap <silent><leader>lg :<C-u>Unite grep<CR>
 nnoremap <silent><leader>ls :<C-u>Unite session<CR>
 nnoremap <silent><leader>lt :<C-u>Unite -buffer-name=tags tag tag/file<CR>
@@ -581,7 +583,7 @@ let g:syntastic_warning_symbol = '⚠⚠'
 let g:syntastic_style_error_symbol = '✠✠'
 let g:syntastic_style_warning_symbol = '≈≈'
 let g:syntastic_enable_balloons = 0
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_loc_list_height = 6
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_wq = 0
