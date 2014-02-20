@@ -59,9 +59,6 @@
 [submodule "dotvim/bundle/RST-Tables"]
 	path = dotvim/bundle/RST-Tables
 	url = git://github.com/vim-scripts/RST-Tables.git
-[submodule "dotvim/bundle/ultisnips"]
-	path = dotvim/bundle/ultisnips
-	url = git://github.com/guns/ultisnips.git
 [submodule "dotvim/bundle/vim-space"]
 	path = dotvim/bundle/vim-space
 	url = git://github.com/jfelchner/vim-space.git
