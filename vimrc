@@ -366,7 +366,10 @@ nnoremap <silent><leader>lr :<C-u>Unite -buffer-name=files file_rec/async file/n
 nnoremap <silent><leader>le :<C-u>Unite -buffer-name=files file_mru bookmark file_rec/async file/new<CR>
 nnoremap <silent><leader>lb :<C-u>Unite -buffer-name=buffers buffer<CR>
 nnoremap <silent><leader>ly :<C-u>Unite -buffer-name=yanks history/yank<CR>
-nnoremap <silent><leader>lc :<C-u>Unite -buffer-name=commands history/command<CR>
+nnoremap <silent><leader>lc :<C-u>Unite -buffer-name=changes change<CR>
+nnoremap <silent><leader>lj :<C-u>Unite -buffer-name=jumps jump<CR>
+nnoremap <silent><leader>lf :<C-u>Unite -buffer-name=jumps jump<CR>
+nnoremap <silent><leader>l; :<C-u>Unite -buffer-name=commands history/command<CR>
 nnoremap <silent><leader>l/ :<C-u>Unite -buffer-name=commands history/search<CR>
 nnoremap <silent><leader>lo :<C-u>Unite -buffer-name=outline outline<CR>
 nnoremap <silent><leader>la :<C-u>Unite -buffer-name=outline -vertical outline<CR>
@@ -377,6 +380,8 @@ nnoremap <silent><leader>ls :<C-u>Unite session<CR>
 nnoremap <silent><leader>lt :<C-u>Unite -buffer-name=tags tag tag/file<CR>
 nnoremap <silent><leader>li :<C-u>Unite -buffer-name=included-tags tag/include<CR>
 nnoremap <silent><leader>ld :<C-u>Unite -buffer-name=change-cwd -default-action=lcd directory_mru directory<CR>
+nnoremap <silent><leader>l, :<C-u>UniteResume<CR>
+nnoremap <silent><leader>lv :<C-u>UniteResume<CR>
 
 nnoremap <leader>lS :<C-u>UniteSessionSave 
 
