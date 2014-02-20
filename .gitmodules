@@ -208,3 +208,6 @@
 [submodule "dotvim/bundle/vim-sparkup"]
 	path = dotvim/bundle/vim-sparkup
 	url = https://github.com/tristen/vim-sparkup.git
+[submodule "dotvim/bundle/unite-neocomplete-ultisnips"]
+	path = dotvim/bundle/unite-neocomplete-ultisnips
+	url = https://github.com/skeept/Ultisnips-neocomplete-unite.git
