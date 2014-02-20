@@ -538,6 +538,13 @@ autocmd FileType python let b:did_ftplugin = 1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
+"" vim-sparkup settings
+"" 
+let g:sparkupExecuteMapping = '<leader>v'
+let g:sparkupNextMapping = '<leader>b'
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
 "" python-mode, ropevim settings
 "" 
 let g:pymode_rope_extended_autocomplete=1

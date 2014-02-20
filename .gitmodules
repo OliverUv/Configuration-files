@@ -205,3 +205,6 @@
 [submodule "dotvim/bundle/targets.vim"]
 	path = dotvim/bundle/targets.vim
 	url = https://github.com/wellle/targets.vim.git
+[submodule "dotvim/bundle/vim-sparkup"]
+	path = dotvim/bundle/vim-sparkup
+	url = https://github.com/tristen/vim-sparkup.git
