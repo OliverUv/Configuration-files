@@ -211,6 +211,3 @@
 [submodule "dotvim/bundle/ultisnips"]
 	path = dotvim/bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
-[submodule "dotvim/bundle/unite-qf"]
-	path = dotvim/bundle/unite-qf
-	url = https://github.com/sgur/unite-qf.git
