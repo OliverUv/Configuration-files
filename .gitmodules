@@ -126,9 +126,6 @@
 [submodule "dotvim/bundle/unite.vim"]
 	path = dotvim/bundle/unite.vim
 	url = https://github.com/Shougo/unite.vim.git
-[submodule "dotvim/bundle/unite-help"]
-	path = dotvim/bundle/unite-help
-	url = https://github.com/tsukkee/unite-help.git
 [submodule "dotvim/bundle/unite-tag"]
 	path = dotvim/bundle/unite-tag
 	url = https://github.com/tsukkee/unite-tag.git
