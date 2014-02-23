@@ -214,3 +214,6 @@
 [submodule "dotvim/bundle/unite-help"]
 	path = dotvim/bundle/unite-help
 	url = https://github.com/Shougo/unite-help.git
+[submodule "dotvim/bundle/neomru.vim"]
+	path = dotvim/bundle/neomru.vim
+	url = https://github.com/Shougo/neomru.vim.git
