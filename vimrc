@@ -374,17 +374,18 @@ nnoremap <silent><leader>l; :<C-u>Unite -buffer-name=commands history/command<CR
 nnoremap <silent><leader>l/ :<C-u>Unite -buffer-name=commands history/search<CR>
 nnoremap <silent><leader>lo :<C-u>Unite -buffer-name=outline outline<CR>
 nnoremap <silent><leader>la :<C-u>Unite -buffer-name=outline -vertical outline<CR>
-nnoremap <silent><leader>ll :<C-u>Unite -buffer-name=search line<CR>
+nnoremap <silent><leader>ll :<C-u>Unite -buffer-name=line line<CR>
 nnoremap <silent><leader>lq :<C-u>Unite -buffer-name=quickfix quickfix<CR>
-nnoremap <silent><leader>lw :<C-u>Unite -buffer-name=locationlist location_list<CR>
-nnoremap <silent><leader>l* :<C-u>UniteWithCursorWord -buffer-name=search line<CR>
-nnoremap <silent><leader>lg :<C-u>Unite grep<CR>
+nnoremap <silent><leader>lw :<C-u>Unite -buffer-name=location_list location_list<CR>
+nnoremap <silent><leader>l* :<C-u>UniteWithCursorWord -buffer-name=line line<CR>
+nnoremap <silent><leader>lg :<C-u>Unite -buffer-name=grep grep<CR>
 nnoremap <silent><leader>ls :<C-u>Unite session<CR>
 nnoremap <silent><leader>lt :<C-u>Unite -buffer-name=tags tag tag/file<CR>
-nnoremap <silent><leader>li :<C-u>Unite -buffer-name=included-tags tag/include<CR>
+nnoremap <silent><leader>li :<C-u>Unite -buffer-name=included_tags tag/include<CR>
 nnoremap <silent><leader>ld :<C-u>Unite -buffer-name=change-cwd -default-action=lcd directory_mru directory<CR>
 nnoremap <silent><leader>l, :<C-u>UniteResume<CR>
 nnoremap <silent><leader>lv :<C-u>UniteResume<CR>
+nnoremap <silent><leader>lV :<C-u>UniteResume 
 
 nnoremap <leader>lS :<C-u>UniteSessionSave 
 
