@@ -1,4 +1,4 @@
 # Host specific settings
 
 exec --no-startup-id setxkbmap "en_US,se" -option 'ctrl:nocaps,grp:lalt_lshift_toggle'
-exec --no-startup-id synergyc --daemon --name laptop 192.168.1.111
+exec --no-startup-id synergyc --daemon --name laptop 192.168.1.137
