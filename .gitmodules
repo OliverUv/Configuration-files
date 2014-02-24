@@ -208,6 +208,7 @@
 [submodule "dotvim/bundle/unite-quickfix"]
 	path = dotvim/bundle/unite-quickfix
 	url = https://github.com/osyo-manga/unite-quickfix.git
+        ignore = dirty
 [submodule "dotvim/bundle/unite-outline"]
 	path = dotvim/bundle/unite-outline
 	url = https://github.com/Shougo/unite-outline.git
