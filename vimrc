@@ -278,32 +278,6 @@ let g:gist_clip_command = 'xsel --clipboard -i'
 let g:gist_detect_filetype = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
-"" CtrlP configuration
-"" http://github.com/kien/ctrlp.vim
-" Remove history
-" Bind up/down to c-p c-n
-" Bind vert/hor splits to c-k c-j
-  let g:ctrlp_prompt_mappings = {
-    \ 'PrtBS()':              ['<bs>'],
-    \ 'PrtSelectMove("j")':   ['<c-n>', '<down>'],
-    \ 'PrtSelectMove("k")':   ['<c-p>', '<up>'],
-    \ 'PrtHistory(-1)':       ['<c-]>'],
-    \ 'PrtHistory(1)':        ['<c-[>'],
-    \ 'AcceptSelection("h")': ['<c-x>', '<c-cr>', '<c-s>', '<c-j>'],
-    \ 'AcceptSelection("v")': ['<c-v>', '<RightMouse>', '<c-k>'],
-    \ 'ToggleFocus()':        ['<s-tab>'],
-    \ 'PrtExit()':            ['<c-c>', '<c-g>'],
-    \ }
-" Don't muck about with pwd
-let g:ctrlp_working_path_mode = '0'
-let g:ctrlp_extensions = ['funky']
-let g:ctrlp_map = '<leader>,r'
-nnoremap <silent> <leader>,b :CtrlPBuffer<cr>
-nnoremap <silent> <leader>,f :CtrlPFunky<cr>
-
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Unite configuration
 ""
 
