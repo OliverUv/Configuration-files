@@ -13,7 +13,7 @@
         olog = log --oneline
         oo = log --oneline -15
 	amend = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
-	s = status -sb
+	s = status
 	a = add
         b = branch
         c = checkout
@@ -23,6 +23,7 @@
 	hub = push origin
 	buh = pull origin
         sm = submodule
+        lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 
         # will put a file into gitignore
 	ignore=!([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
