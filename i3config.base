@@ -41,6 +41,7 @@ bindsym $mod+d exec dmenu_run -i -fn 'DejaVu Sans 10' -sb '#E17800' -sf '#000000
 bindsym $mod+Shift+D exec i3-dmenu-desktop --dmenu "dmenu -i -fn 'DejaVu Sans 10' -sb '#E17800' -sf '#000000' -h 23"
 
 # start apps
+bindsym $mod+Control+p exec bash -c 'scrot $HOME/screenshot_$(date +"%F_-_%H-%M-%S").png'
 bindsym $mod+Control+g exec google-chrome
 bindsym $mod+Control+s exec skype
 bindsym $mod+Control+v exec gvim
