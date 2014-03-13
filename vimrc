@@ -566,6 +566,7 @@ let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_coffee_coffeelint_args = '-f ~/.config/coffeelint.json'
 let g:syntastic_c_config_file = '.clang_complete'
 let g:syntastic_cpp_config_file = '.clang_complete'
+let g:syntastic_java_javac_config_file_enabled = 1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
