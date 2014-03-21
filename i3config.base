@@ -15,9 +15,9 @@ set $mod Mod1
 #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 
 # This requires a recent version of i3 with xft support.
-# font xft:NanumGothic Regular 10, FreeSans 10
-# font xft:DejaVu Sans Bold 8
-font xft:WenQuanYi Micro Hei Mono 9.4
+# font pango:NanumGothic Regular 10, FreeSans 10
+# font pango:DejaVu Sans Bold 8
+font pango:WenQuanYi Micro Hei Mono 9.4
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
