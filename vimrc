@@ -690,8 +690,8 @@ endfunction
 nnoremap <silent> <leader>cc :call g:ToggleColorColumn()<cr>
 
 " Pull word under cursor into LHS of a substitute
-nnoremap <leader>z :s#\<<c-r>=expand("<cword>")<cr>\>##g<left><left>
-nnoremap <leader>Z :%s#\<<c-r>=expand("<cword>")<cr>\>##gc<left><left><left>
+nnoremap <leader>z :%s#\<<c-r>=expand("<cword>")<cr>\>##gc<left><left><left>
+nnoremap <leader>Z :bufdo %s#\<<c-r>=expand("<cword>")<cr>\>##gce<space><bar><space>update<left><left><left><left><left><left><left><left><left><left><left><left><left>
 
 " move between windows
 nnoremap <C-j> <C-W>j
@@ -797,3 +797,4 @@ nnoremap <silent> <leader>e :UltiSnipsEdit<cr>
 nnoremap <silent> <leader>u :UndotreeToggle<cr>
 nnoremap <silent> <leader>m :w<cr>:make<cr>
 nnoremap <silent> <leader>a :sign unplace *<cr>:Lclose<cr>
+map <F1> <nop>
