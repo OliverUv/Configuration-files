@@ -218,3 +218,6 @@
 [submodule "dotvim/bundle/neomru.vim"]
 	path = dotvim/bundle/neomru.vim
 	url = https://github.com/Shougo/neomru.vim.git
+[submodule "dotvim/bundle/vim-snippets"]
+	path = dotvim/bundle/vim-snippets
+	url = https://github.com/honza/vim-snippets.git
