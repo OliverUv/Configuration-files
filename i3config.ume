@@ -1,3 +1,4 @@
 # Host specific settings
 
 exec --no-startup-id setxkbmap "en_US,se" -option 'ctrl:nocaps,grp:lalt_lshift_toggle'
+exec --no-startup-id xrandr --output HDMI-0 --off --output DVI-I-1 --mode 1280x1024 --pos 0x0 --rotate normal --output DVI-I-0 --primary --mode 1920x1200 --pos 1280x0 --rotate normal --output DVI-I-3 --off --output DVI-I-2 --off
