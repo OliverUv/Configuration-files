@@ -26,6 +26,9 @@ floating_modifier $mod
 # Use 1 pixel borders by default
 new_window 1pixel
 
+# No vertical borders on screen edges
+hide_edge_borders vertical
+
 # Repeated presses of the same workspace number does nothing
 workspace_auto_back_and_forth no
 
