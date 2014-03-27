@@ -41,11 +41,6 @@ TEXT
 	  "color" : "\#999999"
 	},
 	{ 
-	  "full_text" : "${execi 60 curl -p icanhazip.com}", 
-	  "color" : "\#999999",
-	  "min_width": 72
-	},
-	{ 
 	  "full_text" : "${time %A %d %B   }${time %H:%M}", 
 	  "separator" : false, 
 	  "separator_block_width" : 3, 
