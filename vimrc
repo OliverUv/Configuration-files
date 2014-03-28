@@ -797,4 +797,11 @@ nnoremap <silent> <leader>e :UltiSnipsEdit<cr>
 nnoremap <silent> <leader>u :UndotreeToggle<cr>
 nnoremap <silent> <leader>m :w<cr>:make<cr>
 nnoremap <silent> <leader>a :sign unplace *<cr>:Lclose<cr>
-map <F1> <nop>
+
+" Accidentally pressing F1 is to press ESC
+map <F1> <esc>
+imap <F1> <esc>
+cmap <F1> <esc>
+xmap <F1> <esc>
+smap <F1> <esc>
+lmap <F1> <esc>
