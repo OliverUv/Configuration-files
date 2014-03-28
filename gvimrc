@@ -47,7 +47,7 @@ elseif has("gui_macvim")
 	:set antialias " Use smooth, antialiased fonts (OS X Specific)
 	:set guifont=Menlo\ Regular:h12
 elseif has("gui_gnome")
-        :set guifont=Liberation\ Mono\ 10
+        :set guifont=Inconsolata\ Medium\ 12
 endif
 
 " MacVim specific: Set fullscreen options to be as full screen as possible
