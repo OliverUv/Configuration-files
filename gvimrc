@@ -42,12 +42,12 @@ set linespace=-2
 " Set GUI Font depending on the kind of gui/platform being loaded.
 set guifont=Liberation\ Mono\ 10  " Sane default
 if has("gui_win32")
-	:set guifont=Consolas:h11:cANSI
+	set guifont=Consolas:h11:cANSI
 elseif has("gui_macvim")
-	:set antialias " Use smooth, antialiased fonts (OS X Specific)
-	:set guifont=Menlo\ Regular:h12
+	set antialias " Use smooth, antialiased fonts (OS X Specific)
+	set guifont=Menlo\ Regular:h12
 elseif has("gui_gnome")
-        :set guifont=Inconsolata\ Medium\ 12
+        set guifont=Inconsolata\ Medium\ 12
 endif
 
 " MacVim specific: Set fullscreen options to be as full screen as possible
