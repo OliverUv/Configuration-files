@@ -46,7 +46,7 @@ if has("gui_win32")
 elseif has("gui_macvim")
 	set antialias " Use smooth, antialiased fonts (OS X Specific)
 	set guifont=Menlo\ Regular:h12
-elseif has("gui_gnome")
+elseif has("gui_gnome") || has("gui_gtk") || has("gui_gtk2")
         set guifont=Inconsolata\ Medium\ 12
 endif
 
