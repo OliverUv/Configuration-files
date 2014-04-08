@@ -1,0 +1,35 @@
+#!/bin/bash
+
+#define some theme sequence
+#theme[0]="-bg #090909"
+#theme[1]="-bg #05080A"
+#theme[2]="-bg #050A05"
+#theme[3]="-bg #0A0509"
+#theme[4]="-bg #05050A"
+#theme[5]="-bg #0A0505"
+#theme[6]="-bg #0A0A05"
+#theme[7]="-bg #0A0805"
+
+theme[0]="-bg #090909"
+theme[1]="-bg #0F181E"
+theme[2]="-bg #1F150A"
+theme[3]="-bg #1B0E18"
+theme[4]="-bg #0A0A14"
+theme[5]="-bg #140A0A"
+theme[6]="-bg #14140A"
+theme[7]="-bg #15110B"
+
+#check for last used theme id
+if [ ! -f "/tmp/termtheme" ] ; then
+  theme_id=0 #defaulting to first theme
+else
+  theme_id=`cat /tmp/termtheme` #load previous
+  theme_id=`expr ${theme_id} + 1` #increment it
+  theme_id=`expr ${theme_id} % ${#theme[@]}` #don't exceed max
+fi
+
+#store theme id we're about to use
+echo "${theme_id}" > /tmp/termtheme
+
+#launch the terminal
+urxvtcd ${theme[${theme_id}]}
