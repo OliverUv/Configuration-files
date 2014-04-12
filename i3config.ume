@@ -1,3 +1,4 @@
+# vim: ft=i3
 # Host specific settings
 
 exec --no-startup-id setxkbmap "en_US,se" -option 'ctrl:nocaps,grp:lalt_lshift_toggle'

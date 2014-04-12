@@ -224,3 +224,6 @@
 [submodule "dotvim/bundle/recover.vim"]
 	path = dotvim/bundle/recover.vim
 	url = https://github.com/chrisbra/Recover.vim.git
+[submodule "dotvim/bundle/i3-vim-syntax"]
+	path = dotvim/bundle/i3-vim-syntax
+	url = https://github.com/PotatoesMaster/i3-vim-syntax.git
