@@ -227,3 +227,6 @@
 [submodule "dotvim/bundle/i3-vim-syntax"]
 	path = dotvim/bundle/i3-vim-syntax
 	url = https://github.com/PotatoesMaster/i3-vim-syntax.git
+[submodule "dotvim/bundle/vim-exchange"]
+	path = dotvim/bundle/vim-exchange
+	url = https://github.com/tommcdo/vim-exchange.git
