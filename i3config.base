@@ -167,6 +167,7 @@ bindsym $mod+Control+u border none
 
 # Rules for specific windows
 # for_window [title="^visulove$"] floating enable
+for_window [title="Warsow"] fullscreen
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
