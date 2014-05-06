@@ -112,7 +112,7 @@ hi VisualNOS    gui=NONE guifg=NONE guibg=#7C2B7C
 " Syntax group
 hi Comment      gui=NONE guifg=#8a8a8a guibg=NONE
 hi Constant     gui=NONE guifg=#92d4ff guibg=NONE
-hi Error        gui=BOLD guifg=#000000 guibg=#f2ca03
+hi Error        gui=BOLD guifg=#f2ca03 guibg=#000000
 hi Identifier   gui=NONE guifg=#40f8f8 guibg=NONE
 hi Ignore       gui=NONE guifg=bg      guibg=NONE
 hi PreProc      gui=NONE guifg=#ffa8ff guibg=NONE
