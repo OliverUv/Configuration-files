@@ -131,16 +131,16 @@ bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
 
 # move focused container to workspace
-bindsym $mod+Shift+exclam move container to workspace 1
-bindsym $mod+Shift+at move container to workspace 2
-bindsym $mod+Shift+numbersign move container to workspace 3
-bindsym $mod+Shift+dollar move container to workspace 4
-bindsym $mod+Shift+percent move container to workspace 5
-bindsym $mod+Shift+asciicircum move container to workspace 6
-bindsym $mod+Shift+ampersand move container to workspace 7
-bindsym $mod+Shift+asterisk move container to workspace 8
-bindsym $mod+Shift+parenleft move container to workspace 9
-bindsym $mod+Shift+parenright move container to workspace 10
+bindsym $mod+Shift+exclam move container to workspace number 1
+bindsym $mod+Shift+at move container to workspace number 2
+bindsym $mod+Shift+numbersign move container to workspace number 3
+bindsym $mod+Shift+dollar move container to workspace number 4
+bindsym $mod+Shift+percent move container to workspace number 5
+bindsym $mod+Shift+asciicircum move container to workspace number 6
+bindsym $mod+Shift+ampersand move container to workspace number 7
+bindsym $mod+Shift+asterisk move container to workspace number 8
+bindsym $mod+Shift+parenleft move container to workspace number 9
+bindsym $mod+Shift+parenright move container to workspace number 10
 
 # reload the configuration file
 bindsym $mod+Shift+C reload
