@@ -757,6 +757,10 @@ map <leader>Y "+y$
 nmap <leader>p "+p
 nmap <leader>P "+P
 
+" Copy current file path into os buffer
+command! Ypwd let @+ = expand("%:p")
+nnoremap <silent> <leader>fy :Ypwd<cr>
+
 " Save, quit, etc
 nnoremap <silent> <leader>s :w<cr>
 nnoremap <silent> <leader>w :wa<cr>
