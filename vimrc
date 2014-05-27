@@ -767,10 +767,11 @@ nnoremap <silent> <leader>fy :Ypwd<cr>
 
 " Save, quit, etc
 nnoremap <silent> <leader>s :w<cr>
-nnoremap <silent> <leader>w :wa<cr>
+nnoremap <silent> <leader>S :w<cr>
 nnoremap <silent> <leader>x :wq<cr>
+nnoremap <silent> <leader>X :wqa<cr>
 nnoremap <silent> <leader>d :q<cr>
-nnoremap <silent> <leader>c :qa<cr>
+nnoremap <silent> <leader>D :qa<cr>
 nnoremap <silent> <leader>h :FSHere<cr>
 nnoremap <silent> <leader>hh :FSHere<cr>
 nnoremap <silent> <leader>hu :FSSplitAbove<cr>
