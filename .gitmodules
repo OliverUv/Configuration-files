@@ -230,3 +230,6 @@
 [submodule "dotvim/bundle/vim-exchange"]
 	path = dotvim/bundle/vim-exchange
 	url = https://github.com/tommcdo/vim-exchange.git
+[submodule "dotvim/bundle/windowing.vim"]
+	path = dotvim/bundle/windowing.vim
+	url = git@github.com:OliverUv/windowing.vim.git
