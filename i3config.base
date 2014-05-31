@@ -49,6 +49,7 @@ bindsym $mod+Control+p exec bash -c 'scrot $HOME/screenshot_$(date +"%F_-_%H-%M-
 bindsym $mod+Control+g exec google-chrome
 bindsym $mod+Control+s exec skype
 bindsym $mod+Control+v exec gvim
+bindsym $mod+Control+y exec mtub
 bindsym $mod+Control+a exec urxvt -e alsamixer
 
 # move focus
@@ -159,11 +160,6 @@ bindsym XF86KbdBrightnessDown exec xbacklight -dec 15
 # Scratchpad
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
-
-# Decoration control
-bindsym $mod+Control+t border normal
-bindsym $mod+Control+y border 1pixel
-bindsym $mod+Control+u border none
 
 # Rules for specific windows
 # for_window [title="^visulove$"] floating enable
