@@ -672,6 +672,7 @@ endfunction
 "    :    endif
 "    :  endif
 "    :endfun
+"
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -701,6 +702,9 @@ nnoremap <C-l> <C-W>l
 
 " make window 40 chars wide, useful for CSS files
 nnoremap <silent> <leader>4 :vertical resize 40<cr>
+
+" windowing
+nnoremap <silent> z<cr> :call windowing#minimize_vertically()<cr>
 
 " change buffers with ctrl-n and ctrl-p
 nnoremap <silent> <C-p> :BufSurfBack<cr>
@@ -763,10 +767,11 @@ nnoremap <silent> <leader>fy :Ypwd<cr>
 
 " Save, quit, etc
 nnoremap <silent> <leader>s :w<cr>
-nnoremap <silent> <leader>w :wa<cr>
+nnoremap <silent> <leader>S :w<cr>
 nnoremap <silent> <leader>x :wq<cr>
+nnoremap <silent> <leader>X :wqa<cr>
 nnoremap <silent> <leader>d :q<cr>
-nnoremap <silent> <leader>c :qa<cr>
+nnoremap <silent> <leader>D :qa<cr>
 nnoremap <silent> <leader>h :FSHere<cr>
 nnoremap <silent> <leader>hh :FSHere<cr>
 nnoremap <silent> <leader>hu :FSSplitAbove<cr>
