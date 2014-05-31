@@ -320,8 +320,8 @@ let g:unite_source_session_enable_auto_save = 1
 " Non-ugly colors for selected item, requires you to set 'hi UnitedSelectedLine'
 let g:unite_cursor_line_highlight = "UniteSelectedLine"
 " Set to some better time formats
-let g:unite_source_buffer_time_format = " %Y-%m-%d  %H:%M:%S "
-let g:unite_source_file_mru_time_format = " %Y-%m-%d  %H:%M:%S "
+let g:unite_source_buffer_time_format = "%Y-%m-%d  %H:%M:%S  "
+let g:unite_source_file_mru_time_format = "%Y-%m-%d  %H:%M:%S  "
 
 " Use ag or ack as grep command if possible
 if executable('ag')
@@ -365,10 +365,13 @@ nnoremap <leader>lS :<C-u>UniteSessionSave
 
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()
+  "Don't add parens to my filters
+  let b:delimitMate_autoclose = 0
+
   "Keymaps inside the unite split
-  nmap <buffer> <leader>d <Plug>(unite_exit)
-  nmap <buffer> <C-c> <Plug>(unite_exit)
-  imap <buffer> <C-c> <Plug>(unite_exit)
+  nmap <buffer> <nowait> <leader>d <Plug>(unite_exit)
+  nmap <buffer> <nowait> <C-c> <Plug>(unite_exit)
+  imap <buffer> <nowait> <C-c> <Plug>(unite_exit)
 
   nnoremap <buffer> <C-n> <Plug>(unite_select_next_line)
   nnoremap <buffer> <C-p> <Plug>(unite_select_previous_line)
