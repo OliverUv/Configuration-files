@@ -235,5 +235,5 @@ exec --no-startup-id volumeicon
 exec --no-startup-id redshift -l 58.411975:15.559395 -t 6500:3700 -b 0.95
 exec --no-startup-id xset r rate 210 30
 exec --no-startup-id xset m 0 0
-exec google-chrome
+#exec google-chrome
 
