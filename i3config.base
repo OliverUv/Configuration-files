@@ -49,9 +49,9 @@ bindsym $mod+Control+p exec bash -c 'scrot $HOME/screenshot_$(date +"%F_-_%H-%M-
 bindsym $mod+Control+g exec google-chrome
 bindsym $mod+Control+s exec skype
 bindsym $mod+Control+v exec gvim
-bindsym $mod+Control+Shift+Y exec mtub
-bindsym $mod+Control+y exec my
 bindsym $mod+Control+a exec urxvt -e alsamixer
+bindsym $mod+Control+y exec my
+bindsym $mod+Shift+Y exec mclip
 
 # move focus
 bindsym $mod+h focus left
