@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #define some theme sequence
 #theme[0]="-bg #090909"
