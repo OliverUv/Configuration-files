@@ -49,7 +49,8 @@ bindsym $mod+Control+p exec bash -c 'scrot $HOME/screenshot_$(date +"%F_-_%H-%M-
 bindsym $mod+Control+g exec google-chrome
 bindsym $mod+Control+s exec skype
 bindsym $mod+Control+v exec gvim
-bindsym $mod+Control+y exec mtub
+bindsym $mod+Control+Shift+Y exec mtub
+bindsym $mod+Control+y exec my
 bindsym $mod+Control+a exec urxvt -e alsamixer
 
 # move focus
@@ -164,6 +165,7 @@ bindsym $mod+minus scratchpad show
 # Rules for specific windows
 # for_window [title="^visulove$"] floating enable
 for_window [title="^Warsow$"] fullscreen
+for_window [title="^ioquake3$"] fullscreen
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
