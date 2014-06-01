@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+livestreamer -O $* | mplayer -cache 30000 -

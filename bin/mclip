@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+livestreamer -O `xclip -o -sel clip` best | mplayer -cache 30000 -

@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+mpg123 $HOME/Dropbox/pin.mp3 &> /dev/null &

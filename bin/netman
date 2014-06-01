@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+plasma-windowed org.kde.networkmanagement

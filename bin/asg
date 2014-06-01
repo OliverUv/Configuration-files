@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+echo "Name, Repos, Current"
+apt-get -F "%p %V %v" search "$1"
