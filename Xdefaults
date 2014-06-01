@@ -51,18 +51,26 @@ URxvt.background: #0A1015
 ! Disable interfering unicode insert w/ ctrl-shift
 URxvt.iso14755: false
 
-! url things
-URxvt.perl-ext-common: default,matcher,clipboard
-!URxvt.keysym.C-M-p: perl:url-select:select_next
-!URxvt.url-select.launcher: /usr/bin/google-chrome
-!URxvt.url-select.underline: true
-! Requires xclip
-! sudo cp Configuration-files/urxvtclip /usr/lib/urxvt/perl/clipboard
+! perls selection
+Urxvt.perl-lib: /home/oliver/Configuration-files/urxvt-perls
+URxvt.perl-ext-common: default,matcher,url-select,clipboard
+
+! url-select config
+URxvt.keysym.Shift-Control-P: perl:url-select:select_next
+URxvt.url-select.underline: true
+URxvt.url-select.button: 1
+
+! clipboard config (requires xclip !!)
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 !URxvt.keysym.C-A-V: perl:clipboard:paste_escaped
 
+!URxvt.perl-ext-common: default,matcher,clipboard
+!!URxvt.keysym.C-M-p: perl:url-select:select_next
+!!URxvt.url-select.launcher: /usr/bin/google-chrome
+
 URxvt.url-launcher:  /usr/bin/google-chrome
-URxvt.matcher.button:   1
+!URxvt.matcher.button:   1
 URxvt.keysym.Shift-Control-U:  perl:matcher:last
-URxvt.keysym.Shift-Control-P:  perl:matcher:list
+!URxvt.keysym.Shift-Control-P:  perl:matcher:list
+

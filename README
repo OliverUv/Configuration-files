@@ -15,7 +15,6 @@ conkyrc -> .conkyrc
 
 # urxvt-256color
 # requires xclip
-urxvtclip -> /usr/lib/urxvt/perl/clipboard
 
 # programming
 vimrc -> .vimrc
