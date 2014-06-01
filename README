@@ -13,6 +13,9 @@ i3config.indal -> .i3/config.local
 i3config.amitofo -> .i3/config.local
 conkyrc -> .conkyrc
 
+# mpv for video things
+mpv-input.conf -> .mpv/input.conf
+
 # urxvt-256color
 # requires xclip
 
