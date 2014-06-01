@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-livestreamer -O $* | mplayer -cache 3000 -
+livestreamer -O $* | mpv -cache 3000 -
