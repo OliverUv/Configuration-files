@@ -61,7 +61,7 @@
 	url = git://github.com/vim-scripts/RST-Tables.git
 [submodule "dotvim/bundle/vim-space"]
 	path = dotvim/bundle/vim-space
-	url = git://github.com/jfelchner/vim-space.git
+	url = git://github.com/linktohack/vim-space.git
 [submodule "dotvim/bundle/vim-indent-object"]
 	path = dotvim/bundle/vim-indent-object
 	url = git://github.com/michaeljsmith/vim-indent-object.git
