@@ -338,7 +338,8 @@ endif
 " Bindings
 nnoremap <silent><leader>l<tab> :<C-u>Unite -buffer-name=ultisnips -vertical ultisnips<CR>
 nnoremap <silent><leader>lr :<C-u>Unite -buffer-name=files file_rec/async file/new<CR>
-nnoremap <silent><leader>le :<C-u>Unite -buffer-name=files file_mru bookmark file_rec/async file/new<CR>
+nnoremap <silent><leader>le :<C-u>Unite -buffer-name=files file_mru bookmark<CR>
+nnoremap <silent><leader>lE :<C-u>Unite -buffer-name=files file_mru bookmark file_rec/async file/new<CR>
 nnoremap <silent><leader>lb :<C-u>Unite -buffer-name=buffers buffer<CR>
 nnoremap <silent><leader>ly :<C-u>Unite -buffer-name=yanks history/yank<CR>
 nnoremap <silent><leader>lc :<C-u>Unite -buffer-name=changes change<CR>
