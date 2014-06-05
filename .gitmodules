@@ -236,3 +236,6 @@
 [submodule "urxvt-perls"]
 	path = urxvt-perls
 	url = git@github.com:OliverUv/urxvt-perls.git
+[submodule "virtualfish"]
+	path = virtualfish
+	url = https://github.com/adambrenecki/virtualfish.git

@@ -4,6 +4,7 @@ Just some of my configuration files for dev environment. :)
 profile -> .profile
 tmux.conf -> .tmux.conf
 config.fish -> .config/fish/config.fish
+fish-functions/ -> .config/fish/functions/
 Xdefaults -> .Xdefaults
 
 # i3 window manager n stuff
