@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-livestreamer -O $* | mpv -cache 3000 -
+livestreamer -O $* | mpv --really-quiet -cache 3000 -

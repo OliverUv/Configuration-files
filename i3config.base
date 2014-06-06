@@ -50,7 +50,7 @@ bindsym $mod+Control+g exec google-chrome
 bindsym $mod+Control+s exec skype
 bindsym $mod+Control+v exec gvim
 bindsym $mod+Control+a exec urxvt -e alsamixer
-bindsym $mod+Control+u exec urxvt -e yt
+bindsym $mod+Control+u exec urxvt -e youtube-viewer
 bindsym $mod+Control+y exec my
 bindsym $mod+Shift+Y exec mclip
 

@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-mpv `xclip -o -sel clip`
+mpv --really-quiet `xclip -o -sel clip`
