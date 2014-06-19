@@ -1,4 +1,4 @@
-let g:pathogen_disabled = ['ctrlp', 'ctrlp-funky', 'vim-sneak', 'CoVim', 'neocomplcache', 'neocomplcache-ultisnips']
+let g:pathogen_disabled = ['ctrlp', 'ctrlp-funky', 'vim-sneak', 'CoVim', 'neocomplcache', 'neocomplcache-ultisnips', 'python-mode']
 
 if has("win32") || has("win64")
    " Required by pathogen.vim for loading plugins
@@ -305,6 +305,10 @@ call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
             \ '\.zip$', '\.tar\.gz$', '\.tar\.bz2$', '\.rar$', '\.tar\.xz$'
             \ ], '\|'))
 
+let g:unite_source_rec_max_cache_files = 0
+call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
+            \ 'max_candidates', 0)
+
 " Situate on bottom or right by default
 let g:unite_split_rule = "botright"
 " Keep track of yanks
@@ -535,9 +539,9 @@ let g:sparkupNextMapping = '<leader>b'
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" python-mode, ropevim settings
 "" 
-let g:pymode_rope_extended_autocomplete=1
-let g:pymode_rope_autoimport_modules = ["os", "django.*"]
-let g:pymode_lint = 0
+" let g:pymode_rope_extended_autocomplete=1
+" let g:pymode_rope_autoimport_modules = ["os", "django.*"]
+" let g:pymode_lint = 0
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
