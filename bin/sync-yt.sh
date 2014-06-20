@@ -2,13 +2,17 @@
 EXARGS=1
 E_BADARGS=65
 if [ $# -ne $EXARGS ] ; then
- echo "Usage: $(basename $0) p"
- echo "p is a file with playlist urls, one per line."
- echo "Will download each playlist into a directory with the same name "
- echo "as the playlist. A file called archive-log will keep track of   "
- echo "downloaded videos, to avoid duplicates and allow scheduled,     "
- echo "repeated, runs of this script.                                  "
- exit $E_BADARGS
+    cat <<-EOF
+    Usage: $(basename $0) [p]
+
+    Where p is a file with playlist urls, one per line.
+    Will download each playlist into a directory with the same name 
+    as the playlist. A file called archive-log will keep track of
+    downloaded videos, to avoid duplicates and allow scheduled,
+    repeated, runs of this script.
+EOF
+
+    exit $E_BADARGS
 else
     TMPFILE=$(mktemp)
     while read p; do
