@@ -30,8 +30,11 @@ new_window 1pixel
 # No vertical borders on screen edges
 hide_edge_borders vertical
 
-# Repeated presses of the same workspace number does nothing
-workspace_auto_back_and_forth no
+# Repeated presses of the same workspace number switches focus to previous workspace
+workspace_auto_back_and_forth yes
+
+# Do not move mouse pointer when focusing window on other monitor
+mouse_warping none
 
 # start a terminal
 bindsym $mod+Return exec /home/oliver/bin/color_urxvt
