@@ -137,6 +137,12 @@ set wildignore+=node_modules/*
 " Ignore temp and backup files
 set wildignore+=*.swp,*~,._*
 
+" Ignore thirdparty assets
+set wildignore+=*/thirdparty/*
+
+" Ignore Debug and Release folders
+set wildignore+=*/Debug/*,*/Release/*
+
 """""""""""""""""""""""""""""""""""""""""""""
 "" Settings for specific filetypes
 ""
@@ -299,6 +305,7 @@ call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
             \ 'node_modules/', 'log/', 'tmp/', 'obj/',
             \ '/vendor/gems/', '/vendor/cache/', '\.bundle/', '\.sass-cache/',
             \ '/tmp/cache/assets/.*/sprockets/', '/tmp/cache/assets/.*/sass/',
+            \ 'thirdparty/', 'Debug/', 'Release/',
             \ '\.pyc$', '\.class$', '\.jar$',
             \ '\.jpg$', '\.jpeg$', '\.bmp$', '\.png$', '\.gif$',
             \ '\.o$', '\.out$', '\.obj$', '\.rbc$', '\.rbo$', '\.gem$',
@@ -339,9 +346,21 @@ elseif executable('ack-grep')
   let g:unite_source_grep_recursive_opt = ''
 endif
 
+function! g:DoUniteFuzzy()
+    call unite#custom#source('file_rec/async,file/new', 'sorters', 'sorter_rank')
+    call unite#custom#source('file_rec/async,file/new', 'matchers', 'matcher_fuzzy')
+    exec "Unite -buffer-name=files file_rec/async file/new"
+endfunction
+function! g:DoUniteNonFuzzy()
+    call unite#custom#source('file_rec/async,file/new', 'sorters', 'sorter_nothing')
+    call unite#custom#source('file_rec/async,file/new', 'matchers', 'matcher_glob')
+    exec "Unite -buffer-name=files file_rec/async file/new"
+endfunction
+
 " Bindings
 nnoremap <silent><leader>l<tab> :<C-u>Unite -buffer-name=ultisnips -vertical ultisnips<CR>
-nnoremap <silent><leader>lr :<C-u>Unite -buffer-name=files file_rec/async file/new<CR>
+nnoremap <silent><leader>lr :call g:DoUniteFuzzy()<CR>
+nnoremap <silent><leader>lR :call g:DoUniteNonFuzzy()<CR>
 nnoremap <silent><leader>le :<C-u>Unite -buffer-name=files file_mru bookmark<CR>
 nnoremap <silent><leader>lE :<C-u>Unite -buffer-name=files file_mru bookmark file_rec/async file/new<CR>
 nnoremap <silent><leader>lb :<C-u>Unite -buffer-name=buffers buffer<CR>
