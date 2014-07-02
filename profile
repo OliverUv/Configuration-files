@@ -16,15 +16,10 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-# set PATH so it includes user's private bin if it exists
+# set PATH so it includes user's bin and private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
-
-if [ $DISPLAY ]
-then
-  # Convert caps-lock into Control
-  xmodmap -e 'remove Lock = Caps_Lock'
-  xmodmap -e 'keysym Caps_Lock = Control_L'
-  xmodmap -e 'add Control = Control_L'
+if [ -d "$HOME/bin.priv" ] ; then
+    PATH="$HOME/bin.priv:$PATH"
 fi
