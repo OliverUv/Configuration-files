@@ -20,6 +20,9 @@ youtube-viewer.conf -> ~/.config/youtube-viewer/youtube-viewer.conf
 
 # urxvt-256color
 # requires xclip
+cp ~/Configuration-files/urxvt-perls/keyboard-select /usr/lib/urxvt/perl/
+cp ~/Configuration-files/urxvt-perls/url-select /usr/lib/urxvt/perl/
+cp ~/Configuration-files/urxvt-clipboard /usr/lib/urxvt/perl/
 
 # programming
 vimrc -> .vimrc
