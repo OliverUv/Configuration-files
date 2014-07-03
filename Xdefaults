@@ -52,7 +52,9 @@ URxvt.background: #0A1015
 URxvt.iso14755: false
 
 ! perls selection
-Urxvt.perl-lib: /home/oliver/Configuration-files/urxvt-perls
+! can't get this to work >:(
+! Copy stuff into /usr/lib/urxvt/perl/ instead.
+!URxvt.perl-lib: /home/oliver/Configuration-files/urxvt-perls/
 URxvt.perl-ext-common: default,matcher,url-select,clipboard
 
 ! url-select config

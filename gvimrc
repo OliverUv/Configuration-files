@@ -4,9 +4,10 @@
 " Remove toolbar and scrollbars from gVim,
 " because, frankly, they are a waste of space.
 set guioptions-=T
-set guioptions-=r
-set guioptions-=l
 set guioptions-=m
+
+" Use non-gui tabline
+set guioptions-=e
 
 " Add Vim icon to window, where it is shown depends on platform, windowing
 " system, X11 server depth, etc etc.
