@@ -56,6 +56,11 @@ hi StatusLineNC gui=NONE guifg=#000000 guibg=#909090
 hi VertSplit    gui=NONE guifg=#909090 guibg=#111111
 hi WildMenu     gui=NONE guifg=#000000 guibg=#ff80c0
 
+" Tab bar
+hi TabLineFill  gui=NONE guifg=#000000 guibg=#111111
+hi TabLine      gui=NONE guifg=#8a8a8a guibg=#121212
+hi TabLineSel   gui=NONE guifg=#d6d6d6 guibg=#602040
+
 " Diff
 hi DiffText     gui=NONE guifg=NONE guibg=#1f1500
 hi DiffChange   gui=NONE guifg=#f0f0f0 guibg=#573700
@@ -105,7 +110,7 @@ hi LineNr       gui=ITALIC guifg=#727272 guibg=#0e0e0e
 hi CursorLineNr gui=ITALIC,BOLD guifg=#0e0e0e guibg=#99004c
 hi NonText      gui=BOLD guifg=#d84070 guibg=#0b0b0b
 hi SpecialKey   gui=BOLD guifg=#8888ff guibg=NONE
-hi Title        gui=BOLD guifg=fg      guibg=NONE
+hi Title        gui=NONE guifg=#d0d0d0 guibg=NONE
 hi Visual       gui=NONE guifg=NONE guibg=#7C2B7C
 hi VisualNOS    gui=NONE guifg=NONE guibg=#7C2B7C
 

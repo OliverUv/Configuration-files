@@ -1,5 +1,5 @@
 " This scheme was created by CSApproxSnapshot
-" on Tue, 06 May 2014
+" on fre, 04 jul 2014
 
 hi clear
 if exists("syntax_on")
@@ -28,20 +28,15 @@ endfunction
 if 0
 elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^screen") && exists("g:CSApprox_konsole") && g:CSApprox_konsole) || (&term =~? "^konsole" && s:old_kde())
     CSAHi Normal term=NONE cterm=NONE ctermbg=233 ctermfg=255 gui=NONE guibg=#141414 guifg=#eaeaea
+    CSAHi perlBraces term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlFakeGroup term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi cssTagName term=NONE cterm=bold ctermbg=bg ctermfg=110 gui=bold guibg=bg guifg=#70a8dd
     CSAHi cssBoxProp term=NONE cterm=NONE ctermbg=bg ctermfg=180 gui=NONE guibg=bg guifg=#d0af76
-    CSAHi cssColorF5DEB3 term=NONE cterm=NONE ctermbg=224 ctermfg=16 gui=NONE guibg=#f5deb3 guifg=#000000
-    CSAHi cssPseudoClassId term=NONE cterm=NONE ctermbg=bg ctermfg=152 gui=italic guibg=bg guifg=#9ccfdd
-    CSAHi cssIdentifier term=NONE cterm=NONE ctermbg=bg ctermfg=152 gui=italic guibg=bg guifg=#a2ddb8
-    CSAHi cssLength term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssString term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi htmlHighlight term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi htmlHighlightSkip term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi None term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsDotNotation term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsBracket term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsTernaryIf term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi IndentGuidesOdd term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#0a0a0a guifg=fg
+    CSAHi vimSynRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSynPatMod term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSyncLines term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSyncMatch term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi SpecialKey term=bold cterm=bold ctermbg=bg ctermfg=147 gui=bold guibg=bg guifg=#8888ff
     CSAHi NonText term=bold cterm=bold ctermbg=232 ctermfg=168 gui=bold guibg=#0b0b0b guifg=#d84070
     CSAHi Directory term=bold cterm=NONE ctermbg=bg ctermfg=189 gui=NONE guibg=bg guifg=#c8c8ff
@@ -51,26 +46,22 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi MoreMsg term=bold cterm=bold ctermbg=135 ctermfg=122 gui=bold guibg=#8040ff guifg=#70ffc0
     CSAHi ModeMsg term=bold cterm=bold ctermbg=bg ctermfg=153 gui=bold guibg=bg guifg=#a0d0ff
     CSAHi LineNr term=underline cterm=NONE ctermbg=233 ctermfg=243 gui=italic guibg=#0e0e0e guifg=#727272
-    CSAHi cssColor008B8B term=NONE cterm=NONE ctermbg=37 ctermfg=231 gui=NONE guibg=#008b8b guifg=#ffffff
-    CSAHi cssColorB8860B term=NONE cterm=NONE ctermbg=178 ctermfg=16 gui=NONE guibg=#b8860b guifg=#000000
-    CSAHi cssColorA9A9A9 term=NONE cterm=NONE ctermbg=248 ctermfg=16 gui=NONE guibg=#a9a9a9 guifg=#000000
-    CSAHi cssColor006400 term=NONE cterm=NONE ctermbg=28 ctermfg=231 gui=NONE guibg=#006400 guifg=#ffffff
-    CSAHi cssColorBDB76B term=NONE cterm=NONE ctermbg=186 ctermfg=16 gui=NONE guibg=#bdb76b guifg=#000000
-    CSAHi cssColor8B008B term=NONE cterm=NONE ctermbg=127 ctermfg=231 gui=NONE guibg=#8b008b guifg=#ffffff
-    CSAHi cssColor556B2F term=NONE cterm=NONE ctermbg=101 ctermfg=231 gui=NONE guibg=#556b2f guifg=#ffffff
-    CSAHi cssColorFF8C00 term=NONE cterm=NONE ctermbg=214 ctermfg=16 gui=NONE guibg=#ff8c00 guifg=#000000
-    CSAHi cssColor9932CC term=NONE cterm=NONE ctermbg=134 ctermfg=231 gui=NONE guibg=#9932cc guifg=#ffffff
-    CSAHi cssColor8B0000 term=NONE cterm=NONE ctermbg=124 ctermfg=231 gui=NONE guibg=#8b0000 guifg=#ffffff
+    CSAHi lCursor term=NONE cterm=NONE ctermbg=129 ctermfg=231 gui=NONE guibg=#8800ff guifg=#ffffff
+    CSAHi vimAugroupError term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi SpellRare term=reverse cterm=undercurl ctermbg=bg ctermfg=201 gui=undercurl guibg=bg guifg=fg guisp=#ff00ff
     CSAHi SpellLocal term=underline cterm=undercurl ctermbg=bg ctermfg=218 gui=undercurl guibg=bg guifg=fg guisp=#ff99cc
     CSAHi Pmenu term=NONE cterm=NONE ctermbg=236 ctermfg=231 gui=NONE guibg=#303030 guifg=#f6f3e8
     CSAHi PmenuSel term=NONE cterm=NONE ctermbg=16 ctermfg=231 gui=NONE guibg=#000000 guifg=#f6f3e8
     CSAHi PmenuSbar term=NONE cterm=NONE ctermbg=238 ctermfg=16 gui=NONE guibg=#444444 guifg=#000000
     CSAHi PmenuThumb term=NONE cterm=NONE ctermbg=245 ctermfg=16 gui=NONE guibg=#8a8a8a guifg=#000000
-    CSAHi TabLine term=underline cterm=underline ctermbg=248 ctermfg=fg gui=underline guibg=#a9a9a9 guifg=fg
-    CSAHi TabLineSel term=bold cterm=bold ctermbg=bg ctermfg=fg gui=bold guibg=bg guifg=fg
-    CSAHi TabLineFill term=reverse cterm=reverse ctermbg=bg ctermfg=fg gui=reverse guibg=bg guifg=fg
+    CSAHi TabLine term=underline cterm=NONE ctermbg=233 ctermfg=245 gui=NONE guibg=#121212 guifg=#8a8a8a
+    CSAHi TabLineSel term=bold cterm=NONE ctermbg=95 ctermfg=253 gui=NONE guibg=#602040 guifg=#d6d6d6
+    CSAHi TabLineFill term=reverse cterm=NONE ctermbg=233 ctermfg=16 gui=NONE guibg=#111111 guifg=#000000
     CSAHi CursorColumn term=reverse cterm=NONE ctermbg=233 ctermfg=fg gui=NONE guibg=#0f0f0f guifg=fg
+    CSAHi perlFiledescStatementNocomma term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlFiledescStatementComma term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi cssPseudoClassId term=NONE cterm=NONE ctermbg=bg ctermfg=152 gui=italic guibg=bg guifg=#9ccfdd
+    CSAHi cssIdentifier term=NONE cterm=NONE ctermbg=bg ctermfg=152 gui=italic guibg=bg guifg=#a2ddb8
     CSAHi markdownUrl term=NONE cterm=NONE ctermbg=bg ctermfg=179 gui=NONE guibg=bg guifg=#e48944
     CSAHi markdownCode term=NONE cterm=bold ctermbg=bg ctermfg=152 gui=bold guibg=bg guifg=#a7bee4
     CSAHi markdownCodeBlock term=NONE cterm=NONE ctermbg=bg ctermfg=182 gui=NONE guibg=bg guifg=#c5b1e4
@@ -78,51 +69,37 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi javaScriptDOMObjects term=NONE cterm=bold ctermbg=bg ctermfg=188 gui=bold guibg=bg guifg=#dbb6d2
     CSAHi javaScriptDOMMethods term=NONE cterm=NONE ctermbg=bg ctermfg=193 gui=NONE guibg=bg guifg=#d4fa9b
     CSAHi javaScriptAjaxObjects term=NONE cterm=underline ctermbg=bg ctermfg=110 gui=underline guibg=bg guifg=#5d91d3
-    CSAHi javaScriptAjaxMethods term=NONE cterm=NONE ctermbg=bg ctermfg=110 gui=NONE guibg=bg guifg=#6699cc
-    CSAHi javaScriptAjaxProperties term=NONE cterm=NONE ctermbg=bg ctermfg=217 gui=NONE guibg=bg guifg=#ff9494
-    CSAHi cssColorF5F5F5 term=NONE cterm=NONE ctermbg=255 ctermfg=16 gui=NONE guibg=#f5f5f5 guifg=#000000
-    CSAHi cssColor9ACD32 term=NONE cterm=NONE ctermbg=149 ctermfg=16 gui=NONE guibg=#9acd32 guifg=#000000
-    CSAHi scalaRoot term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsFuncBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColorE9967A term=NONE cterm=NONE ctermbg=216 ctermfg=16 gui=NONE guibg=#e9967a guifg=#000000
-    CSAHi cssColor8FBC8F term=NONE cterm=NONE ctermbg=151 ctermfg=16 gui=NONE guibg=#8fbc8f guifg=#000000
-    CSAHi cssColor483D8B term=NONE cterm=NONE ctermbg=61 ctermfg=231 gui=NONE guibg=#483d8b guifg=#ffffff
-    CSAHi cssColor2F4F4F term=NONE cterm=NONE ctermbg=66 ctermfg=231 gui=NONE guibg=#2f4f4f guifg=#ffffff
-    CSAHi cssColor00CED1 term=NONE cterm=NONE ctermbg=44 ctermfg=16 gui=NONE guibg=#00ced1 guifg=#000000
-    CSAHi cssColor9400D3 term=NONE cterm=NONE ctermbg=128 ctermfg=231 gui=NONE guibg=#9400d3 guifg=#ffffff
-    CSAHi cssColorFF1493 term=NONE cterm=NONE ctermbg=199 ctermfg=231 gui=NONE guibg=#ff1493 guifg=#ffffff
-    CSAHi cssColor00BFFF term=NONE cterm=NONE ctermbg=45 ctermfg=16 gui=NONE guibg=#00bfff guifg=#000000
-    CSAHi cssColor696969 term=NONE cterm=NONE ctermbg=102 ctermfg=231 gui=NONE guibg=#696969 guifg=#ffffff
-    CSAHi cssColor1E90FF term=NONE cterm=NONE ctermbg=75 ctermfg=16 gui=NONE guibg=#1e90ff guifg=#000000
+    CSAHi vimSyncLinebreak term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSyncLinecont term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSyncRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimHiLink term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi pythonSpaceError term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi pythonSync term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimIf term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi CursorLine term=underline cterm=NONE ctermbg=233 ctermfg=fg gui=NONE guibg=#0f0f0f guifg=fg
     CSAHi ColorColumn term=reverse cterm=NONE ctermbg=236 ctermfg=fg gui=NONE guibg=#303030 guifg=fg
     CSAHi Cursor term=NONE cterm=bold ctermbg=125 ctermfg=231 gui=bold guibg=#99004c guifg=#ffffff
-    CSAHi lCursor term=NONE cterm=NONE ctermbg=129 ctermfg=231 gui=NONE guibg=#8800ff guifg=#ffffff
-    CSAHi MatchParen term=reverse cterm=NONE ctermbg=30 ctermfg=231 gui=NONE guibg=#146666 guifg=#ffffff
+    CSAHi vimFuncBody term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimFuncBlank term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi Comment term=bold cterm=NONE ctermbg=bg ctermfg=245 gui=NONE guibg=bg guifg=#8a8a8a
     CSAHi Constant term=underline cterm=NONE ctermbg=bg ctermfg=153 gui=NONE guibg=bg guifg=#92d4ff
     CSAHi Special term=bold cterm=NONE ctermbg=233 ctermfg=215 gui=NONE guibg=#0f0f0f guifg=#ff9a4c
     CSAHi Identifier term=underline cterm=NONE ctermbg=bg ctermfg=87 gui=NONE guibg=bg guifg=#40f8f8
+    CSAHi javaScriptAjaxMethods term=NONE cterm=NONE ctermbg=bg ctermfg=110 gui=NONE guibg=bg guifg=#6699cc
+    CSAHi javaScriptAjaxProperties term=NONE cterm=NONE ctermbg=bg ctermfg=217 gui=NONE guibg=bg guifg=#ff9494
     CSAHi javaScriptFuncName term=NONE cterm=NONE ctermbg=bg ctermfg=189 gui=NONE guibg=bg guifg=#b5e4f7
     CSAHi javaScriptHtmlElemProperties term=NONE cterm=NONE ctermbg=bg ctermfg=217 gui=NONE guibg=bg guifg=#ff9494
     CSAHi javaScriptEventListenerKeyword term=NONE cterm=NONE ctermbg=bg ctermfg=110 gui=NONE guibg=bg guifg=#6699cc
     CSAHi coffeeSpecialVar term=NONE cterm=NONE ctermbg=bg ctermfg=222 gui=NONE guibg=bg guifg=#edc37c
-    CSAHi coffeeInterp term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsFuncArgs term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsFuncArgCommas term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi Noise term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi htmlItalic term=italic cterm=NONE ctermbg=bg ctermfg=fg gui=italic guibg=bg guifg=fg
-    CSAHi cssColorB22222 term=NONE cterm=NONE ctermbg=131 ctermfg=231 gui=NONE guibg=#b22222 guifg=#ffffff
-    CSAHi cssColorFFFAF0 term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#fffaf0 guifg=#000000
-    CSAHi cssColor228B22 term=NONE cterm=NONE ctermbg=71 ctermfg=231 gui=NONE guibg=#228b22 guifg=#ffffff
-    CSAHi cssColorDCDCDC term=NONE cterm=NONE ctermbg=253 ctermfg=16 gui=NONE guibg=#dcdcdc guifg=#000000
-    CSAHi cssColorF8F8FF term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#f8f8ff guifg=#000000
-    CSAHi cssColorFFD700 term=NONE cterm=NONE ctermbg=220 ctermfg=16 gui=NONE guibg=#ffd700 guifg=#000000
-    CSAHi cssColorDAA520 term=NONE cterm=NONE ctermbg=179 ctermfg=16 gui=NONE guibg=#daa520 guifg=#000000
-    CSAHi cssColorADFF2F term=NONE cterm=NONE ctermbg=155 ctermfg=16 gui=NONE guibg=#adff2f guifg=#000000
-    CSAHi cssColorF0FFF0 term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#f0fff0 guifg=#000000
-    CSAHi cssColorFF69B4 term=NONE cterm=NONE ctermbg=212 ctermfg=16 gui=NONE guibg=#ff69b4 guifg=#000000
-    CSAHi javaScript term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimHiKeyList term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimHiBang term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimHiCtermColor term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimHiFontname term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimHiGuiFontname term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimPythonRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi Conditional term=NONE cterm=bold ctermbg=bg ctermfg=153 gui=bold guibg=bg guifg=#86bbee
+    CSAHi vimEscapeBrace term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSetEqual term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi Statement term=bold cterm=NONE ctermbg=bg ctermfg=110 gui=NONE guibg=bg guifg=#6699cc
     CSAHi PreProc term=underline cterm=NONE ctermbg=bg ctermfg=219 gui=NONE guibg=bg guifg=#ffa8ff
     CSAHi Type term=underline cterm=NONE ctermbg=bg ctermfg=121 gui=NONE guibg=bg guifg=#60f0a8
@@ -132,203 +109,138 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi Todo term=NONE cterm=underline ctermbg=bg ctermfg=218 gui=italic,underline guibg=bg guifg=#ff80d0
     CSAHi String term=NONE cterm=NONE ctermbg=233 ctermfg=186 gui=NONE guibg=#0f0f0f guifg=#bccf72
     CSAHi Number term=NONE cterm=NONE ctermbg=bg ctermfg=151 gui=NONE guibg=bg guifg=#acdd82
-    CSAHi Question term=NONE cterm=bold ctermbg=bg ctermfg=226 gui=bold guibg=bg guifg=#e8e800
-    CSAHi scalaBasicIdentifier term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi helpNormal term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi scalaBasicInterpolation term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi coffeeEmbed term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi scalaBasicInterpolationDelimiter term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColorCD5C5C term=NONE cterm=NONE ctermbg=174 ctermfg=16 gui=NONE guibg=#cd5c5c guifg=#000000
-    CSAHi cssColor4B0082 term=NONE cterm=NONE ctermbg=55 ctermfg=231 gui=NONE guibg=#4b0082 guifg=#ffffff
-    CSAHi cssColorFFFFF0 term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#fffff0 guifg=#000000
-    CSAHi cssColorF0E68C term=NONE cterm=NONE ctermbg=229 ctermfg=16 gui=NONE guibg=#f0e68c guifg=#000000
-    CSAHi cssColorE6E6FA term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#e6e6fa guifg=#000000
-    CSAHi cssColorFFF0F5 term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#fff0f5 guifg=#000000
-    CSAHi cssColor7CFC00 term=NONE cterm=NONE ctermbg=118 ctermfg=16 gui=NONE guibg=#7cfc00 guifg=#000000
-    CSAHi cssColorFFFACD term=NONE cterm=NONE ctermbg=230 ctermfg=16 gui=NONE guibg=#fffacd guifg=#000000
-    CSAHi cssColorADD8E6 term=NONE cterm=NONE ctermbg=153 ctermfg=16 gui=NONE guibg=#add8e6 guifg=#000000
-    CSAHi cssColorF08080 term=NONE cterm=NONE ctermbg=217 ctermfg=16 gui=NONE guibg=#f08080 guifg=#000000
-    CSAHi htmlUnderline term=underline cterm=underline ctermbg=bg ctermfg=fg gui=underline guibg=bg guifg=fg
+    CSAHi perlStatementIndirObjWrap term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlVarMember term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimOperParen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteChooseAction term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteChooseCandidate term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteChooseMessage term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimHiTermcap term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi Function term=NONE cterm=NONE ctermbg=bg ctermfg=223 gui=NONE guibg=bg guifg=#ffd2a7
-    CSAHi Conditional term=NONE cterm=bold ctermbg=bg ctermfg=153 gui=bold guibg=bg guifg=#86bbee
+    CSAHi vimPatRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi Operator term=NONE cterm=NONE ctermbg=bg ctermfg=153 gui=NONE guibg=bg guifg=#86bbee
-    CSAHi cssPseudoClassFn term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssSpecialCharQQ term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssSpecialCharQ term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi helpGraphic term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi helpLeadBlank term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi coffeeCurlies term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColorE0FFFF term=NONE cterm=NONE ctermbg=195 ctermfg=16 gui=NONE guibg=#e0ffff guifg=#000000
-    CSAHi cssColorFAFAD2 term=NONE cterm=NONE ctermbg=230 ctermfg=16 gui=NONE guibg=#fafad2 guifg=#000000
-    CSAHi cssColorD3D3D3 term=NONE cterm=NONE ctermbg=252 ctermfg=16 gui=NONE guibg=#d3d3d3 guifg=#000000
-    CSAHi cssColor90EE90 term=NONE cterm=NONE ctermbg=157 ctermfg=16 gui=NONE guibg=#90ee90 guifg=#000000
-    CSAHi cssColorFFB6C1 term=NONE cterm=NONE ctermbg=224 ctermfg=16 gui=NONE guibg=#ffb6c1 guifg=#000000
-    CSAHi cssColorFFA07A term=NONE cterm=NONE ctermbg=216 ctermfg=16 gui=NONE guibg=#ffa07a guifg=#000000
-    CSAHi cssColor20B2AA term=NONE cterm=NONE ctermbg=73 ctermfg=16 gui=NONE guibg=#20b2aa guifg=#000000
-    CSAHi cssColor87CEFA term=NONE cterm=NONE ctermbg=153 ctermfg=16 gui=NONE guibg=#87cefa guifg=#000000
-    CSAHi cssColor778899 term=NONE cterm=NONE ctermbg=109 ctermfg=16 gui=NONE guibg=#778899 guifg=#000000
-    CSAHi cssColorB0C4DE term=NONE cterm=NONE ctermbg=152 ctermfg=16 gui=NONE guibg=#b0c4de guifg=#000000
-    CSAHi cssStyle term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlVarBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlVarBlock2 term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteSourcePrompt term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteSourceNames term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteQuickMatchLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteNonMarkedLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimCommentTitleLeader term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaInnerComment term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimAutoCmdSfxList term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimCollection term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSubstPat term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSubstRep4 term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimCollClass term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi Delimiter term=NONE cterm=NONE ctermbg=bg ctermfg=37 gui=NONE guibg=bg guifg=#00a0a0
-    CSAHi htmlTagN term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi rgnScala term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi coffeeBrackets term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi coffeeParens term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi coffeeScript term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColorFFFFE0 term=NONE cterm=NONE ctermbg=230 ctermfg=16 gui=NONE guibg=#ffffe0 guifg=#000000
-    CSAHi cssColor32CD32 term=NONE cterm=NONE ctermbg=77 ctermfg=16 gui=NONE guibg=#32cd32 guifg=#000000
-    CSAHi cssColorFAF0E6 term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#faf0e6 guifg=#000000
-    CSAHi cssColor66CDAA term=NONE cterm=NONE ctermbg=115 ctermfg=16 gui=NONE guibg=#66cdaa guifg=#000000
-    CSAHi cssColor0000CD term=NONE cterm=NONE ctermbg=20 ctermfg=231 gui=NONE guibg=#0000cd guifg=#ffffff
-    CSAHi cssColorBA55D3 term=NONE cterm=NONE ctermbg=176 ctermfg=16 gui=NONE guibg=#ba55d3 guifg=#000000
-    CSAHi cssColor9370D8 term=NONE cterm=NONE ctermbg=140 ctermfg=16 gui=NONE guibg=#9370d8 guifg=#000000
-    CSAHi cssColor3CB371 term=NONE cterm=NONE ctermbg=78 ctermfg=16 gui=NONE guibg=#3cb371 guifg=#000000
-    CSAHi cssColor7B68EE term=NONE cterm=NONE ctermbg=105 ctermfg=16 gui=NONE guibg=#7b68ee guifg=#000000
-    CSAHi cssColor00FA9A term=NONE cterm=NONE ctermbg=49 ctermfg=16 gui=NONE guibg=#00fa9a guifg=#000000
-    CSAHi cssColorD8BFD8 term=NONE cterm=NONE ctermbg=188 ctermfg=16 gui=NONE guibg=#d8bfd8 guifg=#000000
+    CSAHi perlPackageConst term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi NONE term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimEcho term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteSourceLine__uniteSource__FileMru term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteSourceLine__uniteSource__Bookmark term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteInputLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimStdPlugin term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaIfThen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaElseifThen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaThenEnd term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaLoopBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaParen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimAugroupSyncA term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi MatchParen term=reverse cterm=NONE ctermbg=30 ctermfg=231 gui=NONE guibg=#146666 guifg=#ffffff
+    CSAHi vimMapLhs term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimAutoCmdSpace term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimAutoEventList term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi SyntasticErrorLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi SyntasticWarningLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsFunctionKey term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColor000000 term=NONE cterm=NONE ctermbg=16 ctermfg=231 gui=NONE guibg=#000000 guifg=#ffffff
-    CSAHi htmlBoldUnderline term=bold,underline cterm=bold,underline ctermbg=bg ctermfg=fg gui=bold,underline guibg=bg guifg=fg
-    CSAHi cssColor48D1CC term=NONE cterm=NONE ctermbg=80 ctermfg=16 gui=NONE guibg=#48d1cc guifg=#000000
-    CSAHi cssColorC71585 term=NONE cterm=NONE ctermbg=163 ctermfg=231 gui=NONE guibg=#c71585 guifg=#ffffff
-    CSAHi cssColor191970 term=NONE cterm=NONE ctermbg=18 ctermfg=231 gui=NONE guibg=#191970 guifg=#ffffff
-    CSAHi htmlBoldItalic term=bold,italic cterm=bold ctermbg=bg ctermfg=fg gui=bold,italic guibg=bg guifg=fg
-    CSAHi cssColorFFE4E1 term=NONE cterm=NONE ctermbg=224 ctermfg=16 gui=NONE guibg=#ffe4e1 guifg=#000000
-    CSAHi cssColorFFE4B5 term=NONE cterm=NONE ctermbg=224 ctermfg=16 gui=NONE guibg=#ffe4b5 guifg=#000000
-    CSAHi cssColorFFDEAD term=NONE cterm=NONE ctermbg=223 ctermfg=16 gui=NONE guibg=#ffdead guifg=#000000
-    CSAHi cssColorFDF5E6 term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#fdf5e6 guifg=#000000
-    CSAHi cssColor6B8E23 term=NONE cterm=NONE ctermbg=107 ctermfg=231 gui=NONE guibg=#6b8e23 guifg=#ffffff
-    CSAHi htmlBold term=bold cterm=bold ctermbg=bg ctermfg=fg gui=bold guibg=bg guifg=fg
-    CSAHi htmlBoldUnderlineItalic term=bold,italic,underline cterm=bold,underline ctermbg=bg ctermfg=fg gui=bold,italic,underline guibg=bg guifg=fg
-    CSAHi jsFuncCall term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi IndentGuidesOdd term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#0a0a0a guifg=fg
+    CSAHi vimGlobal term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaTableBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaFunctionBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSubstRep term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSubstRange term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimMapRhs term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimMapRhsExtend term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimMenuBang term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimMenuPriority term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi IndentGuidesEven term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#0d0d0d guifg=fg
     CSAHi UniteSelectedLine term=NONE cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#000000 guifg=fg
     CSAHi CursorIM term=NONE cterm=NONE ctermbg=129 ctermfg=231 gui=NONE guibg=#8800ff guifg=#ffffff
-    CSAHi javaDocSeeTag term=NONE cterm=NONE ctermbg=bg ctermfg=188 gui=NONE guibg=bg guifg=#cccccc
-    CSAHi htmlUnderlineItalic term=italic,underline cterm=underline ctermbg=bg ctermfg=fg gui=italic,underline guibg=bg guifg=fg
-    CSAHi glslIdentifier term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColor800000 term=NONE cterm=NONE ctermbg=124 ctermfg=231 gui=NONE guibg=#800000 guifg=#ffffff
-    CSAHi cssColorff0000 term=NONE cterm=NONE ctermbg=196 ctermfg=231 gui=NONE guibg=#ff0000 guifg=#ffffff
-    CSAHi cssColorffA500 term=NONE cterm=NONE ctermbg=214 ctermfg=16 gui=NONE guibg=#ffa500 guifg=#000000
-    CSAHi cssColorffff00 term=NONE cterm=NONE ctermbg=226 ctermfg=16 gui=NONE guibg=#ffff00 guifg=#000000
-    CSAHi cssColor808000 term=NONE cterm=NONE ctermbg=142 ctermfg=231 gui=NONE guibg=#808000 guifg=#ffffff
-    CSAHi cssColorDA70D6 term=NONE cterm=NONE ctermbg=176 ctermfg=16 gui=NONE guibg=#da70d6 guifg=#000000
-    CSAHi cssColorEEE8AA term=NONE cterm=NONE ctermbg=229 ctermfg=16 gui=NONE guibg=#eee8aa guifg=#000000
-    CSAHi cssColor98FB98 term=NONE cterm=NONE ctermbg=157 ctermfg=16 gui=NONE guibg=#98fb98 guifg=#000000
-    CSAHi cssColorAFEEEE term=NONE cterm=NONE ctermbg=159 ctermfg=16 gui=NONE guibg=#afeeee guifg=#000000
-    CSAHi cssColorD87093 term=NONE cterm=NONE ctermbg=175 ctermfg=16 gui=NONE guibg=#d87093 guifg=#000000
-    CSAHi cssColorFFEFD5 term=NONE cterm=NONE ctermbg=230 ctermfg=16 gui=NONE guibg=#ffefd5 guifg=#000000
-    CSAHi cssColorFFDAB9 term=NONE cterm=NONE ctermbg=224 ctermfg=16 gui=NONE guibg=#ffdab9 guifg=#000000
-    CSAHi cssColorCD853F term=NONE cterm=NONE ctermbg=179 ctermfg=16 gui=NONE guibg=#cd853f guifg=#000000
-    CSAHi cssColorFFC0CB term=NONE cterm=NONE ctermbg=224 ctermfg=16 gui=NONE guibg=#ffc0cb guifg=#000000
-    CSAHi cssColorDDA0DD term=NONE cterm=NONE ctermbg=182 ctermfg=16 gui=NONE guibg=#dda0dd guifg=#000000
-    CSAHi cssMediaBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColor800080 term=NONE cterm=NONE ctermbg=127 ctermfg=231 gui=NONE guibg=#800080 guifg=#ffffff
-    CSAHi cssColorff00ff term=NONE cterm=NONE ctermbg=201 ctermfg=231 gui=NONE guibg=#ff00ff guifg=#ffffff
-    CSAHi cssColorffffff term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#ffffff guifg=#000000
-    CSAHi cssColor00ff00 term=NONE cterm=NONE ctermbg=46 ctermfg=16 gui=NONE guibg=#00ff00 guifg=#000000
-    CSAHi cssColor008000 term=NONE cterm=NONE ctermbg=34 ctermfg=231 gui=NONE guibg=#008000 guifg=#ffffff
-    CSAHi cssColor000080 term=NONE cterm=NONE ctermbg=19 ctermfg=231 gui=NONE guibg=#000080 guifg=#ffffff
-    CSAHi cssColor0000ff term=NONE cterm=NONE ctermbg=21 ctermfg=231 gui=NONE guibg=#0000ff guifg=#ffffff
-    CSAHi cssColor00ffff term=NONE cterm=NONE ctermbg=51 ctermfg=16 gui=NONE guibg=#00ffff guifg=#000000
-    CSAHi cssColor008080 term=NONE cterm=NONE ctermbg=37 ctermfg=231 gui=NONE guibg=#008080 guifg=#ffffff
-    CSAHi jsObjectKey term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi ShaderScript term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssDefinition term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi scalaFqn term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi scalaFqnSet term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColorB0E0E6 term=NONE cterm=NONE ctermbg=153 ctermfg=16 gui=NONE guibg=#b0e0e6 guifg=#000000
-    CSAHi cssColorBC8F8F term=NONE cterm=NONE ctermbg=181 ctermfg=16 gui=NONE guibg=#bc8f8f guifg=#000000
-    CSAHi cssColor4169E1 term=NONE cterm=NONE ctermbg=68 ctermfg=231 gui=NONE guibg=#4169e1 guifg=#ffffff
-    CSAHi cssColor8B4513 term=NONE cterm=NONE ctermbg=130 ctermfg=231 gui=NONE guibg=#8b4513 guifg=#ffffff
-    CSAHi cssColorFA8072 term=NONE cterm=NONE ctermbg=216 ctermfg=16 gui=NONE guibg=#fa8072 guifg=#000000
-    CSAHi cssColorF4A460 term=NONE cterm=NONE ctermbg=216 ctermfg=16 gui=NONE guibg=#f4a460 guifg=#000000
-    CSAHi cssColor2E8B57 term=NONE cterm=NONE ctermbg=72 ctermfg=231 gui=NONE guibg=#2e8b57 guifg=#ffffff
-    CSAHi cssColorFFF5EE term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#fff5ee guifg=#000000
-    CSAHi cssColorA0522D term=NONE cterm=NONE ctermbg=137 ctermfg=231 gui=NONE guibg=#a0522d guifg=#ffffff
-    CSAHi cssColor87CEEB term=NONE cterm=NONE ctermbg=153 ctermfg=16 gui=NONE guibg=#87ceeb guifg=#000000
-    CSAHi cssPseudoClass term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi scalaInterpolation term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssPageWrap term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColorc0c0c0 term=NONE cterm=NONE ctermbg=250 ctermfg=16 gui=NONE guibg=#c0c0c0 guifg=#000000
-    CSAHi cssColor808080 term=NONE cterm=NONE ctermbg=244 ctermfg=16 gui=NONE guibg=#808080 guifg=#000000
-    CSAHi cssColorF0F8FF term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#f0f8ff guifg=#000000
-    CSAHi cssColorFAEBD7 term=NONE cterm=NONE ctermbg=230 ctermfg=16 gui=NONE guibg=#faebd7 guifg=#000000
-    CSAHi cssColor7FFFD4 term=NONE cterm=NONE ctermbg=122 ctermfg=16 gui=NONE guibg=#7fffd4 guifg=#000000
-    CSAHi cssColorF0FFFF term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#f0ffff guifg=#000000
-    CSAHi cssColorF5F5DC term=NONE cterm=NONE ctermbg=230 ctermfg=16 gui=NONE guibg=#f5f5dc guifg=#000000
-    CSAHi cssColorFFE4C4 term=NONE cterm=NONE ctermbg=224 ctermfg=16 gui=NONE guibg=#ffe4c4 guifg=#000000
-    CSAHi cssColorFFEBCD term=NONE cterm=NONE ctermbg=230 ctermfg=16 gui=NONE guibg=#ffebcd guifg=#000000
-    CSAHi cssColor8A2BE2 term=NONE cterm=NONE ctermbg=134 ctermfg=231 gui=NONE guibg=#8a2be2 guifg=#ffffff
-    CSAHi scalaValName term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi SignColumn term=NONE cterm=NONE ctermbg=236 ctermfg=255 gui=NONE guibg=#303030 guifg=#f0f0f0
+    CSAHi perlAutoload term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimExtCmd term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimFilter term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSet term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimUserCmd term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimCmdSep term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimIsCommand term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimLuaRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimMenuMap term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimMenuRhs term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimNormCmds term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimGroupList term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podBoldItalic term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podBoldOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podBoldAlternativeDelimOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podItalicBold term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimFiletype term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimAuSyntax term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimClusterName term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlFormat term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi Folded term=NONE cterm=NONE ctermbg=232 ctermfg=251 gui=NONE guibg=#0c0c0c guifg=#c8c8c8
+    CSAHi vimExecute term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimFunction term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi CursorLineNr term=bold cterm=bold ctermbg=125 ctermfg=233 gui=bold,italic guibg=#99004c guifg=#0e0e0e
-    CSAHi scalaVarName term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi Question term=NONE cterm=bold ctermbg=bg ctermfg=226 gui=bold guibg=bg guifg=#e8e800
     CSAHi StatusLine term=bold,reverse cterm=NONE ctermbg=95 ctermfg=253 gui=NONE guibg=#602040 guifg=#d6d6d6
     CSAHi StatusLineNC term=reverse cterm=NONE ctermbg=246 ctermfg=16 gui=NONE guibg=#909090 guifg=#000000
     CSAHi VertSplit term=reverse cterm=NONE ctermbg=233 ctermfg=246 gui=NONE guibg=#111111 guifg=#909090
-    CSAHi Title term=bold cterm=bold ctermbg=bg ctermfg=255 gui=bold guibg=bg guifg=#eaeaea
+    CSAHi Title term=bold cterm=NONE ctermbg=bg ctermfg=252 gui=NONE guibg=bg guifg=#d0d0d0
     CSAHi Visual term=reverse cterm=NONE ctermbg=96 ctermfg=fg gui=NONE guibg=#7c2b7c guifg=fg
     CSAHi VisualNOS term=bold,underline cterm=NONE ctermbg=96 ctermfg=fg gui=NONE guibg=#7c2b7c guifg=fg
     CSAHi WarningMsg term=NONE cterm=bold ctermbg=bg ctermfg=219 gui=bold guibg=bg guifg=#ffa0ff
     CSAHi WildMenu term=NONE cterm=NONE ctermbg=218 ctermfg=16 gui=NONE guibg=#ff80c0 guifg=#000000
-    CSAHi scalaMethodCall term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi scalaInterpolationDelimiter term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssAttrRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssKeyFrameWrap term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssFontDescriptorBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podItalicOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podItalicAlternativeDelimOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podNoSpaceOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podNoSpaceAlternativeDelimOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podIndexOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podIndexAlternativeDelimOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podBold term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podBoldAlternativeDelim term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podItalic term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podItalicAlternativeDelim term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi javaDocSeeTag term=NONE cterm=NONE ctermbg=bg ctermfg=188 gui=NONE guibg=bg guifg=#cccccc
     CSAHi htmlH1 term=NONE cterm=underline ctermbg=bg ctermfg=174 gui=underline guibg=bg guifg=#de675c
     CSAHi htmlLink term=NONE cterm=underline ctermbg=bg ctermfg=177 gui=underline guibg=bg guifg=#c777ff
-    CSAHi cssColor6A5ACD term=NONE cterm=NONE ctermbg=104 ctermfg=231 gui=NONE guibg=#6a5acd guifg=#ffffff
-    CSAHi cssColor708090 term=NONE cterm=NONE ctermbg=109 ctermfg=16 gui=NONE guibg=#708090 guifg=#000000
-    CSAHi cssColorFFFAFA term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#fffafa guifg=#000000
-    CSAHi cssColor00FF7F term=NONE cterm=NONE ctermbg=48 ctermfg=16 gui=NONE guibg=#00ff7f guifg=#000000
-    CSAHi cssColor4682B4 term=NONE cterm=NONE ctermbg=74 ctermfg=231 gui=NONE guibg=#4682b4 guifg=#ffffff
-    CSAHi cssColorD2B48C term=NONE cterm=NONE ctermbg=187 ctermfg=16 gui=NONE guibg=#d2b48c guifg=#000000
-    CSAHi cssColorF5FFFA term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#f5fffa guifg=#000000
-    CSAHi cssColorFF6347 term=NONE cterm=NONE ctermbg=209 ctermfg=16 gui=NONE guibg=#ff6347 guifg=#000000
-    CSAHi cssColor40E0D0 term=NONE cterm=NONE ctermbg=80 ctermfg=16 gui=NONE guibg=#40e0d0 guifg=#000000
-    CSAHi cssColorEE82EE term=NONE cterm=NONE ctermbg=219 ctermfg=16 gui=NONE guibg=#ee82ee guifg=#000000
-    CSAHi jsParen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColorFF4500 term=NONE cterm=NONE ctermbg=202 ctermfg=231 gui=NONE guibg=#ff4500 guifg=#ffffff
-    CSAHi cssColorA52A2A term=NONE cterm=NONE ctermbg=131 ctermfg=231 gui=NONE guibg=#a52a2a guifg=#ffffff
-    CSAHi cssColorDEB887 term=NONE cterm=NONE ctermbg=187 ctermfg=16 gui=NONE guibg=#deb887 guifg=#000000
-    CSAHi cssColor5F9EA0 term=NONE cterm=NONE ctermbg=109 ctermfg=16 gui=NONE guibg=#5f9ea0 guifg=#000000
-    CSAHi cssColor7FFF00 term=NONE cterm=NONE ctermbg=118 ctermfg=16 gui=NONE guibg=#7fff00 guifg=#000000
-    CSAHi cssColorD2691E term=NONE cterm=NONE ctermbg=173 ctermfg=16 gui=NONE guibg=#d2691e guifg=#000000
-    CSAHi cssColorFF7F50 term=NONE cterm=NONE ctermbg=210 ctermfg=16 gui=NONE guibg=#ff7f50 guifg=#000000
-    CSAHi cssColor6495ED term=NONE cterm=NONE ctermbg=111 ctermfg=16 gui=NONE guibg=#6495ed guifg=#000000
-    CSAHi cssColorFFF8DC term=NONE cterm=NONE ctermbg=230 ctermfg=16 gui=NONE guibg=#fff8dc guifg=#000000
-    CSAHi cssColorDC143C term=NONE cterm=NONE ctermbg=161 ctermfg=231 gui=NONE guibg=#dc143c guifg=#ffffff
-    CSAHi cssColor00008B term=NONE cterm=NONE ctermbg=19 ctermfg=231 gui=NONE guibg=#00008b guifg=#ffffff
-    CSAHi Folded term=NONE cterm=NONE ctermbg=232 ctermfg=251 gui=NONE guibg=#0c0c0c guifg=#c8c8c8
+    CSAHi vimSynKeyRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSynMatchRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSynMtchCchar term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSynMtchGroup term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlSync term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlSyncPOD term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimPerlRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSynLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi FoldColumn term=NONE cterm=NONE ctermbg=234 ctermfg=251 gui=NONE guibg=#212121 guifg=#c8c8c8
     CSAHi DiffAdd term=bold cterm=NONE ctermbg=28 ctermfg=fg gui=NONE guibg=#064d08 guifg=fg
     CSAHi DiffChange term=bold cterm=NONE ctermbg=94 ctermfg=255 gui=NONE guibg=#573700 guifg=#f0f0f0
     CSAHi DiffDelete term=bold cterm=NONE ctermbg=95 ctermfg=95 gui=NONE guibg=#701d1d guifg=#701d1d
     CSAHi DiffText term=reverse cterm=NONE ctermbg=52 ctermfg=fg gui=NONE guibg=#1f1500 guifg=fg
-    CSAHi SignColumn term=NONE cterm=NONE ctermbg=236 ctermfg=255 gui=NONE guibg=#303030 guifg=#f0f0f0
+    CSAHi vimAugroup term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi Conceal term=NONE cterm=NONE ctermbg=248 ctermfg=252 gui=NONE guibg=#a9a9a9 guifg=#d3d3d3
     CSAHi SpellBad term=reverse cterm=undercurl ctermbg=bg ctermfg=196 gui=undercurl guibg=bg guifg=fg guisp=#ff0000
     CSAHi SpellCap term=reverse cterm=undercurl ctermbg=bg ctermfg=46 gui=undercurl guibg=bg guifg=fg guisp=#00ff00
 elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^screen") && exists("g:CSApprox_eterm") && g:CSApprox_eterm) || &term =~? "^eterm"
     CSAHi Normal term=NONE cterm=NONE ctermbg=233 ctermfg=255 gui=NONE guibg=#141414 guifg=#eaeaea
+    CSAHi perlBraces term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlFakeGroup term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi cssTagName term=NONE cterm=bold ctermbg=bg ctermfg=153 gui=bold guibg=bg guifg=#70a8dd
     CSAHi cssBoxProp term=NONE cterm=NONE ctermbg=bg ctermfg=223 gui=NONE guibg=bg guifg=#d0af76
-    CSAHi cssColorF5DEB3 term=NONE cterm=NONE ctermbg=230 ctermfg=16 gui=NONE guibg=#f5deb3 guifg=#000000
-    CSAHi cssPseudoClassId term=NONE cterm=NONE ctermbg=bg ctermfg=195 gui=italic guibg=bg guifg=#9ccfdd
-    CSAHi cssIdentifier term=NONE cterm=NONE ctermbg=bg ctermfg=194 gui=italic guibg=bg guifg=#a2ddb8
-    CSAHi cssLength term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssString term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi htmlHighlight term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi htmlHighlightSkip term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi None term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsDotNotation term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsBracket term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsTernaryIf term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi IndentGuidesOdd term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#0a0a0a guifg=fg
+    CSAHi vimSynRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSynPatMod term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSyncLines term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSyncMatch term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi SpecialKey term=bold cterm=bold ctermbg=bg ctermfg=147 gui=bold guibg=bg guifg=#8888ff
     CSAHi NonText term=bold cterm=bold ctermbg=232 ctermfg=211 gui=bold guibg=#0b0b0b guifg=#d84070
     CSAHi Directory term=bold cterm=NONE ctermbg=bg ctermfg=231 gui=NONE guibg=bg guifg=#c8c8ff
@@ -338,26 +250,22 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi MoreMsg term=bold cterm=bold ctermbg=141 ctermfg=159 gui=bold guibg=#8040ff guifg=#70ffc0
     CSAHi ModeMsg term=bold cterm=bold ctermbg=bg ctermfg=195 gui=bold guibg=bg guifg=#a0d0ff
     CSAHi LineNr term=underline cterm=NONE ctermbg=233 ctermfg=243 gui=italic guibg=#0e0e0e guifg=#727272
-    CSAHi cssColor008B8B term=NONE cterm=NONE ctermbg=37 ctermfg=255 gui=NONE guibg=#008b8b guifg=#ffffff
-    CSAHi cssColorB8860B term=NONE cterm=NONE ctermbg=178 ctermfg=16 gui=NONE guibg=#b8860b guifg=#000000
-    CSAHi cssColorA9A9A9 term=NONE cterm=NONE ctermbg=248 ctermfg=16 gui=NONE guibg=#a9a9a9 guifg=#000000
-    CSAHi cssColor006400 term=NONE cterm=NONE ctermbg=28 ctermfg=255 gui=NONE guibg=#006400 guifg=#ffffff
-    CSAHi cssColorBDB76B term=NONE cterm=NONE ctermbg=187 ctermfg=16 gui=NONE guibg=#bdb76b guifg=#000000
-    CSAHi cssColor8B008B term=NONE cterm=NONE ctermbg=127 ctermfg=255 gui=NONE guibg=#8b008b guifg=#ffffff
-    CSAHi cssColor556B2F term=NONE cterm=NONE ctermbg=107 ctermfg=255 gui=NONE guibg=#556b2f guifg=#ffffff
-    CSAHi cssColorFF8C00 term=NONE cterm=NONE ctermbg=214 ctermfg=16 gui=NONE guibg=#ff8c00 guifg=#000000
-    CSAHi cssColor9932CC term=NONE cterm=NONE ctermbg=171 ctermfg=255 gui=NONE guibg=#9932cc guifg=#ffffff
-    CSAHi cssColor8B0000 term=NONE cterm=NONE ctermbg=124 ctermfg=255 gui=NONE guibg=#8b0000 guifg=#ffffff
+    CSAHi lCursor term=NONE cterm=NONE ctermbg=129 ctermfg=255 gui=NONE guibg=#8800ff guifg=#ffffff
+    CSAHi vimAugroupError term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi SpellRare term=reverse cterm=undercurl ctermbg=bg ctermfg=201 gui=undercurl guibg=bg guifg=fg guisp=#ff00ff
     CSAHi SpellLocal term=underline cterm=undercurl ctermbg=bg ctermfg=225 gui=undercurl guibg=bg guifg=fg guisp=#ff99cc
     CSAHi Pmenu term=NONE cterm=NONE ctermbg=236 ctermfg=231 gui=NONE guibg=#303030 guifg=#f6f3e8
     CSAHi PmenuSel term=NONE cterm=NONE ctermbg=16 ctermfg=231 gui=NONE guibg=#000000 guifg=#f6f3e8
     CSAHi PmenuSbar term=NONE cterm=NONE ctermbg=238 ctermfg=16 gui=NONE guibg=#444444 guifg=#000000
     CSAHi PmenuThumb term=NONE cterm=NONE ctermbg=245 ctermfg=16 gui=NONE guibg=#8a8a8a guifg=#000000
-    CSAHi TabLine term=underline cterm=underline ctermbg=248 ctermfg=fg gui=underline guibg=#a9a9a9 guifg=fg
-    CSAHi TabLineSel term=bold cterm=bold ctermbg=bg ctermfg=fg gui=bold guibg=bg guifg=fg
-    CSAHi TabLineFill term=reverse cterm=reverse ctermbg=bg ctermfg=fg gui=reverse guibg=bg guifg=fg
+    CSAHi TabLine term=underline cterm=NONE ctermbg=233 ctermfg=245 gui=NONE guibg=#121212 guifg=#8a8a8a
+    CSAHi TabLineSel term=bold cterm=NONE ctermbg=96 ctermfg=231 gui=NONE guibg=#602040 guifg=#d6d6d6
+    CSAHi TabLineFill term=reverse cterm=NONE ctermbg=233 ctermfg=16 gui=NONE guibg=#111111 guifg=#000000
     CSAHi CursorColumn term=reverse cterm=NONE ctermbg=233 ctermfg=fg gui=NONE guibg=#0f0f0f guifg=fg
+    CSAHi perlFiledescStatementNocomma term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlFiledescStatementComma term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi cssPseudoClassId term=NONE cterm=NONE ctermbg=bg ctermfg=195 gui=italic guibg=bg guifg=#9ccfdd
+    CSAHi cssIdentifier term=NONE cterm=NONE ctermbg=bg ctermfg=194 gui=italic guibg=bg guifg=#a2ddb8
     CSAHi markdownUrl term=NONE cterm=NONE ctermbg=bg ctermfg=216 gui=NONE guibg=bg guifg=#e48944
     CSAHi markdownCode term=NONE cterm=bold ctermbg=bg ctermfg=189 gui=bold guibg=bg guifg=#a7bee4
     CSAHi markdownCodeBlock term=NONE cterm=NONE ctermbg=bg ctermfg=225 gui=NONE guibg=bg guifg=#c5b1e4
@@ -365,51 +273,37 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi javaScriptDOMObjects term=NONE cterm=bold ctermbg=bg ctermfg=225 gui=bold guibg=bg guifg=#dbb6d2
     CSAHi javaScriptDOMMethods term=NONE cterm=NONE ctermbg=bg ctermfg=230 gui=NONE guibg=bg guifg=#d4fa9b
     CSAHi javaScriptAjaxObjects term=NONE cterm=underline ctermbg=bg ctermfg=111 gui=underline guibg=bg guifg=#5d91d3
-    CSAHi javaScriptAjaxMethods term=NONE cterm=NONE ctermbg=bg ctermfg=117 gui=NONE guibg=bg guifg=#6699cc
-    CSAHi javaScriptAjaxProperties term=NONE cterm=NONE ctermbg=bg ctermfg=217 gui=NONE guibg=bg guifg=#ff9494
-    CSAHi cssColorF5F5F5 term=NONE cterm=NONE ctermbg=255 ctermfg=16 gui=NONE guibg=#f5f5f5 guifg=#000000
-    CSAHi cssColor9ACD32 term=NONE cterm=NONE ctermbg=191 ctermfg=16 gui=NONE guibg=#9acd32 guifg=#000000
-    CSAHi scalaRoot term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsFuncBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColorE9967A term=NONE cterm=NONE ctermbg=223 ctermfg=16 gui=NONE guibg=#e9967a guifg=#000000
-    CSAHi cssColor8FBC8F term=NONE cterm=NONE ctermbg=151 ctermfg=16 gui=NONE guibg=#8fbc8f guifg=#000000
-    CSAHi cssColor483D8B term=NONE cterm=NONE ctermbg=97 ctermfg=255 gui=NONE guibg=#483d8b guifg=#ffffff
-    CSAHi cssColor2F4F4F term=NONE cterm=NONE ctermbg=66 ctermfg=255 gui=NONE guibg=#2f4f4f guifg=#ffffff
-    CSAHi cssColor00CED1 term=NONE cterm=NONE ctermbg=51 ctermfg=16 gui=NONE guibg=#00ced1 guifg=#000000
-    CSAHi cssColor9400D3 term=NONE cterm=NONE ctermbg=129 ctermfg=255 gui=NONE guibg=#9400d3 guifg=#ffffff
-    CSAHi cssColorFF1493 term=NONE cterm=NONE ctermbg=199 ctermfg=255 gui=NONE guibg=#ff1493 guifg=#ffffff
-    CSAHi cssColor00BFFF term=NONE cterm=NONE ctermbg=45 ctermfg=16 gui=NONE guibg=#00bfff guifg=#000000
-    CSAHi cssColor696969 term=NONE cterm=NONE ctermbg=242 ctermfg=255 gui=NONE guibg=#696969 guifg=#ffffff
-    CSAHi cssColor1E90FF term=NONE cterm=NONE ctermbg=75 ctermfg=16 gui=NONE guibg=#1e90ff guifg=#000000
+    CSAHi vimSyncLinebreak term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSyncLinecont term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSyncRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimHiLink term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi pythonSpaceError term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi pythonSync term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimIf term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi CursorLine term=underline cterm=NONE ctermbg=233 ctermfg=fg gui=NONE guibg=#0f0f0f guifg=fg
     CSAHi ColorColumn term=reverse cterm=NONE ctermbg=236 ctermfg=fg gui=NONE guibg=#303030 guifg=fg
     CSAHi Cursor term=NONE cterm=bold ctermbg=162 ctermfg=255 gui=bold guibg=#99004c guifg=#ffffff
-    CSAHi lCursor term=NONE cterm=NONE ctermbg=129 ctermfg=255 gui=NONE guibg=#8800ff guifg=#ffffff
-    CSAHi MatchParen term=reverse cterm=NONE ctermbg=30 ctermfg=255 gui=NONE guibg=#146666 guifg=#ffffff
+    CSAHi vimFuncBody term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimFuncBlank term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi Comment term=bold cterm=NONE ctermbg=bg ctermfg=245 gui=NONE guibg=bg guifg=#8a8a8a
     CSAHi Constant term=underline cterm=NONE ctermbg=bg ctermfg=159 gui=NONE guibg=bg guifg=#92d4ff
     CSAHi Special term=bold cterm=NONE ctermbg=233 ctermfg=222 gui=NONE guibg=#0f0f0f guifg=#ff9a4c
     CSAHi Identifier term=underline cterm=NONE ctermbg=bg ctermfg=123 gui=NONE guibg=bg guifg=#40f8f8
+    CSAHi javaScriptAjaxMethods term=NONE cterm=NONE ctermbg=bg ctermfg=117 gui=NONE guibg=bg guifg=#6699cc
+    CSAHi javaScriptAjaxProperties term=NONE cterm=NONE ctermbg=bg ctermfg=217 gui=NONE guibg=bg guifg=#ff9494
     CSAHi javaScriptFuncName term=NONE cterm=NONE ctermbg=bg ctermfg=195 gui=NONE guibg=bg guifg=#b5e4f7
     CSAHi javaScriptHtmlElemProperties term=NONE cterm=NONE ctermbg=bg ctermfg=217 gui=NONE guibg=bg guifg=#ff9494
     CSAHi javaScriptEventListenerKeyword term=NONE cterm=NONE ctermbg=bg ctermfg=117 gui=NONE guibg=bg guifg=#6699cc
     CSAHi coffeeSpecialVar term=NONE cterm=NONE ctermbg=bg ctermfg=229 gui=NONE guibg=bg guifg=#edc37c
-    CSAHi coffeeInterp term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsFuncArgs term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsFuncArgCommas term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi Noise term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi htmlItalic term=italic cterm=NONE ctermbg=bg ctermfg=fg gui=italic guibg=bg guifg=fg
-    CSAHi cssColorB22222 term=NONE cterm=NONE ctermbg=167 ctermfg=255 gui=NONE guibg=#b22222 guifg=#ffffff
-    CSAHi cssColorFFFAF0 term=NONE cterm=NONE ctermbg=255 ctermfg=16 gui=NONE guibg=#fffaf0 guifg=#000000
-    CSAHi cssColor228B22 term=NONE cterm=NONE ctermbg=71 ctermfg=255 gui=NONE guibg=#228b22 guifg=#ffffff
-    CSAHi cssColorDCDCDC term=NONE cterm=NONE ctermbg=253 ctermfg=16 gui=NONE guibg=#dcdcdc guifg=#000000
-    CSAHi cssColorF8F8FF term=NONE cterm=NONE ctermbg=255 ctermfg=16 gui=NONE guibg=#f8f8ff guifg=#000000
-    CSAHi cssColorFFD700 term=NONE cterm=NONE ctermbg=226 ctermfg=16 gui=NONE guibg=#ffd700 guifg=#000000
-    CSAHi cssColorDAA520 term=NONE cterm=NONE ctermbg=221 ctermfg=16 gui=NONE guibg=#daa520 guifg=#000000
-    CSAHi cssColorADFF2F term=NONE cterm=NONE ctermbg=191 ctermfg=16 gui=NONE guibg=#adff2f guifg=#000000
-    CSAHi cssColorF0FFF0 term=NONE cterm=NONE ctermbg=255 ctermfg=16 gui=NONE guibg=#f0fff0 guifg=#000000
-    CSAHi cssColorFF69B4 term=NONE cterm=NONE ctermbg=212 ctermfg=16 gui=NONE guibg=#ff69b4 guifg=#000000
-    CSAHi javaScript term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimHiKeyList term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimHiBang term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimHiCtermColor term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimHiFontname term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimHiGuiFontname term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimPythonRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi Conditional term=NONE cterm=bold ctermbg=bg ctermfg=153 gui=bold guibg=bg guifg=#86bbee
+    CSAHi vimEscapeBrace term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSetEqual term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi Statement term=bold cterm=NONE ctermbg=bg ctermfg=117 gui=NONE guibg=bg guifg=#6699cc
     CSAHi PreProc term=underline cterm=NONE ctermbg=bg ctermfg=225 gui=NONE guibg=bg guifg=#ffa8ff
     CSAHi Type term=underline cterm=NONE ctermbg=bg ctermfg=122 gui=NONE guibg=bg guifg=#60f0a8
@@ -419,203 +313,138 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi Todo term=NONE cterm=underline ctermbg=bg ctermfg=219 gui=italic,underline guibg=bg guifg=#ff80d0
     CSAHi String term=NONE cterm=NONE ctermbg=233 ctermfg=193 gui=NONE guibg=#0f0f0f guifg=#bccf72
     CSAHi Number term=NONE cterm=NONE ctermbg=bg ctermfg=193 gui=NONE guibg=bg guifg=#acdd82
-    CSAHi Question term=NONE cterm=bold ctermbg=bg ctermfg=226 gui=bold guibg=bg guifg=#e8e800
-    CSAHi scalaBasicIdentifier term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi helpNormal term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi scalaBasicInterpolation term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi coffeeEmbed term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi scalaBasicInterpolationDelimiter term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColorCD5C5C term=NONE cterm=NONE ctermbg=210 ctermfg=16 gui=NONE guibg=#cd5c5c guifg=#000000
-    CSAHi cssColor4B0082 term=NONE cterm=NONE ctermbg=91 ctermfg=255 gui=NONE guibg=#4b0082 guifg=#ffffff
-    CSAHi cssColorFFFFF0 term=NONE cterm=NONE ctermbg=255 ctermfg=16 gui=NONE guibg=#fffff0 guifg=#000000
-    CSAHi cssColorF0E68C term=NONE cterm=NONE ctermbg=229 ctermfg=16 gui=NONE guibg=#f0e68c guifg=#000000
-    CSAHi cssColorE6E6FA term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#e6e6fa guifg=#000000
-    CSAHi cssColorFFF0F5 term=NONE cterm=NONE ctermbg=255 ctermfg=16 gui=NONE guibg=#fff0f5 guifg=#000000
-    CSAHi cssColor7CFC00 term=NONE cterm=NONE ctermbg=154 ctermfg=16 gui=NONE guibg=#7cfc00 guifg=#000000
-    CSAHi cssColorFFFACD term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#fffacd guifg=#000000
-    CSAHi cssColorADD8E6 term=NONE cterm=NONE ctermbg=195 ctermfg=16 gui=NONE guibg=#add8e6 guifg=#000000
-    CSAHi cssColorF08080 term=NONE cterm=NONE ctermbg=217 ctermfg=16 gui=NONE guibg=#f08080 guifg=#000000
-    CSAHi htmlUnderline term=underline cterm=underline ctermbg=bg ctermfg=fg gui=underline guibg=bg guifg=fg
+    CSAHi perlStatementIndirObjWrap term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlVarMember term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimOperParen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteChooseAction term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteChooseCandidate term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteChooseMessage term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimHiTermcap term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi Function term=NONE cterm=NONE ctermbg=bg ctermfg=230 gui=NONE guibg=bg guifg=#ffd2a7
-    CSAHi Conditional term=NONE cterm=bold ctermbg=bg ctermfg=153 gui=bold guibg=bg guifg=#86bbee
+    CSAHi vimPatRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi Operator term=NONE cterm=NONE ctermbg=bg ctermfg=153 gui=NONE guibg=bg guifg=#86bbee
-    CSAHi cssPseudoClassFn term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssSpecialCharQQ term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssSpecialCharQ term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi helpGraphic term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi helpLeadBlank term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi coffeeCurlies term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColorE0FFFF term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#e0ffff guifg=#000000
-    CSAHi cssColorFAFAD2 term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#fafad2 guifg=#000000
-    CSAHi cssColorD3D3D3 term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#d3d3d3 guifg=#000000
-    CSAHi cssColor90EE90 term=NONE cterm=NONE ctermbg=157 ctermfg=16 gui=NONE guibg=#90ee90 guifg=#000000
-    CSAHi cssColorFFB6C1 term=NONE cterm=NONE ctermbg=225 ctermfg=16 gui=NONE guibg=#ffb6c1 guifg=#000000
-    CSAHi cssColorFFA07A term=NONE cterm=NONE ctermbg=223 ctermfg=16 gui=NONE guibg=#ffa07a guifg=#000000
-    CSAHi cssColor20B2AA term=NONE cterm=NONE ctermbg=80 ctermfg=16 gui=NONE guibg=#20b2aa guifg=#000000
-    CSAHi cssColor87CEFA term=NONE cterm=NONE ctermbg=159 ctermfg=16 gui=NONE guibg=#87cefa guifg=#000000
-    CSAHi cssColor778899 term=NONE cterm=NONE ctermbg=146 ctermfg=16 gui=NONE guibg=#778899 guifg=#000000
-    CSAHi cssColorB0C4DE term=NONE cterm=NONE ctermbg=195 ctermfg=16 gui=NONE guibg=#b0c4de guifg=#000000
-    CSAHi cssStyle term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlVarBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlVarBlock2 term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteSourcePrompt term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteSourceNames term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteQuickMatchLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteNonMarkedLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimCommentTitleLeader term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaInnerComment term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimAutoCmdSfxList term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimCollection term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSubstPat term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSubstRep4 term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimCollClass term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi Delimiter term=NONE cterm=NONE ctermbg=bg ctermfg=44 gui=NONE guibg=bg guifg=#00a0a0
-    CSAHi htmlTagN term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi rgnScala term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi coffeeBrackets term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi coffeeParens term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi coffeeScript term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColorFFFFE0 term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#ffffe0 guifg=#000000
-    CSAHi cssColor32CD32 term=NONE cterm=NONE ctermbg=83 ctermfg=16 gui=NONE guibg=#32cd32 guifg=#000000
-    CSAHi cssColorFAF0E6 term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#faf0e6 guifg=#000000
-    CSAHi cssColor66CDAA term=NONE cterm=NONE ctermbg=122 ctermfg=16 gui=NONE guibg=#66cdaa guifg=#000000
-    CSAHi cssColor0000CD term=NONE cterm=NONE ctermbg=21 ctermfg=255 gui=NONE guibg=#0000cd guifg=#ffffff
-    CSAHi cssColorBA55D3 term=NONE cterm=NONE ctermbg=177 ctermfg=16 gui=NONE guibg=#ba55d3 guifg=#000000
-    CSAHi cssColor9370D8 term=NONE cterm=NONE ctermbg=147 ctermfg=16 gui=NONE guibg=#9370d8 guifg=#000000
-    CSAHi cssColor3CB371 term=NONE cterm=NONE ctermbg=79 ctermfg=16 gui=NONE guibg=#3cb371 guifg=#000000
-    CSAHi cssColor7B68EE term=NONE cterm=NONE ctermbg=141 ctermfg=16 gui=NONE guibg=#7b68ee guifg=#000000
-    CSAHi cssColor00FA9A term=NONE cterm=NONE ctermbg=50 ctermfg=16 gui=NONE guibg=#00fa9a guifg=#000000
-    CSAHi cssColorD8BFD8 term=NONE cterm=NONE ctermbg=225 ctermfg=16 gui=NONE guibg=#d8bfd8 guifg=#000000
+    CSAHi perlPackageConst term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi NONE term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimEcho term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteSourceLine__uniteSource__FileMru term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteSourceLine__uniteSource__Bookmark term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteInputLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimStdPlugin term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaIfThen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaElseifThen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaThenEnd term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaLoopBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaParen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimAugroupSyncA term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi MatchParen term=reverse cterm=NONE ctermbg=30 ctermfg=255 gui=NONE guibg=#146666 guifg=#ffffff
+    CSAHi vimMapLhs term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimAutoCmdSpace term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimAutoEventList term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi SyntasticErrorLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi SyntasticWarningLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsFunctionKey term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColor000000 term=NONE cterm=NONE ctermbg=16 ctermfg=255 gui=NONE guibg=#000000 guifg=#ffffff
-    CSAHi htmlBoldUnderline term=bold,underline cterm=bold,underline ctermbg=bg ctermfg=fg gui=bold,underline guibg=bg guifg=fg
-    CSAHi cssColor48D1CC term=NONE cterm=NONE ctermbg=123 ctermfg=16 gui=NONE guibg=#48d1cc guifg=#000000
-    CSAHi cssColorC71585 term=NONE cterm=NONE ctermbg=199 ctermfg=255 gui=NONE guibg=#c71585 guifg=#ffffff
-    CSAHi cssColor191970 term=NONE cterm=NONE ctermbg=61 ctermfg=255 gui=NONE guibg=#191970 guifg=#ffffff
-    CSAHi htmlBoldItalic term=bold,italic cterm=bold ctermbg=bg ctermfg=fg gui=bold,italic guibg=bg guifg=fg
-    CSAHi cssColorFFE4E1 term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#ffe4e1 guifg=#000000
-    CSAHi cssColorFFE4B5 term=NONE cterm=NONE ctermbg=230 ctermfg=16 gui=NONE guibg=#ffe4b5 guifg=#000000
-    CSAHi cssColorFFDEAD term=NONE cterm=NONE ctermbg=230 ctermfg=16 gui=NONE guibg=#ffdead guifg=#000000
-    CSAHi cssColorFDF5E6 term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#fdf5e6 guifg=#000000
-    CSAHi cssColor6B8E23 term=NONE cterm=NONE ctermbg=143 ctermfg=255 gui=NONE guibg=#6b8e23 guifg=#ffffff
-    CSAHi htmlBold term=bold cterm=bold ctermbg=bg ctermfg=fg gui=bold guibg=bg guifg=fg
-    CSAHi htmlBoldUnderlineItalic term=bold,italic,underline cterm=bold,underline ctermbg=bg ctermfg=fg gui=bold,italic,underline guibg=bg guifg=fg
-    CSAHi jsFuncCall term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi IndentGuidesOdd term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#0a0a0a guifg=fg
+    CSAHi vimGlobal term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaTableBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaFunctionBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSubstRep term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSubstRange term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimMapRhs term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimMapRhsExtend term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimMenuBang term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimMenuPriority term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi IndentGuidesEven term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#0d0d0d guifg=fg
     CSAHi UniteSelectedLine term=NONE cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#000000 guifg=fg
     CSAHi CursorIM term=NONE cterm=NONE ctermbg=129 ctermfg=255 gui=NONE guibg=#8800ff guifg=#ffffff
-    CSAHi javaDocSeeTag term=NONE cterm=NONE ctermbg=bg ctermfg=252 gui=NONE guibg=bg guifg=#cccccc
-    CSAHi htmlUnderlineItalic term=italic,underline cterm=underline ctermbg=bg ctermfg=fg gui=italic,underline guibg=bg guifg=fg
-    CSAHi glslIdentifier term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColor800000 term=NONE cterm=NONE ctermbg=124 ctermfg=255 gui=NONE guibg=#800000 guifg=#ffffff
-    CSAHi cssColorff0000 term=NONE cterm=NONE ctermbg=196 ctermfg=255 gui=NONE guibg=#ff0000 guifg=#ffffff
-    CSAHi cssColorffA500 term=NONE cterm=NONE ctermbg=220 ctermfg=16 gui=NONE guibg=#ffa500 guifg=#000000
-    CSAHi cssColorffff00 term=NONE cterm=NONE ctermbg=226 ctermfg=16 gui=NONE guibg=#ffff00 guifg=#000000
-    CSAHi cssColor808000 term=NONE cterm=NONE ctermbg=142 ctermfg=255 gui=NONE guibg=#808000 guifg=#ffffff
-    CSAHi cssColorDA70D6 term=NONE cterm=NONE ctermbg=219 ctermfg=16 gui=NONE guibg=#da70d6 guifg=#000000
-    CSAHi cssColorEEE8AA term=NONE cterm=NONE ctermbg=230 ctermfg=16 gui=NONE guibg=#eee8aa guifg=#000000
-    CSAHi cssColor98FB98 term=NONE cterm=NONE ctermbg=194 ctermfg=16 gui=NONE guibg=#98fb98 guifg=#000000
-    CSAHi cssColorAFEEEE term=NONE cterm=NONE ctermbg=195 ctermfg=16 gui=NONE guibg=#afeeee guifg=#000000
-    CSAHi cssColorD87093 term=NONE cterm=NONE ctermbg=217 ctermfg=16 gui=NONE guibg=#d87093 guifg=#000000
-    CSAHi cssColorFFEFD5 term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#ffefd5 guifg=#000000
-    CSAHi cssColorFFDAB9 term=NONE cterm=NONE ctermbg=230 ctermfg=16 gui=NONE guibg=#ffdab9 guifg=#000000
-    CSAHi cssColorCD853F term=NONE cterm=NONE ctermbg=215 ctermfg=16 gui=NONE guibg=#cd853f guifg=#000000
-    CSAHi cssColorFFC0CB term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#ffc0cb guifg=#000000
-    CSAHi cssColorDDA0DD term=NONE cterm=NONE ctermbg=225 ctermfg=16 gui=NONE guibg=#dda0dd guifg=#000000
-    CSAHi cssMediaBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColor800080 term=NONE cterm=NONE ctermbg=127 ctermfg=255 gui=NONE guibg=#800080 guifg=#ffffff
-    CSAHi cssColorff00ff term=NONE cterm=NONE ctermbg=201 ctermfg=255 gui=NONE guibg=#ff00ff guifg=#ffffff
-    CSAHi cssColorffffff term=NONE cterm=NONE ctermbg=255 ctermfg=16 gui=NONE guibg=#ffffff guifg=#000000
-    CSAHi cssColor00ff00 term=NONE cterm=NONE ctermbg=46 ctermfg=16 gui=NONE guibg=#00ff00 guifg=#000000
-    CSAHi cssColor008000 term=NONE cterm=NONE ctermbg=34 ctermfg=255 gui=NONE guibg=#008000 guifg=#ffffff
-    CSAHi cssColor000080 term=NONE cterm=NONE ctermbg=19 ctermfg=255 gui=NONE guibg=#000080 guifg=#ffffff
-    CSAHi cssColor0000ff term=NONE cterm=NONE ctermbg=21 ctermfg=255 gui=NONE guibg=#0000ff guifg=#ffffff
-    CSAHi cssColor00ffff term=NONE cterm=NONE ctermbg=51 ctermfg=16 gui=NONE guibg=#00ffff guifg=#000000
-    CSAHi cssColor008080 term=NONE cterm=NONE ctermbg=37 ctermfg=255 gui=NONE guibg=#008080 guifg=#ffffff
-    CSAHi jsObjectKey term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi ShaderScript term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssDefinition term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi scalaFqn term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi scalaFqnSet term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColorB0E0E6 term=NONE cterm=NONE ctermbg=195 ctermfg=16 gui=NONE guibg=#b0e0e6 guifg=#000000
-    CSAHi cssColorBC8F8F term=NONE cterm=NONE ctermbg=181 ctermfg=16 gui=NONE guibg=#bc8f8f guifg=#000000
-    CSAHi cssColor4169E1 term=NONE cterm=NONE ctermbg=105 ctermfg=255 gui=NONE guibg=#4169e1 guifg=#ffffff
-    CSAHi cssColor8B4513 term=NONE cterm=NONE ctermbg=136 ctermfg=255 gui=NONE guibg=#8b4513 guifg=#ffffff
-    CSAHi cssColorFA8072 term=NONE cterm=NONE ctermbg=217 ctermfg=16 gui=NONE guibg=#fa8072 guifg=#000000
-    CSAHi cssColorF4A460 term=NONE cterm=NONE ctermbg=222 ctermfg=16 gui=NONE guibg=#f4a460 guifg=#000000
-    CSAHi cssColor2E8B57 term=NONE cterm=NONE ctermbg=72 ctermfg=255 gui=NONE guibg=#2e8b57 guifg=#ffffff
-    CSAHi cssColorFFF5EE term=NONE cterm=NONE ctermbg=255 ctermfg=16 gui=NONE guibg=#fff5ee guifg=#000000
-    CSAHi cssColorA0522D term=NONE cterm=NONE ctermbg=173 ctermfg=255 gui=NONE guibg=#a0522d guifg=#ffffff
-    CSAHi cssColor87CEEB term=NONE cterm=NONE ctermbg=159 ctermfg=16 gui=NONE guibg=#87ceeb guifg=#000000
-    CSAHi cssPseudoClass term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi scalaInterpolation term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssPageWrap term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColorc0c0c0 term=NONE cterm=NONE ctermbg=250 ctermfg=16 gui=NONE guibg=#c0c0c0 guifg=#000000
-    CSAHi cssColor808080 term=NONE cterm=NONE ctermbg=244 ctermfg=16 gui=NONE guibg=#808080 guifg=#000000
-    CSAHi cssColorF0F8FF term=NONE cterm=NONE ctermbg=255 ctermfg=16 gui=NONE guibg=#f0f8ff guifg=#000000
-    CSAHi cssColorFAEBD7 term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#faebd7 guifg=#000000
-    CSAHi cssColor7FFFD4 term=NONE cterm=NONE ctermbg=159 ctermfg=16 gui=NONE guibg=#7fffd4 guifg=#000000
-    CSAHi cssColorF0FFFF term=NONE cterm=NONE ctermbg=255 ctermfg=16 gui=NONE guibg=#f0ffff guifg=#000000
-    CSAHi cssColorF5F5DC term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#f5f5dc guifg=#000000
-    CSAHi cssColorFFE4C4 term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#ffe4c4 guifg=#000000
-    CSAHi cssColorFFEBCD term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#ffebcd guifg=#000000
-    CSAHi cssColor8A2BE2 term=NONE cterm=NONE ctermbg=135 ctermfg=255 gui=NONE guibg=#8a2be2 guifg=#ffffff
-    CSAHi scalaValName term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi SignColumn term=NONE cterm=NONE ctermbg=236 ctermfg=255 gui=NONE guibg=#303030 guifg=#f0f0f0
+    CSAHi perlAutoload term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimExtCmd term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimFilter term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSet term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimUserCmd term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimCmdSep term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimIsCommand term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimLuaRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimMenuMap term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimMenuRhs term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimNormCmds term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimGroupList term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podBoldItalic term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podBoldOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podBoldAlternativeDelimOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podItalicBold term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimFiletype term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimAuSyntax term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimClusterName term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlFormat term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi Folded term=NONE cterm=NONE ctermbg=232 ctermfg=251 gui=NONE guibg=#0c0c0c guifg=#c8c8c8
+    CSAHi vimExecute term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimFunction term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi CursorLineNr term=bold cterm=bold ctermbg=162 ctermfg=233 gui=bold,italic guibg=#99004c guifg=#0e0e0e
-    CSAHi scalaVarName term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi Question term=NONE cterm=bold ctermbg=bg ctermfg=226 gui=bold guibg=bg guifg=#e8e800
     CSAHi StatusLine term=bold,reverse cterm=NONE ctermbg=96 ctermfg=231 gui=NONE guibg=#602040 guifg=#d6d6d6
     CSAHi StatusLineNC term=reverse cterm=NONE ctermbg=246 ctermfg=16 gui=NONE guibg=#909090 guifg=#000000
     CSAHi VertSplit term=reverse cterm=NONE ctermbg=233 ctermfg=246 gui=NONE guibg=#111111 guifg=#909090
-    CSAHi Title term=bold cterm=bold ctermbg=bg ctermfg=255 gui=bold guibg=bg guifg=#eaeaea
+    CSAHi Title term=bold cterm=NONE ctermbg=bg ctermfg=252 gui=NONE guibg=bg guifg=#d0d0d0
     CSAHi Visual term=reverse cterm=NONE ctermbg=133 ctermfg=fg gui=NONE guibg=#7c2b7c guifg=fg
     CSAHi VisualNOS term=bold,underline cterm=NONE ctermbg=133 ctermfg=fg gui=NONE guibg=#7c2b7c guifg=fg
     CSAHi WarningMsg term=NONE cterm=bold ctermbg=bg ctermfg=225 gui=bold guibg=bg guifg=#ffa0ff
     CSAHi WildMenu term=NONE cterm=NONE ctermbg=219 ctermfg=16 gui=NONE guibg=#ff80c0 guifg=#000000
-    CSAHi scalaMethodCall term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi scalaInterpolationDelimiter term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssAttrRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssKeyFrameWrap term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssFontDescriptorBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podItalicOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podItalicAlternativeDelimOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podNoSpaceOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podNoSpaceAlternativeDelimOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podIndexOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podIndexAlternativeDelimOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podBold term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podBoldAlternativeDelim term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podItalic term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podItalicAlternativeDelim term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi javaDocSeeTag term=NONE cterm=NONE ctermbg=bg ctermfg=252 gui=NONE guibg=bg guifg=#cccccc
     CSAHi htmlH1 term=NONE cterm=underline ctermbg=bg ctermfg=210 gui=underline guibg=bg guifg=#de675c
     CSAHi htmlLink term=NONE cterm=underline ctermbg=bg ctermfg=219 gui=underline guibg=bg guifg=#c777ff
-    CSAHi cssColor6A5ACD term=NONE cterm=NONE ctermbg=105 ctermfg=255 gui=NONE guibg=#6a5acd guifg=#ffffff
-    CSAHi cssColor708090 term=NONE cterm=NONE ctermbg=145 ctermfg=16 gui=NONE guibg=#708090 guifg=#000000
-    CSAHi cssColorFFFAFA term=NONE cterm=NONE ctermbg=255 ctermfg=16 gui=NONE guibg=#fffafa guifg=#000000
-    CSAHi cssColor00FF7F term=NONE cterm=NONE ctermbg=49 ctermfg=16 gui=NONE guibg=#00ff7f guifg=#000000
-    CSAHi cssColor4682B4 term=NONE cterm=NONE ctermbg=110 ctermfg=255 gui=NONE guibg=#4682b4 guifg=#ffffff
-    CSAHi cssColorD2B48C term=NONE cterm=NONE ctermbg=223 ctermfg=16 gui=NONE guibg=#d2b48c guifg=#000000
-    CSAHi cssColorF5FFFA term=NONE cterm=NONE ctermbg=255 ctermfg=16 gui=NONE guibg=#f5fffa guifg=#000000
-    CSAHi cssColorFF6347 term=NONE cterm=NONE ctermbg=210 ctermfg=16 gui=NONE guibg=#ff6347 guifg=#000000
-    CSAHi cssColor40E0D0 term=NONE cterm=NONE ctermbg=123 ctermfg=16 gui=NONE guibg=#40e0d0 guifg=#000000
-    CSAHi cssColorEE82EE term=NONE cterm=NONE ctermbg=219 ctermfg=16 gui=NONE guibg=#ee82ee guifg=#000000
-    CSAHi jsParen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColorFF4500 term=NONE cterm=NONE ctermbg=208 ctermfg=255 gui=NONE guibg=#ff4500 guifg=#ffffff
-    CSAHi cssColorA52A2A term=NONE cterm=NONE ctermbg=167 ctermfg=255 gui=NONE guibg=#a52a2a guifg=#ffffff
-    CSAHi cssColorDEB887 term=NONE cterm=NONE ctermbg=223 ctermfg=16 gui=NONE guibg=#deb887 guifg=#000000
-    CSAHi cssColor5F9EA0 term=NONE cterm=NONE ctermbg=116 ctermfg=16 gui=NONE guibg=#5f9ea0 guifg=#000000
-    CSAHi cssColor7FFF00 term=NONE cterm=NONE ctermbg=154 ctermfg=16 gui=NONE guibg=#7fff00 guifg=#000000
-    CSAHi cssColorD2691E term=NONE cterm=NONE ctermbg=209 ctermfg=16 gui=NONE guibg=#d2691e guifg=#000000
-    CSAHi cssColorFF7F50 term=NONE cterm=NONE ctermbg=216 ctermfg=16 gui=NONE guibg=#ff7f50 guifg=#000000
-    CSAHi cssColor6495ED term=NONE cterm=NONE ctermbg=117 ctermfg=16 gui=NONE guibg=#6495ed guifg=#000000
-    CSAHi cssColorFFF8DC term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#fff8dc guifg=#000000
-    CSAHi cssColorDC143C term=NONE cterm=NONE ctermbg=197 ctermfg=255 gui=NONE guibg=#dc143c guifg=#ffffff
-    CSAHi cssColor00008B term=NONE cterm=NONE ctermbg=19 ctermfg=255 gui=NONE guibg=#00008b guifg=#ffffff
-    CSAHi Folded term=NONE cterm=NONE ctermbg=232 ctermfg=251 gui=NONE guibg=#0c0c0c guifg=#c8c8c8
+    CSAHi vimSynKeyRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSynMatchRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSynMtchCchar term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSynMtchGroup term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlSync term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlSyncPOD term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimPerlRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSynLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi FoldColumn term=NONE cterm=NONE ctermbg=234 ctermfg=251 gui=NONE guibg=#212121 guifg=#c8c8c8
     CSAHi DiffAdd term=bold cterm=NONE ctermbg=28 ctermfg=fg gui=NONE guibg=#064d08 guifg=fg
     CSAHi DiffChange term=bold cterm=NONE ctermbg=94 ctermfg=255 gui=NONE guibg=#573700 guifg=#f0f0f0
     CSAHi DiffDelete term=bold cterm=NONE ctermbg=131 ctermfg=131 gui=NONE guibg=#701d1d guifg=#701d1d
     CSAHi DiffText term=reverse cterm=NONE ctermbg=52 ctermfg=fg gui=NONE guibg=#1f1500 guifg=fg
-    CSAHi SignColumn term=NONE cterm=NONE ctermbg=236 ctermfg=255 gui=NONE guibg=#303030 guifg=#f0f0f0
+    CSAHi vimAugroup term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi Conceal term=NONE cterm=NONE ctermbg=248 ctermfg=231 gui=NONE guibg=#a9a9a9 guifg=#d3d3d3
     CSAHi SpellBad term=reverse cterm=undercurl ctermbg=bg ctermfg=196 gui=undercurl guibg=bg guifg=fg guisp=#ff0000
     CSAHi SpellCap term=reverse cterm=undercurl ctermbg=bg ctermfg=46 gui=undercurl guibg=bg guifg=fg guisp=#00ff00
 elseif has("gui_running") || &t_Co == 256
     CSAHi Normal term=NONE cterm=NONE ctermbg=233 ctermfg=255 gui=NONE guibg=#141414 guifg=#eaeaea
+    CSAHi perlBraces term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlFakeGroup term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi cssTagName term=NONE cterm=bold ctermbg=bg ctermfg=74 gui=bold guibg=bg guifg=#70a8dd
     CSAHi cssBoxProp term=NONE cterm=NONE ctermbg=bg ctermfg=180 gui=NONE guibg=bg guifg=#d0af76
-    CSAHi cssColorF5DEB3 term=NONE cterm=NONE ctermbg=223 ctermfg=16 gui=NONE guibg=#f5deb3 guifg=#000000
-    CSAHi cssPseudoClassId term=NONE cterm=NONE ctermbg=bg ctermfg=152 gui=italic guibg=bg guifg=#9ccfdd
-    CSAHi cssIdentifier term=NONE cterm=NONE ctermbg=bg ctermfg=151 gui=italic guibg=bg guifg=#a2ddb8
-    CSAHi cssLength term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssString term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi htmlHighlight term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi htmlHighlightSkip term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi None term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsDotNotation term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsBracket term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsTernaryIf term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi IndentGuidesOdd term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#0a0a0a guifg=fg
+    CSAHi vimSynRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSynPatMod term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSyncLines term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSyncMatch term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi SpecialKey term=bold cterm=bold ctermbg=bg ctermfg=105 gui=bold guibg=bg guifg=#8888ff
     CSAHi NonText term=bold cterm=bold ctermbg=232 ctermfg=167 gui=bold guibg=#0b0b0b guifg=#d84070
     CSAHi Directory term=bold cterm=NONE ctermbg=bg ctermfg=189 gui=NONE guibg=bg guifg=#c8c8ff
@@ -625,26 +454,22 @@ elseif has("gui_running") || &t_Co == 256
     CSAHi MoreMsg term=bold cterm=bold ctermbg=99 ctermfg=85 gui=bold guibg=#8040ff guifg=#70ffc0
     CSAHi ModeMsg term=bold cterm=bold ctermbg=bg ctermfg=153 gui=bold guibg=bg guifg=#a0d0ff
     CSAHi LineNr term=underline cterm=NONE ctermbg=233 ctermfg=243 gui=italic guibg=#0e0e0e guifg=#727272
-    CSAHi cssColor008B8B term=NONE cterm=NONE ctermbg=30 ctermfg=231 gui=NONE guibg=#008b8b guifg=#ffffff
-    CSAHi cssColorB8860B term=NONE cterm=NONE ctermbg=136 ctermfg=16 gui=NONE guibg=#b8860b guifg=#000000
-    CSAHi cssColorA9A9A9 term=NONE cterm=NONE ctermbg=248 ctermfg=16 gui=NONE guibg=#a9a9a9 guifg=#000000
-    CSAHi cssColor006400 term=NONE cterm=NONE ctermbg=22 ctermfg=231 gui=NONE guibg=#006400 guifg=#ffffff
-    CSAHi cssColorBDB76B term=NONE cterm=NONE ctermbg=143 ctermfg=16 gui=NONE guibg=#bdb76b guifg=#000000
-    CSAHi cssColor8B008B term=NONE cterm=NONE ctermbg=90 ctermfg=231 gui=NONE guibg=#8b008b guifg=#ffffff
-    CSAHi cssColor556B2F term=NONE cterm=NONE ctermbg=58 ctermfg=231 gui=NONE guibg=#556b2f guifg=#ffffff
-    CSAHi cssColorFF8C00 term=NONE cterm=NONE ctermbg=208 ctermfg=16 gui=NONE guibg=#ff8c00 guifg=#000000
-    CSAHi cssColor9932CC term=NONE cterm=NONE ctermbg=98 ctermfg=231 gui=NONE guibg=#9932cc guifg=#ffffff
-    CSAHi cssColor8B0000 term=NONE cterm=NONE ctermbg=88 ctermfg=231 gui=NONE guibg=#8b0000 guifg=#ffffff
+    CSAHi lCursor term=NONE cterm=NONE ctermbg=93 ctermfg=231 gui=NONE guibg=#8800ff guifg=#ffffff
+    CSAHi vimAugroupError term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi SpellRare term=reverse cterm=undercurl ctermbg=bg ctermfg=201 gui=undercurl guibg=bg guifg=fg guisp=#ff00ff
     CSAHi SpellLocal term=underline cterm=undercurl ctermbg=bg ctermfg=212 gui=undercurl guibg=bg guifg=fg guisp=#ff99cc
     CSAHi Pmenu term=NONE cterm=NONE ctermbg=236 ctermfg=230 gui=NONE guibg=#303030 guifg=#f6f3e8
     CSAHi PmenuSel term=NONE cterm=NONE ctermbg=16 ctermfg=230 gui=NONE guibg=#000000 guifg=#f6f3e8
     CSAHi PmenuSbar term=NONE cterm=NONE ctermbg=238 ctermfg=16 gui=NONE guibg=#444444 guifg=#000000
     CSAHi PmenuThumb term=NONE cterm=NONE ctermbg=245 ctermfg=16 gui=NONE guibg=#8a8a8a guifg=#000000
-    CSAHi TabLine term=underline cterm=underline ctermbg=248 ctermfg=fg gui=underline guibg=#a9a9a9 guifg=fg
-    CSAHi TabLineSel term=bold cterm=bold ctermbg=bg ctermfg=fg gui=bold guibg=bg guifg=fg
-    CSAHi TabLineFill term=reverse cterm=reverse ctermbg=bg ctermfg=fg gui=reverse guibg=bg guifg=fg
+    CSAHi TabLine term=underline cterm=NONE ctermbg=233 ctermfg=245 gui=NONE guibg=#121212 guifg=#8a8a8a
+    CSAHi TabLineSel term=bold cterm=NONE ctermbg=53 ctermfg=188 gui=NONE guibg=#602040 guifg=#d6d6d6
+    CSAHi TabLineFill term=reverse cterm=NONE ctermbg=233 ctermfg=16 gui=NONE guibg=#111111 guifg=#000000
     CSAHi CursorColumn term=reverse cterm=NONE ctermbg=233 ctermfg=fg gui=NONE guibg=#0f0f0f guifg=fg
+    CSAHi perlFiledescStatementNocomma term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlFiledescStatementComma term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi cssPseudoClassId term=NONE cterm=NONE ctermbg=bg ctermfg=152 gui=italic guibg=bg guifg=#9ccfdd
+    CSAHi cssIdentifier term=NONE cterm=NONE ctermbg=bg ctermfg=151 gui=italic guibg=bg guifg=#a2ddb8
     CSAHi markdownUrl term=NONE cterm=NONE ctermbg=bg ctermfg=173 gui=NONE guibg=bg guifg=#e48944
     CSAHi markdownCode term=NONE cterm=bold ctermbg=bg ctermfg=146 gui=bold guibg=bg guifg=#a7bee4
     CSAHi markdownCodeBlock term=NONE cterm=NONE ctermbg=bg ctermfg=182 gui=NONE guibg=bg guifg=#c5b1e4
@@ -652,51 +477,37 @@ elseif has("gui_running") || &t_Co == 256
     CSAHi javaScriptDOMObjects term=NONE cterm=bold ctermbg=bg ctermfg=182 gui=bold guibg=bg guifg=#dbb6d2
     CSAHi javaScriptDOMMethods term=NONE cterm=NONE ctermbg=bg ctermfg=192 gui=NONE guibg=bg guifg=#d4fa9b
     CSAHi javaScriptAjaxObjects term=NONE cterm=underline ctermbg=bg ctermfg=68 gui=underline guibg=bg guifg=#5d91d3
-    CSAHi javaScriptAjaxMethods term=NONE cterm=NONE ctermbg=bg ctermfg=68 gui=NONE guibg=bg guifg=#6699cc
-    CSAHi javaScriptAjaxProperties term=NONE cterm=NONE ctermbg=bg ctermfg=210 gui=NONE guibg=bg guifg=#ff9494
-    CSAHi cssColorF5F5F5 term=NONE cterm=NONE ctermbg=255 ctermfg=16 gui=NONE guibg=#f5f5f5 guifg=#000000
-    CSAHi cssColor9ACD32 term=NONE cterm=NONE ctermbg=113 ctermfg=16 gui=NONE guibg=#9acd32 guifg=#000000
-    CSAHi scalaRoot term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsFuncBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColorE9967A term=NONE cterm=NONE ctermbg=174 ctermfg=16 gui=NONE guibg=#e9967a guifg=#000000
-    CSAHi cssColor8FBC8F term=NONE cterm=NONE ctermbg=108 ctermfg=16 gui=NONE guibg=#8fbc8f guifg=#000000
-    CSAHi cssColor483D8B term=NONE cterm=NONE ctermbg=60 ctermfg=231 gui=NONE guibg=#483d8b guifg=#ffffff
-    CSAHi cssColor2F4F4F term=NONE cterm=NONE ctermbg=23 ctermfg=231 gui=NONE guibg=#2f4f4f guifg=#ffffff
-    CSAHi cssColor00CED1 term=NONE cterm=NONE ctermbg=44 ctermfg=16 gui=NONE guibg=#00ced1 guifg=#000000
-    CSAHi cssColor9400D3 term=NONE cterm=NONE ctermbg=92 ctermfg=231 gui=NONE guibg=#9400d3 guifg=#ffffff
-    CSAHi cssColorFF1493 term=NONE cterm=NONE ctermbg=198 ctermfg=231 gui=NONE guibg=#ff1493 guifg=#ffffff
-    CSAHi cssColor00BFFF term=NONE cterm=NONE ctermbg=39 ctermfg=16 gui=NONE guibg=#00bfff guifg=#000000
-    CSAHi cssColor696969 term=NONE cterm=NONE ctermbg=242 ctermfg=231 gui=NONE guibg=#696969 guifg=#ffffff
-    CSAHi cssColor1E90FF term=NONE cterm=NONE ctermbg=33 ctermfg=16 gui=NONE guibg=#1e90ff guifg=#000000
+    CSAHi vimSyncLinebreak term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSyncLinecont term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSyncRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimHiLink term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi pythonSpaceError term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi pythonSync term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimIf term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi CursorLine term=underline cterm=NONE ctermbg=233 ctermfg=fg gui=NONE guibg=#0f0f0f guifg=fg
     CSAHi ColorColumn term=reverse cterm=NONE ctermbg=236 ctermfg=fg gui=NONE guibg=#303030 guifg=fg
     CSAHi Cursor term=NONE cterm=bold ctermbg=89 ctermfg=231 gui=bold guibg=#99004c guifg=#ffffff
-    CSAHi lCursor term=NONE cterm=NONE ctermbg=93 ctermfg=231 gui=NONE guibg=#8800ff guifg=#ffffff
-    CSAHi MatchParen term=reverse cterm=NONE ctermbg=23 ctermfg=231 gui=NONE guibg=#146666 guifg=#ffffff
+    CSAHi vimFuncBody term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimFuncBlank term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi Comment term=bold cterm=NONE ctermbg=bg ctermfg=245 gui=NONE guibg=bg guifg=#8a8a8a
     CSAHi Constant term=underline cterm=NONE ctermbg=bg ctermfg=117 gui=NONE guibg=bg guifg=#92d4ff
     CSAHi Special term=bold cterm=NONE ctermbg=233 ctermfg=209 gui=NONE guibg=#0f0f0f guifg=#ff9a4c
     CSAHi Identifier term=underline cterm=NONE ctermbg=bg ctermfg=87 gui=NONE guibg=bg guifg=#40f8f8
+    CSAHi javaScriptAjaxMethods term=NONE cterm=NONE ctermbg=bg ctermfg=68 gui=NONE guibg=bg guifg=#6699cc
+    CSAHi javaScriptAjaxProperties term=NONE cterm=NONE ctermbg=bg ctermfg=210 gui=NONE guibg=bg guifg=#ff9494
     CSAHi javaScriptFuncName term=NONE cterm=NONE ctermbg=bg ctermfg=153 gui=NONE guibg=bg guifg=#b5e4f7
     CSAHi javaScriptHtmlElemProperties term=NONE cterm=NONE ctermbg=bg ctermfg=210 gui=NONE guibg=bg guifg=#ff9494
     CSAHi javaScriptEventListenerKeyword term=NONE cterm=NONE ctermbg=bg ctermfg=68 gui=NONE guibg=bg guifg=#6699cc
     CSAHi coffeeSpecialVar term=NONE cterm=NONE ctermbg=bg ctermfg=216 gui=NONE guibg=bg guifg=#edc37c
-    CSAHi coffeeInterp term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsFuncArgs term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsFuncArgCommas term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi Noise term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi htmlItalic term=italic cterm=NONE ctermbg=bg ctermfg=fg gui=italic guibg=bg guifg=fg
-    CSAHi cssColorB22222 term=NONE cterm=NONE ctermbg=124 ctermfg=231 gui=NONE guibg=#b22222 guifg=#ffffff
-    CSAHi cssColorFFFAF0 term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#fffaf0 guifg=#000000
-    CSAHi cssColor228B22 term=NONE cterm=NONE ctermbg=28 ctermfg=231 gui=NONE guibg=#228b22 guifg=#ffffff
-    CSAHi cssColorDCDCDC term=NONE cterm=NONE ctermbg=253 ctermfg=16 gui=NONE guibg=#dcdcdc guifg=#000000
-    CSAHi cssColorF8F8FF term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#f8f8ff guifg=#000000
-    CSAHi cssColorFFD700 term=NONE cterm=NONE ctermbg=220 ctermfg=16 gui=NONE guibg=#ffd700 guifg=#000000
-    CSAHi cssColorDAA520 term=NONE cterm=NONE ctermbg=178 ctermfg=16 gui=NONE guibg=#daa520 guifg=#000000
-    CSAHi cssColorADFF2F term=NONE cterm=NONE ctermbg=154 ctermfg=16 gui=NONE guibg=#adff2f guifg=#000000
-    CSAHi cssColorF0FFF0 term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#f0fff0 guifg=#000000
-    CSAHi cssColorFF69B4 term=NONE cterm=NONE ctermbg=205 ctermfg=16 gui=NONE guibg=#ff69b4 guifg=#000000
-    CSAHi javaScript term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimHiKeyList term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimHiBang term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimHiCtermColor term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimHiFontname term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimHiGuiFontname term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimPythonRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi Conditional term=NONE cterm=bold ctermbg=bg ctermfg=111 gui=bold guibg=bg guifg=#86bbee
+    CSAHi vimEscapeBrace term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSetEqual term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi Statement term=bold cterm=NONE ctermbg=bg ctermfg=68 gui=NONE guibg=bg guifg=#6699cc
     CSAHi PreProc term=underline cterm=NONE ctermbg=bg ctermfg=219 gui=NONE guibg=bg guifg=#ffa8ff
     CSAHi Type term=underline cterm=NONE ctermbg=bg ctermfg=85 gui=NONE guibg=bg guifg=#60f0a8
@@ -706,203 +517,138 @@ elseif has("gui_running") || &t_Co == 256
     CSAHi Todo term=NONE cterm=underline ctermbg=bg ctermfg=212 gui=italic,underline guibg=bg guifg=#ff80d0
     CSAHi String term=NONE cterm=NONE ctermbg=233 ctermfg=149 gui=NONE guibg=#0f0f0f guifg=#bccf72
     CSAHi Number term=NONE cterm=NONE ctermbg=bg ctermfg=150 gui=NONE guibg=bg guifg=#acdd82
-    CSAHi Question term=NONE cterm=bold ctermbg=bg ctermfg=184 gui=bold guibg=bg guifg=#e8e800
-    CSAHi scalaBasicIdentifier term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi helpNormal term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi scalaBasicInterpolation term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi coffeeEmbed term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi scalaBasicInterpolationDelimiter term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColorCD5C5C term=NONE cterm=NONE ctermbg=167 ctermfg=16 gui=NONE guibg=#cd5c5c guifg=#000000
-    CSAHi cssColor4B0082 term=NONE cterm=NONE ctermbg=54 ctermfg=231 gui=NONE guibg=#4b0082 guifg=#ffffff
-    CSAHi cssColorFFFFF0 term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#fffff0 guifg=#000000
-    CSAHi cssColorF0E68C term=NONE cterm=NONE ctermbg=222 ctermfg=16 gui=NONE guibg=#f0e68c guifg=#000000
-    CSAHi cssColorE6E6FA term=NONE cterm=NONE ctermbg=189 ctermfg=16 gui=NONE guibg=#e6e6fa guifg=#000000
-    CSAHi cssColorFFF0F5 term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#fff0f5 guifg=#000000
-    CSAHi cssColor7CFC00 term=NONE cterm=NONE ctermbg=118 ctermfg=16 gui=NONE guibg=#7cfc00 guifg=#000000
-    CSAHi cssColorFFFACD term=NONE cterm=NONE ctermbg=230 ctermfg=16 gui=NONE guibg=#fffacd guifg=#000000
-    CSAHi cssColorADD8E6 term=NONE cterm=NONE ctermbg=152 ctermfg=16 gui=NONE guibg=#add8e6 guifg=#000000
-    CSAHi cssColorF08080 term=NONE cterm=NONE ctermbg=210 ctermfg=16 gui=NONE guibg=#f08080 guifg=#000000
-    CSAHi htmlUnderline term=underline cterm=underline ctermbg=bg ctermfg=fg gui=underline guibg=bg guifg=fg
+    CSAHi perlStatementIndirObjWrap term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlVarMember term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimOperParen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteChooseAction term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteChooseCandidate term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteChooseMessage term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimHiTermcap term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi Function term=NONE cterm=NONE ctermbg=bg ctermfg=223 gui=NONE guibg=bg guifg=#ffd2a7
-    CSAHi Conditional term=NONE cterm=bold ctermbg=bg ctermfg=111 gui=bold guibg=bg guifg=#86bbee
+    CSAHi vimPatRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi Operator term=NONE cterm=NONE ctermbg=bg ctermfg=111 gui=NONE guibg=bg guifg=#86bbee
-    CSAHi cssPseudoClassFn term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssSpecialCharQQ term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssSpecialCharQ term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi helpGraphic term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi helpLeadBlank term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi coffeeCurlies term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColorE0FFFF term=NONE cterm=NONE ctermbg=195 ctermfg=16 gui=NONE guibg=#e0ffff guifg=#000000
-    CSAHi cssColorFAFAD2 term=NONE cterm=NONE ctermbg=230 ctermfg=16 gui=NONE guibg=#fafad2 guifg=#000000
-    CSAHi cssColorD3D3D3 term=NONE cterm=NONE ctermbg=252 ctermfg=16 gui=NONE guibg=#d3d3d3 guifg=#000000
-    CSAHi cssColor90EE90 term=NONE cterm=NONE ctermbg=120 ctermfg=16 gui=NONE guibg=#90ee90 guifg=#000000
-    CSAHi cssColorFFB6C1 term=NONE cterm=NONE ctermbg=217 ctermfg=16 gui=NONE guibg=#ffb6c1 guifg=#000000
-    CSAHi cssColorFFA07A term=NONE cterm=NONE ctermbg=216 ctermfg=16 gui=NONE guibg=#ffa07a guifg=#000000
-    CSAHi cssColor20B2AA term=NONE cterm=NONE ctermbg=37 ctermfg=16 gui=NONE guibg=#20b2aa guifg=#000000
-    CSAHi cssColor87CEFA term=NONE cterm=NONE ctermbg=117 ctermfg=16 gui=NONE guibg=#87cefa guifg=#000000
-    CSAHi cssColor778899 term=NONE cterm=NONE ctermbg=102 ctermfg=16 gui=NONE guibg=#778899 guifg=#000000
-    CSAHi cssColorB0C4DE term=NONE cterm=NONE ctermbg=152 ctermfg=16 gui=NONE guibg=#b0c4de guifg=#000000
-    CSAHi cssStyle term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlVarBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlVarBlock2 term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteSourcePrompt term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteSourceNames term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteQuickMatchLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteNonMarkedLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimCommentTitleLeader term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaInnerComment term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimAutoCmdSfxList term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimCollection term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSubstPat term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSubstRep4 term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimCollClass term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi Delimiter term=NONE cterm=NONE ctermbg=bg ctermfg=37 gui=NONE guibg=bg guifg=#00a0a0
-    CSAHi htmlTagN term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi rgnScala term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi coffeeBrackets term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi coffeeParens term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi coffeeScript term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColorFFFFE0 term=NONE cterm=NONE ctermbg=230 ctermfg=16 gui=NONE guibg=#ffffe0 guifg=#000000
-    CSAHi cssColor32CD32 term=NONE cterm=NONE ctermbg=77 ctermfg=16 gui=NONE guibg=#32cd32 guifg=#000000
-    CSAHi cssColorFAF0E6 term=NONE cterm=NONE ctermbg=230 ctermfg=16 gui=NONE guibg=#faf0e6 guifg=#000000
-    CSAHi cssColor66CDAA term=NONE cterm=NONE ctermbg=79 ctermfg=16 gui=NONE guibg=#66cdaa guifg=#000000
-    CSAHi cssColor0000CD term=NONE cterm=NONE ctermbg=20 ctermfg=231 gui=NONE guibg=#0000cd guifg=#ffffff
-    CSAHi cssColorBA55D3 term=NONE cterm=NONE ctermbg=134 ctermfg=16 gui=NONE guibg=#ba55d3 guifg=#000000
-    CSAHi cssColor9370D8 term=NONE cterm=NONE ctermbg=98 ctermfg=16 gui=NONE guibg=#9370d8 guifg=#000000
-    CSAHi cssColor3CB371 term=NONE cterm=NONE ctermbg=71 ctermfg=16 gui=NONE guibg=#3cb371 guifg=#000000
-    CSAHi cssColor7B68EE term=NONE cterm=NONE ctermbg=99 ctermfg=16 gui=NONE guibg=#7b68ee guifg=#000000
-    CSAHi cssColor00FA9A term=NONE cterm=NONE ctermbg=48 ctermfg=16 gui=NONE guibg=#00fa9a guifg=#000000
-    CSAHi cssColorD8BFD8 term=NONE cterm=NONE ctermbg=182 ctermfg=16 gui=NONE guibg=#d8bfd8 guifg=#000000
+    CSAHi perlPackageConst term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi NONE term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimEcho term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteSourceLine__uniteSource__FileMru term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteSourceLine__uniteSource__Bookmark term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteInputLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimStdPlugin term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaIfThen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaElseifThen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaThenEnd term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaLoopBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaParen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimAugroupSyncA term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi MatchParen term=reverse cterm=NONE ctermbg=23 ctermfg=231 gui=NONE guibg=#146666 guifg=#ffffff
+    CSAHi vimMapLhs term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimAutoCmdSpace term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimAutoEventList term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi SyntasticErrorLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi SyntasticWarningLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsFunctionKey term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColor000000 term=NONE cterm=NONE ctermbg=16 ctermfg=231 gui=NONE guibg=#000000 guifg=#ffffff
-    CSAHi htmlBoldUnderline term=bold,underline cterm=bold,underline ctermbg=bg ctermfg=fg gui=bold,underline guibg=bg guifg=fg
-    CSAHi cssColor48D1CC term=NONE cterm=NONE ctermbg=80 ctermfg=16 gui=NONE guibg=#48d1cc guifg=#000000
-    CSAHi cssColorC71585 term=NONE cterm=NONE ctermbg=162 ctermfg=231 gui=NONE guibg=#c71585 guifg=#ffffff
-    CSAHi cssColor191970 term=NONE cterm=NONE ctermbg=17 ctermfg=231 gui=NONE guibg=#191970 guifg=#ffffff
-    CSAHi htmlBoldItalic term=bold,italic cterm=bold ctermbg=bg ctermfg=fg gui=bold,italic guibg=bg guifg=fg
-    CSAHi cssColorFFE4E1 term=NONE cterm=NONE ctermbg=224 ctermfg=16 gui=NONE guibg=#ffe4e1 guifg=#000000
-    CSAHi cssColorFFE4B5 term=NONE cterm=NONE ctermbg=223 ctermfg=16 gui=NONE guibg=#ffe4b5 guifg=#000000
-    CSAHi cssColorFFDEAD term=NONE cterm=NONE ctermbg=223 ctermfg=16 gui=NONE guibg=#ffdead guifg=#000000
-    CSAHi cssColorFDF5E6 term=NONE cterm=NONE ctermbg=230 ctermfg=16 gui=NONE guibg=#fdf5e6 guifg=#000000
-    CSAHi cssColor6B8E23 term=NONE cterm=NONE ctermbg=64 ctermfg=231 gui=NONE guibg=#6b8e23 guifg=#ffffff
-    CSAHi htmlBold term=bold cterm=bold ctermbg=bg ctermfg=fg gui=bold guibg=bg guifg=fg
-    CSAHi htmlBoldUnderlineItalic term=bold,italic,underline cterm=bold,underline ctermbg=bg ctermfg=fg gui=bold,italic,underline guibg=bg guifg=fg
-    CSAHi jsFuncCall term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi IndentGuidesOdd term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#0a0a0a guifg=fg
+    CSAHi vimGlobal term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaTableBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaFunctionBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSubstRep term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSubstRange term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimMapRhs term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimMapRhsExtend term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimMenuBang term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimMenuPriority term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi IndentGuidesEven term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#0d0d0d guifg=fg
     CSAHi UniteSelectedLine term=NONE cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#000000 guifg=fg
     CSAHi CursorIM term=NONE cterm=NONE ctermbg=93 ctermfg=231 gui=NONE guibg=#8800ff guifg=#ffffff
-    CSAHi javaDocSeeTag term=NONE cterm=NONE ctermbg=bg ctermfg=252 gui=NONE guibg=bg guifg=#cccccc
-    CSAHi htmlUnderlineItalic term=italic,underline cterm=underline ctermbg=bg ctermfg=fg gui=italic,underline guibg=bg guifg=fg
-    CSAHi glslIdentifier term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColor800000 term=NONE cterm=NONE ctermbg=88 ctermfg=231 gui=NONE guibg=#800000 guifg=#ffffff
-    CSAHi cssColorff0000 term=NONE cterm=NONE ctermbg=196 ctermfg=231 gui=NONE guibg=#ff0000 guifg=#ffffff
-    CSAHi cssColorffA500 term=NONE cterm=NONE ctermbg=214 ctermfg=16 gui=NONE guibg=#ffa500 guifg=#000000
-    CSAHi cssColorffff00 term=NONE cterm=NONE ctermbg=226 ctermfg=16 gui=NONE guibg=#ffff00 guifg=#000000
-    CSAHi cssColor808000 term=NONE cterm=NONE ctermbg=100 ctermfg=231 gui=NONE guibg=#808000 guifg=#ffffff
-    CSAHi cssColorDA70D6 term=NONE cterm=NONE ctermbg=170 ctermfg=16 gui=NONE guibg=#da70d6 guifg=#000000
-    CSAHi cssColorEEE8AA term=NONE cterm=NONE ctermbg=223 ctermfg=16 gui=NONE guibg=#eee8aa guifg=#000000
-    CSAHi cssColor98FB98 term=NONE cterm=NONE ctermbg=120 ctermfg=16 gui=NONE guibg=#98fb98 guifg=#000000
-    CSAHi cssColorAFEEEE term=NONE cterm=NONE ctermbg=159 ctermfg=16 gui=NONE guibg=#afeeee guifg=#000000
-    CSAHi cssColorD87093 term=NONE cterm=NONE ctermbg=168 ctermfg=16 gui=NONE guibg=#d87093 guifg=#000000
-    CSAHi cssColorFFEFD5 term=NONE cterm=NONE ctermbg=230 ctermfg=16 gui=NONE guibg=#ffefd5 guifg=#000000
-    CSAHi cssColorFFDAB9 term=NONE cterm=NONE ctermbg=223 ctermfg=16 gui=NONE guibg=#ffdab9 guifg=#000000
-    CSAHi cssColorCD853F term=NONE cterm=NONE ctermbg=173 ctermfg=16 gui=NONE guibg=#cd853f guifg=#000000
-    CSAHi cssColorFFC0CB term=NONE cterm=NONE ctermbg=218 ctermfg=16 gui=NONE guibg=#ffc0cb guifg=#000000
-    CSAHi cssColorDDA0DD term=NONE cterm=NONE ctermbg=182 ctermfg=16 gui=NONE guibg=#dda0dd guifg=#000000
-    CSAHi cssMediaBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColor800080 term=NONE cterm=NONE ctermbg=90 ctermfg=231 gui=NONE guibg=#800080 guifg=#ffffff
-    CSAHi cssColorff00ff term=NONE cterm=NONE ctermbg=201 ctermfg=231 gui=NONE guibg=#ff00ff guifg=#ffffff
-    CSAHi cssColorffffff term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#ffffff guifg=#000000
-    CSAHi cssColor00ff00 term=NONE cterm=NONE ctermbg=46 ctermfg=16 gui=NONE guibg=#00ff00 guifg=#000000
-    CSAHi cssColor008000 term=NONE cterm=NONE ctermbg=28 ctermfg=231 gui=NONE guibg=#008000 guifg=#ffffff
-    CSAHi cssColor000080 term=NONE cterm=NONE ctermbg=18 ctermfg=231 gui=NONE guibg=#000080 guifg=#ffffff
-    CSAHi cssColor0000ff term=NONE cterm=NONE ctermbg=21 ctermfg=231 gui=NONE guibg=#0000ff guifg=#ffffff
-    CSAHi cssColor00ffff term=NONE cterm=NONE ctermbg=51 ctermfg=16 gui=NONE guibg=#00ffff guifg=#000000
-    CSAHi cssColor008080 term=NONE cterm=NONE ctermbg=30 ctermfg=231 gui=NONE guibg=#008080 guifg=#ffffff
-    CSAHi jsObjectKey term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi ShaderScript term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssDefinition term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi scalaFqn term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi scalaFqnSet term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColorB0E0E6 term=NONE cterm=NONE ctermbg=152 ctermfg=16 gui=NONE guibg=#b0e0e6 guifg=#000000
-    CSAHi cssColorBC8F8F term=NONE cterm=NONE ctermbg=138 ctermfg=16 gui=NONE guibg=#bc8f8f guifg=#000000
-    CSAHi cssColor4169E1 term=NONE cterm=NONE ctermbg=62 ctermfg=231 gui=NONE guibg=#4169e1 guifg=#ffffff
-    CSAHi cssColor8B4513 term=NONE cterm=NONE ctermbg=94 ctermfg=231 gui=NONE guibg=#8b4513 guifg=#ffffff
-    CSAHi cssColorFA8072 term=NONE cterm=NONE ctermbg=209 ctermfg=16 gui=NONE guibg=#fa8072 guifg=#000000
-    CSAHi cssColorF4A460 term=NONE cterm=NONE ctermbg=215 ctermfg=16 gui=NONE guibg=#f4a460 guifg=#000000
-    CSAHi cssColor2E8B57 term=NONE cterm=NONE ctermbg=29 ctermfg=231 gui=NONE guibg=#2e8b57 guifg=#ffffff
-    CSAHi cssColorFFF5EE term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#fff5ee guifg=#000000
-    CSAHi cssColorA0522D term=NONE cterm=NONE ctermbg=130 ctermfg=231 gui=NONE guibg=#a0522d guifg=#ffffff
-    CSAHi cssColor87CEEB term=NONE cterm=NONE ctermbg=116 ctermfg=16 gui=NONE guibg=#87ceeb guifg=#000000
-    CSAHi cssPseudoClass term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi scalaInterpolation term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssPageWrap term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColorc0c0c0 term=NONE cterm=NONE ctermbg=250 ctermfg=16 gui=NONE guibg=#c0c0c0 guifg=#000000
-    CSAHi cssColor808080 term=NONE cterm=NONE ctermbg=244 ctermfg=16 gui=NONE guibg=#808080 guifg=#000000
-    CSAHi cssColorF0F8FF term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#f0f8ff guifg=#000000
-    CSAHi cssColorFAEBD7 term=NONE cterm=NONE ctermbg=224 ctermfg=16 gui=NONE guibg=#faebd7 guifg=#000000
-    CSAHi cssColor7FFFD4 term=NONE cterm=NONE ctermbg=122 ctermfg=16 gui=NONE guibg=#7fffd4 guifg=#000000
-    CSAHi cssColorF0FFFF term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#f0ffff guifg=#000000
-    CSAHi cssColorF5F5DC term=NONE cterm=NONE ctermbg=230 ctermfg=16 gui=NONE guibg=#f5f5dc guifg=#000000
-    CSAHi cssColorFFE4C4 term=NONE cterm=NONE ctermbg=224 ctermfg=16 gui=NONE guibg=#ffe4c4 guifg=#000000
-    CSAHi cssColorFFEBCD term=NONE cterm=NONE ctermbg=224 ctermfg=16 gui=NONE guibg=#ffebcd guifg=#000000
-    CSAHi cssColor8A2BE2 term=NONE cterm=NONE ctermbg=92 ctermfg=231 gui=NONE guibg=#8a2be2 guifg=#ffffff
-    CSAHi scalaValName term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi SignColumn term=NONE cterm=NONE ctermbg=236 ctermfg=255 gui=NONE guibg=#303030 guifg=#f0f0f0
+    CSAHi perlAutoload term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimExtCmd term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimFilter term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSet term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimUserCmd term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimCmdSep term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimIsCommand term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimLuaRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimMenuMap term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimMenuRhs term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimNormCmds term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimGroupList term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podBoldItalic term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podBoldOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podBoldAlternativeDelimOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podItalicBold term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimFiletype term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimAuSyntax term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimClusterName term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlFormat term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi Folded term=NONE cterm=NONE ctermbg=232 ctermfg=251 gui=NONE guibg=#0c0c0c guifg=#c8c8c8
+    CSAHi vimExecute term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimFunction term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi CursorLineNr term=bold cterm=bold ctermbg=89 ctermfg=233 gui=bold,italic guibg=#99004c guifg=#0e0e0e
-    CSAHi scalaVarName term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi Question term=NONE cterm=bold ctermbg=bg ctermfg=184 gui=bold guibg=bg guifg=#e8e800
     CSAHi StatusLine term=bold,reverse cterm=NONE ctermbg=53 ctermfg=188 gui=NONE guibg=#602040 guifg=#d6d6d6
     CSAHi StatusLineNC term=reverse cterm=NONE ctermbg=246 ctermfg=16 gui=NONE guibg=#909090 guifg=#000000
     CSAHi VertSplit term=reverse cterm=NONE ctermbg=233 ctermfg=246 gui=NONE guibg=#111111 guifg=#909090
-    CSAHi Title term=bold cterm=bold ctermbg=bg ctermfg=255 gui=bold guibg=bg guifg=#eaeaea
+    CSAHi Title term=bold cterm=NONE ctermbg=bg ctermfg=252 gui=NONE guibg=bg guifg=#d0d0d0
     CSAHi Visual term=reverse cterm=NONE ctermbg=90 ctermfg=fg gui=NONE guibg=#7c2b7c guifg=fg
     CSAHi VisualNOS term=bold,underline cterm=NONE ctermbg=90 ctermfg=fg gui=NONE guibg=#7c2b7c guifg=fg
     CSAHi WarningMsg term=NONE cterm=bold ctermbg=bg ctermfg=219 gui=bold guibg=bg guifg=#ffa0ff
     CSAHi WildMenu term=NONE cterm=NONE ctermbg=211 ctermfg=16 gui=NONE guibg=#ff80c0 guifg=#000000
-    CSAHi scalaMethodCall term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi scalaInterpolationDelimiter term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssAttrRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssKeyFrameWrap term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssFontDescriptorBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podItalicOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podItalicAlternativeDelimOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podNoSpaceOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podNoSpaceAlternativeDelimOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podIndexOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podIndexAlternativeDelimOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podBold term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podBoldAlternativeDelim term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podItalic term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podItalicAlternativeDelim term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi javaDocSeeTag term=NONE cterm=NONE ctermbg=bg ctermfg=252 gui=NONE guibg=bg guifg=#cccccc
     CSAHi htmlH1 term=NONE cterm=underline ctermbg=bg ctermfg=167 gui=underline guibg=bg guifg=#de675c
     CSAHi htmlLink term=NONE cterm=underline ctermbg=bg ctermfg=177 gui=underline guibg=bg guifg=#c777ff
-    CSAHi cssColor6A5ACD term=NONE cterm=NONE ctermbg=62 ctermfg=231 gui=NONE guibg=#6a5acd guifg=#ffffff
-    CSAHi cssColor708090 term=NONE cterm=NONE ctermbg=66 ctermfg=16 gui=NONE guibg=#708090 guifg=#000000
-    CSAHi cssColorFFFAFA term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#fffafa guifg=#000000
-    CSAHi cssColor00FF7F term=NONE cterm=NONE ctermbg=48 ctermfg=16 gui=NONE guibg=#00ff7f guifg=#000000
-    CSAHi cssColor4682B4 term=NONE cterm=NONE ctermbg=67 ctermfg=231 gui=NONE guibg=#4682b4 guifg=#ffffff
-    CSAHi cssColorD2B48C term=NONE cterm=NONE ctermbg=180 ctermfg=16 gui=NONE guibg=#d2b48c guifg=#000000
-    CSAHi cssColorF5FFFA term=NONE cterm=NONE ctermbg=231 ctermfg=16 gui=NONE guibg=#f5fffa guifg=#000000
-    CSAHi cssColorFF6347 term=NONE cterm=NONE ctermbg=203 ctermfg=16 gui=NONE guibg=#ff6347 guifg=#000000
-    CSAHi cssColor40E0D0 term=NONE cterm=NONE ctermbg=80 ctermfg=16 gui=NONE guibg=#40e0d0 guifg=#000000
-    CSAHi cssColorEE82EE term=NONE cterm=NONE ctermbg=213 ctermfg=16 gui=NONE guibg=#ee82ee guifg=#000000
-    CSAHi jsParen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColorFF4500 term=NONE cterm=NONE ctermbg=202 ctermfg=231 gui=NONE guibg=#ff4500 guifg=#ffffff
-    CSAHi cssColorA52A2A term=NONE cterm=NONE ctermbg=124 ctermfg=231 gui=NONE guibg=#a52a2a guifg=#ffffff
-    CSAHi cssColorDEB887 term=NONE cterm=NONE ctermbg=180 ctermfg=16 gui=NONE guibg=#deb887 guifg=#000000
-    CSAHi cssColor5F9EA0 term=NONE cterm=NONE ctermbg=73 ctermfg=16 gui=NONE guibg=#5f9ea0 guifg=#000000
-    CSAHi cssColor7FFF00 term=NONE cterm=NONE ctermbg=118 ctermfg=16 gui=NONE guibg=#7fff00 guifg=#000000
-    CSAHi cssColorD2691E term=NONE cterm=NONE ctermbg=166 ctermfg=16 gui=NONE guibg=#d2691e guifg=#000000
-    CSAHi cssColorFF7F50 term=NONE cterm=NONE ctermbg=209 ctermfg=16 gui=NONE guibg=#ff7f50 guifg=#000000
-    CSAHi cssColor6495ED term=NONE cterm=NONE ctermbg=69 ctermfg=16 gui=NONE guibg=#6495ed guifg=#000000
-    CSAHi cssColorFFF8DC term=NONE cterm=NONE ctermbg=230 ctermfg=16 gui=NONE guibg=#fff8dc guifg=#000000
-    CSAHi cssColorDC143C term=NONE cterm=NONE ctermbg=161 ctermfg=231 gui=NONE guibg=#dc143c guifg=#ffffff
-    CSAHi cssColor00008B term=NONE cterm=NONE ctermbg=18 ctermfg=231 gui=NONE guibg=#00008b guifg=#ffffff
-    CSAHi Folded term=NONE cterm=NONE ctermbg=232 ctermfg=251 gui=NONE guibg=#0c0c0c guifg=#c8c8c8
+    CSAHi vimSynKeyRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSynMatchRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSynMtchCchar term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSynMtchGroup term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlSync term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlSyncPOD term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimPerlRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSynLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi FoldColumn term=NONE cterm=NONE ctermbg=234 ctermfg=251 gui=NONE guibg=#212121 guifg=#c8c8c8
     CSAHi DiffAdd term=bold cterm=NONE ctermbg=22 ctermfg=fg gui=NONE guibg=#064d08 guifg=fg
     CSAHi DiffChange term=bold cterm=NONE ctermbg=58 ctermfg=255 gui=NONE guibg=#573700 guifg=#f0f0f0
     CSAHi DiffDelete term=bold cterm=NONE ctermbg=52 ctermfg=52 gui=NONE guibg=#701d1d guifg=#701d1d
     CSAHi DiffText term=reverse cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#1f1500 guifg=fg
-    CSAHi SignColumn term=NONE cterm=NONE ctermbg=236 ctermfg=255 gui=NONE guibg=#303030 guifg=#f0f0f0
+    CSAHi vimAugroup term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi Conceal term=NONE cterm=NONE ctermbg=248 ctermfg=252 gui=NONE guibg=#a9a9a9 guifg=#d3d3d3
     CSAHi SpellBad term=reverse cterm=undercurl ctermbg=bg ctermfg=196 gui=undercurl guibg=bg guifg=fg guisp=#ff0000
     CSAHi SpellCap term=reverse cterm=undercurl ctermbg=bg ctermfg=46 gui=undercurl guibg=bg guifg=fg guisp=#00ff00
 elseif has("gui_running") || &t_Co == 88
     CSAHi Normal term=NONE cterm=NONE ctermbg=16 ctermfg=87 gui=NONE guibg=#141414 guifg=#eaeaea
+    CSAHi perlBraces term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlFakeGroup term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi cssTagName term=NONE cterm=bold ctermbg=bg ctermfg=38 gui=bold guibg=bg guifg=#70a8dd
     CSAHi cssBoxProp term=NONE cterm=NONE ctermbg=bg ctermfg=57 gui=NONE guibg=bg guifg=#d0af76
-    CSAHi cssColorF5DEB3 term=NONE cterm=NONE ctermbg=74 ctermfg=16 gui=NONE guibg=#f5deb3 guifg=#000000
-    CSAHi cssPseudoClassId term=NONE cterm=NONE ctermbg=bg ctermfg=42 gui=italic guibg=bg guifg=#9ccfdd
-    CSAHi cssIdentifier term=NONE cterm=NONE ctermbg=bg ctermfg=42 gui=italic guibg=bg guifg=#a2ddb8
-    CSAHi cssLength term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssString term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi htmlHighlight term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi htmlHighlightSkip term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi None term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsDotNotation term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsBracket term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsTernaryIf term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi IndentGuidesOdd term=NONE cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#0a0a0a guifg=fg
+    CSAHi vimSynRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSynPatMod term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSyncLines term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSyncMatch term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi SpecialKey term=bold cterm=bold ctermbg=bg ctermfg=39 gui=bold guibg=bg guifg=#8888ff
     CSAHi NonText term=bold cterm=bold ctermbg=16 ctermfg=49 gui=bold guibg=#0b0b0b guifg=#d84070
     CSAHi Directory term=bold cterm=NONE ctermbg=bg ctermfg=59 gui=NONE guibg=bg guifg=#c8c8ff
@@ -912,26 +658,22 @@ elseif has("gui_running") || &t_Co == 88
     CSAHi MoreMsg term=bold cterm=bold ctermbg=35 ctermfg=46 gui=bold guibg=#8040ff guifg=#70ffc0
     CSAHi ModeMsg term=bold cterm=bold ctermbg=bg ctermfg=43 gui=bold guibg=bg guifg=#a0d0ff
     CSAHi LineNr term=underline cterm=NONE ctermbg=16 ctermfg=82 gui=italic guibg=#0e0e0e guifg=#727272
-    CSAHi cssColor008B8B term=NONE cterm=NONE ctermbg=21 ctermfg=79 gui=NONE guibg=#008b8b guifg=#ffffff
-    CSAHi cssColorB8860B term=NONE cterm=NONE ctermbg=52 ctermfg=16 gui=NONE guibg=#b8860b guifg=#000000
-    CSAHi cssColorA9A9A9 term=NONE cterm=NONE ctermbg=84 ctermfg=16 gui=NONE guibg=#a9a9a9 guifg=#000000
-    CSAHi cssColor006400 term=NONE cterm=NONE ctermbg=20 ctermfg=79 gui=NONE guibg=#006400 guifg=#ffffff
-    CSAHi cssColorBDB76B term=NONE cterm=NONE ctermbg=57 ctermfg=16 gui=NONE guibg=#bdb76b guifg=#000000
-    CSAHi cssColor8B008B term=NONE cterm=NONE ctermbg=33 ctermfg=79 gui=NONE guibg=#8b008b guifg=#ffffff
-    CSAHi cssColor556B2F term=NONE cterm=NONE ctermbg=36 ctermfg=79 gui=NONE guibg=#556b2f guifg=#ffffff
-    CSAHi cssColorFF8C00 term=NONE cterm=NONE ctermbg=68 ctermfg=16 gui=NONE guibg=#ff8c00 guifg=#000000
-    CSAHi cssColor9932CC term=NONE cterm=NONE ctermbg=34 ctermfg=79 gui=NONE guibg=#9932cc guifg=#ffffff
-    CSAHi cssColor8B0000 term=NONE cterm=NONE ctermbg=32 ctermfg=79 gui=NONE guibg=#8b0000 guifg=#ffffff
+    CSAHi lCursor term=NONE cterm=NONE ctermbg=35 ctermfg=79 gui=NONE guibg=#8800ff guifg=#ffffff
+    CSAHi vimAugroupError term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi SpellRare term=reverse cterm=undercurl ctermbg=bg ctermfg=67 gui=undercurl guibg=bg guifg=fg guisp=#ff00ff
     CSAHi SpellLocal term=underline cterm=undercurl ctermbg=bg ctermfg=70 gui=undercurl guibg=bg guifg=fg guisp=#ff99cc
     CSAHi Pmenu term=NONE cterm=NONE ctermbg=80 ctermfg=79 gui=NONE guibg=#303030 guifg=#f6f3e8
     CSAHi PmenuSel term=NONE cterm=NONE ctermbg=16 ctermfg=79 gui=NONE guibg=#000000 guifg=#f6f3e8
     CSAHi PmenuSbar term=NONE cterm=NONE ctermbg=80 ctermfg=16 gui=NONE guibg=#444444 guifg=#000000
     CSAHi PmenuThumb term=NONE cterm=NONE ctermbg=83 ctermfg=16 gui=NONE guibg=#8a8a8a guifg=#000000
-    CSAHi TabLine term=underline cterm=underline ctermbg=84 ctermfg=fg gui=underline guibg=#a9a9a9 guifg=fg
-    CSAHi TabLineSel term=bold cterm=bold ctermbg=bg ctermfg=fg gui=bold guibg=bg guifg=fg
-    CSAHi TabLineFill term=reverse cterm=reverse ctermbg=bg ctermfg=fg gui=reverse guibg=bg guifg=fg
+    CSAHi TabLine term=underline cterm=NONE ctermbg=16 ctermfg=83 gui=NONE guibg=#121212 guifg=#8a8a8a
+    CSAHi TabLineSel term=bold cterm=NONE ctermbg=32 ctermfg=86 gui=NONE guibg=#602040 guifg=#d6d6d6
+    CSAHi TabLineFill term=reverse cterm=NONE ctermbg=16 ctermfg=16 gui=NONE guibg=#111111 guifg=#000000
     CSAHi CursorColumn term=reverse cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#0f0f0f guifg=fg
+    CSAHi perlFiledescStatementNocomma term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlFiledescStatementComma term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi cssPseudoClassId term=NONE cterm=NONE ctermbg=bg ctermfg=42 gui=italic guibg=bg guifg=#9ccfdd
+    CSAHi cssIdentifier term=NONE cterm=NONE ctermbg=bg ctermfg=42 gui=italic guibg=bg guifg=#a2ddb8
     CSAHi markdownUrl term=NONE cterm=NONE ctermbg=bg ctermfg=52 gui=NONE guibg=bg guifg=#e48944
     CSAHi markdownCode term=NONE cterm=bold ctermbg=bg ctermfg=42 gui=bold guibg=bg guifg=#a7bee4
     CSAHi markdownCodeBlock term=NONE cterm=NONE ctermbg=bg ctermfg=58 gui=NONE guibg=bg guifg=#c5b1e4
@@ -939,51 +681,37 @@ elseif has("gui_running") || &t_Co == 88
     CSAHi javaScriptDOMObjects term=NONE cterm=bold ctermbg=bg ctermfg=58 gui=bold guibg=bg guifg=#dbb6d2
     CSAHi javaScriptDOMMethods term=NONE cterm=NONE ctermbg=bg ctermfg=61 gui=NONE guibg=bg guifg=#d4fa9b
     CSAHi javaScriptAjaxObjects term=NONE cterm=underline ctermbg=bg ctermfg=38 gui=underline guibg=bg guifg=#5d91d3
-    CSAHi javaScriptAjaxMethods term=NONE cterm=NONE ctermbg=bg ctermfg=38 gui=NONE guibg=bg guifg=#6699cc
-    CSAHi javaScriptAjaxProperties term=NONE cterm=NONE ctermbg=bg ctermfg=69 gui=NONE guibg=bg guifg=#ff9494
-    CSAHi cssColorF5F5F5 term=NONE cterm=NONE ctermbg=79 ctermfg=16 gui=NONE guibg=#f5f5f5 guifg=#000000
-    CSAHi cssColor9ACD32 term=NONE cterm=NONE ctermbg=40 ctermfg=16 gui=NONE guibg=#9acd32 guifg=#000000
-    CSAHi scalaRoot term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsFuncBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColorE9967A term=NONE cterm=NONE ctermbg=69 ctermfg=16 gui=NONE guibg=#e9967a guifg=#000000
-    CSAHi cssColor8FBC8F term=NONE cterm=NONE ctermbg=41 ctermfg=16 gui=NONE guibg=#8fbc8f guifg=#000000
-    CSAHi cssColor483D8B term=NONE cterm=NONE ctermbg=33 ctermfg=79 gui=NONE guibg=#483d8b guifg=#ffffff
-    CSAHi cssColor2F4F4F term=NONE cterm=NONE ctermbg=21 ctermfg=79 gui=NONE guibg=#2f4f4f guifg=#ffffff
-    CSAHi cssColor00CED1 term=NONE cterm=NONE ctermbg=26 ctermfg=16 gui=NONE guibg=#00ced1 guifg=#000000
-    CSAHi cssColor9400D3 term=NONE cterm=NONE ctermbg=34 ctermfg=79 gui=NONE guibg=#9400d3 guifg=#ffffff
-    CSAHi cssColorFF1493 term=NONE cterm=NONE ctermbg=65 ctermfg=79 gui=NONE guibg=#ff1493 guifg=#ffffff
-    CSAHi cssColor00BFFF term=NONE cterm=NONE ctermbg=27 ctermfg=16 gui=NONE guibg=#00bfff guifg=#000000
-    CSAHi cssColor696969 term=NONE cterm=NONE ctermbg=82 ctermfg=79 gui=NONE guibg=#696969 guifg=#ffffff
-    CSAHi cssColor1E90FF term=NONE cterm=NONE ctermbg=23 ctermfg=16 gui=NONE guibg=#1e90ff guifg=#000000
+    CSAHi vimSyncLinebreak term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSyncLinecont term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSyncRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimHiLink term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi pythonSpaceError term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi pythonSync term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimIf term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi CursorLine term=underline cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#0f0f0f guifg=fg
     CSAHi ColorColumn term=reverse cterm=NONE ctermbg=80 ctermfg=fg gui=NONE guibg=#303030 guifg=fg
     CSAHi Cursor term=NONE cterm=bold ctermbg=33 ctermfg=79 gui=bold guibg=#99004c guifg=#ffffff
-    CSAHi lCursor term=NONE cterm=NONE ctermbg=35 ctermfg=79 gui=NONE guibg=#8800ff guifg=#ffffff
-    CSAHi MatchParen term=reverse cterm=NONE ctermbg=21 ctermfg=79 gui=NONE guibg=#146666 guifg=#ffffff
+    CSAHi vimFuncBody term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimFuncBlank term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi Comment term=bold cterm=NONE ctermbg=bg ctermfg=83 gui=NONE guibg=bg guifg=#8a8a8a
     CSAHi Constant term=underline cterm=NONE ctermbg=bg ctermfg=43 gui=NONE guibg=bg guifg=#92d4ff
     CSAHi Special term=bold cterm=NONE ctermbg=16 ctermfg=69 gui=NONE guibg=#0f0f0f guifg=#ff9a4c
     CSAHi Identifier term=underline cterm=NONE ctermbg=bg ctermfg=31 gui=NONE guibg=bg guifg=#40f8f8
+    CSAHi javaScriptAjaxMethods term=NONE cterm=NONE ctermbg=bg ctermfg=38 gui=NONE guibg=bg guifg=#6699cc
+    CSAHi javaScriptAjaxProperties term=NONE cterm=NONE ctermbg=bg ctermfg=69 gui=NONE guibg=bg guifg=#ff9494
     CSAHi javaScriptFuncName term=NONE cterm=NONE ctermbg=bg ctermfg=59 gui=NONE guibg=bg guifg=#b5e4f7
     CSAHi javaScriptHtmlElemProperties term=NONE cterm=NONE ctermbg=bg ctermfg=69 gui=NONE guibg=bg guifg=#ff9494
     CSAHi javaScriptEventListenerKeyword term=NONE cterm=NONE ctermbg=bg ctermfg=38 gui=NONE guibg=bg guifg=#6699cc
     CSAHi coffeeSpecialVar term=NONE cterm=NONE ctermbg=bg ctermfg=73 gui=NONE guibg=bg guifg=#edc37c
-    CSAHi coffeeInterp term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsFuncArgs term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsFuncArgCommas term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi Noise term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi htmlItalic term=italic cterm=NONE ctermbg=bg ctermfg=fg gui=italic guibg=bg guifg=fg
-    CSAHi cssColorB22222 term=NONE cterm=NONE ctermbg=48 ctermfg=79 gui=NONE guibg=#b22222 guifg=#ffffff
-    CSAHi cssColorFFFAF0 term=NONE cterm=NONE ctermbg=79 ctermfg=16 gui=NONE guibg=#fffaf0 guifg=#000000
-    CSAHi cssColor228B22 term=NONE cterm=NONE ctermbg=20 ctermfg=79 gui=NONE guibg=#228b22 guifg=#ffffff
-    CSAHi cssColorDCDCDC term=NONE cterm=NONE ctermbg=87 ctermfg=16 gui=NONE guibg=#dcdcdc guifg=#000000
-    CSAHi cssColorF8F8FF term=NONE cterm=NONE ctermbg=79 ctermfg=16 gui=NONE guibg=#f8f8ff guifg=#000000
-    CSAHi cssColorFFD700 term=NONE cterm=NONE ctermbg=72 ctermfg=16 gui=NONE guibg=#ffd700 guifg=#000000
-    CSAHi cssColorDAA520 term=NONE cterm=NONE ctermbg=52 ctermfg=16 gui=NONE guibg=#daa520 guifg=#000000
-    CSAHi cssColorADFF2F term=NONE cterm=NONE ctermbg=60 ctermfg=16 gui=NONE guibg=#adff2f guifg=#000000
-    CSAHi cssColorF0FFF0 term=NONE cterm=NONE ctermbg=79 ctermfg=16 gui=NONE guibg=#f0fff0 guifg=#000000
-    CSAHi cssColorFF69B4 term=NONE cterm=NONE ctermbg=70 ctermfg=16 gui=NONE guibg=#ff69b4 guifg=#000000
-    CSAHi javaScript term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimHiKeyList term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimHiBang term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimHiCtermColor term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimHiFontname term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimHiGuiFontname term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimPythonRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi Conditional term=NONE cterm=bold ctermbg=bg ctermfg=43 gui=bold guibg=bg guifg=#86bbee
+    CSAHi vimEscapeBrace term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSetEqual term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi Statement term=bold cterm=NONE ctermbg=bg ctermfg=38 gui=NONE guibg=bg guifg=#6699cc
     CSAHi PreProc term=underline cterm=NONE ctermbg=bg ctermfg=71 gui=NONE guibg=bg guifg=#ffa8ff
     CSAHi Type term=underline cterm=NONE ctermbg=bg ctermfg=45 gui=NONE guibg=bg guifg=#60f0a8
@@ -993,184 +721,124 @@ elseif has("gui_running") || &t_Co == 88
     CSAHi Todo term=NONE cterm=underline ctermbg=bg ctermfg=70 gui=italic,underline guibg=bg guifg=#ff80d0
     CSAHi String term=NONE cterm=NONE ctermbg=16 ctermfg=57 gui=NONE guibg=#0f0f0f guifg=#bccf72
     CSAHi Number term=NONE cterm=NONE ctermbg=bg ctermfg=41 gui=NONE guibg=bg guifg=#acdd82
-    CSAHi Question term=NONE cterm=bold ctermbg=bg ctermfg=76 gui=bold guibg=bg guifg=#e8e800
-    CSAHi scalaBasicIdentifier term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi helpNormal term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi scalaBasicInterpolation term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi coffeeEmbed term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi scalaBasicInterpolationDelimiter term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColorCD5C5C term=NONE cterm=NONE ctermbg=53 ctermfg=16 gui=NONE guibg=#cd5c5c guifg=#000000
-    CSAHi cssColor4B0082 term=NONE cterm=NONE ctermbg=33 ctermfg=79 gui=NONE guibg=#4b0082 guifg=#ffffff
-    CSAHi cssColorFFFFF0 term=NONE cterm=NONE ctermbg=79 ctermfg=16 gui=NONE guibg=#fffff0 guifg=#000000
-    CSAHi cssColorF0E68C term=NONE cterm=NONE ctermbg=73 ctermfg=16 gui=NONE guibg=#f0e68c guifg=#000000
-    CSAHi cssColorE6E6FA term=NONE cterm=NONE ctermbg=59 ctermfg=16 gui=NONE guibg=#e6e6fa guifg=#000000
-    CSAHi cssColorFFF0F5 term=NONE cterm=NONE ctermbg=79 ctermfg=16 gui=NONE guibg=#fff0f5 guifg=#000000
-    CSAHi cssColor7CFC00 term=NONE cterm=NONE ctermbg=44 ctermfg=16 gui=NONE guibg=#7cfc00 guifg=#000000
-    CSAHi cssColorFFFACD term=NONE cterm=NONE ctermbg=78 ctermfg=16 gui=NONE guibg=#fffacd guifg=#000000
-    CSAHi cssColorADD8E6 term=NONE cterm=NONE ctermbg=58 ctermfg=16 gui=NONE guibg=#add8e6 guifg=#000000
-    CSAHi cssColorF08080 term=NONE cterm=NONE ctermbg=69 ctermfg=16 gui=NONE guibg=#f08080 guifg=#000000
-    CSAHi htmlUnderline term=underline cterm=underline ctermbg=bg ctermfg=fg gui=underline guibg=bg guifg=fg
+    CSAHi perlStatementIndirObjWrap term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlVarMember term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimOperParen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteChooseAction term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteChooseCandidate term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteChooseMessage term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimHiTermcap term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi Function term=NONE cterm=NONE ctermbg=bg ctermfg=73 gui=NONE guibg=bg guifg=#ffd2a7
-    CSAHi Conditional term=NONE cterm=bold ctermbg=bg ctermfg=43 gui=bold guibg=bg guifg=#86bbee
+    CSAHi vimPatRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi Operator term=NONE cterm=NONE ctermbg=bg ctermfg=43 gui=NONE guibg=bg guifg=#86bbee
-    CSAHi cssPseudoClassFn term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssSpecialCharQQ term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssSpecialCharQ term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi helpGraphic term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi helpLeadBlank term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi coffeeCurlies term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColorE0FFFF term=NONE cterm=NONE ctermbg=63 ctermfg=16 gui=NONE guibg=#e0ffff guifg=#000000
-    CSAHi cssColorFAFAD2 term=NONE cterm=NONE ctermbg=78 ctermfg=16 gui=NONE guibg=#fafad2 guifg=#000000
-    CSAHi cssColorD3D3D3 term=NONE cterm=NONE ctermbg=86 ctermfg=16 gui=NONE guibg=#d3d3d3 guifg=#000000
-    CSAHi cssColor90EE90 term=NONE cterm=NONE ctermbg=45 ctermfg=16 gui=NONE guibg=#90ee90 guifg=#000000
-    CSAHi cssColorFFB6C1 term=NONE cterm=NONE ctermbg=74 ctermfg=16 gui=NONE guibg=#ffb6c1 guifg=#000000
-    CSAHi cssColorFFA07A term=NONE cterm=NONE ctermbg=69 ctermfg=16 gui=NONE guibg=#ffa07a guifg=#000000
-    CSAHi cssColor20B2AA term=NONE cterm=NONE ctermbg=25 ctermfg=16 gui=NONE guibg=#20b2aa guifg=#000000
-    CSAHi cssColor87CEFA term=NONE cterm=NONE ctermbg=43 ctermfg=16 gui=NONE guibg=#87cefa guifg=#000000
-    CSAHi cssColor778899 term=NONE cterm=NONE ctermbg=37 ctermfg=16 gui=NONE guibg=#778899 guifg=#000000
-    CSAHi cssColorB0C4DE term=NONE cterm=NONE ctermbg=58 ctermfg=16 gui=NONE guibg=#b0c4de guifg=#000000
-    CSAHi cssStyle term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlVarBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlVarBlock2 term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteSourcePrompt term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteSourceNames term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteQuickMatchLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteNonMarkedLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimCommentTitleLeader term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaInnerComment term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimAutoCmdSfxList term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimCollection term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSubstPat term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSubstRep4 term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimCollClass term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi Delimiter term=NONE cterm=NONE ctermbg=bg ctermfg=21 gui=NONE guibg=bg guifg=#00a0a0
-    CSAHi htmlTagN term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi rgnScala term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi coffeeBrackets term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi coffeeParens term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi coffeeScript term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColorFFFFE0 term=NONE cterm=NONE ctermbg=78 ctermfg=16 gui=NONE guibg=#ffffe0 guifg=#000000
-    CSAHi cssColor32CD32 term=NONE cterm=NONE ctermbg=24 ctermfg=16 gui=NONE guibg=#32cd32 guifg=#000000
-    CSAHi cssColorFAF0E6 term=NONE cterm=NONE ctermbg=78 ctermfg=16 gui=NONE guibg=#faf0e6 guifg=#000000
-    CSAHi cssColor66CDAA term=NONE cterm=NONE ctermbg=41 ctermfg=16 gui=NONE guibg=#66cdaa guifg=#000000
-    CSAHi cssColor0000CD term=NONE cterm=NONE ctermbg=18 ctermfg=79 gui=NONE guibg=#0000cd guifg=#ffffff
-    CSAHi cssColorBA55D3 term=NONE cterm=NONE ctermbg=54 ctermfg=16 gui=NONE guibg=#ba55d3 guifg=#000000
-    CSAHi cssColor9370D8 term=NONE cterm=NONE ctermbg=38 ctermfg=16 gui=NONE guibg=#9370d8 guifg=#000000
-    CSAHi cssColor3CB371 term=NONE cterm=NONE ctermbg=25 ctermfg=16 gui=NONE guibg=#3cb371 guifg=#000000
-    CSAHi cssColor7B68EE term=NONE cterm=NONE ctermbg=39 ctermfg=16 gui=NONE guibg=#7b68ee guifg=#000000
-    CSAHi cssColor00FA9A term=NONE cterm=NONE ctermbg=29 ctermfg=16 gui=NONE guibg=#00fa9a guifg=#000000
-    CSAHi cssColorD8BFD8 term=NONE cterm=NONE ctermbg=58 ctermfg=16 gui=NONE guibg=#d8bfd8 guifg=#000000
+    CSAHi perlPackageConst term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi NONE term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimEcho term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteSourceLine__uniteSource__FileMru term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteSourceLine__uniteSource__Bookmark term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi uniteInputLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimStdPlugin term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaIfThen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaElseifThen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaThenEnd term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaLoopBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaParen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimAugroupSyncA term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi MatchParen term=reverse cterm=NONE ctermbg=21 ctermfg=79 gui=NONE guibg=#146666 guifg=#ffffff
+    CSAHi vimMapLhs term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimAutoCmdSpace term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimAutoEventList term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi SyntasticErrorLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi SyntasticWarningLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi jsFunctionKey term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColor000000 term=NONE cterm=NONE ctermbg=16 ctermfg=79 gui=NONE guibg=#000000 guifg=#ffffff
-    CSAHi htmlBoldUnderline term=bold,underline cterm=bold,underline ctermbg=bg ctermfg=fg gui=bold,underline guibg=bg guifg=fg
-    CSAHi cssColor48D1CC term=NONE cterm=NONE ctermbg=42 ctermfg=16 gui=NONE guibg=#48d1cc guifg=#000000
-    CSAHi cssColorC71585 term=NONE cterm=NONE ctermbg=49 ctermfg=79 gui=NONE guibg=#c71585 guifg=#ffffff
-    CSAHi cssColor191970 term=NONE cterm=NONE ctermbg=17 ctermfg=79 gui=NONE guibg=#191970 guifg=#ffffff
-    CSAHi htmlBoldItalic term=bold,italic cterm=bold ctermbg=bg ctermfg=fg gui=bold,italic guibg=bg guifg=fg
-    CSAHi cssColorFFE4E1 term=NONE cterm=NONE ctermbg=74 ctermfg=16 gui=NONE guibg=#ffe4e1 guifg=#000000
-    CSAHi cssColorFFE4B5 term=NONE cterm=NONE ctermbg=74 ctermfg=16 gui=NONE guibg=#ffe4b5 guifg=#000000
-    CSAHi cssColorFFDEAD term=NONE cterm=NONE ctermbg=74 ctermfg=16 gui=NONE guibg=#ffdead guifg=#000000
-    CSAHi cssColorFDF5E6 term=NONE cterm=NONE ctermbg=78 ctermfg=16 gui=NONE guibg=#fdf5e6 guifg=#000000
-    CSAHi cssColor6B8E23 term=NONE cterm=NONE ctermbg=36 ctermfg=79 gui=NONE guibg=#6b8e23 guifg=#ffffff
-    CSAHi htmlBold term=bold cterm=bold ctermbg=bg ctermfg=fg gui=bold guibg=bg guifg=fg
-    CSAHi htmlBoldUnderlineItalic term=bold,italic,underline cterm=bold,underline ctermbg=bg ctermfg=fg gui=bold,italic,underline guibg=bg guifg=fg
-    CSAHi jsFuncCall term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi IndentGuidesOdd term=NONE cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#0a0a0a guifg=fg
+    CSAHi vimGlobal term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaTableBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi luaFunctionBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSubstRep term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSubstRange term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimMapRhs term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimMapRhsExtend term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimMenuBang term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimMenuPriority term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi IndentGuidesEven term=NONE cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#0d0d0d guifg=fg
     CSAHi UniteSelectedLine term=NONE cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#000000 guifg=fg
     CSAHi CursorIM term=NONE cterm=NONE ctermbg=35 ctermfg=79 gui=NONE guibg=#8800ff guifg=#ffffff
-    CSAHi javaDocSeeTag term=NONE cterm=NONE ctermbg=bg ctermfg=58 gui=NONE guibg=bg guifg=#cccccc
-    CSAHi htmlUnderlineItalic term=italic,underline cterm=underline ctermbg=bg ctermfg=fg gui=italic,underline guibg=bg guifg=fg
-    CSAHi glslIdentifier term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColor800000 term=NONE cterm=NONE ctermbg=32 ctermfg=79 gui=NONE guibg=#800000 guifg=#ffffff
-    CSAHi cssColorff0000 term=NONE cterm=NONE ctermbg=64 ctermfg=79 gui=NONE guibg=#ff0000 guifg=#ffffff
-    CSAHi cssColorffA500 term=NONE cterm=NONE ctermbg=68 ctermfg=16 gui=NONE guibg=#ffa500 guifg=#000000
-    CSAHi cssColorffff00 term=NONE cterm=NONE ctermbg=76 ctermfg=16 gui=NONE guibg=#ffff00 guifg=#000000
-    CSAHi cssColor808000 term=NONE cterm=NONE ctermbg=36 ctermfg=79 gui=NONE guibg=#808000 guifg=#ffffff
-    CSAHi cssColorDA70D6 term=NONE cterm=NONE ctermbg=54 ctermfg=16 gui=NONE guibg=#da70d6 guifg=#000000
-    CSAHi cssColorEEE8AA term=NONE cterm=NONE ctermbg=77 ctermfg=16 gui=NONE guibg=#eee8aa guifg=#000000
-    CSAHi cssColor98FB98 term=NONE cterm=NONE ctermbg=45 ctermfg=16 gui=NONE guibg=#98fb98 guifg=#000000
-    CSAHi cssColorAFEEEE term=NONE cterm=NONE ctermbg=63 ctermfg=16 gui=NONE guibg=#afeeee guifg=#000000
-    CSAHi cssColorD87093 term=NONE cterm=NONE ctermbg=53 ctermfg=16 gui=NONE guibg=#d87093 guifg=#000000
-    CSAHi cssColorFFEFD5 term=NONE cterm=NONE ctermbg=78 ctermfg=16 gui=NONE guibg=#ffefd5 guifg=#000000
-    CSAHi cssColorFFDAB9 term=NONE cterm=NONE ctermbg=74 ctermfg=16 gui=NONE guibg=#ffdab9 guifg=#000000
-    CSAHi cssColorCD853F term=NONE cterm=NONE ctermbg=52 ctermfg=16 gui=NONE guibg=#cd853f guifg=#000000
-    CSAHi cssColorFFC0CB term=NONE cterm=NONE ctermbg=74 ctermfg=16 gui=NONE guibg=#ffc0cb guifg=#000000
-    CSAHi cssColorDDA0DD term=NONE cterm=NONE ctermbg=54 ctermfg=16 gui=NONE guibg=#dda0dd guifg=#000000
-    CSAHi cssMediaBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColor800080 term=NONE cterm=NONE ctermbg=33 ctermfg=79 gui=NONE guibg=#800080 guifg=#ffffff
-    CSAHi cssColorff00ff term=NONE cterm=NONE ctermbg=67 ctermfg=79 gui=NONE guibg=#ff00ff guifg=#ffffff
-    CSAHi cssColorffffff term=NONE cterm=NONE ctermbg=79 ctermfg=16 gui=NONE guibg=#ffffff guifg=#000000
-    CSAHi cssColor00ff00 term=NONE cterm=NONE ctermbg=28 ctermfg=16 gui=NONE guibg=#00ff00 guifg=#000000
-    CSAHi cssColor008000 term=NONE cterm=NONE ctermbg=20 ctermfg=79 gui=NONE guibg=#008000 guifg=#ffffff
-    CSAHi cssColor000080 term=NONE cterm=NONE ctermbg=17 ctermfg=79 gui=NONE guibg=#000080 guifg=#ffffff
-    CSAHi cssColor0000ff term=NONE cterm=NONE ctermbg=19 ctermfg=79 gui=NONE guibg=#0000ff guifg=#ffffff
-    CSAHi cssColor00ffff term=NONE cterm=NONE ctermbg=31 ctermfg=16 gui=NONE guibg=#00ffff guifg=#000000
-    CSAHi cssColor008080 term=NONE cterm=NONE ctermbg=21 ctermfg=79 gui=NONE guibg=#008080 guifg=#ffffff
-    CSAHi jsObjectKey term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi ShaderScript term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssDefinition term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi scalaFqn term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi scalaFqnSet term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColorB0E0E6 term=NONE cterm=NONE ctermbg=58 ctermfg=16 gui=NONE guibg=#b0e0e6 guifg=#000000
-    CSAHi cssColorBC8F8F term=NONE cterm=NONE ctermbg=53 ctermfg=16 gui=NONE guibg=#bc8f8f guifg=#000000
-    CSAHi cssColor4169E1 term=NONE cterm=NONE ctermbg=22 ctermfg=79 gui=NONE guibg=#4169e1 guifg=#ffffff
-    CSAHi cssColor8B4513 term=NONE cterm=NONE ctermbg=32 ctermfg=79 gui=NONE guibg=#8b4513 guifg=#ffffff
-    CSAHi cssColorFA8072 term=NONE cterm=NONE ctermbg=69 ctermfg=16 gui=NONE guibg=#fa8072 guifg=#000000
-    CSAHi cssColorF4A460 term=NONE cterm=NONE ctermbg=69 ctermfg=16 gui=NONE guibg=#f4a460 guifg=#000000
-    CSAHi cssColor2E8B57 term=NONE cterm=NONE ctermbg=21 ctermfg=79 gui=NONE guibg=#2e8b57 guifg=#ffffff
-    CSAHi cssColorFFF5EE term=NONE cterm=NONE ctermbg=79 ctermfg=16 gui=NONE guibg=#fff5ee guifg=#000000
-    CSAHi cssColorA0522D term=NONE cterm=NONE ctermbg=36 ctermfg=79 gui=NONE guibg=#a0522d guifg=#ffffff
-    CSAHi cssColor87CEEB term=NONE cterm=NONE ctermbg=43 ctermfg=16 gui=NONE guibg=#87ceeb guifg=#000000
-    CSAHi cssPseudoClass term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi scalaInterpolation term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssPageWrap term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColorc0c0c0 term=NONE cterm=NONE ctermbg=85 ctermfg=16 gui=NONE guibg=#c0c0c0 guifg=#000000
-    CSAHi cssColor808080 term=NONE cterm=NONE ctermbg=83 ctermfg=16 gui=NONE guibg=#808080 guifg=#000000
-    CSAHi cssColorF0F8FF term=NONE cterm=NONE ctermbg=79 ctermfg=16 gui=NONE guibg=#f0f8ff guifg=#000000
-    CSAHi cssColorFAEBD7 term=NONE cterm=NONE ctermbg=78 ctermfg=16 gui=NONE guibg=#faebd7 guifg=#000000
-    CSAHi cssColor7FFFD4 term=NONE cterm=NONE ctermbg=46 ctermfg=16 gui=NONE guibg=#7fffd4 guifg=#000000
-    CSAHi cssColorF0FFFF term=NONE cterm=NONE ctermbg=79 ctermfg=16 gui=NONE guibg=#f0ffff guifg=#000000
-    CSAHi cssColorF5F5DC term=NONE cterm=NONE ctermbg=78 ctermfg=16 gui=NONE guibg=#f5f5dc guifg=#000000
-    CSAHi cssColorFFE4C4 term=NONE cterm=NONE ctermbg=74 ctermfg=16 gui=NONE guibg=#ffe4c4 guifg=#000000
-    CSAHi cssColorFFEBCD term=NONE cterm=NONE ctermbg=78 ctermfg=16 gui=NONE guibg=#ffebcd guifg=#000000
-    CSAHi cssColor8A2BE2 term=NONE cterm=NONE ctermbg=34 ctermfg=79 gui=NONE guibg=#8a2be2 guifg=#ffffff
-    CSAHi scalaValName term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi SignColumn term=NONE cterm=NONE ctermbg=80 ctermfg=87 gui=NONE guibg=#303030 guifg=#f0f0f0
+    CSAHi perlAutoload term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimExtCmd term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimFilter term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSet term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimUserCmd term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimCmdSep term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimIsCommand term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimLuaRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimMenuMap term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimMenuRhs term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimNormCmds term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimGroupList term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podBoldItalic term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podBoldOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podBoldAlternativeDelimOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podItalicBold term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimFiletype term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimAuSyntax term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimClusterName term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlFormat term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi Folded term=NONE cterm=NONE ctermbg=16 ctermfg=58 gui=NONE guibg=#0c0c0c guifg=#c8c8c8
+    CSAHi vimExecute term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimFunction term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi CursorLineNr term=bold cterm=bold ctermbg=33 ctermfg=16 gui=bold,italic guibg=#99004c guifg=#0e0e0e
-    CSAHi scalaVarName term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi Question term=NONE cterm=bold ctermbg=bg ctermfg=76 gui=bold guibg=bg guifg=#e8e800
     CSAHi StatusLine term=bold,reverse cterm=NONE ctermbg=32 ctermfg=86 gui=NONE guibg=#602040 guifg=#d6d6d6
     CSAHi StatusLineNC term=reverse cterm=NONE ctermbg=83 ctermfg=16 gui=NONE guibg=#909090 guifg=#000000
     CSAHi VertSplit term=reverse cterm=NONE ctermbg=16 ctermfg=83 gui=NONE guibg=#111111 guifg=#909090
-    CSAHi Title term=bold cterm=bold ctermbg=bg ctermfg=87 gui=bold guibg=bg guifg=#eaeaea
+    CSAHi Title term=bold cterm=NONE ctermbg=bg ctermfg=86 gui=NONE guibg=bg guifg=#d0d0d0
     CSAHi Visual term=reverse cterm=NONE ctermbg=33 ctermfg=fg gui=NONE guibg=#7c2b7c guifg=fg
     CSAHi VisualNOS term=bold,underline cterm=NONE ctermbg=33 ctermfg=fg gui=NONE guibg=#7c2b7c guifg=fg
     CSAHi WarningMsg term=NONE cterm=bold ctermbg=bg ctermfg=71 gui=bold guibg=bg guifg=#ffa0ff
     CSAHi WildMenu term=NONE cterm=NONE ctermbg=70 ctermfg=16 gui=NONE guibg=#ff80c0 guifg=#000000
-    CSAHi scalaMethodCall term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi scalaInterpolationDelimiter term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssAttrRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssKeyFrameWrap term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssFontDescriptorBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podItalicOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podItalicAlternativeDelimOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podNoSpaceOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podNoSpaceAlternativeDelimOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podIndexOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podIndexAlternativeDelimOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podBold term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podBoldAlternativeDelim term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podItalic term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi podItalicAlternativeDelim term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi javaDocSeeTag term=NONE cterm=NONE ctermbg=bg ctermfg=58 gui=NONE guibg=bg guifg=#cccccc
     CSAHi htmlH1 term=NONE cterm=underline ctermbg=bg ctermfg=53 gui=underline guibg=bg guifg=#de675c
     CSAHi htmlLink term=NONE cterm=underline ctermbg=bg ctermfg=55 gui=underline guibg=bg guifg=#c777ff
-    CSAHi cssColor6A5ACD term=NONE cterm=NONE ctermbg=38 ctermfg=79 gui=NONE guibg=#6a5acd guifg=#ffffff
-    CSAHi cssColor708090 term=NONE cterm=NONE ctermbg=37 ctermfg=16 gui=NONE guibg=#708090 guifg=#000000
-    CSAHi cssColorFFFAFA term=NONE cterm=NONE ctermbg=79 ctermfg=16 gui=NONE guibg=#fffafa guifg=#000000
-    CSAHi cssColor00FF7F term=NONE cterm=NONE ctermbg=29 ctermfg=16 gui=NONE guibg=#00ff7f guifg=#000000
-    CSAHi cssColor4682B4 term=NONE cterm=NONE ctermbg=38 ctermfg=79 gui=NONE guibg=#4682b4 guifg=#ffffff
-    CSAHi cssColorD2B48C term=NONE cterm=NONE ctermbg=57 ctermfg=16 gui=NONE guibg=#d2b48c guifg=#000000
-    CSAHi cssColorF5FFFA term=NONE cterm=NONE ctermbg=79 ctermfg=16 gui=NONE guibg=#f5fffa guifg=#000000
-    CSAHi cssColorFF6347 term=NONE cterm=NONE ctermbg=69 ctermfg=16 gui=NONE guibg=#ff6347 guifg=#000000
-    CSAHi cssColor40E0D0 term=NONE cterm=NONE ctermbg=26 ctermfg=16 gui=NONE guibg=#40e0d0 guifg=#000000
-    CSAHi cssColorEE82EE term=NONE cterm=NONE ctermbg=71 ctermfg=16 gui=NONE guibg=#ee82ee guifg=#000000
-    CSAHi jsParen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi cssColorFF4500 term=NONE cterm=NONE ctermbg=64 ctermfg=79 gui=NONE guibg=#ff4500 guifg=#ffffff
-    CSAHi cssColorA52A2A term=NONE cterm=NONE ctermbg=32 ctermfg=79 gui=NONE guibg=#a52a2a guifg=#ffffff
-    CSAHi cssColorDEB887 term=NONE cterm=NONE ctermbg=57 ctermfg=16 gui=NONE guibg=#deb887 guifg=#000000
-    CSAHi cssColor5F9EA0 term=NONE cterm=NONE ctermbg=37 ctermfg=16 gui=NONE guibg=#5f9ea0 guifg=#000000
-    CSAHi cssColor7FFF00 term=NONE cterm=NONE ctermbg=44 ctermfg=16 gui=NONE guibg=#7fff00 guifg=#000000
-    CSAHi cssColorD2691E term=NONE cterm=NONE ctermbg=52 ctermfg=16 gui=NONE guibg=#d2691e guifg=#000000
-    CSAHi cssColorFF7F50 term=NONE cterm=NONE ctermbg=69 ctermfg=16 gui=NONE guibg=#ff7f50 guifg=#000000
-    CSAHi cssColor6495ED term=NONE cterm=NONE ctermbg=39 ctermfg=16 gui=NONE guibg=#6495ed guifg=#000000
-    CSAHi cssColorFFF8DC term=NONE cterm=NONE ctermbg=78 ctermfg=16 gui=NONE guibg=#fff8dc guifg=#000000
-    CSAHi cssColorDC143C term=NONE cterm=NONE ctermbg=48 ctermfg=79 gui=NONE guibg=#dc143c guifg=#ffffff
-    CSAHi cssColor00008B term=NONE cterm=NONE ctermbg=17 ctermfg=79 gui=NONE guibg=#00008b guifg=#ffffff
-    CSAHi Folded term=NONE cterm=NONE ctermbg=16 ctermfg=58 gui=NONE guibg=#0c0c0c guifg=#c8c8c8
+    CSAHi vimSynKeyRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSynMatchRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSynMtchCchar term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSynMtchGroup term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlSync term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi perlSyncPOD term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimPerlRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
+    CSAHi vimSynLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi FoldColumn term=NONE cterm=NONE ctermbg=80 ctermfg=58 gui=NONE guibg=#212121 guifg=#c8c8c8
     CSAHi DiffAdd term=bold cterm=NONE ctermbg=20 ctermfg=fg gui=NONE guibg=#064d08 guifg=fg
     CSAHi DiffChange term=bold cterm=NONE ctermbg=32 ctermfg=87 gui=NONE guibg=#573700 guifg=#f0f0f0
     CSAHi DiffDelete term=bold cterm=NONE ctermbg=32 ctermfg=32 gui=NONE guibg=#701d1d guifg=#701d1d
     CSAHi DiffText term=reverse cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#1f1500 guifg=fg
-    CSAHi SignColumn term=NONE cterm=NONE ctermbg=80 ctermfg=87 gui=NONE guibg=#303030 guifg=#f0f0f0
+    CSAHi vimAugroup term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi Conceal term=NONE cterm=NONE ctermbg=84 ctermfg=86 gui=NONE guibg=#a9a9a9 guifg=#d3d3d3
     CSAHi SpellBad term=reverse cterm=undercurl ctermbg=bg ctermfg=64 gui=undercurl guibg=bg guifg=fg guisp=#ff0000
     CSAHi SpellCap term=reverse cterm=undercurl ctermbg=bg ctermfg=28 gui=undercurl guibg=bg guifg=fg guisp=#00ff00
