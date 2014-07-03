@@ -603,7 +603,7 @@ let g:syntastic_java_javac_config_file_enabled = 1
 let g:clang_complete_auto = 0
 let g:clang_auto_select = 0
 let g:clang_snippets = 1
-" let g:clang_snippets_engine = 'ultisnips'
+let g:clang_snippets_engine = 'ultisnips'
 let g:clang_use_library = 1
 let g:clang_complete_macros = 1
 "let g:clang_user_options = '|| exit 0'
@@ -727,6 +727,13 @@ nnoremap <C-k> <C-W>k
 nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
 
+" move between tabs
+nnoremap <silent> <C-PageDown> :tabnext<CR>
+nnoremap <silent> <C-PageUp> :tabprevious<CR>
+nnoremap <silent> <C-A> :tabnext<CR>
+nnoremap <silent> <C-Q> :tabprevious<CR>
+nnoremap <silent> <C-T> :tabnew<CR>
+
 " make window 40 chars wide, useful for CSS files
 nnoremap <silent> <leader>4 :vertical resize 40<cr>
 
@@ -841,3 +848,8 @@ cmap <F1> <esc>
 xmap <F1> <esc>
 smap <F1> <esc>
 lmap <F1> <esc>
+
+" Load local .vimrc for machine-specific options
+if filereadable(glob("~/.vimrc.local")) 
+    source ~/.vimrc.local
+endif

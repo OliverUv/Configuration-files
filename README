@@ -10,8 +10,7 @@ Xdefaults -> .Xdefaults
 # i3 window manager n stuff
 i3status.conf -> .i3/status.conf
 i3config.base -> .i3/config.base
-i3config.indal -> .i3/config.local
-i3config.amitofo -> .i3/config.local
+i3config.indal -> .i3/config.local (for example)
 conkyrc -> .conkyrc
 
 # video things
@@ -26,6 +25,7 @@ cp ~/Configuration-files/urxvt-perls/clipboard /usr/lib/urxvt/perl/
 
 # programming
 vimrc -> .vimrc
+vimrc.voyager -> .vimrc.local (for example)
 gvimrc -> .gvimrc
 dotvim -> .vim
 gitconfig -> .gitconfig
