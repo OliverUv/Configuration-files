@@ -12,6 +12,7 @@ i3status.conf -> .i3/status.conf
 i3config.base -> .i3/config.base
 i3config.indal -> .i3/config.local (for example)
 conkyrc -> .conkyrc
+conkyrc.laptop -> .conkyrc (for example)
 
 # video things
 mpv-input.conf -> .mpv/input.conf

@@ -1,0 +1,63 @@
+##avoid flicker
+double_buffer yes
+update_interval 20
+
+## i3barConky
+out_to_x no
+own_window no
+out_to_console yes
+background no
+use_xft yes
+
+# Add spaces to keep things from moving about?  This only affects certain objects.
+# use_spacer should have an argument of left, right, or none
+use_spacer left
+
+## This is the number of times Conky will update before quitting.
+## Set to zero to run forever
+total_run_times 0
+ 
+## How strict should if_up be when testing an interface for being up?
+if_up_strictness address
+
+## Force UTF8? note that UTF8 support required XFT
+override_utf8_locale yes
+ 
+## number of cpu samples to average
+## set to 1 to disable averaging
+cpu_avg_samples 2
+short_units yes
+
+## Stuff after 'TEXT' will be formatted on screen
+TEXT
+[
+	{ 
+	  "full_text" : "~${fs_free /home}", 
+	  "min_width": 72,
+	  "color" : "\#999999"
+	},
+	{ 
+	  "full_text" : "/${fs_free /}", 
+	  "min_width": 130,
+	  "color" : "\#999999"
+	},
+	{ 
+	  "full_text" : "${battery}", 
+	  "min_width": 72,
+	  "color" : "\#999999"
+	},
+	{ 
+	  "full_text" : "${time %A %d %B   }${time %H:%M}", 
+	  "separator" : false, 
+	  "separator_block_width" : 3, 
+	  "color" : "\#E17800", 
+	  "min_width": 300,
+	  "align" : "center"
+	},
+	{ 
+	  "full_text" : " ", 
+	  "min_width": 60,
+	  "color" : "\#999999"
+	}
+],
+
