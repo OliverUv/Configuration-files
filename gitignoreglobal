@@ -7,5 +7,7 @@
 *.pyc
 **/*.pyc
 *.o
-#tagfiles
+#tag files
 tags
+#core dumps
+core
