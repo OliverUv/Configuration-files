@@ -228,8 +228,10 @@ hi link javaScriptPropietaryObjects javaScriptAjaxObjects
 " Special for CoffeeScript
 hi coffeeSpecialVar gui=NONE guifg=#edc37c guibg=NONE
 
-" Special for fugitive
+" Special for fugitive (via vim-git plugin)
 hi link gitcommitSummary Conditional
 hi link gitcommitOverflow Error
+hi gitcommitFile guifg=#e8e8e8 guibg=NONE
+
 " lots more available here:
 " https://github.com/altercation/vim-colors-solarized/commit/7a7e5c8818d717084730133ed6b84a3ffc9d0447
