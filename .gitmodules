@@ -239,3 +239,6 @@
 [submodule "virtualfish"]
 	path = virtualfish
 	url = https://github.com/adambrenecki/virtualfish.git
+[submodule "dotvim/bundle/taghighlight"]
+	path = dotvim/bundle/taghighlight
+	url = https://github.com/abudden/taghighlight-automirror.git
