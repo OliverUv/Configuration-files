@@ -55,7 +55,7 @@ URxvt.iso14755: false
 ! can't get this to work >:(
 ! Copy stuff into /usr/lib/urxvt/perl/ instead.
 !URxvt.perl-lib: /home/oliver/Configuration-files/urxvt-perls/
-URxvt.perl-ext-common: default,matcher,url-select,clipboard
+URxvt.perl-ext-common: default,matcher,url-select,clipboard,keyboard-select
 
 ! url-select config
 URxvt.keysym.Shift-Control-P: perl:url-select:select_next
@@ -66,6 +66,10 @@ URxvt.url-select.button: 1
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 !URxvt.keysym.C-A-V: perl:clipboard:paste_escaped
+
+! vim-like keyboard controlled copying
+URxvt.keysym.Shift-Control-Y: perl:keyboard-select:activate
+URxvt.keysym.Shift-Control-L: perl:keyboard-select:search
 
 !URxvt.perl-ext-common: default,matcher,clipboard
 !!URxvt.keysym.C-M-p: perl:url-select:select_next
