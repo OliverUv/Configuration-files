@@ -214,11 +214,11 @@ set viminfo='1000,f1,<1000,:500,@500,/500,!
 " :		max items in commandline history
 " @		max items in input-line history to be saved
 " /		max items in search pattern history
-set ssop=blank,buffers,sesdir,folds,help,options,tabpages,winsize,resize
+set ssop=blank,buffers,curdir,folds,help,options,tabpages,winsize,resize
 " 		Enables saving and restoring
 " blank		empty windows
 " buffers	hidden and unloaded buffers
-" sesdir	makes the current directory the one the session file is in
+" curdir	remember the cwd
 " folds		manually created folds, opened/closed folds and local fold opt
 " help		the help window
 " options	all options and mappings (also global vals for local opts)
@@ -730,9 +730,9 @@ nnoremap <C-l> <C-W>l
 " move between tabs
 nnoremap <silent> <C-PageDown> :tabnext<CR>
 nnoremap <silent> <C-PageUp> :tabprevious<CR>
-nnoremap <silent> <C-A> :tabnext<CR>
-nnoremap <silent> <C-Q> :tabprevious<CR>
-nnoremap <silent> <C-T> :tabnew<CR>
+nnoremap <silent> <C-A> :tabprevious<CR>
+nnoremap <silent> <C-S> :tabnext<CR>
+nnoremap <silent> <C-Z> :tabnew<CR>
 
 " make window 40 chars wide, useful for CSS files
 nnoremap <silent> <leader>4 :vertical resize 40<cr>
