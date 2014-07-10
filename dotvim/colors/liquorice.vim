@@ -116,29 +116,41 @@ hi VisualNOS    gui=NONE guifg=NONE guibg=#7C2B7C
 
 " Syntax group
 hi Comment      gui=NONE guifg=#8a8a8a guibg=NONE
-hi Constant     gui=NONE guifg=#92d4ff guibg=NONE
 hi Error        gui=BOLD guifg=#f2ca03 guibg=#000000
 hi Identifier   gui=NONE guifg=#40f8f8 guibg=NONE
 hi Ignore       gui=NONE guifg=bg      guibg=NONE
 hi PreProc      gui=NONE guifg=#ffa8ff guibg=NONE
+hi Constant     gui=NONE guifg=#f8bef8 guibg=NONE
 hi Special      gui=NONE guifg=#ff9a4c guibg=#0f0f0f
 hi Statement    gui=NONE guifg=#6699cc guibg=NONE
+hi Repeat       gui=BOLD guifg=#6699cc guibg=NONE
 hi Todo         gui=UNDERLINE,ITALIC guifg=#ff80d0 guibg=NONE
 hi Type         gui=NONE guifg=#60f0a8 guibg=NONE
 hi Underlined   gui=UNDERLINE guifg=fg guibg=NONE
 hi String       gui=NONE guifg=#bccf72 guibg=#0f0f0f
 hi Number       gui=NONE guifg=#acdd82 guibg=NONE
 hi Conditional  gui=BOLD guifg=#86bbee guibg=NONE
-hi Function     gui=NONE guifg=#ffd2a7 guibg=NONE
+hi Boolean      gui=NONE guifg=#86bbee guibg=NONE
+hi Function     gui=NONE guifg=#CCA670 guibg=NONE
 hi Delimiter    gui=NONE guifg=#00a0a0 guibg=NONE
 hi Operator     gui=NONE guifg=#86bbee guibg=NONE
+
+" TagHighlight plugin colors ( https://github.com/abudden/taghighlight-automirror )
+" hi link to from
+hi link Class Type
+hi link DefinedName PreProc
+hi link Enumerator Constant
+hi link EnumerationName String
+hi link Union Constant
+hi link GlobalConstant Constant
+hi link GlobalVariable Special
+hi Member gui=NONE guifg=#ffd7ab guibg=NONE
+hi LocalVariable gui=NONE guifg=#ff0000 guibg=NONE
 
 
 " Dependent syntax groups
 hi link Character       String
-hi link Boolean         Constant
 hi link Float           Number
-hi link Repeat          Statement
 hi link Label           Statement
 hi link Exception       Statement
 hi link Keyword         Statement
