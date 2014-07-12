@@ -3,7 +3,7 @@ let g:pathogen_disabled = ['ctrlp', 'ctrlp-funky', 'vim-sneak', 'CoVim', 'neocom
 if has("win32") || has("win64")
    " Required by pathogen.vim for loading plugins
    call pathogen#infect()
-   
+
    "Required by vim-latex on windows machines
    set shellslash
 
@@ -65,45 +65,46 @@ command! Qall qall
 "" Basic settings
 ""
 
-syntax enable		" Enables syntax highlighting with custom colors
-filetype plugin indent on	" React on filetypes with plugins and syntax
-set scrolloff=4        " Minimum number of lines to display around cursor
-set autoread		" Files changed from outside are automatically reread
+syntax enable           " Enables syntax highlighting with custom colors
+filetype plugin indent on " React on filetypes with plugins and syntax
+set scrolloff=4         " Minimum number of lines to display around cursor
+set autoread            " Files changed from outside are automatically reread
 set hlsearch            " Highlight search results
 set mousehide           " Hide the mouse when typing text
 set smarttab            " <TAB> inserts 'shiftwidth' spaces
-set shiftwidth=4	" Amount of spaces for tab to insert
+set shiftwidth=4        " Amount of spaces for tab to insert
 set autoindent          " Automatically set the indent when creating new lines.
 set showcmd             " Shows current command in statusline
 set ruler               " Show cursor position information in statusline
 set relativenumber      " Show relative line numbers by default
-set number		" Show absolute line number of current line
+set number              " Show absolute line number of current line
 set wrap                " Wrap text
+"set list               " Show listchars
 set ttyfast             " 'Smooth' scrolling
 set showmatch           " Briefly display matching brackets when inserting such.
 set incsearch           " Incremental searching as soon as typing begins.
 set ignorecase          " Ignores case when searching
 set smartcase           " Will override ignorecase if searching w/ diff cases.
-set modeline	        " Use moelines
-set expandtab						" Makes <tab> insert spaces in insert mode
+set modeline            " Use modelines
+set expandtab           " Makes <tab> insert spaces in insert mode
 set wildchar=<TAB>      " Key that triggers command-line expansion.
-set wildmenu
-set wildmode=longest:full
+set wildmenu            " Completion on commandline
+set wildmode=longest:full " Commandline completion mode
 set noerrorbells        " Disables beeping.
-set hidden		" Allow switch buffer without saving
-set previewheight=15	" Height of the preview window
-"set winwidth=80		" Current window will be resized to this width
-set switchbuf=useopen	" If switching to a buffer that is already open, go
-			" to where it is already open instead of here.
-set backspace=indent,eol,start whichwrap+=<,>,[,] "backspace functionality
-set formatprg=par	" user par to format text with the gq command
+set hidden              " Allow switch buffer without saving
+set previewheight=15    " Height of the preview window
+"set winwidth=80        " Current window will be resized to this width
+set switchbuf=useopen   " If switching to a buffer that is already open, go
+                        " to where it is already open instead of here.
+set backspace=indent,eol,start whichwrap+=<,>,[,] " backspace functionality
+set formatprg=par        " user par to format text with the gq command
 set formatoptions=croqlj " auto formatting options
                          " c - autowrap using textwidth
                          " r - autoinsert comment leader on i_<enter>
                          " q - allow formatting of comments with gq
                          " l - long lines aren't broken
                          " j - remove comment leader when joining lines
-set noea		" prevent equalizing of split sizes on closed split
+set noea                 " prevent equalizing of split sizes on closed split
 set fillchars=fold:\ ,vert:\  " fill characters for fold lines and lines between vsplits
 set ttimeoutlen=50      " Faster twitchin' for everything
 
@@ -134,6 +135,9 @@ set wildignore+=*/tmp/cache/assets/*/sprockets/*,*/tmp/cache/assets/*/sass/*
 " Ignore node modules
 set wildignore+=node_modules/*
 
+" Ignore tag files
+set wildignore+=tags,*.taghl
+
 " Ignore temp and backup files
 set wildignore+=*.swp,*~,._*
 
@@ -153,6 +157,7 @@ if has("autocmd")
     au BufNewFile,BufReadPost *.coffee setlocal foldmethod=indent shiftwidth=2 softtabstop=2 expandtab
     au BufWritePost,FileWritePost *.coffee silent make!
     au FileType c setlocal colorcolumn=79
+    au FileType CPP setlocal list
     au FileType {make,gitconfig} set noexpandtab sw=4
     au QuickFixCmdPost * nested cwindow | redraw!
 endif
@@ -301,6 +306,7 @@ call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
             \ 'ignore_pattern', join([
             \ '\.swp', '\.swo', '\~$',
             \ '\.git/', '\.svn/', '\.hg/',
+            \ '^tags$', '\.taghl$',
             \ '\.ropeproject/',
             \ 'node_modules/', 'log/', 'tmp/', 'obj/',
             \ '/vendor/gems/', '/vendor/cache/', '\.bundle/', '\.sass-cache/',
@@ -337,7 +343,7 @@ let g:unite_source_file_mru_time_format = "%Y-%m-%d  %H:%M:%S  "
 " Use ag or ack as grep command if possible
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nocolor --nogroup --hidden --ignore-case'
+  let g:unite_source_grep_default_opts = '--nocolor --nogroup --hidden --ignore-case --ignore tags'
   let g:unite_source_grep_recursive_opt = ''
 elseif executable('ack-grep')
   let g:unite_source_grep_command = 'ack-grep'
