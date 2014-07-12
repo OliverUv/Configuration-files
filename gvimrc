@@ -51,6 +51,12 @@ elseif has("gui_gnome") || has("gui_gtk") || has("gui_gtk2")
         set guifont=Inconsolata\ Medium\ 12
 endif
 
+" Bindings for font-zoom plugin
+nmap <unique> <silent> <C-Up> <Plug>(fontzoom-larger)
+nmap <unique> <silent> <C-Down> <Plug>(fontzoom-smaller)
+nmap <unique> <silent> <C-ScrollWheelUp> <Plug>(fontzoom-larger)
+nmap <unique> <silent> <C-ScrollWheelDown> <Plug>(fontzoom-smaller)
+
 " MacVim specific: Set fullscreen options to be as full screen as possible
 if has("gui_macvim")
     set fuoptions=maxhorz,maxvert

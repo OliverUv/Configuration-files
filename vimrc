@@ -582,6 +582,7 @@ let g:UltiSnipsUsePythonVersion = 2
 
 let g:maximizer_set_default_mapping = 0
 
+let g:fontzoom_no_default_key_mappings = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" Settings for syntastic
