@@ -55,12 +55,16 @@ URxvt.iso14755: false
 ! can't get this to work >:(
 ! Copy stuff into /usr/lib/urxvt/perl/ instead.
 !URxvt.perl-lib: /home/oliver/Configuration-files/urxvt-perls/
-URxvt.perl-ext-common: default,matcher,url-select,clipboard,keyboard-select
+URxvt.perl-ext-common: default,matcher,url-select,clipboard,keyboard-select,font-size
 
 ! url-select config
 URxvt.keysym.Shift-Control-P: perl:url-select:select_next
 URxvt.url-select.underline: true
 URxvt.url-select.button: 1
+
+! font-size config
+URxvt.keysym.C-Up:     perl:font-size:increase
+URxvt.keysym.C-Down:   perl:font-size:decrease
 
 ! clipboard config (requires xclip !!)
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste

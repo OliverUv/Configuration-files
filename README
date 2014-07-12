@@ -1,40 +1,43 @@
 Just some of my configuration files for dev environment. :)
 
 # shell stuff
-profile -> .profile
-tmux.conf -> .tmux.conf
-config.fish -> .config/fish/config.fish
+profile         -> .profile
+tmux.conf       -> .tmux.conf
+config.fish     -> .config/fish/config.fish
 fish-functions/ -> .config/fish/functions/
-Xdefaults -> .Xdefaults
+Xdefaults       -> .Xdefaults
 
 # i3 window manager n stuff
-i3status.conf -> .i3/status.conf
-i3config.base -> .i3/config.base
+i3status.conf  -> .i3/status.conf
+i3config.base  -> .i3/config.base
 i3config.indal -> .i3/config.local (for example)
-conkyrc -> .conkyrc
+conkyrc        -> .conkyrc
 conkyrc.laptop -> .conkyrc (for example)
 
 # video things
-mpv-input.conf -> .mpv/input.conf
-youtube-viewer.conf -> ~/.config/youtube-viewer/youtube-viewer.conf
+mpv-input.conf      -> .mpv/input.conf
+youtube-viewer.conf -> .config/youtube-viewer/youtube-viewer.conf
 
 # urxvt-256color
 # requires xclip and xsel
-cp ~/Configuration-files/urxvt-perls/keyboard-select /usr/lib/urxvt/perl/
-cp ~/Configuration-files/urxvt-perls/url-select /usr/lib/urxvt/perl/
-cp ~/Configuration-files/urxvt-perls/clipboard /usr/lib/urxvt/perl/
+urxvt-perls/keyboard-select -> .urxvt/ext/
+urxvt-perls/url-select      -> .urxvt/ext/
+urxvt-perls/clipboard       -> .urxvt/ext/
+urxvt-font-size/font-size   -> .urxvt/ext/
+
+  or all those to /usr/lib/urxvt/perl/
 
 # programming
-vimrc -> .vimrc
-vimrc.voyager -> .vimrc.local (for example)
-gvimrc -> .gvimrc
-dotvim -> .vim
-gitconfig -> .gitconfig
+vimrc           -> .vimrc
+vimrc.voyager   -> .vimrc.local (for example)
+gvimrc          -> .gvimrc
+dotvim          -> .vim
+gitconfig       -> .gitconfig
 gitignoreglobal -> .gitignoreglobal
 
 # linters
 coffeelint.json -> .config/coffeelint.json
-flake8 -> .config/flake8
+flake8          -> .config/flake8
 
 # not in use
 xprofile -> .xprofile
