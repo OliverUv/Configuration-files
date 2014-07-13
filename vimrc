@@ -1,4 +1,5 @@
-let g:pathogen_disabled = ['ctrlp', 'ctrlp-funky', 'vim-sneak', 'CoVim', 'neocomplcache', 'neocomplcache-ultisnips', 'python-mode']
+"let g:pathogen_disabled = ['ctrlp', 'ctrlp-funky', 'vim-sneak', 'CoVim', 'neocomplcache', 'neocomplcache-ultisnips', 'python-mode', 'Rainbow-Parentheses-Improved-and2']
+let g:pathogen_disabled = ['ctrlp', 'ctrlp-funky', 'vim-sneak', 'CoVim', 'neocomplcache', 'neocomplcache-ultisnips', 'python-mode', 'vim-niji']
 
 if has("win32") || has("win64")
    " Required by pathogen.vim for loading plugins
@@ -583,6 +584,23 @@ let g:UltiSnipsUsePythonVersion = 2
 let g:maximizer_set_default_mapping = 0
 
 let g:fontzoom_no_default_key_mappings = 1
+
+let g:niji_matching_filetypes = ['lisp', 'ruby', 'python', 'c', 'cpp', 'bash']
+"let g:niji_dark_colours = [184, 39, 170, 162, 154, 9, 10, 11, 13, 14, 15]
+
+" let g:niji_dark_colours = [['184', '39'], ['170', '162'], ['154', '9'], ['10', '11'], ['13', '14']]
+
+" hi Rbow1 guifg=#ff0000 ctermfg=white
+" hi Rbow2 guifg=#00ff00 ctermfg=white
+" hi Rbow3 guifg=#0000ff ctermfg=white
+" hi Rbow4 guifg=#ffff00 ctermfg=white
+
+let g:niji_dark_colours = [['#111111', '#222222'],
+                        \  ['#333333', '#444444'],
+                        \  ['#555555', '#666666'],
+                        \  ['#777777', '#888888'],
+                        \  ['#999999', '#AAAAAA']]
+let g:niji_light_colours = g:niji_dark_colours
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" Settings for syntastic

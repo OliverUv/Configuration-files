@@ -248,3 +248,6 @@
 [submodule "dotvim/bundle/vim-fontzoom"]
 	path = dotvim/bundle/vim-fontzoom
 	url = https://github.com/thinca/vim-fontzoom.git
+[submodule "dotvim/bundle/vim-niji"]
+	path = dotvim/bundle/vim-niji
+	url = https://github.com/amdt/vim-niji.git
