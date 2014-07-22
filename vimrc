@@ -440,7 +440,40 @@ nnoremap <silent> <leader>,g :execute "!makeglossaries " . shellescape(expand('%
 "" Rainbow-Parentheses-Improved-and2 settings
 "" http://github.com/vim-scripts/Rainbow-Parentheses-Improved-and2
 "" 
-let g:rainbow_ctermfgs = [184, 39, 170, 162, 154, 9, 10, 11, 13, 14, 15]
+let g:rainbow_conf = {
+    \   'guifgs': ['#A77990', '#8DC4C4', '#C6ACC6', '#ADBCA0', '#A2B1C1', '#C6A0B3', '#98A7B7', '#7B907C', '#B7AB9B', '#96C1AC', '#79A9A9', '#96838D', '#C6A890'],
+    \   'ctermfgs': ['darkgray', 'darkblue', 'darkmagenta', 'darkcyan'],
+    \   'operators': '_,_',
+    \   'parentheses': [['(',')'], ['\[','\]'], ['{','}']],
+    \   'separately': {
+    \       '*': {},
+    \       'lisp': {
+    \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+    \           'ctermfgs': ['darkgray', 'darkblue', 'darkmagenta', 'darkcyan', 'darkred', 'darkgreen'],
+    \       },
+    \       'vim': {
+    \           'parentheses': [['fu\w* \s*.*)','endfu\w*'], ['for','endfor'], ['while', 'endwhile'], ['if','_elseif\|else_','endif'], ['(',')'], ['\[','\]'], ['{','}']],
+    \       },
+    \       'tex': {
+    \           'parentheses': [['(',')'], ['\[','\]'], ['\\begin{.*}','\\end{.*}']],
+    \       },
+    \       'css': 0,
+    \       'xml': {
+    \           'parentheses': [['\v\<\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'))?)*\>','</\z1>']],
+    \       },
+    \       'xhtml': {
+    \           'parentheses': [['\v\<\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'))?)*\>','</\z1>']],
+    \       },
+    \       'djangohtml': {
+    \           'guifgs': [],
+    \           'ctermfgs': [],
+    \           'parantheses': [],
+    \           'operators': []},
+    \       'html': {
+    \           'parentheses': [['\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>','</\z1>']],
+    \       },
+    \   }
+    \}
 let g:rainbow_active = 1
 let g:rainbow_operators = 1
 
@@ -585,7 +618,11 @@ let g:maximizer_set_default_mapping = 0
 
 let g:fontzoom_no_default_key_mappings = 1
 
-let g:niji_matching_filetypes = ['lisp', 'ruby', 'python', 'c', 'cpp', 'bash']
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Settings for niji
+"" 
+"let g:niji_matching_filetypes = ['lisp', 'ruby', 'python', 'c', 'cpp', 'bash']
 "let g:niji_dark_colours = [184, 39, 170, 162, 154, 9, 10, 11, 13, 14, 15]
 
 " let g:niji_dark_colours = [['184', '39'], ['170', '162'], ['154', '9'], ['10', '11'], ['13', '14']]
@@ -601,6 +638,7 @@ let g:niji_dark_colours = [['#111111', '#222222'],
                         \  ['#777777', '#888888'],
                         \  ['#999999', '#AAAAAA']]
 let g:niji_light_colours = g:niji_dark_colours
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" Settings for syntastic

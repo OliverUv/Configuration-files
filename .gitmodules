@@ -251,3 +251,6 @@
 [submodule "dotvim/bundle/vim-niji"]
 	path = dotvim/bundle/vim-niji
 	url = https://github.com/amdt/vim-niji.git
+[submodule "dotvim/bundle/rainbow"]
+	path = dotvim/bundle/rainbow
+	url = https://github.com/luochen1990/rainbow.git
