@@ -193,9 +193,9 @@ set statusline=%<%F\ %m%r%h%w%{fugitive#statusline()}\ %Y\ %{FileEncoding()}\ %{
 " {&ff}	output of command ff (file format)
 " {FileEncoding} function defined above
 " =	split point for left/rigth justification
-" #warningmsg# no idea
+" #warningmsg#     switch to WarningMsg color
 " {SyntasticStatuslineFlag()} syntax error stuff from syntastic
-" *	no idea
+" *	switch back to normal color
 " c	column number
 " l	line number
 " L	total line numbers
@@ -440,6 +440,11 @@ nnoremap <silent> <leader>,g :execute "!makeglossaries " . shellescape(expand('%
 "" Rainbow-Parentheses-Improved-and2 settings
 "" http://github.com/vim-scripts/Rainbow-Parentheses-Improved-and2
 "" 
+" These are so ugly
+"let g:rainbow_ctermfgs = [184, 39, 170, 162, 154, 9, 10, 11, 13, 14, 15]
+" These are alright
+"let g:rainbow_guifgs = ['#ffffff', '#000000']
+    "\   'guifgs': ['#8E8EBE', '#8E8E8E', '#BE8EBE', '#BEBE8E', '#8EBE8E', '#BE8E8E'],
 let g:rainbow_conf = {
     \   'guifgs': ['#A77990', '#8DC4C4', '#C6ACC6', '#ADBCA0', '#A2B1C1', '#C6A0B3', '#98A7B7', '#7B907C', '#B7AB9B', '#96C1AC', '#79A9A9', '#96838D', '#C6A890'],
     \   'ctermfgs': ['darkgray', 'darkblue', 'darkmagenta', 'darkcyan'],
