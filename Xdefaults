@@ -51,9 +51,15 @@ URxvt.background: #0A1015
 ! Disable interfering unicode insert w/ ctrl-shift
 URxvt.iso14755: false
 
+! Also copy to CLIPBOARD buffer when ordinarly copying
+! to only PRIMARY.
+URxvt.clipboard.autocopy: true
+
+URxvt.url-launcher:  /usr/bin/google-chrome
+
 ! perls selection
 ! can't get this to work >:(
-! Copy stuff into /usr/lib/urxvt/perl/ instead.
+! Copy stuff into /usr/lib/urxvt/perl/ or $HOME/.urxvt/ext/ instead.
 !URxvt.perl-lib: /home/oliver/Configuration-files/urxvt-perls/
 URxvt.perl-ext-common: default,matcher,url-select,clipboard,keyboard-select,font-size
 
@@ -61,6 +67,11 @@ URxvt.perl-ext-common: default,matcher,url-select,clipboard,keyboard-select,font
 URxvt.keysym.Shift-Control-P: perl:url-select:select_next
 URxvt.url-select.underline: true
 URxvt.url-select.button: 1
+URxvt.url-select.launcher: /usr/bin/google-chrome
+
+!URxvt.matcher.button:   1
+URxvt.keysym.Shift-Control-U:  perl:matcher:last
+!URxvt.keysym.Shift-Control-P:  perl:matcher:list
 
 ! font-size config
 URxvt.keysym.C-Up:     perl:font-size:increase
@@ -74,13 +85,3 @@ URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 ! vim-like keyboard controlled copying
 URxvt.keysym.Shift-Control-Y: perl:keyboard-select:activate
 URxvt.keysym.Shift-Control-L: perl:keyboard-select:search
-
-!URxvt.perl-ext-common: default,matcher,clipboard
-!!URxvt.keysym.C-M-p: perl:url-select:select_next
-!!URxvt.url-select.launcher: /usr/bin/google-chrome
-
-URxvt.url-launcher:  /usr/bin/google-chrome
-!URxvt.matcher.button:   1
-URxvt.keysym.Shift-Control-U:  perl:matcher:last
-!URxvt.keysym.Shift-Control-P:  perl:matcher:list
-
