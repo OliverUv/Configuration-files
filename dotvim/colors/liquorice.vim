@@ -8,6 +8,15 @@
 " Located and updated at
 " http://github.com/OliverUv/Configuration-files/blob/master/dotvim/colors/liquorice.vim
 
+" I recommend using the following colors, in order, if you're using a
+" rainbow parens plugin:
+" '#A77990', '#8DC4C4', '#C6ACC6', '#ADBCA0', '#A2B1C1', '#C6A0B3',
+" '#'#98A7B7', 7B907C', '#B7AB9B', '#96C1AC', '#79A9A9', '#96838D',
+" '#'#C6A890'
+"
+" (I personally recommend https://github.com/luochen1990/rainbow)
+" TODO: Figure out a way to get these colors, to work in 256-color
+" terminals using CSApprox.
 
 " Uncomment the following or put it in your vimrc if you feel like it!
 
@@ -44,8 +53,8 @@ hi IncSearch    gui=BOLD guifg=#ffffff guibg=#99004c
 hi Search       gui=BOLD guifg=#cc99ff guibg=#430075
 
 " Messages
-hi ErrorMsg     gui=BOLD guifg=#ffa0ff guibg=NONE
-hi WarningMsg   gui=BOLD guifg=#ffa0ff guibg=NONE
+hi ErrorMsg     gui=BOLD guifg=#ff80c0 guibg=NONE
+hi WarningMsg   gui=BOLD guifg=#ff80c0 guibg=NONE
 hi ModeMsg      gui=BOLD guifg=#a0d0ff guibg=NONE
 hi MoreMsg      gui=BOLD guifg=#70ffc0 guibg=#8040ff
 hi Question     gui=BOLD guifg=#e8e800 guibg=NONE
@@ -108,8 +117,10 @@ hi SpellBad	gui=UNDERCURL guifg=NONE guibg=NONE guisp=#FF0000
 hi Directory    gui=NONE guifg=#c8c8ff guibg=NONE
 hi LineNr       gui=ITALIC guifg=#727272 guibg=#0e0e0e
 hi CursorLineNr gui=ITALIC,BOLD guifg=#0e0e0e guibg=#99004c
-hi NonText      gui=BOLD guifg=#d84070 guibg=#0b0b0b
-hi SpecialKey   gui=BOLD guifg=#8888ff guibg=NONE
+"hi NonText      gui=BOLD guifg=#d84070 guibg=#0b0b0b
+"hi SpecialKey   gui=BOLD guifg=#8888ff guibg=NONE
+hi NonText      gui=BOLD guifg=#808080 guibg=NONE
+hi SpecialKey   gui=BOLD guifg=#808080 guibg=NONE
 hi Title        gui=NONE guifg=#d0d0d0 guibg=NONE
 hi Visual       gui=NONE guifg=NONE guibg=#7C2B7C
 hi VisualNOS    gui=NONE guifg=NONE guibg=#7C2B7C
