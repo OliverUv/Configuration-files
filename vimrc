@@ -355,11 +355,13 @@ endif
 
 function! g:DoUniteFuzzy()
     call unite#custom#source('file_rec/async,file/new', 'sorters', 'sorter_rank')
+    call unite#custom#source('file_rec/async,file/new', 'converters', 'converter_relative_word')
     call unite#custom#source('file_rec/async,file/new', 'matchers', 'matcher_fuzzy')
     exec "Unite -buffer-name=files file_rec/async file/new"
 endfunction
 function! g:DoUniteNonFuzzy()
     call unite#custom#source('file_rec/async,file/new', 'sorters', 'sorter_nothing')
+    call unite#custom#source('file_rec/async,file/new', 'converters', 'converter_relative_word')
     call unite#custom#source('file_rec/async,file/new', 'matchers', 'matcher_glob')
     exec "Unite -buffer-name=files file_rec/async file/new"
 endfunction
