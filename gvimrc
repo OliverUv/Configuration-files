@@ -37,6 +37,9 @@ set listchars=tab:⇥⋅,trail:⋅,nbsp:⋅ " fill characters for tabs etc when 
 set cursorcolumn
 set cursorline
 
+" Disable cursor blinking
+set guicursor+=a:blinkon0
+
 " Shorter spacing between lines
 set linespace=-2
 
