@@ -111,6 +111,7 @@ set ttimeoutlen=50      " Faster twitchin' for everything
 
 " Completion ignores
 " KEEP THESE IN SYNC WITH UNITE IGNORES!
+" Never put .git in here!
 
 set wildignore+=*/.hg/*,*/.svn/*,*.pyc,*.class
 set wildignore+=.ropeproject/**
