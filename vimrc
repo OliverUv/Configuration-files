@@ -626,6 +626,11 @@ let g:maximizer_set_default_mapping = 0
 
 let g:fontzoom_no_default_key_mappings = 1
 
+if ! exists('g:TagHighlightSettings')
+    let g:TagHighlightSettings = {}
+endif
+let g:TagHighlightSettings['TagFileName'] = '.git/tags'
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" Settings for niji
