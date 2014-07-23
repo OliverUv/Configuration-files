@@ -25,6 +25,9 @@
         sm = submodule
         lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 
+	# run ctags command from .git_template/hooks
+	ctags = !.git/hooks/ctags
+
         # will put a file into gitignore
 	ignore=!([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
 
@@ -60,3 +63,5 @@
 	algorithm = patience
 [push]
 	default = simple
+[init]
+	templatedir = ~/.git_template
