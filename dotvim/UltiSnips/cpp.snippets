@@ -167,8 +167,8 @@ snippet map "std::map (map)"
 std::map<${1:key}, ${2:value}> map$0;
 endsnippet
 
-snippet vector "std::vector (v)"
-std::vector<${1:char}> v$0;
+snippet vec "std::vector (v)"
+std::vector<${1:char}> $0;
 endsnippet
 
 snippet tp "template <typename ..> (template)"
@@ -203,20 +203,42 @@ snippet sr "shared pointer"
 std::shared_ptr<${1}>${0}
 endsnippet
 
-snippet sc "static cast"
+snippet sc "static cast" w
 static_cast<${1}>(${VISUAL}${2})${0}
 endsnippet
 
-snippet rc "reinterpret cast"
+snippet rc "reinterpret cast" w
 reinterpret_cast<${1}>(${VISUAL}${2})${0}
 endsnippet
 
-snippet cc "const cast"
+snippet cc "const cast" w
 const_cast<${1}>(${VISUAL}${2})${0}
 endsnippet
 
-snippet dc "dynamic cast"
+snippet dc "dynamic cast" w
 dynamic_cast<${1}>(${VISUAL}${2})${0}
+endsnippet
+
+snippet ole "oden log error"
+oden_log_error("${1}"${2});${0}
+endsnippet
+
+snippet oli "oden log info"
+oden_log_info("${1}"${2});${0}
+endsnippet
+
+snippet tc "try+catch block"
+try {
+	${VISUAL}${1}
+} catch (${2}) {
+	${3}
+}${0}
+endsnippet
+
+snippet ct "try+catch block"
+catch (${1}) {
+	${2}
+}${0}
 endsnippet
 
 # vim:ft=snippets:
