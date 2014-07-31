@@ -863,6 +863,8 @@ vnoremap <leader>k :m-2<CR>gv
 " ;a for <esc>
 inoremap <c-h> <esc>o<BS>
 inoremap <c-o> <esc>o
+inoremap <c-space> <esc>A;<esc>
+noremap <c-space> A;<esc>
 noremap ;a <esc>
 inoremap ;a <esc>
 
