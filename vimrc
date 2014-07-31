@@ -367,9 +367,14 @@ function! g:DoUniteNonFuzzy()
     call unite#custom#source('file_rec/async,file/new', 'matchers', 'matcher_glob')
     exec "Unite -buffer-name=files file_rec/async file/new"
 endfunction
+function! UltiSnipsCallUnite()
+    Unite -immediately -no-empty -vertical -buffer-name=ultisnips ultisnips
+    return ''
+endfunction
 
 " Bindings
-nnoremap <silent><leader>l<tab> :<C-u>Unite -buffer-name=ultisnips -vertical ultisnips<CR>
+inoremap <silent><leader>l<tab> <C-R>=(pumvisible()? "\<LT>C-E>":"")<CR><C-R>=UltiSnipsCallUnite()<CR>
+nnoremap <silent><leader>l<tab> a<C-R>=(pumvisible()? "\<LT>C-E>":"")<CR><C-R>=UltiSnipsCallUnite()<CR>
 nnoremap <silent><leader>lr :call g:DoUniteFuzzy()<CR>
 nnoremap <silent><leader>lR :call g:DoUniteNonFuzzy()<CR>
 nnoremap <silent><leader>le :<C-u>Unite -buffer-name=files file_mru bookmark<CR>
