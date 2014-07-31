@@ -1,3 +1,4 @@
+" Initialization {{{ "
 "let g:pathogen_disabled = ['ctrlp', 'ctrlp-funky', 'vim-sneak', 'CoVim', 'neocomplcache', 'neocomplcache-ultisnips', 'python-mode', 'Rainbow-Parentheses-Improved-and2']
 let g:pathogen_disabled = ['ctrlp', 'ctrlp-funky', 'vim-sneak', 'CoVim', 'neocomplcache', 'neocomplcache-ultisnips', 'python-mode', 'vim-niji']
 
@@ -23,7 +24,9 @@ end
 if $SHELL =~ 'bin/fish'
     set shell=/bin/sh
 endif
+" }}} Initialization  "
 
+" Automatic commands {{{ "
 " Automatic commands
 if has("autocmd")
     augroup MyAutoCmd
@@ -48,7 +51,9 @@ if has("autocmd")
     au FilterWritePre * if &diff | setlocal nocursorline | endif
     au FilterWritePre * if &diff | IndentGuidesDisable | endif
 endif
+" }}} Automatic commands "
 
+" Custom commands {{{ "
 " :Configure to edit this file in a split window
 command! Configure edit $MYVIMRC
 command! SConfigure split $MYVIMRC
@@ -61,11 +66,16 @@ command! Cdpwd lcd %:p:h
 command! Q q
 command! Qall qall
 
+" Recover a file then write :DiffOrig to see
+" a vimdiff between the recovery and the original.
+" (sort of superceded by recover.vim)
+command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 
-"""""""""""""""""""""""""""""""""
-"" Basic settings
-""
+" Copy current file path into os buffer
+command! Ypwd let @+ = expand("%:p")
+" }}} Custom commands "
 
+" Basic settings {{{ "
 syntax enable           " Enables syntax highlighting with custom colors
 filetype plugin indent on " React on filetypes with plugins and syntax
 set scrolloff=4         " Minimum number of lines to display around cursor
@@ -111,8 +121,9 @@ set ttimeoutlen=50      " Faster twitchin' for everything
 
 " Make Vim able to edit crontab files again.
 set backupskip=/tmp/*,/private/tmp/*"
+" }}} Basic settings "
 
-" Completion ignores
+" Completion ignores {{{ "
 " KEEP THESE IN SYNC WITH UNITE IGNORES!
 " Never put .git in here!
 
@@ -151,11 +162,9 @@ set wildignore+=*/thirdparty/*
 
 " Ignore Debug and Release folders
 set wildignore+=*/Debug/*,*/Release/*
+" }}} Completion ignores "
 
-"""""""""""""""""""""""""""""""""""""""""""""
-"" Settings for specific filetypes
-""
-
+" Filetype specific settings {{{ "
 if has("autocmd")
     au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
     au FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2
@@ -168,9 +177,9 @@ if has("autocmd")
     au QuickFixCmdPost * nested cwindow | redraw!
     au FileType vim setlocal foldmethod=marker
 endif
+" }}} Filetype specific settings "
 
-
-" Backup stuff {{{ "
+" Backup settings {{{ "
 if !has("win32") && !has("win64")
     set backup
     set noswapfile
@@ -190,13 +199,9 @@ if !has("win32") && !has("win64")
         call mkdir(expand(&directory), "p", 0700)
     endif
 end
-" }}} Backup stuff "
+" }}} Backup settings "
 
-
-"""""""""""""""""""""""""""""""""""""""""""""
-"" Status line stuff
-""
-
+" Statusline settings {{{ "
 set laststatus=2	" always show status line
 
 " Returns current file encoding.
@@ -234,12 +239,9 @@ if version >= 700
   au InsertEnter * hi StatusLine gui=NONE guifg=#FFFFFF guibg=#9D3569
   au InsertLeave * hi StatusLine gui=NONE guifg=#d6d6d6 guibg=#602040
 endif
+" }}} Statusline settings "
 
-"""""""""""""""""""""""""""""""""""""""""""""
-"" Session information, what to remember. Used with :mksession to save
-"" and restore sessions as if you never quit vim. I used this before the
-"" times of never shutting down my PC. Still useful at work and on laptops.
-
+" Session information for :mksession {{{ "
 set viminfo='1000,f1,<1000,:500,@500,/500,!
 " '		Max number of previously edited files for which marks are
 " 		remembered
@@ -259,38 +261,12 @@ set ssop=blank,buffers,curdir,folds,help,options,tabpages,winsize,resize
 " tabpages	all tab pages instead of only the current one
 " winsize	window sizes (the windows inside vim)
 " resize		size of the vim window, lines and columns
+" }}} Session information for :mksession "
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Recovery, recover a file then write :DiffOrig to see
-"" a vimdiff between the recovery and the original.
-command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
+" Plugin settings {{{ "
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Spell checking
-""
-
-" Pressing <leader>ff will toggle and untoggle spell checking,
-" fe sets checking to english and fs sets checking to swedish.
-nnoremap <silent> <leader>ff :setlocal spell!<cr>
-nnoremap <silent> <leader>fs :setlocal spelllang=sv<cr>
-nnoremap <silent> <leader>fe :setlocal spelllang=en<cr>
-
-"go to next error
-nnoremap <leader>fn ]s
-"go to previous error
-nnoremap <leader>fp [s
-"add to spellfile
-nnoremap <leader>fa zg
-"suggest correct words
-nnoremap <leader>f? z=
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Fugitive settings and bindings
-"" https://github.com/tpope/vim-fugitive
-""
-
+" Fugitive {{{ "
+" https://github.com/tpope/vim-fugitive
 " Maps .. to go up one level from fugitive blob and tree views
 autocmd User fugitive
   \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
@@ -301,26 +277,23 @@ nnoremap <silent> <leader>.. :edit %:h<CR>
 
 " Automatically delete hidden fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
+" }}} Fugitive "
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"" vim-space configuration
+" vim-space {{{ "
 "" http://github.com/jfelchner/vim-space
 ""
 let g:space_no_buffers = 1
 let g:space_no_tabs = 1
+" }}} vim-space "
 
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Gist configuration
+" Gist {{{ "
 "" https://github.com/mattn/gist-vim
 ""
 let g:gist_clip_command = 'xsel --clipboard -i'
 let g:gist_detect_filetype = 1
+" }}} Gist "
 
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Unite configuration
-""
-
+" Unite {{{ "
 " Fuzzy match by default
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
@@ -447,20 +420,16 @@ function! s:unite_my_settings()
   inoremap <silent><buffer><expr> <C-k> unite#do_action('vsplit')
   nnoremap <silent><buffer><expr> <C-k> unite#do_action('vsplit')
 endfunction
+" }}} Unite "
 
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Tagbar configuration
-""
+" Tagbar {{{ "
 nnoremap <silent> <leader>tt :TagbarToggle<cr>
 nnoremap <silent> <leader>tg :TagbarOpen fj<cr>
 let g:tagbar_compact = 1
 let g:tagbar_width = 40
+" }}} Tagbar "
 
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Vim-latex bindings
-"" vim-latex.org
-""
-
+" Vim-latex {{{ "
 set grepprg=grep\ -nH\ $*
 
 let g:Tex_DefaultTargetFormat = 'pdf'
@@ -469,9 +438,9 @@ let g:Tex_SmartKeyQuote=0
 let g:Tex_MultipleCompileFormats = 'dvi,pdf'
 
 nnoremap <silent> <leader>,g :execute "!makeglossaries " . shellescape(expand('%:r'), 1)<CR>
+" }}} Vim-latex "
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
+" Rainbow-Parentheses-Improved-and2 {{{ "
 "" Rainbow-Parentheses-Improved-and2 settings
 "" http://github.com/vim-scripts/Rainbow-Parentheses-Improved-and2
 "" 
@@ -516,20 +485,16 @@ let g:rainbow_conf = {
     \}
 let g:rainbow_active = 1
 let g:rainbow_operators = 1
+" }}} Rainbow-Parentheses-Improved-and2 "
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"" togglelist settings
-"" https://github.com/xaimus/vim-togglelist
-"" 
+" vim-togglelist {{{ "
+" https://github.com/xaimus/vim-togglelist
 nnoremap <silent> <leader>A :Ltoggle<cr>
 nnoremap <silent> <leader>q :Ctoggle<cr>
+" }}} vim-togglelist "
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"" neocomplete.vim completion
-"" http://github.com/Shougo/neocomplete.vim
-"" 
+" Neocomplete {{{ "
+" http://github.com/Shougo/neocomplete.vim
 let g:neocomplete#enable_at_startup = 1
 
 if !exists('g:neocomplete#sources#omni#functions')
@@ -566,51 +531,9 @@ function! s:my_cr_function()
   " For no inserting <CR> key.
   "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 endfunction
+" }}} Neocomplete "
 
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"" neocomplcache completion
-"" http://github.com/Shougo/neocomplcache
-"" 
-" if !exists('g:neocomplcache_omni_functions')
-"     let g:neocomplcache_omni_functions = {}
-" endif
-" if !exists('g:neocomplcache_force_omni_patterns')
-"     let g:neocomplcache_force_omni_patterns = {}
-" endif
-
-"let g:neocomplcache_force_overwrite_completefunc = 1
-
-" let g:neocomplcache_enable_at_startup = 1
-" let g:neocomplcache_enable_fuzzy_completion = 1
-
-" inoremap <expr><C-g> neocomplcache#undo_completion()
-" inoremap <expr><C-l> neocomplcache#complete_common_string()
-
-" To complete in python with jedi-vim
-" let g:neocomplcache_force_omni_patterns['python'] = '[^. t].w*'
-" let g:neocomplcache_omni_functions['python'] = 'jedi#completions'
-
-" To complete in c++ with clang_complete
-" let g:neocomplcache_force_omni_patterns.c =
-"             \ '[^.[:digit:] *\t]\%(\.\|->\)'
-" let g:neocomplcache_force_omni_patterns.cpp =
-"             \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-" let g:neocomplcache_force_omni_patterns.objc =
-"             \ '[^.[:digit:] *\t]\%(\.\|->\)'
-" let g:neocomplcache_force_omni_patterns.objcpp =
-"             \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-" Fix <cr> behaviour
-" function! s:my_cr_function()
-"   return neocomplcache#smart_close_popup() . "\<CR>"
-"   " For no inserting <CR> key.
-"   "return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
-" endfunction
-" inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"" jedi-vim
-"" 
+" jedi-vim {{{ "
 " play nice with neocomplcache
 let g:jedi#auto_initialization = 1
 let g:jedi#auto_vim_configuration = 0
@@ -626,26 +549,14 @@ let g:jedi#show_call_signatures     = "1"
 
 autocmd FileType python setlocal omnifunc=jedi#complete
 autocmd FileType python let b:did_ftplugin = 1
+" }}} jedi-vim "
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"" vim-sparkup settings
-"" 
+" vim-sparkup {{{ "
 let g:sparkupExecuteMapping = '<leader>v'
 let g:sparkupNextMapping = '<leader>b'
+" }}} vim-sparkup "
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"" python-mode, ropevim settings
-"" 
-" let g:pymode_rope_extended_autocomplete=1
-" let g:pymode_rope_autoimport_modules = ["os", "django.*"]
-" let g:pymode_lint = 0
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Settings for misc plugins
-"" 
+" Misc {{{ "
 let g:gist_detect_filetype = 1
 
 let g:UltiSnipsEditSplit = 'horizontal'
@@ -664,10 +575,9 @@ endif
 let g:TagHighlightSettings['TagFileName'] = '.git/tags'
 
 let g:undotree_SetFocusWhenToggle = 1
+" }}} Misc "
 
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Settings for niji
-"" 
+" niji {{{ "
 "let g:niji_matching_filetypes = ['lisp', 'ruby', 'python', 'c', 'cpp', 'bash']
 "let g:niji_dark_colours = [184, 39, 170, 162, 154, 9, 10, 11, 13, 14, 15]
 
@@ -684,11 +594,9 @@ let g:niji_dark_colours = [['#111111', '#222222'],
                         \  ['#777777', '#888888'],
                         \  ['#999999', '#AAAAAA']]
 let g:niji_light_colours = g:niji_dark_colours
+" }}} niji "
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Settings for syntastic
-"" 
+" Syntastic {{{ "
 let g:syntastic_error_symbol = '✗✗'
 let g:syntastic_warning_symbol = '⚠⚠'
 let g:syntastic_style_error_symbol = '✠✠'
@@ -705,12 +613,9 @@ let g:syntastic_cpp_config_file = '.clang_complete'
 let g:syntastic_java_javac_config_file_enabled = 1
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+" }}} Syntastic "
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Settings for clang_complete
-"" 
-
+" clang_complete {{{ "
 let g:clang_complete_auto = 0
 let g:clang_auto_select = 0
 let g:clang_snippets = 1
@@ -718,27 +623,23 @@ let g:clang_snippets_engine = 'ultisnips'
 let g:clang_use_library = 1
 let g:clang_complete_macros = 1
 "let g:clang_user_options = '|| exit 0'
+" }}} clang_complete "
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Settings for vim-indent-guides
-"" 
+" vim-indent-guides {{{ "
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_enable_on_vim_startup = 1
+" }}} vim-indent-guides "
 
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Settings for haskellmode-vim
-"" 
+" haskellmode-vim {{{ "
 let g:haddock_browser = "/usr/bin/google-chrome"
 let g:ghc = "/usr/bin/ghc"
+" }}} haskellmode-vim "
 
+" }}} Plugin settings "
 
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"" In visual mode you press * or # to search for the current selection
-"" 
-
+" VisualSearch {{{ "
 vnoremap <silent> * :call VisualSearch('f')<CR>
 vnoremap <silent> # :call VisualSearch('b')<CR>
 
@@ -767,6 +668,7 @@ function! VisualSearch(direction) range
     let @/ = l:pattern
     let @" = l:saved_reg
 endfunction
+" }}} VisualSearch "
 
 " Highlight Word {{{ "
 "
@@ -809,12 +711,9 @@ nnoremap <silent> <leader>4 :call HiInterestingWord(4)<cr>
 nnoremap <silent> <leader>5 :call HiInterestingWord(5)<cr>
 nnoremap <silent> <leader>6 :call HiInterestingWord(6)<cr>
 
-hi def InterestingWord1 guifg=#000000 ctermfg=16 guibg=#ffa724 ctermbg=214
-hi def InterestingWord2 guifg=#000000 ctermfg=16 guibg=#aeee00 ctermbg=154
-hi def InterestingWord3 guifg=#000000 ctermfg=16 guibg=#8cffba ctermbg=121
-hi def InterestingWord4 guifg=#000000 ctermfg=16 guibg=#b88853 ctermbg=137
-hi def InterestingWord5 guifg=#000000 ctermfg=16 guibg=#ff9eb8 ctermbg=211
-hi def InterestingWord6 guifg=#000000 ctermfg=16 guibg=#ff2c4b ctermbg=195
+" Create highlight definitions such as:
+" hi def InterestingWord1 guifg=#000000 ctermfg=16 guibg=#ffa724 ctermbg=214
+" hi def InterestingWord2 guifg=#000000 ctermfg=16 guibg=#aeee00 ctermbg=154
 " }}} Highlight Word "
 
 " Uppercase word mapping {{{ "
@@ -844,54 +743,7 @@ hi def InterestingWord6 guifg=#000000 ctermfg=16 guibg=#ff2c4b ctermbg=195
 inoremap <C-m> <esc>mzgUiw`za
 " }}} Uppercase word mapping "
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Opens a preview window which looks at the ctags definition
-"" of whichever word your cursor is currently over. Sweet
-"" 
-
-"    :func! PreviewWord()
-"    :  if &previewwindow			" don't do this in the preview window
-"    :    return
-"    :  endif
-"    :  let w = expand("<cword>")		" get the word under cursor
-"    :  if w =~ '\a'			" if the word contains a letter
-"    :
-"    :    " Delete any existing highlight before showing another tag
-"    :    silent! wincmd P			" jump to preview window
-"    :    if &previewwindow			" if we really get there...
-"    :      match none			" delete existing highlight
-"    :      wincmd p			" back to old window
-"    :    endif
-"    :
-"    :    " Try displaying a matching tag for the word under the cursor
-"    :    try
-"    :       exe "ptag " . w
-"    :    catch
-"    :      return
-"    :    endtry
-"    :
-"    :    silent! wincmd P			" jump to preview window
-"    :    if &previewwindow		" if we really get there...
-"    :	 if has("folding")
-"    :	   silent! .foldopen		" don't want a closed fold
-"    :	 endif
-"    :	 call search("$", "b")		" to end of previous line
-"    :	 let w = substitute(w, '\\', '\\\\', "")
-"    :	 call search('\<\V' . w . '\>')	" position cursor on match
-"    :	 " Add a match highlight to the word at this position
-"    :      hi previewWord term=bold ctermbg=green guibg=green
-"    :	 exe 'match previewWord "\%' . line(".") . 'l\%' . col(".") . 'c\k*"'
-"    :      wincmd p			" back to old window
-"    :    endif
-"    :  endif
-"    :endfun
-"
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Keymaps
-""
+" Keymaps {{{ "
 
 " Toggle colorcolumn TODO make this save previous value
 " instead of using 79 all the time.
@@ -934,6 +786,7 @@ nmap <Down> 3<C-e>
 nmap <Left> 10zh
 nmap <Right> 10zl
 
+" Mark current word (as with * but without movement)
 " Switch HL / ^$ for faster movement
 noremap H ^
 noremap L $
@@ -944,7 +797,6 @@ noremap $ L
 noremap ` '
 noremap ' `
 
-" Mark current word (as with * but without movement)
 nnoremap <silent> <leader>8 :let stay_star_view = winsaveview()<cr>*:call winrestview(stay_star_view)<cr>
 
 " Easier linewise reselection of what you just pasted.
@@ -992,7 +844,6 @@ nmap <leader>p "+p
 nmap <leader>P "+P
 
 " Copy current file path into os buffer
-command! Ypwd let @+ = expand("%:p")
 nnoremap <silent> <leader>fy :Ypwd<cr>
 
 " Save, quit, etc
@@ -1048,7 +899,27 @@ xmap <F1> <esc>
 smap <F1> <esc>
 lmap <F1> <esc>
 
+" Spell checking mappings {{{ "
+" Pressing <leader>ff will toggle and untoggle spell checking,
+" fe sets checking to english and fs sets checking to swedish.
+nnoremap <silent> <leader>ff :setlocal spell!<cr>
+nnoremap <silent> <leader>fs :setlocal spelllang=sv<cr>
+nnoremap <silent> <leader>fe :setlocal spelllang=en<cr>
+
+"go to next error
+nnoremap <leader>fn ]s
+"go to previous error
+nnoremap <leader>fp [s
+"add to spellfile
+nnoremap <leader>fa zg
+"suggest correct words
+nnoremap <leader>f? z=
+" }}} Spell checking mappings "
+" }}} Keymaps "
+
+" Machine specific settings loading {{{ "
 " Load local .vimrc for machine-specific options
 if filereadable(glob("~/.vimrc.local")) 
     source ~/.vimrc.local
 endif
+" }}} Machine specific settings loading "
