@@ -845,21 +845,12 @@ nnoremap <silent> <C-A> :tabprevious<CR>
 nnoremap <silent> <C-S> :tabnext<CR>
 nnoremap <silent> <C-Z> :tabnew<CR>
 
-" make window 40 chars wide, useful for CSS files
-nnoremap <silent> <leader>4 :vertical resize 40<cr>
-
 " windowing
 nnoremap <silent> z<cr> :call windowing#minimize_vertically()<cr>
 
 " change buffers with ctrl-n and ctrl-p
 nnoremap <silent> <C-p> :BufSurfBack<cr>
 nnoremap <silent> <C-n> :BufSurfForward<cr>
-
-" Shows the ctags definition of keyword under
-" the cursor in a preview window
-"map <C-[> :call PreviewWord()<cr>
-" Closes the preview window
-"map <leader>[ <C-W>z
 
 " Use up and down keys to scroll up and down
 nmap <Up> 3<C-y>
