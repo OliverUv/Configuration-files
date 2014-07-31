@@ -1014,8 +1014,8 @@ nnoremap <leader>gc :Gcommit -m '
 nnoremap <leader>gA :Git checkout -- %
 
 " Misc mappings
-nnoremap <leader><space> i <esc>la <esc>h
-nnoremap <silent> <leader>< :noh<cr>
+nnoremap <leader>i i <esc>la <esc>h
+nnoremap <silent> <leader><space> :noh<cr>
 nnoremap <silent> <leader>e :UltiSnipsEdit<cr>
 nnoremap <silent> <leader>u :UndotreeToggle<cr>
 nnoremap <silent> <leader>m :w<cr>:make<cr>
