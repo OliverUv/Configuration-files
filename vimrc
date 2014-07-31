@@ -109,6 +109,9 @@ set noea                 " prevent equalizing of split sizes on closed split
 set fillchars=fold:\ ,vert:\  " fill characters for fold lines and lines between vsplits
 set ttimeoutlen=50      " Faster twitchin' for everything
 
+" Make Vim able to edit crontab files again.
+set backupskip=/tmp/*,/private/tmp/*"
+
 " Completion ignores
 " KEEP THESE IN SYNC WITH UNITE IGNORES!
 " Never put .git in here!
@@ -163,8 +166,31 @@ if has("autocmd")
     au FileType gitcommit setlocal nolist
     au FileType {make,gitconfig} set noexpandtab sw=4
     au QuickFixCmdPost * nested cwindow | redraw!
+    au FileType vim setlocal foldmethod=marker
 endif
 
+
+" Backup stuff {{{ "
+if !has("win32") && !has("win64")
+    set backup
+    set noswapfile
+
+    set undodir=/var/tmp/vi.recover.$USER/undo//     " undo files
+    set backupdir=/var/tmp/vi.recover.$USER/backup// " backups
+    set directory=/var/tmp/vi.recover.$USER/swap//   " swap files
+
+    " Make those folders automatically if they don't already exist.
+    if !isdirectory(expand(&undodir))
+        call mkdir(expand(&undodir), "p", 0700)
+    endif
+    if !isdirectory(expand(&backupdir))
+        call mkdir(expand(&backupdir), "p", 0700)
+    endif
+    if !isdirectory(expand(&directory))
+        call mkdir(expand(&directory), "p", 0700)
+    endif
+end
+" }}} Backup stuff "
 
 
 """""""""""""""""""""""""""""""""""""""""""""
