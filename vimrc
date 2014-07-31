@@ -945,6 +945,9 @@ nnoremap <silent> <leader>u :UndotreeToggle<cr>
 nnoremap <silent> <leader>m :w<cr>:make<cr>
 nnoremap <silent> <leader>a :sign unplace *<cr>:Lclose<cr>
 
+" Clean trailing whitespace
+nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
+
 " Accidentally pressing F1 is to press ESC
 map <F1> <esc>
 imap <F1> <esc>
