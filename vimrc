@@ -934,6 +934,22 @@ nmap <Down> 3<C-e>
 nmap <Left> 10zh
 nmap <Right> 10zl
 
+" Switch HL / ^$ for faster movement
+noremap H ^
+noremap L $
+noremap ^ H
+noremap $ L
+
+" Switch ` and '
+noremap ` '
+noremap ' `
+
+" Mark current word (as with * but without movement)
+nnoremap <silent> <leader>8 :let stay_star_view = winsaveview()<cr>*:call winrestview(stay_star_view)<cr>
+
+" Easier linewise reselection of what you just pasted.
+nnoremap <leader>V V`]
+
 " Bash-like keys for the command line
 cnoremap <C-A>	<Home>
 cnoremap <C-E>	<End>
