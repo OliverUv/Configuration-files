@@ -244,5 +244,14 @@ hi link gitcommitSummary Conditional
 hi link gitcommitOverflow Error
 hi gitcommitFile guifg=#e8e8e8 guibg=NONE
 
-" lots more available here:
+" Highlights for interesting words, see
+" https://bitbucket.org/sjl/dotfiles/src/tip/vim/vimrc
+hi def InterestingWord1 guifg=#000000 guibg=#ffa724
+hi def InterestingWord2 guifg=#000000 guibg=#C6ACC6
+hi def InterestingWord3 guifg=#000000 guibg=#b88853
+hi def InterestingWord4 guifg=#000000 guibg=#A77990
+hi def InterestingWord5 guifg=#000000 guibg=#79A9A9
+hi def InterestingWord6 guifg=#000000 guibg=#acdd82
+
+" lots more tiwddling available here:
 " https://github.com/altercation/vim-colors-solarized/commit/7a7e5c8818d717084730133ed6b84a3ffc9d0447
