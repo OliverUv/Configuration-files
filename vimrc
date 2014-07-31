@@ -632,6 +632,7 @@ if ! exists('g:TagHighlightSettings')
 endif
 let g:TagHighlightSettings['TagFileName'] = '.git/tags'
 
+let g:undotree_SetFocusWhenToggle = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "" Settings for niji
