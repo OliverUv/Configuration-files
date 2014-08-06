@@ -740,7 +740,7 @@ nnoremap <silent> <leader>6 :call HiInterestingWord(6)<cr>
 "
 " Note that this will overwrite the contents of the z mark.  I never use it, but
 " if you do you'll probably want to use another mark.
-inoremap <C-m> <esc>mzgUiw`za
+inoremap <c-b> <esc>mzgUiw`za
 " }}} Uppercase word mapping "
 
 " Keymaps {{{ "
