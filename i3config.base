@@ -12,7 +12,7 @@
 
 set $mod Mod1
 
-set $quickswitch /home/oliver/Projects/quickswitch-for-i3/quickswitch.py
+set $quickswitch /home/oliver/Projects/quickswitch-for-i3/quickswitch.py --dmenu "dmenu -i -z -l 20 -fn 'DejaVu Sans 10' -sb '#E17800' -sf '#000000' -h 23"
 
 # font for window titles. ISO 10646 = Unicode
 #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -45,9 +45,9 @@ bindsym $mod+Return exec /home/oliver/bin/color_urxvt
 bindsym $mod+Shift+W kill
 
 # start dmenu
-bindsym $mod+d exec dmenu_run -i -fn 'DejaVu Sans 10' -sb '#E17800' -sf '#000000' -h 23
+bindsym $mod+d exec dmenu_run -i -z -fn 'DejaVu Sans 10' -sb '#E17800' -sf '#000000' -h 23
 # start dmenu for .desktop entries
-bindsym $mod+Shift+D exec i3-dmenu-desktop --dmenu "dmenu -i -fn 'DejaVu Sans 10' -sb '#E17800' -sf '#000000' -h 23"
+bindsym $mod+Shift+D exec i3-dmenu-desktop --dmenu "dmenu -i -z -fn 'DejaVu Sans 10' -sb '#E17800' -sf '#000000' -h 23"
 
 # start apps
 bindsym $mod+Control+p exec bash -c 'scrot $HOME/screenshot_$(date +"%F_-_%H-%M-%S").png'
@@ -96,10 +96,10 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout default
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+z floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+z focus mode_toggle
 
 # focus the parent container
 bindsym $mod+u focus parent
@@ -142,8 +142,10 @@ bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
 
 bindsym $mod+m exec $quickswitch -e
+bindsym $mod+Shift+M exec $quickswitch -ej
 bindsym $mod+n exec $quickswitch -n
 bindsym $mod+p exec $quickswitch -p
+bindsym $mod+space exec $quickswitch
 
 # move focused container to workspace
 bindsym $mod+Shift+exclam move container to workspace number 1
