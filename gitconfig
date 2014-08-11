@@ -19,7 +19,7 @@
         c = checkout
 	x = commit -m
 	xa = commit -a -m
-	master = checkout master
+	m = checkout master
 	hub = push origin
 	buh = pull origin
         sm = submodule
