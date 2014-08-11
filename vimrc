@@ -875,6 +875,7 @@ nnoremap <silent> <leader>gw :Gwrite<cr>
 nnoremap <silent> <leader>gh :Git hub<cr> 
 nnoremap <silent> <leader>gH :Git buh<cr> 
 nnoremap <silent> <leader>gp :Git push 
+nnoremap <leader>gm :Gmove %:h
 nnoremap <leader>gl :Glog 
 nnoremap <leader>gg :Ggrep 
 nnoremap <leader>gc :Gcommit -m '
