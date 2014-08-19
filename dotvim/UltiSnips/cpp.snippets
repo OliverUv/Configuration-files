@@ -73,7 +73,7 @@ typedef ${1:int} ${2:MyCustomType};
 endsnippet
 
 snippet wh "while loop"
-while (${1:/* condition */}) {
+while (${1}) {
 	${VISUAL}${0}
 }
 endsnippet
@@ -81,7 +81,7 @@ endsnippet
 snippet do "do...while loop (do)"
 do {
 	${VISUAL}${0}
-} while (${1:/* condition */});
+} while (${1});
 endsnippet
 
 snippet fprintf "fprintf ..."
@@ -89,25 +89,25 @@ fprintf(${1:stderr}, "${2:%s}\n"${2/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$3${2/([^%]|%
 endsnippet
 
 snippet if "if .. (if)"
-if (${1:/* condition */}) {
-	${VISUAL}${0}
-}
+if (${1}) {
+	${VISUAL}${2}
+}${0}
 endsnippet
 
 snippet el "else .. (else)"
 else {
-	${VISUAL}${0}
-}
+	${VISUAL}${1}
+}${0}
 endsnippet
 
 snippet eli "else if .. (eli)"
-else if (${1:/* condition */}) {
-	${VISUAL}${0}
-}
+else if (${1}) {
+	${VISUAL}${2}
+}${0}
 endsnippet
 
 snippet ife "if .. else (ife)"
-if (${1:/* condition */}) {
+if (${1}) {
 	${2}
 } else {
 	${3:/* else */}
@@ -173,8 +173,8 @@ snippet map "std::map (map)"
 std::map<${1:key}, ${2:value}> map$0;
 endsnippet
 
-snippet vec "std::vector (v)"
-std::vector<${1:char}> $0;
+snippet tv "std::vector (v)" w
+std::vector<${VISUAL}${1}> ${0}
 endsnippet
 
 snippet tp "template <typename ..> (template)"
@@ -201,12 +201,12 @@ case ${1}:
 ${0}
 endsnippet
 
-snippet ur "unique pointer"
-std::unique_ptr<${1}>${0}
+snippet ur "unique pointer" w
+std::unique_ptr<${VISUAL}${1}>${0}
 endsnippet
 
-snippet sr "shared pointer"
-std::shared_ptr<${1}>${0}
+snippet sr "shared pointer" w
+std::shared_ptr<${VISUAL}${1}>${0}
 endsnippet
 
 snippet sc "static cast" w
@@ -233,6 +233,10 @@ snippet oli "oden log info"
 oden_log_info("${1}"${2});${0}
 endsnippet
 
+snippet olw "oden log warning"
+oden_log_warning("${1}"${2});${0}
+endsnippet
+
 snippet tc "try+catch block"
 try {
 	${VISUAL}${1}
@@ -241,10 +245,14 @@ try {
 }${0}
 endsnippet
 
-snippet ct "try+catch block"
+snippet ct "catch block"
 catch (${1}) {
 	${2}
 }${0}
+endsnippet
+
+snippet ts "type std::size_t" w
+std::size_t${0}
 endsnippet
 
 # vim:ft=snippets:
