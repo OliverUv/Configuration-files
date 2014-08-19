@@ -254,3 +254,6 @@
 [submodule "dotvim/bundle/rainbow"]
 	path = dotvim/bundle/rainbow
 	url = https://github.com/luochen1990/rainbow.git
+[submodule "dotvim/bundle/switch.vim"]
+	path = dotvim/bundle/switch.vim
+	url = https://github.com/AndrewRadev/switch.vim.git

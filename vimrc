@@ -637,6 +637,9 @@ let g:haddock_browser = "/usr/bin/google-chrome"
 let g:ghc = "/usr/bin/ghc"
 " }}} haskellmode-vim "
 
+" switch.vim {{{ "
+" }}} haskellmode-vim "
+
 " }}} Plugin settings "
 
 " VisualSearch {{{ "
@@ -888,6 +891,7 @@ nnoremap <silent> <leader>e :UltiSnipsEdit<cr>
 nnoremap <silent> <leader>u :UndotreeToggle<cr>
 nnoremap <silent> <leader>m :w<cr>:make<cr>
 nnoremap <silent> <leader>a :sign unplace *<cr>:Lclose<cr>
+nnoremap <silent> - mz:<c-u>:Switch<cr><esc>`z
 
 " Clean trailing whitespace
 nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
