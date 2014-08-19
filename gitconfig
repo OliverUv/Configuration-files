@@ -10,8 +10,7 @@
 	unstage = reset HEAD --
 	undo = checkout --
 	last = log -l HEAD
-        olog = log --oneline
-        oo = log --oneline -15
+        oo = log --oneline -15 --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit
 	amend = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
 	s = status
 	a = add
