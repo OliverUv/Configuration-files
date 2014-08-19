@@ -13,3 +13,5 @@ tags
 *.taghl
 #core dumps
 core
+#valgrind/callgrind
+callgrind.out.*
