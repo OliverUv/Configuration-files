@@ -638,7 +638,21 @@ let g:ghc = "/usr/bin/ghc"
 " }}} haskellmode-vim "
 
 " switch.vim {{{ "
-" }}} haskellmode-vim "
+autocmd FileType cpp let b:switch_definitions =
+    \ [
+    \   g:switch_builtins.cpp_pointer,
+    \   g:switch_builtins.ampersands,
+    \   g:switch_builtins.capital_true_false,
+    \   g:switch_builtins.true_false,
+    \
+    \   {
+    \     ' & ': ' * ',
+    \     ' \* ': ' & '
+    \   },
+    \
+    \   g:switch_builtins.rspec_should,
+    \ ]
+" }}} switch.vim "
 
 " }}} Plugin settings "
 
