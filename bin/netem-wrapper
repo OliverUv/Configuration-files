@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# Usages of tc here: https://calomel.org/network_loss_emulation.html
+MINARGS=2
+E_BADARGS=65
+if [ $# -lt $MINARGS ] ; then
+    cat <<-EOF
+    Usage: $(basename $0) device options
+    Available options:
+    off      -  turn off traffic control for the chosen device
+    show     -  show current traffic control parameters for the chosen device
+    shitnet  -  traffic control that emulates a half-shitty network
+
+EOF
+
+    exit $E_BADARGS
+fi
+
+if [ $2 == 'off' ] ; then
+    sudo tc qdisc del dev "$1" root netem
+    exit 0
+fi
+
+if [ $2 == 'show' ] ; then
+    tc qdisc show dev "$1"
+    exit 0
+fi
+
+if [ $2 == 'shitnet' ] ; then
+    sudo tc qdisc add dev "$1" root netem delay 200ms 40ms 25% loss 15.3% 25% duplicate 1% corrupt 0.1% reorder 25% 50%
+    exit 0
+fi
+
+DEVICE=$1
+
+shift
+
+sudo tc qdisc add dev "$DEVICE" root netem $@
