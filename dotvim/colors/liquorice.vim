@@ -71,7 +71,7 @@ hi TabLine      gui=NONE guifg=#8a8a8a guibg=#121212
 hi TabLineSel   gui=NONE guifg=#d6d6d6 guibg=#602040
 
 " Diff
-hi DiffText     gui=NONE guifg=NONE guibg=#1f1500
+hi DiffText     gui=BOLD guifg=NONE guibg=#1f1500
 hi DiffChange   gui=NONE guifg=#f0f0f0 guibg=#573700
 hi DiffDelete   gui=NONE guifg=#701D1D guibg=#701D1D
 hi DiffAdd      gui=NONE guifg=NONE guibg=#064D08
