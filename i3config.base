@@ -165,13 +165,21 @@ bindsym $mod+Shift+C reload
 bindsym $mod+Shift+R restart
 
 # Change system volume with media keys
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
-bindsym XF86AudioMute exec amixer -q set Master toggle
+# bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
+# bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
+# bindsym XF86AudioMute exec amixer -q set Master toggle
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -- -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
+bindsym $mod+F10 exec pactl set-sink-mute 0 toggle
+bindsym $mod+F11 exec pactl set-sink-volume 0 -- -5%
+bindsym $mod+F12 exec pactl set-sink-volume 0 +5%
 
 # Change brightness with media keys
-bindsym XF86KbdBrightnessUp exec xbacklight -inc 15
 bindsym XF86KbdBrightnessDown exec xbacklight -dec 15
+bindsym XF86KbdBrightnessUp exec xbacklight -inc 15
+bindsym $mod+F5 exec xbacklight -dec 15
+bindsym $mod+F6 exec xbacklight -inc 15
 
 # Scratchpad
 bindsym $mod+Shift+minus move scratchpad
