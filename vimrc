@@ -179,6 +179,15 @@ if has("autocmd")
 endif
 " }}} Filetype specific settings "
 
+" Extra syntax groups and keywords {{{ "
+au Syntax cpp call MyCppadd()
+function MyCppadd()
+  syn keyword cMyItem contained TODO FIXME CLEAN PERF
+  syn cluster cCommentGroup add=cMyItem
+  hi link cMyItem Todo
+endfun
+" }}} Extra syntax groups and keywords "
+
 " Backup settings {{{ "
 if !has("win32") && !has("win64")
     set backup
