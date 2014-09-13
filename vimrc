@@ -861,11 +861,11 @@ noremap ;a <esc>
 inoremap ;a <esc>
 
 "Like D for yanking
-map Y y$
+noremap Y y$
 
 " Copy/Paste with os buffer
-map <leader>y "+y
-map <leader>Y "+y$
+noremap <leader>y "+y
+noremap <leader>Y "+y$
 nmap <leader>p "+p
 nmap <leader>P "+P
 
