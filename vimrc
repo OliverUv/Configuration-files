@@ -92,6 +92,7 @@ set number              " Show absolute line number of current line
 set wrap                " Wrap text
 "set list               " Show listchars
 set ttyfast             " 'Smooth' scrolling
+set mouse=a             " Enable mouse in terminals that support it
 set showmatch           " Briefly display matching brackets when inserting such.
 set incsearch           " Incremental searching as soon as typing begins.
 set ignorecase          " Ignores case when searching
