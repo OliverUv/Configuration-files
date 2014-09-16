@@ -177,6 +177,12 @@ if has("autocmd")
     au FileType {make,gitconfig} set noexpandtab sw=4
     au QuickFixCmdPost * nested cwindow | redraw!
     au FileType vim setlocal foldmethod=marker
+
+    " Autocommands for fswitch.vim
+    au BufEnter *.cpp let b:fswitchdst = 'h'
+    au BufEnter *.cpp let b:fswitchlocs = 'reg:/src/include/,reg:/src.*/include/,reg:|src|include/**|,../include'
+    au BufEnter *.h let b:fswitchdst = 'cpp,c'
+    au BufEnter *.h let b:fswitchlocs = 'reg:/include/src/,reg:/include.*/src/,reg:/include.*/src/,../src'
 endif
 " }}} Filetype specific settings "
 
