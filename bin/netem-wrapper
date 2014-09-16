@@ -25,8 +25,18 @@ if [ $2 == 'show' ] ; then
     exit 0
 fi
 
+if [ $2 == 'iq' ] ; then
+    sudo tc qdisc add dev "$1" root netem delay 197ms 18ms 25%
+    exit 0
+fi
+
+if [ $2 == 'semishitnet' ] ; then
+    sudo tc qdisc add dev "$1" root netem delay 100ms 20ms 25% loss 5% duplicate 0.1% corrupt 0.1% reorder 90% 50%
+    exit 0
+fi
+
 if [ $2 == 'shitnet' ] ; then
-    sudo tc qdisc add dev "$1" root netem delay 200ms 40ms 25% loss 15.3% 25% duplicate 1% corrupt 0.1% reorder 25% 50%
+    sudo tc qdisc add dev "$1" root netem delay 200ms 40ms 25% loss 15.3% 25% duplicate 1% corrupt 0.1% reorder 5% 50%
     exit 0
 fi
 
