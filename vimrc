@@ -27,7 +27,6 @@ endif
 " }}} Initialization  "
 
 " Automatic commands {{{ "
-" Automatic commands
 if has("autocmd")
     augroup MyAutoCmd
 
@@ -73,6 +72,7 @@ command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | d
 
 " Copy current file path into os buffer
 command! Ypwd let @+ = expand("%:p")
+
 " }}} Custom commands "
 
 " Basic settings {{{ "
@@ -182,7 +182,7 @@ if has("autocmd")
     au BufEnter *.cpp let b:fswitchdst = 'h'
     au BufEnter *.cpp let b:fswitchlocs = 'reg:/src/include/,reg:/src.*/include/,reg:|src|include/**|,../include'
     au BufEnter *.h let b:fswitchdst = 'cpp,c'
-    au BufEnter *.h let b:fswitchlocs = 'reg:/include/src/,reg:/include.*/src/,reg:/include.*/src/,../src'
+    au BufEnter *.h let b:fswitchlocs = 'reg:|include|src/**|,reg:|include.*|src/**|,../src'
 endif
 " }}} Filetype specific settings "
 
@@ -889,6 +889,7 @@ nnoremap <silent> <leader>D :qa<cr>
 nnoremap <silent> <leader>h :FSHere<cr>
 nnoremap <silent> <leader>hh :FSHere<cr>
 nnoremap <silent> <leader>hu :FSSplitAbove<cr>
+nnoremap <silent> <leader>hb :FSSplitBelow<cr>
 nnoremap <silent> <leader>hl :FSSplitLeft<cr>
 " Maximize buffer toggling
 nnoremap <silent> <leader><tab> :MaximizerToggle<cr>
