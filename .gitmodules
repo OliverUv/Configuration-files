@@ -257,3 +257,6 @@
 [submodule "dotvim/bundle/switch.vim"]
 	path = dotvim/bundle/switch.vim
 	url = https://github.com/AndrewRadev/switch.vim.git
+[submodule "dotvim/bundle/copycppdectoimp.vim"]
+	path = dotvim/bundle/copycppdectoimp.vim
+	url = https://github.com/vim-scripts/copycppdectoimp.vim.git
