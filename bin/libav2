@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+MINARGS=1
+E_BADARGS=65
+if [ $# -lt $MINARGS ] ; then
+    cat <<-EOF
+    Usage: $(basename $0) file [codec] [file extension]
+    codec defaults to mpeg2video
+    extension defaults to avi
+
+EOF
+
+    exit $E_BADARGS
+fi
+
+filename=$(basename "$1")
+# next line is left for reference when one wants the extension of files
+extension="${filename##*.}"
+filename="${filename%.*}"
+
+codec="mpeg2video"
+if [ $# -gt 1 ] ; then
+    codec=$2
+fi
+
+extension="avi"
+if [ $# -gt 2 ] ; then
+    extension=$3
+fi
+
+avconv -i $1 -c:v $codec -an "$filename-$codec.$extension"
