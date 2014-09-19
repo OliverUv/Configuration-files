@@ -849,6 +849,9 @@ inoremap <expr> <c-k> ("\<C-p>")
 " Indent the entire file
 nnoremap <leader>= gg=G`'
 
+" Move cpp // comment at end of line to line above
+nnoremap <leader>cu $F/hhr<cr>kddpk$
+
 " Drag current line(s) up/down
 noremap <leader>j :m+<CR>
 noremap <leader>k :m-2<CR>
