@@ -188,7 +188,7 @@ endif
 
 " Extra syntax groups and keywords {{{ "
 au Syntax cpp call MyCppadd()
-function MyCppadd()
+function! MyCppadd()
   syn keyword cMyItem contained TODO FIXME CLEAN PERF
   syn cluster cCommentGroup add=cMyItem
   hi link cMyItem Todo
@@ -849,6 +849,19 @@ inoremap <expr> <c-k> ("\<C-p>")
 " Indent the entire file
 nnoremap <leader>= gg=G`'
 
+" Sort in paragraph
+nnoremap <leader>ms Vip:sort<cr>
+
+" Edit register
+function! EditRegister()
+    call inputsave()
+    let l:reg = input("Enter a register: ")
+    call inputrestore()
+    return "let @".l:reg." = ".string(getreg(l:reg))
+endfunction
+
+nnoremap <leader>eq :<C-U><C-R>=EditRegister()<CR><C-E><C-F><Left>
+
 " Move cpp // comment at end of line to line above
 nnoremap <leader>cu $F/hhr<cr>kddpk$
 
@@ -921,9 +934,9 @@ nnoremap <leader>gA :Git checkout -- %
 " Misc mappings
 nnoremap <leader>i i <esc>la <esc>h
 nnoremap <silent> <leader><space> :noh<cr>
-nnoremap <silent> <leader>e :UltiSnipsEdit<cr>
+nnoremap <silent> <leader>ee :UltiSnipsEdit<cr>
 nnoremap <silent> <leader>u :UndotreeToggle<cr>
-nnoremap <silent> <leader>m :w<cr>:make<cr>
+nnoremap <silent> <leader>M :w<cr>:make<cr>
 nnoremap <silent> <leader>a :sign unplace *<cr>:Lclose<cr>
 nnoremap <silent> - mz:<c-u>:Switch<cr><esc>`z
 
