@@ -198,7 +198,6 @@ endfun
 " Backup settings {{{ "
 if !has("win32") && !has("win64")
     set backup
-    set noswapfile
 
     set undodir=/var/tmp/vi.recover.$USER/undo//     " undo files
     set backupdir=/var/tmp/vi.recover.$USER/backup// " backups
