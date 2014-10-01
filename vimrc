@@ -654,12 +654,23 @@ let g:ghc = "/usr/bin/ghc"
 " }}} haskellmode-vim "
 
 " switch.vim {{{ "
-autocmd FileType cpp let b:switch_definitions =
+" These switches apply to all filetypes
+let g:switch_custom_definitions = 
+    \ [
+    \   ['&&', '||'],
+    \   {
+    \     '\CTrue':  'False',
+    \     '\CFalse': 'True',
+    \   },
+    \   {
+    \     '\Ctrue':  'false',
+    \     '\Cfalse': 'true',
+    \   },
+    \   ['width', 'height'],
+    \ ]
+autocmd FileType cpp let b:switch_custom_definitions =
     \ [
     \   g:switch_builtins.cpp_pointer,
-    \   g:switch_builtins.ampersands,
-    \   g:switch_builtins.capital_true_false,
-    \   g:switch_builtins.true_false,
     \
     \   {
     \     ' & ': ' * ',
