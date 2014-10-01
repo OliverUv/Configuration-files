@@ -314,7 +314,7 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 
 " Fuzzy matching for plugins not using matcher_default as filter
-call unite#custom#source('outline,line,grep,session', 'filters', ['matcher_fuzzy'])
+call unite#custom#source('outline,line,grep,session', 'matchers', ['matcher_fuzzy'])
 
 " Ignore some things
 " KEEP THESE IN SYNC WITH WILDIGNORE!
@@ -932,8 +932,8 @@ nnoremap <silent> <leader>gs :Gstatus<cr>
 nnoremap <silent> <leader>gd :Gdiff<cr> 
 nnoremap <silent> <leader>gb :Gblame<cr> 
 nnoremap <silent> <leader>gw :Gwrite<cr> 
-nnoremap <silent> <leader>gh :Git hub<cr> 
-nnoremap <silent> <leader>gH :Git buh<cr> 
+nnoremap <silent> <leader>gh :Gpush<cr> 
+nnoremap <silent> <leader>gH :Gpull<cr> 
 nnoremap <silent> <leader>gp :Git push 
 nnoremap <leader>gm :Gmove %:h
 nnoremap <leader>gl :Glog 
