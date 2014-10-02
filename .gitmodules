@@ -260,3 +260,6 @@
 [submodule "dotvim/bundle/copycppdectoimp.vim"]
 	path = dotvim/bundle/copycppdectoimp.vim
 	url = https://github.com/vim-scripts/copycppdectoimp.vim.git
+[submodule "dotvim/bundle/unite-tabpagebuffer.vim"]
+	path = dotvim/bundle/unite-tabpagebuffer.vim
+	url = https://github.com/Shougo/tabpagebuffer.vim.git
