@@ -339,16 +339,17 @@ let g:unite_source_rec_max_cache_files = 0
 call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
             \ 'max_candidates', 0)
 
-" Situate on bottom or right by default
-let g:unite_split_rule = "botright"
 " Keep track of yanks
 let g:unite_source_history_yank_enable = 1
 " Prettier prompt
-let g:unite_prompt = '» '
-" Faster update time after keypresses
-let g:unite_update_time = 200
-" Always start in insert mode
-let g:unite_enable_start_insert = 1
+call unite#custom#profile('default', 'context', {
+    \   'prompt': '» ',
+    \   'start_insert': 1,
+    \   'update_time': 200,
+    \   'cursor_line_highlight': 'UniteSelectedLine',
+    \   'direction': 'botright',
+    \   'prompt_direction': 'top',
+    \ })
 " Autosave sessions for unite-sessions
 let g:unite_source_session_enable_auto_save = 1
 " Non-ugly colors for selected item, requires you to set 'hi UnitedSelectedLine'
