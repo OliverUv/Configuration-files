@@ -119,6 +119,7 @@ set formatoptions=croqlj " auto formatting options
 set noea                 " prevent equalizing of split sizes on closed split
 set fillchars=fold:\ ,vert:\  " fill characters for fold lines and lines between vsplits
 set ttimeoutlen=50      " Faster twitchin' for everything
+set tildeop             " Tilde acts as an operator (no need to g~ to switch case with motions)
 
 " Make Vim able to edit crontab files again.
 set backupskip=/tmp/*,/private/tmp/*"
