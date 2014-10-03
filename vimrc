@@ -908,20 +908,21 @@ nmap <leader>P "+P
 nnoremap <silent> <leader>fy :Ypwd<cr>
 
 " Save, quit, etc
-nnoremap <silent> <leader>s :w<cr>
-nnoremap <silent> <leader>S :w<cr>
-nnoremap <silent> <leader>x :wq<cr>
-nnoremap <silent> <leader>X :wqa<cr>
-nnoremap <silent> <leader>d :q<cr>
-nnoremap <silent> <leader>D :qa<cr>
-nnoremap <silent> <leader>h :FSHere<cr>
-nnoremap <silent> <leader>hh :FSHere<cr>
-nnoremap <silent> <leader>hu :FSSplitAbove<cr>
-nnoremap <silent> <leader>hb :FSSplitBelow<cr>
-nnoremap <silent> <leader>hl :FSSplitLeft<cr>
+nnoremap <silent> <leader>s :<C-U>w<cr>
+nnoremap <silent> <leader>S :<C-U>w<cr>
+nnoremap <silent> <leader>x :<C-U>wq<cr>
+nnoremap <silent> <leader>X :<C-U>wqa<cr>
+nnoremap <silent> <leader>d :<C-U>q<cr>
+nnoremap <silent> <leader>D :<C-U>qa<cr>
+nnoremap <silent> <leader>o :<C-U>only<cr>
+nnoremap <silent> <leader>h :<C-U>FSHere<cr>
+nnoremap <silent> <leader>hh :<C-U>FSHere<cr>
+nnoremap <silent> <leader>hu :<C-U>FSSplitAbove<cr>
+nnoremap <silent> <leader>hb :<C-U>FSSplitBelow<cr>
+nnoremap <silent> <leader>hl :<C-U>FSSplitLeft<cr>
 " Maximize buffer toggling
-nnoremap <silent> <leader><tab> :MaximizerToggle<cr>
-vnoremap <silent> <leader><tab> :MaximizerToggle<cr>gv
+nnoremap <silent> <leader><tab> :<C-U>MaximizerToggle<cr>
+vnoremap <silent> <leader><tab> :<C-U>MaximizerToggle<cr>gv
 inoremap <silent> <leader><tab> <c-o>:MaximizerToggle<cr>
 " w!! -> write even if you forgot sudo
 cmap w!! w !sudo tee >/dev/null %
@@ -930,18 +931,23 @@ cmap w!! w !sudo tee >/dev/null %
 map Q <Nop>
 
 " Mappings to interact with fugitive
-nnoremap <silent> <leader>gs :Gstatus<cr>
-nnoremap <silent> <leader>gd :Gvdiff<cr> 
-nnoremap <silent> <leader>gb :Gblame<cr> 
-nnoremap <silent> <leader>gw :Gwrite<cr> 
-nnoremap <silent> <leader>gh :Gpush<cr> 
-nnoremap <silent> <leader>gH :Gpull<cr> 
-nnoremap <silent> <leader>gp :Git push 
-nnoremap <leader>gm :Gmove %:h
-nnoremap <leader>gl :Glog 
-nnoremap <leader>gg :Ggrep 
-nnoremap <leader>gc :Gcommit -m '
-nnoremap <leader>gA :Git checkout -- %
+nnoremap <silent> <leader>gs :<C-U>Gstatus<cr>
+nnoremap <silent> <leader>gd :<C-U>Gvdiff<cr>
+nnoremap <silent> <leader>gb :<C-U>Gblame<cr>
+nnoremap <silent> <leader>gw :<C-U>Gwrite<cr>
+nnoremap <silent> <leader>gW :<C-U>Gwrite!<cr>
+nnoremap <silent> <leader>gh :<C-U>Gpush<cr>
+nnoremap <silent> <leader>gH :<C-U>Gpull<cr>
+nnoremap <silent> <leader>gp :<C-U>Git push 
+nnoremap <leader>gm :<C-U>Gmove %:h
+nnoremap <leader>gl :<C-U>Glog 
+nnoremap <leader>gg :<C-U>Ggrep 
+nnoremap <leader>gc :<C-U>Gcommit -m '
+nnoremap <leader>gA :<C-U>Git checkout -- %
+
+" Mappings for interacting with diff merges
+nnoremap <silent> dgh :<C-U>diffget \\2<cr>
+nnoremap <silent> dgl :<C-U>diffget \\3<cr>
 
 " Misc mappings
 nnoremap <leader>i i <esc>la <esc>h
