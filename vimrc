@@ -865,6 +865,11 @@ nnoremap <leader>= gg=G`'
 " Sort in paragraph
 nnoremap <leader>ms Vip:sort<cr>
 
+" Tabularize things
+nnoremap <leader>mt= :Tabularize /=/<cr>
+nnoremap <leader>mt/ :Tabularize /\/\//<cr>
+nnoremap <leader>mt, :Tabularize /, /r0<cr>
+
 " Edit register
 function! EditRegister()
     call inputsave()
