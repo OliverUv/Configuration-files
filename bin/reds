@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Usage: $(basename $0) [night time color value] [brightness]
+# daytime-color: 6500
+# night-time default color: 3700
+# brightness default: 0.95
+
+color="3700"
+brightness="0.95"
+
+if [ $# -gt 0 ] ; then
+    color="$1"
+fi
+
+if [ $# -gt 1 ] ; then
+    brightness="$2"
+fi
+
+redshift -l 58.411975:15.559395 -t "6500:$color" -b "$brightness" &
