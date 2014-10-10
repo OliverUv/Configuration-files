@@ -636,8 +636,8 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 " clang_complete {{{ "
 let g:clang_complete_auto = 0
 let g:clang_auto_select = 0
-let g:clang_snippets = 1
 let g:clang_snippets_engine = 'ultisnips'
+let g:clang_snippets = 0
 let g:clang_use_library = 1
 let g:clang_complete_macros = 1
 "let g:clang_user_options = '|| exit 0'
