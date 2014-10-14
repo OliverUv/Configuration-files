@@ -315,7 +315,7 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 
 " Fuzzy matching for plugins not using matcher_default as filter
-call unite#custom#source('line,grep,session', 'matchers', ['matcher_fuzzy'])
+call unite#custom#source('outline,line,grep,session', 'matchers', ['matcher_fuzzy'])
 
 " Ignore some things
 " KEEP THESE IN SYNC WITH WILDIGNORE!
@@ -821,6 +821,7 @@ nnoremap <silent> <C-Z> :tabnew<CR>
 
 " windowing
 nnoremap <silent> z<cr> :call windowing#minimize_vertically()<cr>
+nnoremap <silent> co4 :<c-u>vertical resize 84<cr>
 
 " change buffers with ctrl-n and ctrl-p
 nnoremap <silent> <C-p> :BufSurfBack<cr>
