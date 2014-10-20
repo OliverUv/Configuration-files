@@ -27,7 +27,6 @@ endif
 " }}} Initialization  "
 
 " Automatic commands {{{ "
-" Automatic commands
 if has("autocmd")
     augroup MyAutoCmd
 
@@ -73,6 +72,7 @@ command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | d
 
 " Copy current file path into os buffer
 command! Ypwd let @+ = expand("%:p")
+
 " }}} Custom commands "
 
 " Basic settings {{{ "
@@ -92,6 +92,7 @@ set number              " Show absolute line number of current line
 set wrap                " Wrap text
 "set list               " Show listchars
 set ttyfast             " 'Smooth' scrolling
+set mouse=a             " Enable mouse in terminals that support it
 set showmatch           " Briefly display matching brackets when inserting such.
 set incsearch           " Incremental searching as soon as typing begins.
 set ignorecase          " Ignores case when searching
@@ -118,6 +119,7 @@ set formatoptions=croqlj " auto formatting options
 set noea                 " prevent equalizing of split sizes on closed split
 set fillchars=fold:\ ,vert:\  " fill characters for fold lines and lines between vsplits
 set ttimeoutlen=50      " Faster twitchin' for everything
+set tildeop             " Tilde acts as an operator (no need to g~ to switch case with motions)
 
 " Make Vim able to edit crontab files again.
 set backupskip=/tmp/*,/private/tmp/*"
@@ -176,12 +178,18 @@ if has("autocmd")
     au FileType {make,gitconfig} set noexpandtab sw=4
     au QuickFixCmdPost * nested cwindow | redraw!
     au FileType vim setlocal foldmethod=marker
+
+    " Autocommands for fswitch.vim
+    au BufEnter *.cpp let b:fswitchdst = 'h'
+    au BufEnter *.cpp let b:fswitchlocs = 'reg:/src/include/,reg:/src.*/include/,reg:|src|include/**|,../include'
+    au BufEnter *.h let b:fswitchdst = 'cpp,c'
+    au BufEnter *.h let b:fswitchlocs = 'reg:|include|src/**|,reg:|include.*|src/**|,../src'
 endif
 " }}} Filetype specific settings "
 
 " Extra syntax groups and keywords {{{ "
 au Syntax cpp call MyCppadd()
-function MyCppadd()
+function! MyCppadd()
   syn keyword cMyItem contained TODO FIXME CLEAN PERF
   syn cluster cCommentGroup add=cMyItem
   hi link cMyItem Todo
@@ -191,7 +199,6 @@ endfun
 " Backup settings {{{ "
 if !has("win32") && !has("win64")
     set backup
-    set noswapfile
 
     set undodir=/var/tmp/vi.recover.$USER/undo//     " undo files
     set backupdir=/var/tmp/vi.recover.$USER/backup// " backups
@@ -308,7 +315,7 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 
 " Fuzzy matching for plugins not using matcher_default as filter
-call unite#custom#source('outline,line,grep,session', 'filters', ['matcher_fuzzy'])
+call unite#custom#source('outline,line,grep,session', 'matchers', ['matcher_fuzzy'])
 
 " Ignore some things
 " KEEP THESE IN SYNC WITH WILDIGNORE!
@@ -333,16 +340,17 @@ let g:unite_source_rec_max_cache_files = 0
 call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
             \ 'max_candidates', 0)
 
-" Situate on bottom or right by default
-let g:unite_split_rule = "botright"
 " Keep track of yanks
 let g:unite_source_history_yank_enable = 1
 " Prettier prompt
-let g:unite_prompt = '» '
-" Faster update time after keypresses
-let g:unite_update_time = 200
-" Always start in insert mode
-let g:unite_enable_start_insert = 1
+call unite#custom#profile('default', 'context', {
+    \   'prompt': '» ',
+    \   'start_insert': 1,
+    \   'update_time': 200,
+    \   'cursor_line_highlight': 'UniteSelectedLine',
+    \   'direction': 'botright',
+    \   'prompt_direction': 'top',
+    \ })
 " Autosave sessions for unite-sessions
 let g:unite_source_session_enable_auto_save = 1
 " Non-ugly colors for selected item, requires you to set 'hi UnitedSelectedLine'
@@ -387,7 +395,8 @@ nnoremap <silent><leader>lr :call g:DoUniteFuzzy()<CR>
 nnoremap <silent><leader>lR :call g:DoUniteNonFuzzy()<CR>
 nnoremap <silent><leader>le :<C-u>Unite -buffer-name=files file_mru bookmark<CR>
 nnoremap <silent><leader>lE :<C-u>Unite -buffer-name=files file_mru bookmark file_rec/async file/new<CR>
-nnoremap <silent><leader>lb :<C-u>Unite -buffer-name=buffers buffer<CR>
+nnoremap <silent><leader>lB :<C-u>Unite -buffer-name=buffers buffer<CR>
+nnoremap <silent><leader>lb :<C-u>Unite -buffer-name=buffers buffer_tab<CR>
 nnoremap <silent><leader>ly :<C-u>Unite -buffer-name=yanks history/yank<CR>
 nnoremap <silent><leader>lc :<C-u>Unite -buffer-name=changes change<CR>
 nnoremap <silent><leader>lj :<C-u>Unite -buffer-name=jumps jump<CR>
@@ -627,8 +636,8 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 " clang_complete {{{ "
 let g:clang_complete_auto = 0
 let g:clang_auto_select = 0
-let g:clang_snippets = 1
 let g:clang_snippets_engine = 'ultisnips'
+let g:clang_snippets = 0
 let g:clang_use_library = 1
 let g:clang_complete_macros = 1
 "let g:clang_user_options = '|| exit 0'
@@ -647,12 +656,23 @@ let g:ghc = "/usr/bin/ghc"
 " }}} haskellmode-vim "
 
 " switch.vim {{{ "
-autocmd FileType cpp let b:switch_definitions =
+" These switches apply to all filetypes
+let g:switch_custom_definitions = 
+    \ [
+    \   ['&&', '||'],
+    \   {
+    \     '\CTrue':  'False',
+    \     '\CFalse': 'True',
+    \   },
+    \   {
+    \     '\Ctrue':  'false',
+    \     '\Cfalse': 'true',
+    \   },
+    \   ['width', 'height'],
+    \ ]
+autocmd FileType cpp let b:switch_custom_definitions =
     \ [
     \   g:switch_builtins.cpp_pointer,
-    \   g:switch_builtins.ampersands,
-    \   g:switch_builtins.capital_true_false,
-    \   g:switch_builtins.true_false,
     \
     \   {
     \     ' & ': ' * ',
@@ -801,6 +821,7 @@ nnoremap <silent> <C-Z> :tabnew<CR>
 
 " windowing
 nnoremap <silent> z<cr> :call windowing#minimize_vertically()<cr>
+nnoremap <silent> co4 :<c-u>vertical resize 84<cr>
 
 " change buffers with ctrl-n and ctrl-p
 nnoremap <silent> <C-p> :BufSurfBack<cr>
@@ -842,6 +863,27 @@ inoremap <expr> <c-k> ("\<C-p>")
 " Indent the entire file
 nnoremap <leader>= gg=G`'
 
+" Sort in paragraph
+nnoremap <leader>ms Vip:sort<cr>
+
+" Tabularize things
+nnoremap <leader>mt= :Tabularize /=/<cr>
+nnoremap <leader>mt/ :Tabularize /\/\//<cr>
+nnoremap <leader>mt, :Tabularize /, /r0<cr>
+
+" Edit register
+function! EditRegister()
+    call inputsave()
+    let l:reg = input("Enter a register: ")
+    call inputrestore()
+    return "let @".l:reg." = ".string(getreg(l:reg))
+endfunction
+
+nnoremap <leader>eq :<C-U><C-R>=EditRegister()<CR><C-E><C-F><Left>
+
+" Move cpp // comment at end of line to line above
+nnoremap <leader>cu $F/hhr<cr>kddpk$
+
 " Drag current line(s) up/down
 noremap <leader>j :m+<CR>
 noremap <leader>k :m-2<CR>
@@ -861,11 +903,11 @@ noremap ;a <esc>
 inoremap ;a <esc>
 
 "Like D for yanking
-map Y y$
+noremap Y y$
 
 " Copy/Paste with os buffer
-map <leader>y "+y
-map <leader>Y "+y$
+noremap <leader>y "+y
+noremap <leader>Y "+y$
 nmap <leader>p "+p
 nmap <leader>P "+P
 
@@ -873,19 +915,21 @@ nmap <leader>P "+P
 nnoremap <silent> <leader>fy :Ypwd<cr>
 
 " Save, quit, etc
-nnoremap <silent> <leader>s :w<cr>
-nnoremap <silent> <leader>S :w<cr>
-nnoremap <silent> <leader>x :wq<cr>
-nnoremap <silent> <leader>X :wqa<cr>
-nnoremap <silent> <leader>d :q<cr>
-nnoremap <silent> <leader>D :qa<cr>
-nnoremap <silent> <leader>h :FSHere<cr>
-nnoremap <silent> <leader>hh :FSHere<cr>
-nnoremap <silent> <leader>hu :FSSplitAbove<cr>
-nnoremap <silent> <leader>hl :FSSplitLeft<cr>
+nnoremap <silent> <leader>s :<C-U>w<cr>
+nnoremap <silent> <leader>S :<C-U>w<cr>
+nnoremap <silent> <leader>x :<C-U>wq<cr>
+nnoremap <silent> <leader>X :<C-U>wqa<cr>
+nnoremap <silent> <leader>d :<C-U>q<cr>
+nnoremap <silent> <leader>D :<C-U>qa<cr>
+nnoremap <silent> <leader>o :<C-U>only<cr>
+nnoremap <silent> <leader>h :<C-U>FSHere<cr>
+nnoremap <silent> <leader>hh :<C-U>FSHere<cr>
+nnoremap <silent> <leader>hu :<C-U>FSSplitAbove<cr>
+nnoremap <silent> <leader>hb :<C-U>FSSplitBelow<cr>
+nnoremap <silent> <leader>hl :<C-U>FSSplitLeft<cr>
 " Maximize buffer toggling
-nnoremap <silent> <leader><tab> :MaximizerToggle<cr>
-vnoremap <silent> <leader><tab> :MaximizerToggle<cr>gv
+nnoremap <silent> <leader><tab> :<C-U>MaximizerToggle<cr>
+vnoremap <silent> <leader><tab> :<C-U>MaximizerToggle<cr>gv
 inoremap <silent> <leader><tab> <c-o>:MaximizerToggle<cr>
 " w!! -> write even if you forgot sudo
 cmap w!! w !sudo tee >/dev/null %
@@ -894,25 +938,30 @@ cmap w!! w !sudo tee >/dev/null %
 map Q <Nop>
 
 " Mappings to interact with fugitive
-nnoremap <silent> <leader>gs :Gstatus<cr>
-nnoremap <silent> <leader>gd :Gdiff<cr> 
-nnoremap <silent> <leader>gb :Gblame<cr> 
-nnoremap <silent> <leader>gw :Gwrite<cr> 
-nnoremap <silent> <leader>gh :Git hub<cr> 
-nnoremap <silent> <leader>gH :Git buh<cr> 
-nnoremap <silent> <leader>gp :Git push 
-nnoremap <leader>gm :Gmove %:h
-nnoremap <leader>gl :Glog 
-nnoremap <leader>gg :Ggrep 
-nnoremap <leader>gc :Gcommit -m '
-nnoremap <leader>gA :Git checkout -- %
+nnoremap <silent> <leader>gs :<C-U>Gstatus<cr>
+nnoremap <silent> <leader>gd :<C-U>Gvdiff<cr>
+nnoremap <silent> <leader>gb :<C-U>Gblame<cr>
+nnoremap <silent> <leader>gw :<C-U>Gwrite<cr>
+nnoremap <silent> <leader>gW :<C-U>Gwrite!<cr>
+nnoremap <silent> <leader>gh :<C-U>Gpush<cr>
+nnoremap <silent> <leader>gH :<C-U>Gpull<cr>
+nnoremap <silent> <leader>gp :<C-U>Git push 
+nnoremap <leader>gm :<C-U>Gmove %:h
+nnoremap <leader>gl :<C-U>Glog 
+nnoremap <leader>gg :<C-U>Ggrep 
+nnoremap <leader>gc :<C-U>Gcommit -m '
+nnoremap <leader>gA :<C-U>Git checkout -- %
+
+" Mappings for interacting with diff merges
+nnoremap <silent> dgh :<C-U>diffget \\2<cr>
+nnoremap <silent> dgl :<C-U>diffget \\3<cr>
 
 " Misc mappings
 nnoremap <leader>i i <esc>la <esc>h
 nnoremap <silent> <leader><space> :noh<cr>
-nnoremap <silent> <leader>e :UltiSnipsEdit<cr>
+nnoremap <silent> <leader>ee :UltiSnipsEdit<cr>
 nnoremap <silent> <leader>u :UndotreeToggle<cr>
-nnoremap <silent> <leader>m :w<cr>:make<cr>
+nnoremap <silent> <leader>M :w<cr>:make<cr>
 nnoremap <silent> <leader>a :sign unplace *<cr>:Lclose<cr>
 nnoremap <silent> - mz:<c-u>:Switch<cr><esc>`z
 

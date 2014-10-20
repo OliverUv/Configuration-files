@@ -1,22 +1,26 @@
 /*-----------------------------------------------------------------------------
- * Copyright (c) 2009
- * Kazuo Ishii        - <k-ishii at wb4.so-net.ne.jp> original version(ckw)
- * Yukihiro Nakadaira - <yukihiro.nakadaira at gmail.com> original version(vimproc)
- * Shougo Matsushita  - <Shougo.Matsu at gmail.com> modified version
+ * Copyright (c) 2006 Yukihiro Nakadaira - <yukihiro.nakadaira at gmail.com> original version(vimproc)
+ * Copyright (c) 2009 Shougo Matsushita  - <Shougo.Matsu at gmail.com> modified version
  *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
+ * License: MIT license
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ * The above copyright notice and this permission notice shall be included
+ * in all copies or substantial portions of the Software.
  *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ * IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+ * CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+ * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *---------------------------------------------------------------------------*/
 
 #include <stdio.h>
@@ -46,8 +50,6 @@
 #include <fcntl.h>
 #include <io.h>
 
-#include "vimstack.c"
-
 const int debug = 0;
 
 #ifdef _MSC_VER
@@ -58,7 +60,14 @@ const int debug = 0;
 
 #ifdef _MSC_VER
 # define snprintf _snprintf
+# if _MSC_VER < 1400
+#  define vsnprintf _vsnprintf
+# endif
 #endif
+
+#include "vimstack.c"
+
+#define lengthof(arr)   (sizeof(arr) / sizeof((arr)[0]))
 
 /* API */
 EXPORT const char *vp_dlopen(char *args);      /* [handle] (path) */
@@ -67,20 +76,20 @@ EXPORT const char *vp_dlversion(char *args);     /* [version] () */
 
 EXPORT const char *vp_file_open(char *args);   /* [fd] (path, flags, mode) */
 EXPORT const char *vp_file_close(char *args);  /* [] (fd) */
-EXPORT const char *vp_file_read(char *args);   /* [hd, eof] (fd, nr, timeout) */
-EXPORT const char *vp_file_write(char *args);  /* [nleft] (fd, hd, timeout) */
+EXPORT const char *vp_file_read(char *args);   /* [hd, eof] (fd, cnt, timeout) */
+EXPORT const char *vp_file_write(char *args);  /* [nleft] (fd, timeout, hd) */
 
 EXPORT const char *vp_pipe_open(char *args);   /* [pid, [fd] * npipe]
                                                   (npipe, argc, [argv]) */
 EXPORT const char *vp_pipe_close(char *args);  /* [] (fd) */
-EXPORT const char *vp_pipe_read(char *args);   /* [hd, eof] (fd, nr, timeout) */
-EXPORT const char *vp_pipe_write(char *args);  /* [nleft] (fd, hd, timeout) */
+EXPORT const char *vp_pipe_read(char *args);   /* [hd, eof] (fd, cnt, timeout) */
+EXPORT const char *vp_pipe_write(char *args);  /* [nleft] (fd, timeout, hd) */
 
 EXPORT const char *vp_pty_open(char *args);    /* [pid, fd, ttyname]
                                                   (width, height, argc, [argv]) */
 EXPORT const char *vp_pty_close(char *args);   /* [] (fd) */
-EXPORT const char *vp_pty_read(char *args);    /* [hd, eof] (fd, nr, timeout) */
-EXPORT const char *vp_pty_write(char *args);   /* [nleft] (fd, hd, timeout) */
+EXPORT const char *vp_pty_read(char *args);    /* [hd, eof] (fd, cnt, timeout) */
+EXPORT const char *vp_pty_write(char *args);   /* [nleft] (fd, timeout, hd) */
 EXPORT const char *vp_pty_get_winsize(char *args); /* [width, height] (fd) */
 EXPORT const char *vp_pty_set_winsize(char *args); /* [] (fd, width, height) */
 
@@ -90,7 +99,7 @@ EXPORT const char *vp_close_handle(char *args); /* [] (fd) */
 
 EXPORT const char *vp_socket_open(char *args); /* [socket] (host, port) */
 EXPORT const char *vp_socket_close(char *args);/* [] (socket) */
-EXPORT const char *vp_socket_read(char *args); /* [hd, eof] (socket, nr, timeout) */
+EXPORT const char *vp_socket_read(char *args); /* [hd, eof] (socket, cnt, timeout) */
 EXPORT const char *vp_socket_write(char *args);/* [nleft] (socket, hd, timeout) */
 
 EXPORT const char *vp_host_exists(char *args); /* [int] (host) */
@@ -101,7 +110,7 @@ EXPORT const char *vp_open(char *args);      /* [] (path) */
 EXPORT const char *vp_readdir(char *args);  /* [files] (dirname) */
 
 
-EXPORT const char * vp_delete_trash(char *args);  /* [filename] */
+EXPORT const char * vp_delete_trash(char *args);  /* [int] (filename) */
 
 EXPORT const char *vp_get_signals(char *args); /* [signals] () */
 
@@ -109,15 +118,62 @@ static BOOL ExitRemoteProcess(HANDLE hProcess, UINT_PTR uExitCode);
 
 /* --- */
 
-#define VP_READ_BUFSIZE 2048
+#define VP_BUFSIZE      (65536)
+#define VP_READ_BUFSIZE (VP_BUFSIZE - 4)
+
+static LPWSTR
+utf8_to_utf16(const char *str)
+{
+    LPWSTR buf;
+    int len;
+
+    len = MultiByteToWideChar(CP_UTF8, 0, str, -1, NULL, 0);
+    if (len == 0)
+        return NULL;
+    buf = malloc(sizeof(WCHAR) * (len + 1));
+    if (buf == NULL) {
+        SetLastError(ERROR_NOT_ENOUGH_MEMORY);
+        return NULL;
+    }
+    MultiByteToWideChar(CP_UTF8, 0, str, -1, buf, len);
+    buf[len] = 0;
+    return buf;
+}
+
+static char *
+utf16_to_utf8(LPCWSTR wstr)
+{
+    char *buf;
+    int len;
+
+    len = WideCharToMultiByte(CP_UTF8, 0, wstr, -1, NULL, 0, NULL, NULL);
+    if (len == 0)
+        return NULL;
+    buf = malloc(sizeof(char) * (len + 1));
+    if (buf == NULL) {
+        SetLastError(ERROR_NOT_ENOUGH_MEMORY);
+        return NULL;
+    }
+    WideCharToMultiByte(CP_UTF8, 0, wstr, -1, buf, len, NULL, NULL);
+    buf[len] = 0;
+    return buf;
+}
 
 static const char *
 lasterror()
 {
     static char lpMsgBuf[512];
-    FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
+    WCHAR buf[512];
+    char *p;
+
+    FormatMessageW(FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
             NULL, GetLastError(), 0,
-            lpMsgBuf, 512, NULL);
+            buf, lengthof(buf), NULL);
+    p = utf16_to_utf8(buf);
+    if (p == NULL)
+        return NULL;
+    lstrcpyn(lpMsgBuf, p, lengthof(lpMsgBuf));
+    free(p);
     return lpMsgBuf;
 }
 
@@ -127,9 +183,6 @@ lasterror()
 #define write _write
 #define lseek _lseek
 
-#define CSI_WndCols(csi) ((csi)->srWindow.Right - (csi)->srWindow.Left +1)
-#define CSI_WndRows(csi) ((csi)->srWindow.Bottom - (csi)->srWindow.Top +1)
-
 static vp_stack_t _result = VP_STACK_NULL;
 
 const char *
@@ -137,12 +190,18 @@ vp_dlopen(char *args)
 {
     vp_stack_t stack;
     char *path;
+    LPWSTR pathw;
     HINSTANCE handle;
 
     VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
     VP_RETURN_IF_FAIL(vp_stack_pop_str(&stack, &path));
+    VP_RETURN_IF_FAIL(vp_stack_reserve(&_result, VP_BUFSIZE));
 
-    handle = LoadLibrary(path);
+    pathw = utf8_to_utf16(path);
+    if (pathw == NULL)
+        return lasterror();
+    handle = LoadLibraryW(pathw);
+    free(pathw);
     if (handle == NULL)
         return lasterror();
     vp_stack_push_num(&_result, "%p", handle);
@@ -167,7 +226,7 @@ vp_dlclose(char *args)
 const char *
 vp_dlversion(char *args)
 {
-    vp_stack_push_num(&_result, "%2d%02d", 7, 1);
+    vp_stack_push_num(&_result, "%2d%02d", 8, 0);
     return vp_stack_return(&_result);
 }
 
@@ -176,6 +235,7 @@ vp_file_open(char *args)
 {
     vp_stack_t stack;
     char *path;
+    LPWSTR pathw;
     char *flags;
     int mode;  /* used when flags have O_CREAT */
     int f = 0;
@@ -232,7 +292,7 @@ vp_file_open(char *args)
     if (strstr(flags, "O_RANDOM"))      f |= O_RANDOM;
 #endif
 #ifdef O_SEQUENTIAL
-    if (strstr(flags, "O_SEQENTIAL"))   f |= O_SEQUENTIAL;
+    if (strstr(flags, "O_SEQUENTIAL"))  f |= O_SEQUENTIAL;
 #endif
 #ifdef O_BINARY
     if (strstr(flags, "O_BINARY"))      f |= O_BINARY;
@@ -247,7 +307,11 @@ vp_file_open(char *args)
     if (strstr(flags, "O_SHORT_LIVED")) f |= _O_SHORT_LIVED;
 #endif
 
-    fd = open(path, f, mode);
+    pathw = utf8_to_utf16(path);
+    if (pathw == NULL)
+        return lasterror();
+    fd = _wopen(pathw, f, mode);
+    free(pathw);
     if (fd == -1) {
         return vp_stack_return_error(&_result, "open() error: %s",
                 strerror(errno));
@@ -280,20 +344,31 @@ vp_file_read(char *args)
 {
     vp_stack_t stack;
     int fd;
-    int nr;
+    int cnt;
     int timeout;
     DWORD ret;
     int n;
-    char buf[VP_READ_BUFSIZE];
+    char *buf;
+    char *eof;
+    HANDLE hFile;
 
     VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
     VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &fd));
-    VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &nr));
+    VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &cnt));
     VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &timeout));
 
-    vp_stack_push_str(&_result, ""); /* initialize */
-    while (nr != 0) {
-        ret = WaitForSingleObject((HANDLE)_get_osfhandle(fd), timeout);
+    if (cnt < 0 || VP_READ_BUFSIZE < cnt) {
+        cnt = VP_READ_BUFSIZE;
+    }
+
+    /* initialize buffer */
+    buf = _result.top = _result.buf;
+    *(buf++) = VP_EOV;
+    *(eof = buf++) = '0';
+
+    hFile = (HANDLE)_get_osfhandle(fd);
+    while (cnt > 0) {
+        ret = WaitForSingleObject(hFile, timeout);
         if (ret == WAIT_FAILED) {
             return vp_stack_return_error(&_result, "WaitForSingleObject() error: %s",
                     lasterror());
@@ -301,27 +376,22 @@ vp_file_read(char *args)
             /* timeout */
             break;
         }
-        if (nr > 0)
-            n = read(fd, buf, (VP_READ_BUFSIZE < nr) ? VP_READ_BUFSIZE : nr);
-        else
-            n = read(fd, buf, VP_READ_BUFSIZE);
+        n = read(fd, buf, cnt);
         if (n == -1) {
             return vp_stack_return_error(&_result, "read() error: %s",
                     strerror(errno));
         } else if (n == 0) {
             /* eof */
-            vp_stack_push_num(&_result, "%d", 1);
-            return vp_stack_return(&_result);
+            *eof = '1';
+            break;
         }
         /* decrease stack top for concatenate. */
-        _result.top--;
-        vp_stack_push_bin(&_result, buf, n);
-        if (nr > 0)
-            nr -= n;
+        cnt -= n;
+        buf += n;
         /* try read more bytes without waiting */
         timeout = 0;
     }
-    vp_stack_push_num(&_result, "%d", 0);
+    _result.top = buf;
     return vp_stack_return(&_result);
 }
 
@@ -336,15 +406,20 @@ vp_file_write(char *args)
     size_t nleft;
     DWORD ret;
     int n;
+    HANDLE hFile;
 
     VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
     VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &fd));
-    VP_RETURN_IF_FAIL(vp_stack_pop_bin(&stack, &buf, &size));
     VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &timeout));
 
+    buf = stack.buf;
+    size = (stack.top - 1) - stack.buf;
+    buf[size] = 0;
+
     nleft = 0;
+    hFile = (HANDLE)_get_osfhandle(fd);
     while (nleft < size) {
-        ret = WaitForSingleObject((HANDLE)_get_osfhandle(fd), timeout);
+        ret = WaitForSingleObject(hFile, timeout);
         if (ret == WAIT_FAILED) {
             return vp_stack_return_error(&_result, "WaitForSingleObject() error: %s",
                     lasterror());
@@ -371,15 +446,26 @@ vp_file_write(char *args)
 const char *
 vp_pipe_open(char *args)
 {
+#define VP_GOTO_ERROR(_fmt) do { errfmt = (_fmt); goto error; } while(0)
+#define VP_DUP_HANDLE(hIn, phOut, inherit)                  \
+        if (!DuplicateHandle(GetCurrentProcess(), hIn,      \
+                    GetCurrentProcess(), phOut,             \
+                    0, inherit, DUPLICATE_SAME_ACCESS)) {   \
+            VP_GOTO_ERROR("DuplicateHandle() error: %s");   \
+        }
     vp_stack_t stack;
     int npipe, hstdin, hstderr, hstdout;
+    char *errfmt;
+    const char *errmsg;
     char *cmdline;
-    HANDLE hInputWrite = INVALID_HANDLE_VALUE, hInputRead;
-    HANDLE hOutputWrite, hOutputRead = INVALID_HANDLE_VALUE;
-    HANDLE hErrorWrite, hErrorRead = INVALID_HANDLE_VALUE;
+    LPWSTR cmdlinew;
+    HANDLE hInputWrite = INVALID_HANDLE_VALUE, hInputRead = INVALID_HANDLE_VALUE;
+    HANDLE hOutputWrite = INVALID_HANDLE_VALUE, hOutputRead = INVALID_HANDLE_VALUE;
+    HANDLE hErrorWrite = INVALID_HANDLE_VALUE, hErrorRead = INVALID_HANDLE_VALUE;
     SECURITY_ATTRIBUTES sa;
     PROCESS_INFORMATION pi;
-    STARTUPINFO si;
+    STARTUPINFOW si;
+    BOOL ret;
 
     VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
     VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &npipe));
@@ -396,117 +482,76 @@ vp_pipe_open(char *args)
 
     if (hstdin) {
         /* Get handle. */
-        hInputRead = (HANDLE)_get_osfhandle(hstdin);
+        VP_DUP_HANDLE((HANDLE)_get_osfhandle(hstdin), &hInputRead, TRUE);
     } else {
         HANDLE hInputWriteTmp;
 
         /* Create pipe. */
-        if (!CreatePipe(&hInputRead, &hInputWriteTmp, &sa, 0))
-            return vp_stack_return_error(&_result, "CreatePipe() error: %s",
-                    lasterror());
+        if (!CreatePipe(&hInputRead, &hInputWrite, &sa, 0))
+            VP_GOTO_ERROR("CreatePipe() error: %s");
 
-        if (!DuplicateHandle(GetCurrentProcess(),
-                    hInputWriteTmp,
-                    GetCurrentProcess(),
-                    &hInputWrite,
-                    0,
-                    FALSE,
-                    DUPLICATE_SAME_ACCESS))
-            return vp_stack_return_error(&_result, "DuplicateHandle() error: %s",
-                    lasterror());
-        if (!CloseHandle(hInputWriteTmp))
-            return vp_stack_return_error(&_result, "CloseHandle() error: %s",
-                    lasterror());
+        VP_DUP_HANDLE(hInputWrite, &hInputWriteTmp, FALSE);
+        CloseHandle(hInputWrite);
+        hInputWrite = hInputWriteTmp;
     }
 
     if (hstdout) {
         /* Get handle. */
-        hOutputWrite = (HANDLE)_get_osfhandle(hstdout);
+        VP_DUP_HANDLE((HANDLE)_get_osfhandle(hstdout), &hOutputWrite, TRUE);
     } else {
         HANDLE hOutputReadTmp;
 
         /* Create pipe. */
-        if (!CreatePipe(&hOutputReadTmp, &hOutputWrite, &sa, 0))
-            return vp_stack_return_error(&_result, "CreatePipe() error: %s",
-                    lasterror());
+        if (!CreatePipe(&hOutputRead, &hOutputWrite, &sa, 0))
+            VP_GOTO_ERROR("CreatePipe() error: %s");
 
-        if (!DuplicateHandle(GetCurrentProcess(),
-                    hOutputReadTmp,
-                    GetCurrentProcess(),
-                    &hOutputRead,
-                    0,
-                    TRUE,
-                    DUPLICATE_SAME_ACCESS))
-            return vp_stack_return_error(&_result, "DuplicateHandle() error: %s",
-                    lasterror());
-        if (!CloseHandle(hOutputReadTmp))
-            return vp_stack_return_error(&_result, "CloseHandle() error: %s",
-                    lasterror());
+        VP_DUP_HANDLE(hOutputRead, &hOutputReadTmp, FALSE);
+        CloseHandle(hOutputRead);
+        hOutputRead = hOutputReadTmp;
     }
 
     if (npipe == 2) {
-        if (!DuplicateHandle(GetCurrentProcess(),
-                             hOutputWrite,
-                             GetCurrentProcess(),
-                             &hErrorWrite,
-                             0,
-                             TRUE,
-                             DUPLICATE_SAME_ACCESS))
-            return vp_stack_return_error(&_result, "DuplicateHandle() error: %s",
-                    lasterror());
+        VP_DUP_HANDLE(hOutputWrite, &hErrorWrite, TRUE);
     } else {
         if (hstderr) {
             /* Get handle. */
-            hErrorWrite = (HANDLE)_get_osfhandle(hstderr);
+            VP_DUP_HANDLE((HANDLE)_get_osfhandle(hstderr), &hErrorWrite, TRUE);
         } else {
             HANDLE hErrorReadTmp;
 
             /* Create pipe. */
-            if (!CreatePipe(&hErrorReadTmp, &hErrorWrite, &sa, 0))
-                return vp_stack_return_error(&_result, "CreatePipe() error: %s",
-                        lasterror());
+            if (!CreatePipe(&hErrorRead, &hErrorWrite, &sa, 0))
+                VP_GOTO_ERROR("CreatePipe() error: %s");
 
-            if (!DuplicateHandle(GetCurrentProcess(),
-                        hErrorReadTmp,
-                        GetCurrentProcess(),
-                        &hErrorRead,
-                        0,
-                        TRUE,
-                        DUPLICATE_SAME_ACCESS))
-                return vp_stack_return_error(&_result, "DuplicateHandle() error: %s",
-                        lasterror());
-            if (!CloseHandle(hErrorReadTmp))
-                return vp_stack_return_error(&_result, "CloseHandle() error: %s",
-                        lasterror());
+            VP_DUP_HANDLE(hErrorRead, &hErrorReadTmp, FALSE);
+            CloseHandle(hErrorRead);
+            hErrorRead = hErrorReadTmp;
         }
     }
 
-    ZeroMemory(&si, sizeof(STARTUPINFO));
-    si.cb = sizeof(STARTUPINFO);
+    ZeroMemory(&si, sizeof(STARTUPINFOW));
+    si.cb = sizeof(STARTUPINFOW);
     si.dwFlags = STARTF_USESTDHANDLES | STARTF_USESHOWWINDOW;
     si.wShowWindow = SW_SHOW;
     si.hStdInput = hInputRead;
     si.hStdOutput = hOutputWrite;
     si.hStdError = hErrorWrite;
 
-    if (!CreateProcess(NULL, cmdline, NULL, NULL, TRUE,
-                        CREATE_NO_WINDOW, NULL, NULL, &si, &pi))
-        return vp_stack_return_error(&_result, "CreateProcess() error: %s %s",
-                lasterror());
+    cmdlinew = utf8_to_utf16(cmdline);
+    if (cmdlinew == NULL)
+        VP_GOTO_ERROR("utf8_to_utf16() error: %s");
 
-    if (!CloseHandle(pi.hThread))
-        return vp_stack_return_error(&_result, "CloseHandle() error: %s",
-                lasterror());
+    ret = CreateProcessW(NULL, cmdlinew, NULL, NULL, TRUE,
+                        CREATE_NO_WINDOW, NULL, NULL, &si, &pi);
+    free(cmdlinew);
+    if (!ret)
+        VP_GOTO_ERROR("CreateProcess() error: %s");
 
-    if (!CloseHandle(hInputRead))
-        return vp_stack_return_error(&_result, "CloseHandle() error: %s",
-                lasterror());
-    if (!CloseHandle(hOutputWrite))
-        return vp_stack_return_error(&_result, "CloseHandle() error: %s",
-                lasterror());
-    if (!CloseHandle(hErrorWrite))
-        return vp_stack_return_error(&_result, "CloseHandle() error: %s",
-                lasterror());
+    CloseHandle(pi.hThread);
+
+    CloseHandle(hInputRead);
+    CloseHandle(hOutputWrite);
+    CloseHandle(hErrorWrite);
 
     vp_stack_push_num(&_result, "%p", pi.hProcess);
     vp_stack_push_num(&_result, "%d", hstdin ?
@@ -517,6 +562,18 @@ vp_pipe_open(char *args)
         vp_stack_push_num(&_result, "%d", hstderr ?
                 0 : _open_osfhandle((size_t)hErrorRead, _O_RDONLY));
     return vp_stack_return(&_result);
+
+error:
+    errmsg = lasterror();
+    if (hInputWrite  != INVALID_HANDLE_VALUE) CloseHandle(hInputWrite);
+    if (hInputRead   != INVALID_HANDLE_VALUE) CloseHandle(hInputRead);
+    if (hOutputWrite != INVALID_HANDLE_VALUE) CloseHandle(hOutputWrite);
+    if (hOutputRead  != INVALID_HANDLE_VALUE) CloseHandle(hOutputRead);
+    if (hErrorWrite  != INVALID_HANDLE_VALUE) CloseHandle(hErrorWrite);
+    if (hErrorRead   != INVALID_HANDLE_VALUE) CloseHandle(hErrorRead);
+    return vp_stack_return_error(&_result, errfmt, errmsg);
+#undef VP_DUP_HANDLE
+#undef VP_GOTO_ERROR
 }
 
 const char *
@@ -528,8 +585,8 @@ vp_pipe_close(char *args)
     VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
     VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &fd));
 
-    if (_close(fd))
-        return vp_stack_return_error(&_result, "_close() error: %s",
+    if (close(fd))
+        return vp_stack_return_error(&_result, "close() error: %s",
                 lasterror());
     return NULL;
 }
@@ -539,52 +596,61 @@ vp_pipe_read(char *args)
 {
     vp_stack_t stack;
     int fd;
-    int nr;
+    int cnt;
     int timeout;
     DWORD n;
-    char buf[VP_READ_BUFSIZE];
+    DWORD err;
+    char *buf;
+    char *eof;
+    HANDLE hPipe;
 
     VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
     VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &fd));
-    VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &nr));
+    VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &cnt));
     VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &timeout));
 
-    vp_stack_push_str(&_result, ""); /* initialize */
-    while (nr != 0) {
-        n = 0;
-        if (!PeekNamedPipe((HANDLE)_get_osfhandle(fd), buf,
-                (nr < 0) ? VP_READ_BUFSIZE : (VP_READ_BUFSIZE < nr) ? VP_READ_BUFSIZE : nr,
-                &n, NULL, NULL))
-        {
+    if (cnt < 0 || VP_READ_BUFSIZE < cnt) {
+        cnt = VP_READ_BUFSIZE;
+    }
+
+    /* initialize buffer */
+    buf = _result.top = _result.buf;
+    *(buf++) = VP_EOV;
+    *(eof = buf++) = '0';
+
+    hPipe = (HANDLE)_get_osfhandle(fd);
+    while (cnt > 0) {
+        if (!PeekNamedPipe(hPipe, NULL, 0, NULL, &n, NULL)) {
             /* can be ERROR_HANDLE_EOF? */
-            if (GetLastError() == 0 || GetLastError() == ERROR_BROKEN_PIPE) {
+            err = GetLastError();
+            if (err == 0 || err == ERROR_BROKEN_PIPE) {
                 /* error or eof */
-                if (n != 0) {
-                    /* decrease stack top for concatenate. */
-                    _result.top--;
-                    vp_stack_push_bin(&_result, buf, n);
+                if (err == ERROR_BROKEN_PIPE) {
+                    *eof = '1';
                 }
-                vp_stack_push_num(&_result, "%d", 1);
-                return vp_stack_return(&_result);
+                break;
             }
             return vp_stack_return_error(&_result, "PeekNamedPipe() error: %08X %s",
-                    GetLastError(), lasterror());
+                    err, lasterror());
+        } else if (n == 0) {
+            if (timeout-- <= 0) {
+                break;
+            }
+            Sleep(1);
+            continue;
         }
-        if (n == 0) {
-            break;
-        }
-        if (read(fd, buf, n) == -1)
+        n = read(fd, buf, cnt);
+        if (n == -1) {
             return vp_stack_return_error(&_result, "read() error: %s",
                     strerror(errno));
+        }
         /* decrease stack top for concatenate. */
-        _result.top--;
-        vp_stack_push_bin(&_result, buf, n);
-        if (nr > 0)
-            nr -= n;
+        cnt -= n;
+        buf += n;
         /* try read more bytes without waiting */
         timeout = 0;
     }
-    vp_stack_push_num(&_result, "%d", 0);
+    _result.top = buf;
     return vp_stack_return(&_result);
 }
 
@@ -679,9 +745,10 @@ vp_waitpid(char *args)
     VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
     VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%p", &handle));
 
-    if (!GetExitCodeProcess(handle, &exitcode))
+    if (!GetExitCodeProcess(handle, &exitcode)) {
         return vp_stack_return_error(&_result,
                 "GetExitCodeProcess() error: %s", lasterror());
+    }
 
     vp_stack_push_str(&_result, (exitcode == STILL_ACTIVE) ? "run" : "exit");
     vp_stack_push_num(&_result, "%u", exitcode);
@@ -697,9 +764,10 @@ vp_close_handle(char *args)
     VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
     VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%p", &handle));
 
-    if (!CloseHandle(handle))
+    if (!CloseHandle(handle)) {
         return vp_stack_return_error(&_result,
                 "CloseHandle() error: %s", lasterror());
+    }
     return NULL;
 }
 
@@ -715,8 +783,7 @@ detain_winsock()
     WSADATA wsadata;
     int res = 0;
 
-    if (sockets_number == 0)    /* Need startup process. */
-    {
+    if (sockets_number == 0) {  /* Need startup process. */
         res = WSAStartup(MAKEWORD(2, 0), &wsadata);
         if(res) return res;   /* Fail */
     }
@@ -729,8 +796,7 @@ release_winsock()
 {
     int res = 0;
 
-    if (sockets_number != 0)
-    {
+    if (sockets_number != 0) {
         res = WSACleanup();
         if(res) return res;   /* Fail */
 
@@ -758,8 +824,7 @@ vp_socket_open(char *args)
     VP_RETURN_IF_FAIL(vp_stack_pop_str(&stack, &host));
     VP_RETURN_IF_FAIL(vp_stack_pop_str(&stack, &port));
 
-    if(detain_winsock())
-    {
+    if (detain_winsock()) {
         return vp_stack_return_error(&_result, "WSAStartup() error: %s",
             lasterror());
     }
@@ -781,9 +846,10 @@ vp_socket_open(char *args)
     sockaddr.sin_addr = *((struct in_addr*)*hostent->h_addr_list);
 
     if (connect(sock, (struct sockaddr*)&sockaddr, sizeof(struct sockaddr_in))
-            == -1)
+            == -1) {
         return vp_stack_return_error(&_result, "connect() error: %s",
                 strerror(errno));
+    }
 
     vp_stack_push_num(&_result, "%d", sock);
     return vp_stack_return(&_result);
@@ -811,24 +877,34 @@ vp_socket_read(char *args)
 {
     vp_stack_t stack;
     int sock;
-    int nr;
+    int cnt;
     int timeout;
     struct timeval tv;
     int n;
-    char buf[VP_READ_BUFSIZE];
+    char *buf;
+    char *eof;
     fd_set fdset;
 
     VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
     VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &sock));
-    VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &nr));
+    VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &cnt));
     VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &timeout));
     tv.tv_sec = timeout / 1000;
     tv.tv_usec = (timeout - tv.tv_sec * 1000) * 1000;
 
-    FD_ZERO(&fdset);
-    FD_SET((unsigned)sock, &fdset);
-    vp_stack_push_str(&_result, ""); /* initialize */
-    while (nr != 0) {
+    if (cnt < 0 || VP_READ_BUFSIZE < cnt) {
+        cnt = VP_READ_BUFSIZE;
+    }
+
+    /* initialize buffer */
+    buf = _result.top = _result.buf;
+    *(buf++) = VP_EOV;
+    *(eof = buf++) = '0';
+
+    while (cnt > 0) {
+        FD_ZERO(&fdset);
+        FD_SET((unsigned)sock, &fdset);
+
         n = select(0, &fdset, NULL, NULL, (timeout == -1) ? NULL : &tv);
         if (n == SOCKET_ERROR) {
             return vp_stack_return_error(&_result, "select() error: %d",
@@ -837,28 +913,24 @@ vp_socket_read(char *args)
             /* timeout */
             break;
         }
-        if (nr > 0)
-            n = recv(sock, buf,
-                    (VP_READ_BUFSIZE < nr) ? VP_READ_BUFSIZE : nr, 0);
-        else
-            n = recv(sock, buf, VP_READ_BUFSIZE, 0);
+        n = recv(sock, buf, cnt, 0);
         if (n == -1) {
             return vp_stack_return_error(&_result, "recv() error: %s",
                     strerror(errno));
         } else if (n == 0) {
             /* eof */
-            vp_stack_push_num(&_result, "%d", 1);
-            return vp_stack_return(&_result);
+            *eof = '1';
+            break;
         }
         /* decrease stack top for concatenate. */
-        _result.top--;
-        vp_stack_push_bin(&_result, buf, n);
-        if (nr > 0)
-            nr -= n;
+        cnt -= n;
+        buf += n;
         /* try read more bytes without waiting */
         timeout = 0;
+        tv.tv_sec = 0;
+        tv.tv_usec = 0;
     }
-    vp_stack_push_num(&_result, "%d", 0);
+    _result.top = buf;
     return vp_stack_return(&_result);
 }
 
@@ -877,15 +949,19 @@ vp_socket_write(char *args)
 
     VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
     VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &sock));
-    VP_RETURN_IF_FAIL(vp_stack_pop_bin(&stack, &buf, &size));
     VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &timeout));
     tv.tv_sec = timeout / 1000;
     tv.tv_usec = (timeout - tv.tv_sec * 1000) * 1000;
 
-    FD_ZERO(&fdset);
-    FD_SET((unsigned)sock, &fdset);
+    buf = stack.buf;
+    size = (stack.top - 1) - stack.buf;
+    buf[size] = 0;
+
     nleft = 0;
     while (nleft < size) {
+        FD_ZERO(&fdset);
+        FD_SET((unsigned)sock, &fdset);
+
         n = select(0, NULL, &fdset, NULL, (timeout == -1) ? NULL : &tv);
         if (n == SOCKET_ERROR) {
             return vp_stack_return_error(&_result, "select() error: %d",
@@ -901,6 +977,8 @@ vp_socket_write(char *args)
         nleft += n;
         /* try write more bytes without waiting */
         timeout = 0;
+        tv.tv_sec = 0;
+        tv.tv_usec = 0;
     }
     vp_stack_push_num(&_result, "%u", nleft);
     return vp_stack_return(&_result);
@@ -946,18 +1024,23 @@ vp_readdir(char *args)
 {
     vp_stack_t stack;
     char *dirname;
-    char buf[1024];
+    LPWSTR dirnamew;
+    WCHAR buf[1024];
 
-    WIN32_FIND_DATA fd;
+    WIN32_FIND_DATAW fd;
     HANDLE h;
 
     VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
     VP_RETURN_IF_FAIL(vp_stack_pop_str(&stack, &dirname));
 
-    snprintf(buf, sizeof(buf), "%s\\*", dirname);
+    dirnamew = utf8_to_utf16(dirname);
+    if (dirnamew == NULL)
+        return lasterror();
+    _snwprintf(buf, lengthof(buf), L"%s\\*", dirnamew);
+    buf[lengthof(buf) - 1] = 0;
 
     /* Get handle. */
-    h = FindFirstFileEx(buf,
+    h = FindFirstFileExW(buf,
 #if WINVER >= 0x601
             FindExInfoBasic,
 #else
@@ -968,17 +1051,25 @@ vp_readdir(char *args)
     );
 
     if (h == INVALID_HANDLE_VALUE) {
+        free(dirnamew);
         return vp_stack_return_error(&_result,
                 "FindFirstFileEx() error: %s",
-                GetLastError());
+                lasterror());
     }
 
     do {
-        if (strcmp(fd.cFileName, ".") && strcmp(fd.cFileName, "..")) {
-            snprintf(buf, sizeof(buf), "%s/%s", dirname, fd.cFileName);
-            vp_stack_push_str(&_result, buf);
+        if (wcscmp(fd.cFileName, L".") && wcscmp(fd.cFileName, L"..")) {
+            char *p;
+            _snwprintf(buf, lengthof(buf), L"%s/%s", dirnamew, fd.cFileName);
+            buf[lengthof(buf) - 1] = 0;
+            p = utf16_to_utf8(buf);
+            if (p) {
+                vp_stack_push_str(&_result, p);
+                free(p);
+            }
         }
-    } while (FindNextFile(h, &fd));
+    } while (FindNextFileW(h, &fd));
+    free(dirnamew);
 
     FindClose(h);
     return vp_stack_return(&_result);
@@ -989,33 +1080,40 @@ vp_delete_trash(char *args)
 {
     vp_stack_t stack;
     char *filename;
-    char *buf;
+    LPWSTR filenamew;
+    LPWSTR buf;
     size_t len;
-    SHFILEOPSTRUCT fs;
+    SHFILEOPSTRUCTW fs;
 
     VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
     VP_RETURN_IF_FAIL(vp_stack_pop_str(&stack, &filename));
 
-    len = strlen(filename);
+    filenamew = utf8_to_utf16(filename);
+    if (filenamew == NULL)
+        return lasterror();
 
-    buf = malloc(len + 2);
+    len = wcslen(filenamew);
+
+    buf = malloc(sizeof(WCHAR) * (len + 2));
     if (buf == NULL) {
+        free(filenamew);
         return vp_stack_return_error(&_result, "malloc() error: %s",
                 "Memory cannot allocate");
     }
 
     /* Copy filename + '\0\0' */
-    strcpy(buf, filename);
+    wcscpy(buf, filenamew);
     buf[len + 1] = 0;
+    free(filenamew);
 
-    ZeroMemory(&fs, sizeof(SHFILEOPSTRUCT));
+    ZeroMemory(&fs, sizeof(SHFILEOPSTRUCTW));
     fs.hwnd = NULL;
     fs.wFunc = FO_DELETE;
     fs.pFrom = buf;
     fs.pTo = NULL;
     fs.fFlags = FOF_ALLOWUNDO | FOF_NOCONFIRMATION | FOF_NOERRORUI | FOF_SILENT;
 
-    vp_stack_push_num(&_result, "%d", SHFileOperation(&fs));
+    vp_stack_push_num(&_result, "%d", SHFileOperationW(&fs));
 
     free(buf);
 
@@ -1027,11 +1125,19 @@ vp_open(char *args)
 {
     vp_stack_t stack;
     char *path;
+    LPWSTR pathw;
+    size_t ret;
 
     VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
     VP_RETURN_IF_FAIL(vp_stack_pop_str(&stack, &path));
 
-    if ((size_t)ShellExecute(NULL, "open", path, NULL, NULL, SW_SHOWNORMAL) < 32) {
+    pathw = utf8_to_utf16(path);
+    if (pathw == NULL)
+        return lasterror();
+
+    ret = (size_t)ShellExecuteW(NULL, L"open", pathw, NULL, NULL, SW_SHOWNORMAL);
+    free(pathw);
+    if (ret < 32) {
         return vp_stack_return_error(&_result, "ShellExecute() error: %s",
                 lasterror());
     }
@@ -1043,62 +1149,34 @@ const char *
 vp_decode(char *args)
 {
     vp_stack_t stack;
-    unsigned num;
-    unsigned i, bi;
-    size_t length, max_buf;
+    size_t len;
     char *str;
-    char *buf;
-    char *p;
+    char *p, *q;
 
     VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
     VP_RETURN_IF_FAIL(vp_stack_pop_str(&stack, &str));
 
-    length = strlen(str);
-    max_buf = length/2 + 2;
-    buf = (char *)malloc(max_buf);
-    if (buf == NULL) {
-        return vp_stack_return_error(&_result, "malloc() error: %s",
-                "Memory cannot allocate");
+    len = strlen(str);
+    if (len % 2 != 0) {
+        return "vp_decode: invalid data length";
     }
 
-    p = str;
-    bi = 0;
-    num = 0;
-    for (i = 0; i < length; i++, p++) {
-        if (isdigit((int)*p))
-            num |= (*p & 15);
-        else
-            num |= (*p & 15) + 9;
+    VP_RETURN_IF_FAIL(vp_stack_reserve(&_result,
+            (_result.top - _result.buf) + (len / 2) + sizeof(VP_EOV_STR)));
 
-        if (i % 2 == 0) {
-            num <<= 4;
-            continue;
+    for (p = str, q = _result.top; p < str + len; ) {
+        char hb, lb;
+
+        hb = CHR2XD[(int)*(p++)];
+        lb = CHR2XD[(int)*(p++)];
+        if (hb >= 0 && lb >= 0) {
+            *(q++) = (char)((hb << 4) | lb);
         }
-
-        /* Write character. */
-        if (num == 0) {
-            /* Convert NULL character. */
-            max_buf += 1;
-            buf = (char *)realloc(buf, max_buf);
-            if (buf == NULL) {
-                return vp_stack_return_error(
-                        &_result, "realloc() error: %s",
-                        "Memory cannot allocate");
-            }
-
-            buf[bi] = '^';
-            bi++;
-            buf[bi] = '@';
-            bi++;
-        } else {
-            buf[bi] = (char)num;
-            bi++;
-        }
-        num = 0;
     }
-    buf[bi] = '\0';
-    vp_stack_push_str(&_result, buf);
-    free(buf);
+    *(q++) = VP_EOV;
+    *q = '\0';
+    _result.top = q;
+
     return vp_stack_return(&_result);
 }
 
@@ -1128,7 +1206,7 @@ vp_get_signals(char *args)
     };
     size_t i;
 
-    for (i = 0; i < sizeof(signames) / sizeof(*signames); ++i)
+    for (i = 0; i < lengthof(signames); ++i)
         vp_stack_push_num(&_result, "%s:%d", signames[i], i + 1);
     return vp_stack_return(&_result);
 }

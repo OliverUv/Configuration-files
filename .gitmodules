@@ -257,3 +257,15 @@
 [submodule "dotvim/bundle/switch.vim"]
 	path = dotvim/bundle/switch.vim
 	url = https://github.com/AndrewRadev/switch.vim.git
+[submodule "dotvim/bundle/copycppdectoimp.vim"]
+	path = dotvim/bundle/copycppdectoimp.vim
+	url = https://github.com/vim-scripts/copycppdectoimp.vim.git
+[submodule "dotvim/bundle/unite-tabpagebuffer.vim"]
+	path = dotvim/bundle/unite-tabpagebuffer.vim
+	url = https://github.com/Shougo/tabpagebuffer.vim.git
+[submodule "dotvim/bundle/vim-textobj-function"]
+	path = dotvim/bundle/vim-textobj-function
+	url = https://github.com/kana/vim-textobj-function.git
+[submodule "dotvim/bundle/vim-textobj-user"]
+	path = dotvim/bundle/vim-textobj-user
+	url = https://github.com/kana/vim-textobj-user.git

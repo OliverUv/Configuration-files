@@ -37,7 +37,7 @@
 #if (defined __linux__ || defined __CYGWIN__) && !defined __ANDROID__
 # include <pty.h>
 # include <utmp.h>
-#elif defined __APPLE__ || defined __NetBSD__
+#elif defined __APPLE__ || defined __NetBSD__ || defined __OpenBSD__
 # include <util.h>
 #elif defined __sun__ || defined __ANDROID__
 # include <termios.h>
@@ -90,21 +90,21 @@ const char *vp_dlversion(char *args);   /* [version] () */
 
 const char *vp_file_open(char *args);   /* [fd] (path, flags, mode) */
 const char *vp_file_close(char *args);  /* [] (fd) */
-const char *vp_file_read(char *args);   /* [hd, eof] (fd, nr, timeout) */
-const char *vp_file_write(char *args);  /* [nleft] (fd, hd, timeout) */
+const char *vp_file_read(char *args);   /* [hd, eof] (fd, cnt, timeout) */
+const char *vp_file_write(char *args);  /* [nleft] (fd, timeout, hd) */
 
 const char *vp_pipe_open(char *args);   /* [pid, [fd] * npipe]
                                            (npipe, hstdin, hstdout, hstderr, argc, [argv]) */
 const char *vp_pipe_close(char *args);  /* [] (fd) */
-const char *vp_pipe_read(char *args);   /* [hd, eof] (fd, nr, timeout) */
-const char *vp_pipe_write(char *args);  /* [nleft] (fd, hd, timeout) */
+const char *vp_pipe_read(char *args);   /* [hd, eof] (fd, cnt, timeout) */
+const char *vp_pipe_write(char *args);  /* [nleft] (fd, timeout, hd) */
 
 const char *vp_pty_open(char *args);
 /* [pid, stdin, stdout, stderr]
    (npipe, width, height,hstdin, hstdout, hstderr, argc, [argv]) */
 const char *vp_pty_close(char *args);   /* [] (fd) */
-const char *vp_pty_read(char *args);    /* [hd, eof] (fd, nr, timeout) */
-const char *vp_pty_write(char *args);   /* [nleft] (fd, hd, timeout) */
+const char *vp_pty_read(char *args);    /* [hd, eof] (fd, cnt, timeout) */
+const char *vp_pty_write(char *args);   /* [nleft] (fd, timeout, hd) */
 const char *vp_pty_get_winsize(char *args); /* [width, height] (fd) */
 const char *vp_pty_set_winsize(char *args); /* [] (fd, width, height) */
 
@@ -113,7 +113,7 @@ const char *vp_waitpid(char *args);     /* [cond, status] (pid) */
 
 const char *vp_socket_open(char *args); /* [socket] (host, port) */
 const char *vp_socket_close(char *args);/* [] (socket) */
-const char *vp_socket_read(char *args); /* [hd, eof] (socket, nr, timeout) */
+const char *vp_socket_read(char *args); /* [hd, eof] (socket, cnt, timeout) */
 const char *vp_socket_write(char *args);/* [nleft] (socket, hd, timeout) */
 
 const char *vp_host_exists(char *args); /* [int] (host) */
@@ -123,7 +123,8 @@ const char *vp_decode(char *args);      /* [decoded_str] (encode_str) */
 const char *vp_get_signals(char *args); /* [signals] () */
 /* --- */
 
-#define VP_READ_BUFSIZE 2048
+#define VP_BUFSIZE      (65536)
+#define VP_READ_BUFSIZE (VP_BUFSIZE - 4)
 
 static vp_stack_t _result = VP_STACK_NULL;
 
@@ -149,6 +150,7 @@ vp_dlopen(char *args)
 
     VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
     VP_RETURN_IF_FAIL(vp_stack_pop_str(&stack, &path));
+    VP_RETURN_IF_FAIL(vp_stack_reserve(&_result, VP_BUFSIZE));
 
     handle = dlopen(path, RTLD_LAZY);
     if (handle == NULL)
@@ -176,7 +178,7 @@ vp_dlclose(char *args)
 const char *
 vp_dlversion(char *args)
 {
-    vp_stack_push_num(&_result, "%2d%02d", 7, 1);
+    vp_stack_push_num(&_result, "%2d%02d", 8, 0);
     return vp_stack_return(&_result);
 }
 
@@ -201,8 +203,8 @@ vp_file_open(char *args)
 #ifdef O_WRONLY
     if (strstr(flags, "O_WRONLY"))      f |= O_WRONLY;
 #endif
-#ifdef O_RDRW
-    if (strstr(flags, "O_RDRW"))        f |= O_RDWR;
+#ifdef O_RDWR
+    if (strstr(flags, "O_RDWR"))        f |= O_RDWR;
 #endif
 #ifdef O_NONBLOCK
     if (strstr(flags, "O_NONBLOCK"))    f |= O_NONBLOCK;
@@ -241,7 +243,7 @@ vp_file_open(char *args)
     if (strstr(flags, "O_RANDOM"))      f |= O_RANDOM;
 #endif
 #ifdef O_SEQUENTIAL
-    if (strstr(flags, "O_SEQENTIAL"))   f |= O_SEQUENTIAL;
+    if (strstr(flags, "O_SEQUENTIAL"))  f |= O_SEQUENTIAL;
 #endif
 #ifdef O_BINARY
     if (strstr(flags, "O_BINARY"))      f |= O_BINARY;
@@ -284,55 +286,58 @@ vp_file_read(char *args)
 {
     vp_stack_t stack;
     int fd;
-    int nr;
+    int cnt;
     int timeout;
     int n;
-    char buf[VP_READ_BUFSIZE];
+    char *buf;
+    char *eof;
     struct pollfd pfd = {0, POLLIN, 0};
 
     VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
     VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &fd));
-    VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &nr));
+    VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &cnt));
     VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &timeout));
 
+    if (cnt < 0 || VP_READ_BUFSIZE < cnt) {
+        cnt = VP_READ_BUFSIZE;
+    }
+
+    /* initialize buffer */
+    buf = _result.top = _result.buf;
+    *(buf++) = VP_EOV;
+    *(eof = buf++) = '0';
+
     pfd.fd = fd;
-    vp_stack_push_str(&_result, ""); /* initialize */
-    while (nr != 0) {
+    while (cnt > 0) {
         n = poll(&pfd, 1, timeout);
         if (n == -1) {
             /* eof or error */
-            vp_stack_push_num(&_result, "%d", 1);
-            return vp_stack_return(&_result);
+            *eof = '1';
+            break;
         } else if (n == 0) {
             /* timeout */
             break;
         }
         if (pfd.revents & POLLIN) {
-            if (nr > 0)
-                n = read(fd, buf,
-                        (VP_READ_BUFSIZE < nr) ? VP_READ_BUFSIZE : nr);
-            else
-                n = read(fd, buf, VP_READ_BUFSIZE);
+            n = read(fd, buf, cnt);
             if (n == -1) {
                 return vp_stack_return_error(&_result, "read() error: %s",
                         strerror(errno));
             } else if (n == 0) {
                 /* eof */
-                vp_stack_push_num(&_result, "%d", 1);
-                return vp_stack_return(&_result);
+                *eof = '1';
+                break;
             }
             /* decrease stack top for concatenate. */
-            _result.top--;
-            vp_stack_push_bin(&_result, buf, n);
-            if (nr > 0)
-                nr -= n;
+            cnt -= n;
+            buf += n;
             /* try read more bytes without waiting */
             timeout = 0;
             continue;
         } else if (pfd.revents & (POLLERR | POLLHUP)) {
             /* eof or error */
-            vp_stack_push_num(&_result, "%d", 1);
-            return vp_stack_return(&_result);
+            *eof = '1';
+            break;
         } else if (pfd.revents & POLLNVAL) {
             return vp_stack_return_error(&_result, "poll() POLLNVAL: %d",
                     pfd.revents);
@@ -341,7 +346,7 @@ vp_file_read(char *args)
         return vp_stack_return_error(&_result, "poll() unknown status: %d",
                 pfd.revents);
     }
-    vp_stack_push_num(&_result, "%d", 0);
+    _result.top = buf;
     return vp_stack_return(&_result);
 }
 
@@ -359,8 +364,11 @@ vp_file_write(char *args)
 
     VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
     VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &fd));
-    VP_RETURN_IF_FAIL(vp_stack_pop_bin(&stack, &buf, &size));
     VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &timeout));
+
+    buf = stack.buf;
+    size = (stack.top - 1) - stack.buf;
+    buf[size] = 0;
 
     pfd.fd = fd;
     nleft = 0;
@@ -787,7 +795,7 @@ vp_kill(char *args)
     if (sig != 0) {
         /* Kill by the process group. */
         pgid = getpgid(pid);
-        if (pgid > 0) {
+        if (pid == pgid) {
             kill(-pgid, sig);
         }
     }
@@ -964,62 +972,34 @@ const char *
 vp_decode(char *args)
 {
     vp_stack_t stack;
-    unsigned num;
-    unsigned i, bi;
-    size_t length, max_buf;
+    size_t len;
     char *str;
-    char *buf;
-    char *p;
+    char *p, *q;
 
     VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
     VP_RETURN_IF_FAIL(vp_stack_pop_str(&stack, &str));
 
-    length = strlen(str);
-    max_buf = length/2 + 2;
-    buf = (char *)malloc(max_buf);
-    if (buf == NULL) {
-        return vp_stack_return_error(&_result, "malloc() error: %s",
-                "Memory cannot allocate");
+    len = strlen(str);
+    if (len % 2 != 0) {
+        return "vp_decode: invalid data length";
     }
 
-    p = str;
-    bi = 0;
-    num = 0;
-    for (i = 0; i < length; i++, p++) {
-        if (isdigit((int)*p))
-            num |= (*p & 15);
-        else
-            num |= (*p & 15) + 9;
+    VP_RETURN_IF_FAIL(vp_stack_reserve(&_result,
+            (_result.top - _result.buf) + (len / 2) + sizeof(VP_EOV_STR)));
 
-        if (i % 2 == 0) {
-            num <<= 4;
-            continue;
+    for (p = str, q = _result.top; p < str + len; ) {
+        char hb, lb;
+
+        hb = CHR2XD[(int)*(p++)];
+        lb = CHR2XD[(int)*(p++)];
+        if (hb >= 0 && lb >= 0) {
+            *(q++) = (char)((hb << 4) | lb);
         }
-
-        /* Write character. */
-        if (num == 0) {
-            /* Convert NULL character. */
-            max_buf += 1;
-            buf = (char *)realloc(buf, max_buf);
-            if (buf == NULL) {
-                return vp_stack_return_error(
-                        &_result, "realloc() error: %s",
-                        "Memory cannot allocate");
-            }
-
-            buf[bi] = '^';
-            bi++;
-            buf[bi] = '@';
-            bi++;
-        } else {
-            buf[bi] = num;
-            bi++;
-        }
-        num = 0;
     }
-    buf[bi] = '\0';
-    vp_stack_push_str(&_result, buf);
-    free(buf);
+    *(q++) = VP_EOV;
+    *q = '\0';
+    _result.top = q;
+
     return vp_stack_return(&_result);
 }
 
