@@ -822,6 +822,7 @@ nnoremap <silent> <C-Z> :tabnew<CR>
 " windowing
 nnoremap <silent> z<cr> :call windowing#minimize_vertically()<cr>
 nnoremap <silent> co4 :<c-u>vertical resize 84<cr>
+nnoremap <silent> zh mzggzfip`z
 
 " change buffers with ctrl-n and ctrl-p
 nnoremap <silent> <C-p> :BufSurfBack<cr>
@@ -870,6 +871,10 @@ nnoremap <leader>ms Vip:sort<cr>
 nnoremap <leader>mt= :Tabularize /=/<cr>
 nnoremap <leader>mt/ :Tabularize /\/\//<cr>
 nnoremap <leader>mt, :Tabularize /, /r0<cr>
+
+" Break up paramater list with newlines
+nnoremap <silent> <leader>mp mz:s/(/(\r/<cr>:s/, /,\r/g<cr>jmx`zj=`x
+
 
 " Edit register
 function! EditRegister()
