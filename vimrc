@@ -873,8 +873,7 @@ nnoremap <leader>mt/ :Tabularize /\/\//<cr>
 nnoremap <leader>mt, :Tabularize /, /r0<cr>
 
 " Break up paramater list with newlines
-nnoremap <silent> <leader>mp mz:s/(/(\r/<cr>:s/, /,\r/g<cr>jmx`zj=`x
-
+nnoremap <silent> <leader>mp mz:s/(/(\r/<cr>:s/, /,\r/g<cr>jmx`zj=`x:noh<cr>
 
 " Edit register
 function! EditRegister()
