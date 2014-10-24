@@ -383,6 +383,16 @@ function! g:DoUniteNonFuzzy()
     call unite#custom#source('file_rec/async,file/new', 'matchers', 'matcher_glob')
     exec "Unite -buffer-name=files file_rec/async file/new"
 endfunction
+function! g:DoUniteFuzzyQuickfix()
+    call unite#custom#source('quickfix', 'sorters', 'sorter_rank')
+    call unite#custom#source('quickfix', 'matchers', 'matcher_fuzzy')
+    exec "Unite -buffer-name=quickfix quickfix"
+endfunction
+function! g:DoUniteNonFuzzyQuickfix()
+    call unite#custom#source('quickfix', 'sorters', 'sorter_nothing')
+    call unite#custom#source('quickfix', 'matchers', 'matcher_glob')
+    exec "Unite -buffer-name=quickfix quickfix"
+endfunction
 function! UltiSnipsCallUnite()
     Unite -immediately -no-empty -vertical -buffer-name=ultisnips ultisnips
     return ''
@@ -393,6 +403,8 @@ inoremap <silent><leader>l<tab> <C-R>=(pumvisible()? "\<LT>C-E>":"")<CR><C-R>=Ul
 nnoremap <silent><leader>l<tab> a<C-R>=(pumvisible()? "\<LT>C-E>":"")<CR><C-R>=UltiSnipsCallUnite()<CR>
 nnoremap <silent><leader>lr :call g:DoUniteFuzzy()<CR>
 nnoremap <silent><leader>lR :call g:DoUniteNonFuzzy()<CR>
+nnoremap <silent><leader>lq :call g:DoUniteFuzzyQuickfix()<CR>
+nnoremap <silent><leader>lQ :call g:DoUniteNonFuzzyQuickfix()<CR>
 nnoremap <silent><leader>le :<C-u>Unite -buffer-name=files file_mru bookmark<CR>
 nnoremap <silent><leader>lE :<C-u>Unite -buffer-name=files file_mru bookmark file_rec/async file/new<CR>
 nnoremap <silent><leader>lB :<C-u>Unite -buffer-name=buffers buffer<CR>
@@ -406,7 +418,6 @@ nnoremap <silent><leader>l/ :<C-u>Unite -buffer-name=commands history/search<CR>
 nnoremap <silent><leader>lo :<C-u>Unite -buffer-name=outline outline<CR>
 nnoremap <silent><leader>la :<C-u>Unite -buffer-name=outline -vertical outline<CR>
 nnoremap <silent><leader>ll :<C-u>Unite -buffer-name=line line<CR>
-nnoremap <silent><leader>lq :<C-u>Unite -buffer-name=quickfix quickfix<CR>
 nnoremap <silent><leader>lw :<C-u>Unite -buffer-name=location_list location_list<CR>
 nnoremap <silent><leader>l* :<C-u>UniteWithCursorWord -buffer-name=line line<CR>
 nnoremap <silent><leader>lg :<C-u>Unite -buffer-name=grep grep<CR>
@@ -789,6 +800,28 @@ nnoremap <silent> <leader>6 :call HiInterestingWord(6)<cr>
 inoremap <c-b> <esc>mzgUiw`za
 " }}} Uppercase word mapping "
 
+" Build scripts {{{ "
+
+function! g:BuildOden(config)
+    " From Syntastic, to be used with clang
+    " -fshow-column
+    " -fshow-source-location
+    " -fno-caret-diagnostics
+    " -fno-color-diagnostics
+    " -fdiagnostics-format=clang
+    let errorformat =
+            \ '%E%f:%l:%c: fatal error: %m,' .
+            \ '%E%f:%l:%c: error: %m,' .
+            \ '%W%f:%l:%c: warning: %m,' .
+            \ '%-G%\m%\%%(LLVM ERROR:%\|No compilation database found%\)%\@!%.%#,' .
+            \ '%E%m'
+    exec "make -C " . a:config . "/ -j4"
+endfunction
+nnoremap <silent> <leader>oo :call g:BuildOden("Debug")<cr>
+nnoremap <silent> <leader>oO :call g:BuildOden("Release")<cr>
+
+" }}} Build scripts "
+
 " Keymaps {{{ "
 
 " Toggle colorcolumn TODO make this save previous value
@@ -925,7 +958,6 @@ nnoremap <silent> <leader>x :<C-U>wq<cr>
 nnoremap <silent> <leader>X :<C-U>wqa<cr>
 nnoremap <silent> <leader>d :<C-U>q<cr>
 nnoremap <silent> <leader>D :<C-U>qa<cr>
-nnoremap <silent> <leader>o :<C-U>only<cr>
 nnoremap <silent> <leader>h :<C-U>FSHere<cr>
 nnoremap <silent> <leader>hh :<C-U>FSHere<cr>
 nnoremap <silent> <leader>hu :<C-U>FSSplitAbove<cr>
@@ -965,7 +997,6 @@ nnoremap <leader>i i <esc>la <esc>h
 nnoremap <silent> <leader><space> :noh<cr>
 nnoremap <silent> <leader>ee :UltiSnipsEdit<cr>
 nnoremap <silent> <leader>u :UndotreeToggle<cr>
-nnoremap <silent> <leader>M :w<cr>:make<cr>
 nnoremap <silent> <leader>a :sign unplace *<cr>:Lclose<cr>
 nnoremap <silent> - mz:<c-u>:Switch<cr><esc>`z
 
