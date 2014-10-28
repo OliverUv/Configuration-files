@@ -803,7 +803,7 @@ inoremap <c-b> <esc>mzgUiw`za
 
 " Build scripts {{{ "
 
-function! g:BuildOden(config)
+function! g:BuildOden(config, doclean)
     " From Syntastic, to be used with clang
     " -fshow-column
     " -fshow-source-location
@@ -816,10 +816,13 @@ function! g:BuildOden(config)
             \ '%W%f:%l:%c: warning: %m,' .
             \ '%-G%\m%\%%(LLVM ERROR:%\|No compilation database found%\)%\@!%.%#,' .
             \ '%E%m'
-    exec "make -C " . a:config . "/ -j4"
+    exec "make -C " . a:config . "/ -j4 " . a:doclean
 endfunction
-nnoremap <silent> <leader>oo :call g:BuildOden("Debug")<cr>
-nnoremap <silent> <leader>oO :call g:BuildOden("Release")<cr>
+nnoremap <silent> <leader>oo :call g:BuildOden("Debug", "")<cr>
+nnoremap <silent> <leader>oc :call g:BuildOden("Debug", "clean")<cr>
+nnoremap <silent> <leader>oq :!qoden<cr>
+nnoremap <silent> <leader>oO :call g:BuildOden("Release", "")<cr>
+nnoremap <silent> <leader>oC :call g:BuildOden("Release", "clean")<cr>
 
 " }}} Build scripts "
 
@@ -964,6 +967,7 @@ nnoremap <silent> <leader>hh :<C-U>FSHere<cr>
 nnoremap <silent> <leader>hu :<C-U>FSSplitAbove<cr>
 nnoremap <silent> <leader>hb :<C-U>FSSplitBelow<cr>
 nnoremap <silent> <leader>hl :<C-U>FSSplitLeft<cr>
+nnoremap <silent> <leader>hr :<C-U>FSSplitRight<cr>
 " Maximize buffer toggling
 nnoremap <silent> <leader><tab> :<C-U>MaximizerToggle<cr>
 vnoremap <silent> <leader><tab> :<C-U>MaximizerToggle<cr>gv
