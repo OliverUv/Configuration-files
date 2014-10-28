@@ -593,6 +593,7 @@ let g:UltiSnipsExpandTrigger = '<c-cr>'
 let g:UltiSnipsJumpForwardTrigger = '<c-cr>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-cr>'
 let g:UltiSnipsUsePythonVersion = 2
+nmap <c-cr> i<c-cr>
 
 let g:maximizer_set_default_mapping = 0
 
