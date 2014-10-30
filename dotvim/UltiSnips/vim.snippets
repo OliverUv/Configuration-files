@@ -1,0 +1,10 @@
+snippet augr "autocommand group"
+if has("autocmd")
+augroup ${1:groupname}
+	" Clear autocmds for this group
+	autocmd!
+
+	${VISUAL}${2}
+augroup end
+endif
+endsnippet
