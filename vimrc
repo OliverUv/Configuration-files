@@ -28,7 +28,9 @@ endif
 
 " Automatic commands {{{ "
 if has("autocmd")
-    augroup MyAutoCmd
+augroup MyAutoCmd
+    " Clear autocmds for this group
+    autocmd!
 
     " Automatically load vimrc when it is saved
     autocmd bufwritepost .vimrc source $MYVIMRC
@@ -49,6 +51,7 @@ if has("autocmd")
     au FilterWritePre * if &diff | setlocal nocursorcolumn | endif
     au FilterWritePre * if &diff | setlocal nocursorline | endif
     au FilterWritePre * if &diff | IndentGuidesDisable | endif
+augroup end
 endif
 " }}} Automatic commands "
 
@@ -168,6 +171,9 @@ set wildignore+=*/Debug/*,*/Release/*
 
 " Filetype specific settings {{{ "
 if has("autocmd")
+    augroup MyFtCommands
+    " Clear autocmds for this group
+    autocmd!
     au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
     au FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2
     au BufNewFile,BufReadPost *.coffee setlocal foldmethod=indent shiftwidth=2 softtabstop=2 expandtab
@@ -184,16 +190,25 @@ if has("autocmd")
     au BufEnter *.cpp let b:fswitchlocs = 'reg:/src/include/,reg:/src.*/include/,reg:|src|include/**|,../include'
     au BufEnter *.h let b:fswitchdst = 'cpp,c'
     au BufEnter *.h let b:fswitchlocs = 'reg:|include|src/**|,reg:|include.*|src/**|,../src'
+    augroup end
+
 endif
 " }}} Filetype specific settings "
 
 " Extra syntax groups and keywords {{{ "
-au Syntax cpp call MyCppadd()
 function! MyCppadd()
   syn keyword cMyItem contained TODO FIXME CLEAN PERF
   syn cluster cCommentGroup add=cMyItem
   hi link cMyItem Todo
 endfun
+if has("autocmd")
+augroup SyntaxKeywordGroup
+    " Clear autocmds for this group
+    autocmd!
+
+    au Syntax cpp call MyCppadd()
+augroup end
+endif
 " }}} Extra syntax groups and keywords "
 
 " Backup settings {{{ "
@@ -252,8 +267,15 @@ set statusline=%<%F\ %m%r%h%w%{fugitive#statusline()}\ %Y\ %{FileEncoding()}\ %{
 
 " change status line colour if it is in insert mode
 if version >= 700
-  au InsertEnter * hi StatusLine gui=NONE guifg=#FFFFFF guibg=#9D3569
-  au InsertLeave * hi StatusLine gui=NONE guifg=#d6d6d6 guibg=#602040
+    if has("autocmd")
+    augroup StatuslineColorGroup
+        " Clear autocmds for this group
+        autocmd!
+    
+        au InsertEnter * hi StatusLine gui=NONE guifg=#FFFFFF guibg=#9D3569
+        au InsertLeave * hi StatusLine gui=NONE guifg=#d6d6d6 guibg=#602040
+    augroup end
+    endif
 endif
 " }}} Statusline settings "
 
@@ -284,15 +306,23 @@ set ssop=blank,buffers,curdir,folds,help,options,tabpages,winsize,resize
 " Fugitive {{{ "
 " https://github.com/tpope/vim-fugitive
 " Maps .. to go up one level from fugitive blob and tree views
-autocmd User fugitive
-  \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
-  \   nnoremap <buffer> .. :edit %:h<CR> |
-  \ endif
+if has("autocmd")
+augroup FugitiveGroup
+    " Clear autocmds for this group
+    autocmd!
+
+    autocmd User fugitive
+      \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
+      \   nnoremap <buffer> .. :edit %:h<CR> |
+      \ endif
+
+    " Automatically delete hidden fugitive buffers
+    autocmd BufReadPost fugitive://* set bufhidden=delete
+augroup end
+endif
 
 nnoremap <silent> <leader>.. :edit %:h<CR>
 
-" Automatically delete hidden fugitive buffers
-autocmd BufReadPost fugitive://* set bufhidden=delete
 " }}} Fugitive "
 
 " vim-space {{{ "
@@ -431,7 +461,6 @@ nnoremap <silent><leader>lV :<C-u>UniteResume
 
 nnoremap <leader>lS :<C-u>UniteSessionSave 
 
-autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()
   "Don't add parens to my filters
   let b:delimitMate_autoclose = 0
@@ -449,6 +478,16 @@ function! s:unite_my_settings()
   inoremap <silent><buffer><expr> <C-k> unite#do_action('vsplit')
   nnoremap <silent><buffer><expr> <C-k> unite#do_action('vsplit')
 endfunction
+
+if has("autocmd")
+augroup UniteSettingsGroup
+    " Clear autocmds for this group
+    autocmd!
+
+    autocmd FileType unite call s:unite_my_settings()
+augroup end
+endif
+
 " }}} Unite "
 
 " Tagbar {{{ "
@@ -544,14 +583,14 @@ let g:neocomplete#force_omni_input_patterns.python =
             \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
 
 " To complete in c++ with clang_complete
-let g:neocomplete#force_omni_input_patterns.c =
-            \ '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplete#force_omni_input_patterns.cpp =
-            \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-let g:neocomplete#force_omni_input_patterns.objc =
-            \ '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplete#force_omni_input_patterns.objcpp =
-            \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+" let g:neocomplete#force_omni_input_patterns.c =
+"             \ '[^.[:digit:] *\t]\%(\.\|->\)'
+" let g:neocomplete#force_omni_input_patterns.cpp =
+"             \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+" let g:neocomplete#force_omni_input_patterns.objc =
+"             \ '[^.[:digit:] *\t]\%(\.\|->\)'
+" let g:neocomplete#force_omni_input_patterns.objcpp =
+"             \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
     " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
@@ -576,8 +615,15 @@ let g:jedi#completions_command      = "<leader>jc"
 let g:jedi#rename_command           = "<leader>jr"
 let g:jedi#show_call_signatures     = "1"
 
-autocmd FileType python setlocal omnifunc=jedi#complete
-autocmd FileType python let b:did_ftplugin = 1
+if has("autocmd")
+augroup JediGroup
+    " Clear autocmds for this group
+    autocmd!
+
+    autocmd FileType python setlocal omnifunc=jedi#complete
+    autocmd FileType python let b:did_ftplugin = 1
+augroup end
+endif
 " }}} jedi-vim "
 
 " vim-sparkup {{{ "
@@ -643,9 +689,13 @@ let g:syntastic_cpp_config_file = '.clang_complete'
 let g:syntastic_java_javac_config_file_enabled = 1
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+let g:syntastic_mode_map = { "mode": "active",
+            \ "active_filetypes": ["coffee", "javascript", "python"],
+            \ "passive_filetypes": ["cpp"] }
 " }}} Syntastic "
 
 " clang_complete {{{ "
+let g:clang_complete_loaded = 1 " Don't load clang_complete
 let g:clang_complete_auto = 0
 let g:clang_auto_select = 0
 let g:clang_snippets_engine = 'ultisnips'
@@ -682,17 +732,24 @@ let g:switch_custom_definitions =
     \   },
     \   ['width', 'height'],
     \ ]
-autocmd FileType cpp let b:switch_custom_definitions =
-    \ [
-    \   g:switch_builtins.cpp_pointer,
-    \
-    \   {
-    \     ' & ': ' * ',
-    \     ' \* ': ' & '
-    \   },
-    \
-    \   g:switch_builtins.rspec_should,
-    \ ]
+if has("autocmd")
+augroup SwitchVimFtGroups
+    " Clear autocmds for this group
+    autocmd!
+
+    autocmd FileType cpp let b:switch_custom_definitions =
+        \ [
+        \   g:switch_builtins.cpp_pointer,
+        \
+        \   {
+        \     ' & ': ' * ',
+        \     ' \* ': ' & '
+        \   },
+        \
+        \   g:switch_builtins.rspec_should,
+        \ ]
+augroup end
+endif
 " }}} switch.vim "
 
 " }}} Plugin settings "
