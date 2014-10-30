@@ -55,10 +55,10 @@ elseif has("gui_gnome") || has("gui_gtk") || has("gui_gtk2")
 endif
 
 " Bindings for font-zoom plugin
-nmap <unique> <silent> <C-Up> <Plug>(fontzoom-larger)
-nmap <unique> <silent> <C-Down> <Plug>(fontzoom-smaller)
-nmap <unique> <silent> <C-ScrollWheelUp> <Plug>(fontzoom-larger)
-nmap <unique> <silent> <C-ScrollWheelDown> <Plug>(fontzoom-smaller)
+nmap <silent> <C-Up> <Plug>(fontzoom-larger)
+nmap <silent> <C-Down> <Plug>(fontzoom-smaller)
+nmap <silent> <C-ScrollWheelUp> <Plug>(fontzoom-larger)
+nmap <silent> <C-ScrollWheelDown> <Plug>(fontzoom-smaller)
 
 " MacVim specific: Set fullscreen options to be as full screen as possible
 if has("gui_macvim")
