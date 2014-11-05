@@ -1051,8 +1051,8 @@ nnoremap <leader>gc :<C-U>Gcommit -m '
 nnoremap <leader>gA :<C-U>Git checkout -- %
 
 " Mappings for interacting with diff merges
-nnoremap <silent> dgh :<C-U>diffget \\2<cr>
-nnoremap <silent> dgl :<C-U>diffget \\3<cr>
+nnoremap <silent> dgh :diffget \\2<cr>
+nnoremap <silent> dgl :diffget \\3<cr>
 
 " Misc mappings
 nnoremap <leader>i i <esc>la <esc>h
