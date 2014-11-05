@@ -923,10 +923,10 @@ nnoremap <silent> <C-p> :BufSurfBack<cr>
 nnoremap <silent> <C-n> :BufSurfForward<cr>
 
 " Use up and down keys to scroll up and down
-nmap <Up> 3<C-y>
-nmap <Down> 3<C-e>
-nmap <Left> 10zh
-nmap <Right> 10zl
+nnoremap <Up> 3<C-y>
+nnoremap <Down> 3<C-e>
+nnoremap <Left> 10zh
+nnoremap <Right> 10zl
 
 " Mark current word (as with * but without movement)
 " Switch HL / ^$ for faster movement
