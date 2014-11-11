@@ -969,15 +969,15 @@ nnoremap <leader>mt, :Tabularize /, /r0<cr>
 " Break up paramater list with newlines
 nnoremap <silent> <leader>mp mz:s/(/(\r/<cr>:s/, /,\r/g<cr>jmx`zj=`x:noh<cr>
 
-" Edit register
-function! EditRegister()
+" Modify register
+function! ModifyRegister()
     call inputsave()
     let l:reg = input("Enter a register: ")
     call inputrestore()
     return "let @".l:reg." = ".string(getreg(l:reg))
 endfunction
 
-nnoremap <leader>eq :<C-U><C-R>=EditRegister()<CR><C-E><C-F><Left>
+nnoremap <leader>mq :<C-U><C-R>=ModifyRegister()<CR><C-E><C-F><Left>
 
 " Move cpp // comment at end of line to line above
 nnoremap <leader>cu $F/hhr<cr>kddpk$
@@ -1044,11 +1044,17 @@ nnoremap <silent> <leader>gW :<C-U>Gwrite!<cr>
 nnoremap <silent> <leader>gh :<C-U>Gpush<cr>
 nnoremap <silent> <leader>gH :<C-U>Gpull<cr>
 nnoremap <silent> <leader>gp :<C-U>Git push 
-nnoremap <leader>gm :<C-U>Gmove %:h
+nnoremap <leader>gm :<C-U>Gmove <c-r>=expand('%:p')<cr>
 nnoremap <leader>gl :<C-U>Glog 
 nnoremap <leader>gg :<C-U>Ggrep 
 nnoremap <leader>gc :<C-U>Gcommit -m '
 nnoremap <leader>gA :<C-U>Git checkout -- %
+
+" File management mappings
+nnoremap <leader>er :<C-U>Rename <c-r>=expand('%:t')<cr>
+nnoremap <leader>ed :<C-U>Remove
+nnoremap <leader>em :<C-U>Move <c-r>=expand('%:p')<cr>
+
 
 " Mappings for interacting with diff merges
 nnoremap <silent> dgh :diffget \\2<cr>
