@@ -583,14 +583,14 @@ let g:neocomplete#force_omni_input_patterns.python =
             \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
 
 " To complete in c++ with clang_complete
-" let g:neocomplete#force_omni_input_patterns.c =
-"             \ '[^.[:digit:] *\t]\%(\.\|->\)'
-" let g:neocomplete#force_omni_input_patterns.cpp =
-"             \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-" let g:neocomplete#force_omni_input_patterns.objc =
-"             \ '[^.[:digit:] *\t]\%(\.\|->\)'
-" let g:neocomplete#force_omni_input_patterns.objcpp =
-"             \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplete#force_omni_input_patterns.c =
+            \ '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplete#force_omni_input_patterns.cpp =
+            \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplete#force_omni_input_patterns.objc =
+            \ '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplete#force_omni_input_patterns.objcpp =
+            \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
     " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
@@ -695,11 +695,11 @@ let g:syntastic_mode_map = { "mode": "active",
 " }}} Syntastic "
 
 " clang_complete {{{ "
-let g:clang_complete_loaded = 1 " Don't load clang_complete
+" let g:clang_complete_loaded = 1 " Don't load clang_complete
 let g:clang_complete_auto = 0
 let g:clang_auto_select = 0
 let g:clang_snippets_engine = 'ultisnips'
-let g:clang_snippets = 0
+let g:clang_snippets = 1
 let g:clang_use_library = 1
 let g:clang_complete_macros = 1
 "let g:clang_user_options = '|| exit 0'
