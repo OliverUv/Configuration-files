@@ -1,6 +1,6 @@
 " Initialization {{{ "
 "let g:pathogen_disabled = ['ctrlp', 'ctrlp-funky', 'vim-sneak', 'CoVim', 'neocomplcache', 'neocomplcache-ultisnips', 'python-mode', 'Rainbow-Parentheses-Improved-and2']
-let g:pathogen_disabled = ['ctrlp', 'ctrlp-funky', 'vim-sneak', 'CoVim', 'neocomplcache', 'neocomplcache-ultisnips', 'python-mode', 'vim-niji']
+let g:pathogen_disabled = ['ctrlp', 'ctrlp-funky', 'CoVim', 'neocomplcache', 'neocomplcache-ultisnips', 'python-mode', 'vim-niji']
 
 if has("win32") || has("win64")
    " Required by pathogen.vim for loading plugins
@@ -751,6 +751,18 @@ augroup SwitchVimFtGroups
 augroup end
 endif
 " }}} switch.vim "
+
+" vim-sneak {{{ "
+nmap gm <Plug>Sneak_s
+nmap gM <Plug>Sneak_S
+xmap gm <Plug>Sneak_s
+xmap gM <Plug>Sneak_S
+omap gm <Plug>Sneak_s
+omap gM <Plug>Sneak_S
+
+map gl <Plug>SneakNext
+map gh <Plug>SneakPrevious
+" }}} vim-sneak "
 
 " }}} Plugin settings "
 
