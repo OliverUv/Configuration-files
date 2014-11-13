@@ -61,7 +61,7 @@ hi Question     gui=BOLD guifg=#e8e800 guibg=NONE
 
 " Split area
 hi StatusLine   gui=NONE guifg=#d6d6d6 guibg=#602040
-hi StatusLineNC gui=NONE guifg=#000000 guibg=#909090
+hi StatusLineNC gui=NONE guifg=#000000 guibg=#808080
 hi VertSplit    gui=NONE guifg=#909090 guibg=#111111
 hi WildMenu     gui=NONE guifg=#000000 guibg=#ff80c0
 
@@ -105,8 +105,7 @@ hi IndentGuidesEven gui=NONE guifg=NONE guibg=#0d0d0d
 hi SignColumn   gui=NONE guifg=#f0f0f0 guibg=#303030
 
 " ColorColumn
-hi ColorColumn   gui=NONE guifg=NONE guibg=#303030
-
+hi ColorColumn   gui=NONE guifg=NONE guibg=#000000
 
 " Spelling - SpellCap (and maybe others) also used by Syntastic
 hi SpellLocal	gui=UNDERCURL guifg=NONE guibg=NONE guisp=#FF99CC
@@ -252,6 +251,10 @@ hi def InterestingWord3 guifg=#000000 guibg=#ffa724
 hi def InterestingWord4 guifg=#000000 guibg=#A77990
 hi def InterestingWord5 guifg=#000000 guibg=#acdd82
 hi def InterestingWord6 guifg=#000000 guibg=#79A9A9
+
+" Highlights for vim-sneak
+hi SneakPluginTarget gui=BOLD guifg=#000000 guibg=#ffa8ff
+hi SneakPluginScope  guifg=NONE guibg=#8a8a8a
 
 " lots more tiwddling available here:
 " https://github.com/altercation/vim-colors-solarized/commit/7a7e5c8818d717084730133ed6b84a3ffc9d0447
