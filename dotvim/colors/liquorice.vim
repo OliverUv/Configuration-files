@@ -102,7 +102,7 @@ hi IndentGuidesOdd  gui=NONE guifg=NONE guibg=#0a0a0a
 hi IndentGuidesEven gui=NONE guifg=NONE guibg=#0d0d0d
 
 " Signs
-hi SignColumn   gui=NONE guifg=#f0f0f0 guibg=#303030
+hi SignColumn   gui=NONE guifg=#f0f0f0 guibg=#0e0e0e
 
 " ColorColumn
 hi ColorColumn   gui=NONE guifg=NONE guibg=#000000
