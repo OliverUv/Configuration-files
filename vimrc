@@ -872,7 +872,7 @@ inoremap <c-b> <esc>mzgUiw`za
 
 " Build scripts {{{ "
 
-function! g:BuildOden(config, doclean)
+function! g:BuildClang(config, doclean)
     " From Syntastic, to be used with clang
     " -fshow-column
     " -fshow-source-location
@@ -885,13 +885,18 @@ function! g:BuildOden(config, doclean)
             \ '%W%f:%l:%c: warning: %m,' .
             \ '%-G%\m%\%%(LLVM ERROR:%\|No compilation database found%\)%\@!%.%#,' .
             \ '%E%m'
+
     exec "make -C " . a:config . "/ -j4 " . a:doclean
 endfunction
-nnoremap <silent> <leader>oo :call g:BuildOden("Debug", "")<cr>
-nnoremap <silent> <leader>oc :call g:BuildOden("Debug", "clean")<cr>
+nnoremap <silent> <leader>oo :call g:BuildClang("Debug", "")<cr>
+nnoremap <silent> <leader>oc :call g:BuildClang("Debug", "clean")<cr>
 nnoremap <silent> <leader>oq :!qoden<cr>
-nnoremap <silent> <leader>oO :call g:BuildOden("Release", "")<cr>
-nnoremap <silent> <leader>oC :call g:BuildOden("Release", "clean")<cr>
+nnoremap <silent> <leader>oO :call g:BuildClang("Release", "")<cr>
+nnoremap <silent> <leader>oC :call g:BuildClang("Release", "clean")<cr>
+
+nnoremap <silent> <leader>ov :call g:BuildClang("VisuLove", "dvisulove")<cr>
+nnoremap <silent> <leader>ob :call g:BuildClang("VisuLove", "visuclean")<cr>
+
 
 " }}} Build scripts "
 
