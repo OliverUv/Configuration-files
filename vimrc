@@ -930,6 +930,10 @@ nnoremap <silent> <C-A> :tabprevious<CR>
 nnoremap <silent> <C-S> :tabnext<CR>
 nnoremap <silent> <C-Z> :tabnew<CR>
 
+" alternate mappings for increase/decrease numeral
+nnoremap gA <c-a>
+nnoremap gZ <c-z>
+
 " windowing
 nnoremap <silent> z<cr> :call windowing#minimize_vertically()<cr>
 nnoremap <silent> co4 :<c-u>vertical resize 84<cr>
