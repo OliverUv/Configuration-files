@@ -150,6 +150,20 @@ ${4:void} ${1:`!p snip.rv = class_name(snip)`}::${2:memberFunction}(${3})
 }
 endsnippet
 
+snippet ctor "constructor" b
+${1:`!p snip.rv = class_name(snip)`}::${1/(.*)/$1/}(${2})
+	: ${3}
+{
+	${4}
+}${0}
+endsnippet
+
+snippet dtor "destructor" b
+${1:`!p snip.rv = class_name(snip)`}::~${1/(.*)/$1/}(${2})
+{
+}${0}
+endsnippet
+
 snippet cn "class name" i
 ${1:`!p snip.rv = class_name(snip)`}::${0}
 endsnippet
