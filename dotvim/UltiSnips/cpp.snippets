@@ -168,7 +168,7 @@ snippet cn "class name" i
 ${1:`!p snip.rv = class_name(snip)`}::${0}
 endsnippet
 
-snippet beginend "$1.begin(), $1.end() (beginend)" w
+snippet beginend "$1.begin(), $1.end() (beginend)" i
 ${1:v}${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}begin(), $1${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}end()
 endsnippet
 
