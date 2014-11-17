@@ -186,7 +186,7 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # Rules for specific windows
-# for_window [title="^visulove$"] floating enable
+for_window [title="^visulove$"] floating enable
 for_window [title="^Warsow$"] fullscreen
 for_window [title="^ioquake3$"] fullscreen
 for_window [title="^Oden$"] floating disable
@@ -254,9 +254,15 @@ client.urgent           #2f343a #900000 #ffffff #900000
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id dropbox start
 exec --no-startup-id volumeicon
+
 #exec --no-startup-id xflux -l 58.411975 -g 15.559395 -k 3000
 exec --no-startup-id redshift -l 58.411975:15.559395 -t 6500:3700 -b 0.95
+
+# keyboard key autorepeat rate
 exec --no-startup-id xset r rate 210 30
+# disable mouse acceleration
 exec --no-startup-id xset m 0 0
+# disable screen blanking
+exec --no-startup-id xset s 0
 #exec google-chrome
 
