@@ -1032,11 +1032,11 @@ nnoremap <silent> <leader>X :<C-U>wqa<cr>
 nnoremap <silent> <leader>d :<C-U>q<cr>
 nnoremap <silent> <leader>D :<C-U>qa<cr>
 nnoremap <silent> <leader>h :<C-U>FSHere<cr>
-nnoremap <silent> <leader>hh :<C-U>FSHere<cr>
-nnoremap <silent> <leader>hu :<C-U>FSSplitAbove<cr>
-nnoremap <silent> <leader>hb :<C-U>FSSplitBelow<cr>
-nnoremap <silent> <leader>hl :<C-U>FSSplitLeft<cr>
-nnoremap <silent> <leader>hr :<C-U>FSSplitRight<cr>
+nnoremap <silent> <leader>hk :<C-U>FSSplitAbove<cr>
+nnoremap <silent> <leader>hj :<C-U>FSSplitBelow<cr>
+nnoremap <silent> <leader>hh :<C-U>FSSplitLeft<cr>
+nnoremap <silent> <leader>hl :<C-U>FSSplitRight<cr>
+nmap     <silent> <leader>ha :<C-U>FSSplitLeft<cr><c-h>zhco4<c-l>zh
 " Maximize buffer toggling
 nnoremap <silent> <leader><tab> :<C-U>MaximizerToggle<cr>
 vnoremap <silent> <leader><tab> :<C-U>MaximizerToggle<cr>gv
