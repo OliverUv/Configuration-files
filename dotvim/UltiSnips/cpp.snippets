@@ -277,6 +277,18 @@ snippet olw "oden log warning"
 oden_log_warning("${1}"${2});${0}
 endsnippet
 
+snippet ofv "openFrameworks log verbose"
+ofLog(OF_LOG_VERBOSE, "${1}"${2});${0}
+endsnippet
+
+snippet ofw "openFrameworks log warning"
+ofLog(OF_LOG_WARNING, "${1}"${2});${0}
+endsnippet
+
+snippet ofe "openFrameworks log error"
+ofLog(OF_LOG_ERROR, "${1}"${2});${0}
+endsnippet
+
 snippet tc "try+catch block"
 try {
 	${VISUAL}${1}
