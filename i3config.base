@@ -52,7 +52,6 @@ bindsym $mod+Shift+D exec i3-dmenu-desktop --dmenu "dmenu -i -fn 'DejaVu Sans 10
 # start apps
 bindsym $mod+Control+p exec bash -c 'scrot $HOME/screenshot_$(date +"%F_-_%H-%M-%S").png'
 bindsym $mod+Control+g exec google-chrome
-bindsym $mod+Control+s exec skype
 bindsym $mod+Control+v exec gvim
 bindsym $mod+Shift+V exec gvim -S $HOME/.cache/unite/session/life.vim
 bindsym $mod+Control+a exec urxvt -e alsamixer
