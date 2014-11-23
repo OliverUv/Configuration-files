@@ -289,6 +289,12 @@ snippet ofe "openFrameworks log error"
 ofLog(OF_LOG_ERROR, "${1}"${2});${0}
 endsnippet
 
+snippet vlp "visulove pop/push"
+VU::ofPush();
+${VISUAL}${1}
+VU::ofPop();${0}
+endsnippet
+
 snippet tc "try+catch block"
 try {
 	${VISUAL}${1}
