@@ -14,6 +14,8 @@ set $mod Mod1
 
 set $quickswitch /home/oliver/Projects/quickswitch-for-i3/quickswitch.py --dmenu "dmenu -i -l 20 -fn 'DejaVu Sans 10' -sb '#E17800' -sf '#000000' -h 23"
 
+set $audiosink 1
+
 # font for window titles. ISO 10646 = Unicode
 #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 
@@ -167,12 +169,12 @@ bindsym $mod+Shift+R restart
 # bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
 # bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
 # bindsym XF86AudioMute exec amixer -q set Master toggle
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -- -5%
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
-bindsym $mod+F10 exec pactl set-sink-mute 0 toggle
-bindsym $mod+F11 exec pactl set-sink-volume 0 -- -5%
-bindsym $mod+F12 exec pactl set-sink-volume 0 +5%
+bindsym XF86AudioMute exec pactl set-sink-mute $audiosink toggle
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume $audiosink -- -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume $audiosink +5%
+bindsym $mod+F10 exec pactl set-sink-mute $audiosink toggle
+bindsym $mod+F11 exec pactl set-sink-volume $audiosink -- -5%
+bindsym $mod+F12 exec pactl set-sink-volume $audiosink +5%
 
 # Change brightness with media keys
 bindsym XF86KbdBrightnessDown exec xbacklight -dec 15
