@@ -90,7 +90,8 @@ bindsym $mod+y split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+Tab fullscreen
+bindsym $mod+space fullscreen
+bindsym $mod+Shift+space fullscreen global
 
 # change container layout (stacked, tabbed, default)
 bindsym $mod+s layout stacking
@@ -147,7 +148,7 @@ bindsym $mod+m exec $quickswitch -e
 bindsym $mod+Shift+M exec $quickswitch -ej
 bindsym $mod+n exec $quickswitch -n
 bindsym $mod+p exec $quickswitch -p
-bindsym $mod+space exec $quickswitch
+bindsym $mod+Tab exec $quickswitch
 
 # move focused container to workspace
 bindsym $mod+Shift+exclam move container to workspace number 1
