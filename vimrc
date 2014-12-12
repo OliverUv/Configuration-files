@@ -1074,6 +1074,8 @@ nnoremap <leader>gl :<C-U>Glog
 nnoremap <leader>gg :<C-U>Ggrep 
 nnoremap <leader>gc :<C-U>Gcommit -m '
 nnoremap <leader>gA :<C-U>Git checkout -- %
+" Close diff window, go to gstatus window, add file
+nmap     <leader>gn :q<cr><c-k>-
 
 " File management mappings
 nnoremap <leader>er :<C-U>Rename <c-r>=expand('%:t')<cr>
