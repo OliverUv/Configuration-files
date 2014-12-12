@@ -477,6 +477,11 @@ function! s:unite_my_settings()
   nnoremap <buffer> <C-n> <Plug>(unite_select_next_line)
   nnoremap <buffer> <C-p> <Plug>(unite_select_previous_line)
 
+  nnoremap <buffer> <Up> 3<c-y>
+  nnoremap <buffer> <Down> 3<c-e>
+  inoremap <buffer> <Up> <esc>3<c-y>
+  inoremap <buffer> <Down> <esc>3<c-e>
+
   inoremap <silent><buffer><expr> <C-j> unite#do_action('split')
   nnoremap <silent><buffer><expr> <C-j> unite#do_action('split')
   inoremap <silent><buffer><expr> <C-k> unite#do_action('vsplit')
