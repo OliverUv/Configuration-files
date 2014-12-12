@@ -40,6 +40,7 @@ mouse_warping none
 
 # start a terminal
 bindsym $mod+Return exec /home/oliver/bin/color_urxvt
+bindsym $mod+Control+Return exec /home/oliver/bin/color_urxvt -e ranger
 
 # kill focused window
 bindsym $mod+Shift+W kill

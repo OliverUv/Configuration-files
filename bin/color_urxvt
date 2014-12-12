@@ -32,8 +32,8 @@ fi
 echo "${theme_id}" > /tmp/termtheme
 
 #launch the terminal
-urxvtc ${theme[${theme_id}]}
+urxvtc ${theme[${theme_id}]} $*
 if [ $? -eq 2 ]; then
     urxvtd -q -o -f
-    urxvtc ${theme[${theme_id}]}
+    urxvtc ${theme[${theme_id}]} $*
 fi
