@@ -74,6 +74,8 @@ endsnippet
 
 snippet once "Include header once only guard"
 #pragma once
+
+${0}
 endsnippet
 
 snippet td "Typedef"
@@ -170,6 +172,19 @@ endsnippet
 
 snippet beginend "$1.begin(), $1.end() (beginend)" i
 ${1:v}${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}begin(), $1${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}end()
+endsnippet
+
+snippet header "class header"
+voysys${1}
+once${2}
+ns${0}
+endsnippet
+
+snippet body "class body"
+voysys${1}
+inc${2}
+
+ns${0}
 endsnippet
 
 snippet cl "class .. (class)"
@@ -313,12 +328,51 @@ snippet ts "type std::size_t" w
 std::size_t${0}
 endsnippet
 
-snippet ti "type int64_t" w
+snippet str "string" w
+std::string${0}
+endsnippet
+
+snippet ti "type int32_t" w
+int32_t${0}
+endsnippet
+
+snippet tui "type uint32_t" w
+uint32_t${0}
+endsnippet
+
+snippet t6 "type int64_t" w
 int64_t${0}
 endsnippet
 
-snippet tui "type int64_t" w
+snippet tu6 "type uint64_t" w
 uint64_t${0}
 endsnippet
+
+snippet pp "pauseplayresetc"
+void play();
+void pause();
+void stop();
+void reset();
+endsnippet
+
+snippet ppimp "pauseplayresetcimpl"
+void ${1:`!p snip.rv = snip.basename or "name"`}::play()
+{
+}
+
+void ${1/(\w+).*/$1/}::pause()
+{
+}
+
+void ${1/(\w+).*/$1/}::stop()
+{
+}
+
+void ${1/(\w+).*/$1/}::reset()
+{
+}
+
+endsnippet
+
 
 # vim:ft=snippets:
