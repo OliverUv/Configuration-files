@@ -20,4 +20,7 @@ nnoremap k 4k
 map <Leader>r :lowlight<cr>
 map <Leader>t :set gui=invmenu,invnavigation<cr>
 
+javascript lowlightBackground = "#141414"
+javascript lowlightForeground = "#eaeaea"
+
 " vim: set ft=vimperator:
