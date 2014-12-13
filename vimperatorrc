@@ -18,8 +18,10 @@ nnoremap u <c-u>
 nnoremap J <c-p>
 nnoremap K <c-n>
 
+nnoremap h 4h
 nnoremap j 4j
 nnoremap k 4k
+nnoremap l 4l
 
 cnoremap <c-n> <tab>
 cnoremap <c-p> <s-tab>
