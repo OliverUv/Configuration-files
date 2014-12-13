@@ -59,6 +59,7 @@ bindsym $mod+Shift+V exec gvim -S $HOME/.cache/unite/session/life.vim
 bindsym $mod+Control+a exec urxvt -e alsamixer
 bindsym $mod+Control+u exec urxvt -e youtube-viewer
 bindsym $mod+Control+y exec my
+bindsym $mod+Control+i exec mi
 bindsym $mod+Shift+Y exec mclip
 
 # move focus
