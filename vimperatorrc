@@ -1,10 +1,14 @@
 "3.8.3 (created: 2014/11/09 13:19:01)
 
-source! /home/oliver/.vimperatorrc.local
+"source! /home/oliver/.vimperatorrc.local
 
-set gui=none,tabs
+nnoremap <F1> <Nop>
+nnoremap <c-q> :noh<cr>
 
 colorscheme dorkness
+
+set gui=none,tabs
+set status=input,location,bookmark,history,tabcount,ssl
 
 nnoremap x D
 nnoremap v d
@@ -16,6 +20,9 @@ nnoremap K <c-n>
 
 nnoremap j 4j
 nnoremap k 4k
+
+cnoremap <c-n> <tab>
+cnoremap <c-p> <s-tab>
 
 map <Leader>r :lowlight<cr>
 map <Leader>t :set gui=invmenu,invnavigation<cr>
