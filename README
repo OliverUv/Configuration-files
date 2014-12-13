@@ -42,5 +42,13 @@ gitignoreglobal -> .gitignoreglobal
 coffeelint.json -> .config/coffeelint.json
 flake8          -> .config/flake8
 
+# firefox developer edition
+# sudo add-apt-repository ppa:ubuntu-mozilla-daily/firefox-aurora
+# sudo apt-get update
+# sudo apt-get install firefox
+vimperatorrc      -> .vimperatorrc
+vimperatorplugin  -> .vimperator/plugin
+vimperatorcolors  -> .vimperator/colors
+
 # not in use
 xprofile -> .xprofile

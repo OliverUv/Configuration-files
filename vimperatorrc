@@ -1,0 +1,23 @@
+"3.8.3 (created: 2014/11/09 13:19:01)
+
+source! /home/oliver/.vimperatorrc.local
+
+set gui=none,tabs
+
+colorscheme dorkness
+
+nnoremap x D
+nnoremap v d
+nnoremap X u
+nnoremap d <c-d>
+nnoremap u <c-u>
+nnoremap J <c-p>
+nnoremap K <c-n>
+
+nnoremap j 4j
+nnoremap k 4k
+
+map <Leader>r :lowlight<cr>
+map <Leader>t :set gui=invmenu,invnavigation<cr>
+
+" vim: set ft=vimperator:
