@@ -1,5 +1,7 @@
 # vim: ft=i3
 # Host specific settings
 
+set $audiosink 1
+
 exec --no-startup-id setxkbmap -model applealu_iso -layout "en_US,se" -option 'ctrl:nocaps,altwin:swap_lalt_lwin,grp:lalt_lshift_toggle'
 exec --no-startup-id xrandr --output HDMI2 --mode 1920x1200 --pos 0x0 --rotate normal --output HDMI1 --primary --mode 1920x1200 --pos 1920x0 --rotate normal --output DP2 --off --output DP1 --off --output VGA1 --off

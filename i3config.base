@@ -14,8 +14,6 @@ set $mod Mod1
 
 set $quickswitch /home/oliver/Projects/quickswitch-for-i3/quickswitch.py --dmenu "dmenu -i -l 20 -fn 'DejaVu Sans 10' -sb '#E17800' -sf '#000000' -h 23"
 
-set $audiosink 1
-
 # font for window titles. ISO 10646 = Unicode
 #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 
@@ -55,6 +53,7 @@ bindsym $mod+Shift+D exec i3-dmenu-desktop --dmenu "dmenu -i -fn 'DejaVu Sans 10
 # start apps
 bindsym $mod+Control+p exec bash -c 'scrot $HOME/screenshot_$(date +"%F_-_%H-%M-%S").png'
 bindsym $mod+Control+g exec google-chrome
+bindsym $mod+Control+f exec firefox
 bindsym $mod+Control+v exec gvim
 bindsym $mod+Shift+V exec gvim -S $HOME/.cache/unite/session/life.vim
 bindsym $mod+Control+a exec urxvt -e alsamixer
@@ -265,7 +264,7 @@ exec --no-startup-id redshift -l 58.411975:15.559395 -t 6500:3700 -b 0.95
 exec --no-startup-id xset r rate 210 30
 # disable mouse acceleration
 exec --no-startup-id xset m 0 0
-# disable screen blanking
+# disable screen blanking TODO fix this
 exec --no-startup-id xset s 0
 #exec google-chrome
 
