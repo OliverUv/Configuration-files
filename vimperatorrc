@@ -13,7 +13,7 @@ set status=input,location,bookmark,history,tabcount,ssl
 nnoremap x D
 nnoremap v d
 nnoremap X u
-nnoremap <c-w> D
+nnoremap <c-w> :q<cr>
 nnoremap d <c-d>
 nnoremap u <c-u>
 nnoremap J <c-p>
