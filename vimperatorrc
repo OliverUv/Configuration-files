@@ -13,6 +13,7 @@ set status=input,location,bookmark,history,tabcount,ssl
 nnoremap x D
 nnoremap v d
 nnoremap X u
+nnoremap <c-w> D
 nnoremap d <c-d>
 nnoremap u <c-u>
 nnoremap J <c-p>
@@ -25,6 +26,8 @@ nnoremap l 4l
 
 cnoremap <c-n> <tab>
 cnoremap <c-p> <s-tab>
+
+nnoremap e ;y
 
 map <Leader>r :lowlight<cr>
 map <Leader>i :o ip<cr>
