@@ -3,7 +3,7 @@
 "source! /home/oliver/.vimperatorrc.local
 
 nnoremap <F1> <Nop>
-nnoremap <c-q> :noh<cr>
+nnoremap <c-q> :noh<cr><esc>
 
 colorscheme dorkness
 
