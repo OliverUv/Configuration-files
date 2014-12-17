@@ -62,9 +62,43 @@ hi URL                  text-decoration: none; color: lightblue; background: inh
 hi URL:hover            text-decoration: underline; cursor: pointer;
 hi LineNr               color: #afafaf; background: #222222;
 
-"style -name statusbar chrome://* <<EOM
-"#status-bar statusbarpanel { padding: 0 1px !important; }
-"statusbarpanel > * { margin: 0 !important; padding: 0 2px 0 0 !important; }
-"EOM
+" For other descriptions of each item, please see ``Styling'' section included with Vimperator
 
-"For other descriptions of each item, please see ``Styling'' section included with Vimperator
+
+" Changing color of tabs and such
+" Default style available here: chrome://browser/skin/devedition.css
+
+style -name tab chrome://* <<EOM
+#TabsToolbar {
+  padding-left: none !important;
+  padding-right: none !important;
+  margin-right: none !important;
+  margin-left: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background-image: none !important;
+}
+
+.tab-close-button {
+  display: none !important;
+}
+
+#tabbrowser-tabs[movingtab] > .tabbrowser-tab[beforeselected]:not([last-visible-tab])::after,
+.tabbrowser-tab:not([selected]):not([afterselected-visible]):not([afterhovered]):not([first-visible-tab]):not(:hover)::before,
+#tabbrowser-tabs:not([overflow]) > .tabbrowser-tab[last-visible-tab]:not([selected]):not([beforehovered]):not(:hover)::after {
+  background-image: none !important;
+}
+
+.tabbrowser-tab {
+  font-weight: bold;
+  color: #DADADA !important;
+}
+
+.tabbrowser-tab[selected] {
+  color: #000000 !important;
+  background-color: #E17800 !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+EOM
