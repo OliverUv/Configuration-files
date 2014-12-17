@@ -6,13 +6,13 @@
 " Based on the colorscheme Darkness
 
 "StatusLine settings
-hi StatusLine           color: #ffffff; background: #000000; "font-size: 8pt;
+hi StatusLine           color: #ffffff; background: #000000; font-size: 10pt;
 " hi StatusLineBroken     color: #000000; background: #afafff; "font-size: 8pt;
 " hi StatusLineSecure     color: #000000; background: #afffaf; "font-size: 8pt;
 
 "CmdLine settings excluding Gradient
 hi Normal               color: #afafaf; background: #222222;
-hi CmdLine              background: #222222; color: #afafaf; font-size: 9pt;
+hi CmdLine              background: #222222; color: #afafaf; font-size: 10pt;
 hi CompDesc             color: #c6c6c6; width: 50%; font-size: 9pt;
 hi CompIcon             width: 16px; min-width: 16px; display: inline-block; margin-right: .5ex;
 hi CompItem[selected]   background: #666666; color: #afafaf; 
