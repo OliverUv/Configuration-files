@@ -6,7 +6,6 @@
 	name = Oliver Uvman
 [merge]
 	tool = vimdiff
-	ff = no
 [alias]
 	unstage = reset HEAD --
 	undo = checkout --
