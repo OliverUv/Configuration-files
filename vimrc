@@ -661,6 +661,10 @@ endif
 let g:TagHighlightSettings['TagFileName'] = '.git/tags'
 
 let g:undotree_SetFocusWhenToggle = 1
+
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+
 " }}} Misc "
 
 " niji {{{ "
@@ -922,7 +926,7 @@ function! g:ToggleColorColumn()
     setlocal colorcolumn=79
   endif
 endfunction
-nnoremap <silent> <leader>cc :call g:ToggleColorColumn()<cr>
+nnoremap <silent> coC :call g:ToggleColorColumn()<cr>
 
 " Pull word under cursor into LHS of a substitute
 nnoremap <leader>z :%s#\<<c-r>=expand("<cword>")<cr>\>##gc<left><left><left>
@@ -1012,7 +1016,7 @@ endfunction
 nnoremap <leader>mq :<C-U><C-R>=ModifyRegister()<CR><C-E><C-F><Left>
 
 " Move cpp // comment at end of line to line above
-nnoremap <leader>cu $F/hhr<cr>kddpk$
+nnoremap <leader>cU $F/hhr<cr>kddpk$
 
 " Drag current line(s) up/down
 noremap <leader>j :m+<CR>

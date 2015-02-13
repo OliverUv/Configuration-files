@@ -275,3 +275,6 @@
 [submodule "dotvim/bundle/rust.vim"]
 	path = dotvim/bundle/rust.vim
 	url = https://github.com/wting/rust.vim.git
+[submodule "dotvim/bundle/nerdcommenter"]
+	path = dotvim/bundle/nerdcommenter
+	url = git@github.com:scrooloose/nerdcommenter.git
