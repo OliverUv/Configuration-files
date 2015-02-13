@@ -288,6 +288,10 @@ snippet oli "oden log info"
 oden_log_info("${1}"${2});${0}
 endsnippet
 
+snippet olt "oden log trace"
+oden_log_trace("${1}", "${2}", ${3});${0}
+endsnippet
+
 snippet olw "oden log warning"
 oden_log_warning("${1}"${2});${0}
 endsnippet
@@ -328,15 +332,19 @@ snippet ts "type std::size_t" w
 std::size_t${0}
 endsnippet
 
+snippet cstr "string" w
+const std::string &${0}
+endsnippet
+
 snippet str "string" w
 std::string${0}
 endsnippet
 
-snippet ti "type int32_t" w
+snippet t3 "type int32_t" w
 int32_t${0}
 endsnippet
 
-snippet tui "type uint32_t" w
+snippet tu3 "type uint32_t" w
 uint32_t${0}
 endsnippet
 
