@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+livestreamer -O twitch.tv/$* best | mpv --really-quiet -cache 3000 -
