@@ -72,6 +72,12 @@ snippet enum "Enumeration"
 enum ${1:name} { $0 };
 endsnippet
 
+snippet ec "Enumeration class"
+enum class ${1:name} : $2 {
+	$0
+};
+endsnippet
+
 snippet once "Include header once only guard"
 #pragma once
 
@@ -328,31 +334,31 @@ catch (${1}) {
 }${0}
 endsnippet
 
-snippet ts "type std::size_t" w
+snippet ts "type std::size_t" i
 std::size_t${0}
 endsnippet
 
-snippet cstr "string" w
+snippet cstr "string" i
 const std::string &${0}
 endsnippet
 
-snippet str "string" w
+snippet str "string" i
 std::string${0}
 endsnippet
 
-snippet t3 "type int32_t" w
+snippet t3 "type int32_t" i
 int32_t${0}
 endsnippet
 
-snippet tu3 "type uint32_t" w
+snippet tu3 "type uint32_t" i
 uint32_t${0}
 endsnippet
 
-snippet t6 "type int64_t" w
+snippet t6 "type int64_t" i
 int64_t${0}
 endsnippet
 
-snippet tu6 "type uint64_t" w
+snippet tu6 "type uint64_t" i
 uint64_t${0}
 endsnippet
 
