@@ -15,3 +15,5 @@ tags
 core
 #valgrind/callgrind
 callgrind.out.*
+#mac
+*.DS_Store
