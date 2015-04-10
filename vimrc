@@ -774,6 +774,11 @@ augroup end
 endif
 " }}} switch.vim "
 
+" localvimrc {{{ "
+" let g:localvimrc_sandbox = 0
+let g:localvimrc_persistent = 2
+" }}} localvimrc "
+
 " vim-sneak {{{ "
 nmap gm <Plug>Sneak_s
 nmap gM <Plug>Sneak_S
