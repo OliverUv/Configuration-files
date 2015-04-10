@@ -1,3 +1,8 @@
+" Theme based on proton by Henning Hasemann
+
+" I only source this after having first sourced liquorice.vim, during
+" daytime when the sun shines. Not tested without the liquorice colors.
+
 
 hi Normal guibg=#f0f0f0 guifg=#404040 gui=none
 hi Comment guibg=#f0f0f0 guifg=#9098a0 gui=none
@@ -7,10 +12,17 @@ hi Cursor guibg=#404040 guifg=#a0a0a0
 hi CursorColumn guibg=#e0e0e0 guifg=#202020
 hi CursorLine guibg=#e0e0e0 guifg=#202020
 
+hi TabLineFill  gui=NONE guifg=#606060 guibg=#d0d0d0
+hi TabLine      gui=NONE guifg=#606060 guibg=#d0d0d0
+hi TabLineSel   gui=NONE guifg=#404040 guibg=#f0f0f0
+" These are custom colors, for tab numbers used with the gt command
+" see liquorice.vim for tabline code that uses them.
+hi TabNumber    gui=NONE guifg=#99004C guibg=#d0d0d0
+hi TabNumberSel gui=NONE guifg=#99004C guibg=#f0f0f0
+
 hi NonText guibg=#d0d0d0 guifg=#606060 gui=none
 hi Visual guibg=#d0d0d0 guifg=#606060 gui=none
 hi Folded guibg=#d0d0d0 guifg=#606060 gui=none
-hi TabLineFill guibg=#d0d0d0 guifg=#606060 gui=none
 hi SpecialKey guibg=#e8e8e8 guifg=#a0a0a0 gui=none
 hi Search guibg=#808080 guifg=#ffffff gui=bold
 
