@@ -545,8 +545,9 @@ nnoremap <silent><leader>lg :<C-u>Unite -buffer-name=grep grep<CR>
 nnoremap <silent><leader>lG "zyiw:<C-u>Unite -buffer-name=grepword grep<CR><CR><C-R>z<CR>
 vnoremap <silent><leader>lG "zy:<C-u>Unite -buffer-name=grepword grep<CR><CR><C-R>z<CR>
 nnoremap <silent><leader>ls :<C-u>Unite session<CR>
-nnoremap <silent><leader>lt :<C-u>Unite -buffer-name=tags tag tag/file<CR>
-nnoremap <silent><leader>li :<C-u>Unite -buffer-name=included_tags tag/include<CR>
+nnoremap <silent><leader>lt :<C-u>Unite -buffer-name=tags tag<CR>
+nnoremap <silent><leader>lT :<C-u>Unite -buffer-name=tagfiles tag/file<CR>
+nnoremap <silent><leader>li :<C-u>Unite -buffer-name=autotags tag/include<CR>
 nnoremap <silent><leader>ld :<C-u>Unite -buffer-name=change-cwd -default-action=lcd directory_mru directory<CR>
 nnoremap <silent><leader>l, :<C-u>UniteResume<CR>
 nnoremap <silent><leader>lv :<C-u>UniteResume<CR>
@@ -746,7 +747,8 @@ let g:fontzoom_no_default_key_mappings = 1
 if ! exists('g:TagHighlightSettings')
     let g:TagHighlightSettings = {}
 endif
-let g:TagHighlightSettings['TagFileName'] = '.git/tags'
+" let g:TagHighlightSettings['TagFileName'] = '.git/tags'
+" let g:gutentags_tagfile = '.git/tags'
 
 let g:undotree_SetFocusWhenToggle = 1
 

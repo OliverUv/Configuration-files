@@ -278,3 +278,6 @@
 [submodule "dotvim/bundle/vim-localvimrc"]
 	path = dotvim/bundle/vim-localvimrc
 	url = https://github.com/embear/vim-localvimrc.git
+[submodule "dotvim/bundle/vim-gutentags"]
+	path = dotvim/bundle/vim-gutentags
+	url = https://github.com/ludovicchabant/vim-gutentags.git
