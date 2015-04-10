@@ -1009,6 +1009,8 @@ nnoremap <leader>= gg=G`'
 
 " Sort in paragraph
 nnoremap <leader>ms Vip:sort<cr>
+" Sort in paragraph, all but first row
+nnoremap <leader>mS {jjV}k:sort<cr>
 
 " Tabularize things
 nnoremap <leader>mt= :Tabularize /=/<cr>
