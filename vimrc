@@ -543,6 +543,7 @@ nnoremap <silent><leader>lw :<C-u>Unite -buffer-name=location_list location_list
 nnoremap <silent><leader>l* :<C-u>UniteWithCursorWord -buffer-name=line line<CR>
 nnoremap <silent><leader>lg :<C-u>Unite -buffer-name=grep grep<CR>
 nnoremap <silent><leader>lG "zyiw:<C-u>Unite -buffer-name=grepword grep<CR><CR><C-R>z<CR>
+vnoremap <silent><leader>lG "zy:<C-u>Unite -buffer-name=grepword grep<CR><CR><C-R>z<CR>
 nnoremap <silent><leader>ls :<C-u>Unite session<CR>
 nnoremap <silent><leader>lt :<C-u>Unite -buffer-name=tags tag tag/file<CR>
 nnoremap <silent><leader>li :<C-u>Unite -buffer-name=included_tags tag/include<CR>
