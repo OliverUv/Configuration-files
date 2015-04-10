@@ -275,3 +275,6 @@
 [submodule "dotvim/bundle/nerdcommenter"]
 	path = dotvim/bundle/nerdcommenter
 	url = git@github.com:scrooloose/nerdcommenter.git
+[submodule "dotvim/bundle/vim-localvimrc"]
+	path = dotvim/bundle/vim-localvimrc
+	url = https://github.com/embear/vim-localvimrc.git
