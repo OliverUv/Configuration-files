@@ -1213,8 +1213,21 @@ nnoremap <silent> - mz:<c-u>:Switch<cr><esc>`z
 " Clean trailing whitespace
 nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
 
+" Go to tabs with F-keys
+nnoremap <F1> 1gt
+nnoremap <F2> 2gt
+nnoremap <F3> 3gt
+nnoremap <F4> 4gt
+nnoremap <F5> 5gt
+nnoremap <F6> 6gt
+nnoremap <F7> 7gt
+nnoremap <F8> 8gt
+nnoremap <F9> 9gt
+nnoremap <F10> 10gt
+nnoremap <F11> 11gt
+nnoremap <F12> 12gt
+
 " Accidentally pressing F1 is to press ESC
-map <F1> <esc>
 imap <F1> <esc>
 cmap <F1> <esc>
 xmap <F1> <esc>
