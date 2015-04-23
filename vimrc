@@ -719,7 +719,7 @@ augroup JediGroup
     " Clear autocmds for this group
     autocmd!
 
-    autocmd FileType python setlocal omnifunc=jedi#complete
+    autocmd FileType python setlocal omnifunc=jedi#completions
     autocmd FileType python let b:did_ftplugin = 1
 augroup end
 endif
