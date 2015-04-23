@@ -323,7 +323,8 @@ function! MyTabLine()
     let m = 0 " &modified counter
     let bc = len(tabpagebuflist(t + 1))  "counter to avoid last ' '
     " loop through each buffer in a tab
-    for b in tabpagebuflist(t + 1)[:0] " Actually just the first buffer in it
+    for b in tabpagebuflist(t + 1)[:0]
+      " Actually just the first buffer in the list for name
       " buffer types: quickfix gets a [Q], help gets [H]{base fname}
       " others get 1dir/2dir/3dir/fname shortened to 1/2/3/fname
       if getbufvar( b, "&buftype" ) == 'help'
@@ -334,26 +335,33 @@ function! MyTabLine()
         let n .= pathshorten(bufname(b))
         "let n .= bufname(b)
       endif
+    endfor
+    for b in tabpagebuflist(t + 1)
       " check and ++ tab's &modified count
       if getbufvar( b, "&modified" )
         let m += 1
       endif
-      " no final ' ' added...formatting looks better done later
-      if bc > 1
-        let n .= ' '
-      endif
-      let bc -= 1
     endfor
-    " add modified label [n+] where n pages in tab are modified
-    if m > 0
-      "let s .= '[' . m . '+]'
-      let s.= '+ '
-    endif
     " add buffer names
     if n == ''
       let s .= '[No Name]'
     else
       let s .= n
+    endif
+    " add modified label [n+] where n pages in tab are modified
+    if m > 0
+      "let s .= '[' . m . '+]'
+      if t + 1 == tabpagenr()
+        let s .= '%#TabModifiedSel#'
+      else
+        let s .= '%#TabModified#'
+      endif
+      let s.= '+'
+      if t + 1 == tabpagenr()
+        let s .= '%#TabLineSel#'
+      else
+        let s .= '%#TabLine#'
+      endif
     endif
     " switch to no underlining and add final space to buffer list
     "let s .= '%#TabLineSel#' . ' '
