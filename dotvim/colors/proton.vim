@@ -6,7 +6,8 @@
 
 hi Normal guibg=#f0f0f0 guifg=#404040 gui=none
 hi Comment guibg=#f0f0f0 guifg=#9098a0 gui=none
-hi ToDo guibg=#f0f0f0 guifg=#9098a0 gui=bold
+"hi ToDo guibg=#f0f0f0 guifg=#9098a0 gui=bold
+hi Todo gui=UNDERLINE,ITALIC guifg=#99004C guibg=#d0d0d0
 
 hi Cursor guibg=#404040 guifg=#a0a0a0
 hi CursorColumn guibg=#e0e0e0 guifg=#202020
@@ -15,10 +16,12 @@ hi CursorLine guibg=#e0e0e0 guifg=#202020
 hi TabLineFill  gui=NONE guifg=#606060 guibg=#d0d0d0
 hi TabLine      gui=NONE guifg=#606060 guibg=#d0d0d0
 hi TabLineSel   gui=NONE guifg=#404040 guibg=#f0f0f0
-" These are custom colors, for tab numbers used with the gt command
-" see liquorice.vim for tabline code that uses them.
+" These are custom colors, for tab numbers used with the gt command see
+" the vimrc for tabline code that uses them.
 hi TabNumber    gui=NONE guifg=#99004C guibg=#d0d0d0
 hi TabNumberSel gui=NONE guifg=#99004C guibg=#f0f0f0
+hi TabModified     gui=BOLD guifg=#d0d0d0 guibg=#a0a0a0
+hi TabModifiedSel  gui=BOLD guifg=#202020 guibg=#f0f0f0
 
 hi NonText guibg=#d0d0d0 guifg=#606060 gui=none
 hi Visual guibg=#d0d0d0 guifg=#606060 gui=none
@@ -64,12 +67,21 @@ hi Number guifg=#508040 guibg=#f0f0f0
 hi String guifg=#a07060 guibg=#f0ece8 gui=italic
 hi Special guifg=#603020 guibg=#f0ece8 gui=italic
 
+hi Error gui=BOLD guifg=#f2ca03 guibg=#191919
+hi SyntasticWarningLine guibg=#f0f0f0
 
-hi DiffAdd guifg=#ffcc7f guibg=#a67429
+hi DiffText guifg=#ffcc7f guibg=#a67429
 hi DiffDelete guifg=#ff7f50 guibg=#a62910
 hi DiffChange guifg=#7fbdff guibg=#425c78
-hi DiffText guifg=#8ae234 guibg=#4e9a06
+hi DiffAdd guifg=#8ae234 guibg=#4e9a06
 
 hi SpellBad gui=undercurl guisp=#f02020
 
+hi UniteSelectedLine gui=NONE guifg=NONE guibg=#d0d0d0
 
+hi gitcommitFile guifg=#404040 guibg=NONE
+
+hi IndentGuidesOdd  gui=NONE guifg=NONE guibg=#e5e5e5
+hi IndentGuidesEven gui=NONE guifg=NONE guibg=#dadada
+
+hi SignColumn   gui=NONE guifg=#202020 guibg=#d0d0d0
