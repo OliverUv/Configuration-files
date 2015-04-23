@@ -7,8 +7,10 @@
 *.pyc
 **/*.pyc
 *.o
+*.min.js
 #tag files
 tags
+tags.temp
 #vim taghighlight plugin files
 *.taghl
 #core dumps
@@ -17,3 +19,7 @@ core
 callgrind.out.*
 #mac
 *.DS_Store
+
+# custom configuration files
+.lvimrc
+.agignore
