@@ -1116,6 +1116,9 @@ nnoremap <leader>mt= :Tabularize /=/<cr>
 nnoremap <leader>mt/ :Tabularize /\/\//<cr>
 nnoremap <leader>mt, :Tabularize /, /r0<cr>
 
+" Clean trailing whitespace
+nnoremap <leader>mw mz:%s/\s\+$//<cr>:let @/=''<cr>`z
+
 " Break up paramater list with newlines
 nnoremap <silent> <leader>mp mz:s/(/(\r/<cr>:s/, /,\r/g<cr>jmx`zj=`x:noh<cr>
 
@@ -1133,10 +1136,6 @@ nnoremap <leader>mq :<C-U><C-R>=ModifyRegister()<CR><C-E><C-F><Left>
 nnoremap <leader>cU $F/hhr<cr>kddpk$
 
 " Drag current line(s) up/down
-noremap <leader>j :m+<CR>
-noremap <leader>k :m-2<CR>
-inoremap <leader>j <Esc>:m+<CR>
-inoremap <leader>k <Esc>:m-2<CR>
 vnoremap <leader>j :m'>+<CR>gv
 vnoremap <leader>k :m-2<CR>gv
 
@@ -1219,9 +1218,6 @@ nnoremap <silent> <leader>ee :UltiSnipsEdit<cr>
 nnoremap <silent> <leader>u :UndotreeToggle<cr>
 nnoremap <silent> <leader>a :sign unplace *<cr>:Lclose<cr>
 nnoremap <silent> - mz:<c-u>:Switch<cr><esc>`z
-
-" Clean trailing whitespace
-nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
 
 " Go to tabs with F-keys
 nnoremap <F1> 1gt
