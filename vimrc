@@ -1064,6 +1064,7 @@ nnoremap gZ <c-z>
 nnoremap <silent> z<cr> :call windowing#minimize_vertically()<cr>
 nnoremap <silent> co4 :<c-u>vertical resize 84<cr>
 nnoremap <silent> zh mzggzfip`z
+nnoremap <silent> <leader>nt :<c-u>split<cr><c-w>k:resize 10<cr>gg
 
 " change buffers with ctrl-n and ctrl-p
 nnoremap <silent> <C-p> :BufSurfBack<cr>
