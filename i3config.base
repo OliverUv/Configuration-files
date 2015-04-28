@@ -19,8 +19,8 @@ set $quickswitch /home/oliver/Projects/quickswitch-for-i3/quickswitch.py --dmenu
 
 # This requires a recent version of i3 with xft support.
 # font pango:NanumGothic Regular 10, FreeSans 10
-# font pango:DejaVu Sans Bold 8
-font pango:WenQuanYi Micro Hei Mono 9.4
+# font pango:DejaVu Sans Bold 11
+font pango:WenQuanYi Micro Hei Mono Bold 11
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
