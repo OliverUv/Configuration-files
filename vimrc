@@ -137,7 +137,7 @@ set backupskip=/tmp/*,/private/tmp/*"
 " KEEP THESE IN SYNC WITH UNITE IGNORES!
 " Never put .git in here!
 
-set wildignore+=*/.hg/*,*/.svn/*,*.pyc,*.class
+set wildignore+=*/.hg/*,*/.svn/*,*.pyc,*pb2.py,*.class,*.min.js
 set wildignore+=.ropeproject/**
 set wildignore+=log/**
 set wildignore+=tmp/**
@@ -459,7 +459,7 @@ call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
             \ '/vendor/gems/', '/vendor/cache/', '\.bundle/', '\.sass-cache/',
             \ '/tmp/cache/assets/.*/sprockets/', '/tmp/cache/assets/.*/sass/',
             \ 'thirdparty/', 'Debug/', 'Release/',
-            \ '\.pyc$', '\.class$', '\.jar$',
+            \ '\.pyc$', 'pb2\.py$', '\.class$', '\.jar$', '\.min\.js$',
             \ '\.jpg$', '\.jpeg$', '\.bmp$', '\.png$', '\.gif$',
             \ '\.o$', '\.out$', '\.obj$', '\.rbc$', '\.rbo$', '\.gem$',
             \ '\.zip$', '\.tar\.gz$', '\.tar\.bz2$', '\.rar$', '\.tar\.xz$'
