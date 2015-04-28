@@ -684,7 +684,7 @@ inoremap <expr><C-g> neocomplete#undo_completion()
 inoremap <expr><C-l> neocomplete#complete_common_string()
 
 " To complete in python with jedi-vim
-let g:jedi#completions_enabled = 0
+"let g:jedi#completions_enabled = 0
 let g:jedi#auto_vim_configuration = 0
 let g:neocomplete#force_omni_input_patterns.python =
             \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
@@ -713,6 +713,7 @@ endfunction
 let g:jedi#auto_initialization = 1
 let g:jedi#auto_vim_configuration = 0
 let g:jedi#popup_on_dot = 0
+let g:jedi#completions_enabled = 0
 
 let g:jedi#goto_assignments_command = "<leader>jg"
 let g:jedi#goto_definitions_command = "<leader>jd"
