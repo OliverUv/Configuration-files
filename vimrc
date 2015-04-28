@@ -250,7 +250,7 @@ function! FileEncoding()
     endif
 endfunction
 
-set statusline=%<%F\ %m%r%h%w%{fugitive#statusline()}\ %Y\ %{FileEncoding()}\ %{&ff}%=%#warningmsg#%{SyntasticStatuslineFlag()}%*\ %c\,\ %l/%L\ %p%%\ 
+set statusline=%<%F\ %m%r%h%w%{fugitive#statusline()}\ %Y\ %{FileEncoding()}\ %{&ff}%=%#warningmsg#%{SyntasticStatuslineFlag()}%*\ %c\,\ %l/%L\ %p%%\
 " <	truncation point
 " F	full path to file
 " m	modified marker
@@ -276,7 +276,7 @@ if version >= 700
     augroup StatuslineColorGroup
         " Clear autocmds for this group
         autocmd!
-    
+
         au InsertEnter * hi StatusLine gui=NONE guifg=#FFFFFF guibg=#9D3569
         au InsertLeave * hi StatusLine gui=NONE guifg=#d6d6d6 guibg=#602040
     augroup end
@@ -296,7 +296,7 @@ function! MyTabLine()
     else
       let s .= '%#TabLine#'
     endif
-    
+
     " empty space
     let s .= ' '
 
@@ -310,7 +310,7 @@ function! MyTabLine()
       let s .= '%#TabNumber#'
     endif
     let s .= t + 1
-    
+
     " select the highlighting for the buffer names again
     if t + 1 == tabpagenr()
       let s .= '%#TabLineSel#'
@@ -376,7 +376,7 @@ function! MyTabLine()
   return s
 endfunction
 set tabline=%!MyTabLine()
-" }}} Tabline settings " 
+" }}} Tabline settings "
 
 " Session information for :mksession {{{ "
 set viminfo='1000,f1,<1000,:500,@500,/500,!
@@ -559,9 +559,9 @@ nnoremap <silent><leader>li :<C-u>Unite -buffer-name=autotags tag/include<CR>
 nnoremap <silent><leader>ld :<C-u>Unite -buffer-name=change-cwd -default-action=lcd directory_mru directory<CR>
 nnoremap <silent><leader>l, :<C-u>UniteResume<CR>
 nnoremap <silent><leader>lv :<C-u>UniteResume<CR>
-nnoremap <silent><leader>lV :<C-u>UniteResume 
+nnoremap <silent><leader>lV :<C-u>UniteResume
 
-nnoremap <leader>lS :<C-u>UniteSessionSave 
+nnoremap <leader>lS :<C-u>UniteSessionSave
 
 function! s:unite_my_settings()
   "Don't add parens to my filters
@@ -618,7 +618,7 @@ nnoremap <silent> <leader>,g :execute "!makeglossaries " . shellescape(expand('%
 " Rainbow-Parentheses-Improved-and2 {{{ "
 "" Rainbow-Parentheses-Improved-and2 settings
 "" http://github.com/vim-scripts/Rainbow-Parentheses-Improved-and2
-"" 
+""
 " These are so ugly
 "let g:rainbow_ctermfgs = [184, 39, 170, 162, 154, 9, 10, 11, 13, 14, 15]
 " These are alright
@@ -838,7 +838,7 @@ let g:ghc = "/usr/bin/ghc"
 
 " switch.vim {{{ "
 " These switches apply to all filetypes
-let g:switch_custom_definitions = 
+let g:switch_custom_definitions =
     \ [
     \   ['&&', '||'],
     \   {
@@ -898,7 +898,7 @@ function! CmdLine(str)
     exe "menu Foo.Bar :" . a:str
     emenu Foo.Bar
     unmenu Foo
-endfunction 
+endfunction
 
 " From an idea by Michael Naumann
 function! VisualSearch(direction) range
@@ -1191,10 +1191,10 @@ nnoremap <silent> <leader>gw :<C-U>Gwrite<cr>
 nnoremap <silent> <leader>gW :<C-U>Gwrite!<cr>
 nnoremap <silent> <leader>gh :<C-U>Gpush<cr>
 nnoremap <silent> <leader>gH :<C-U>Gpull<cr>
-nnoremap <silent> <leader>gp :<C-U>Git push 
+nnoremap <silent> <leader>gp :<C-U>Git push
 nnoremap <leader>gm :<C-U>Gmove <c-r>=expand('%:p')<cr>
-nnoremap <leader>gl :<C-U>Glog --follow 
-nnoremap <leader>gg :<C-U>Ggrep 
+nnoremap <leader>gl :<C-U>Glog --follow
+nnoremap <leader>gg :<C-U>Ggrep
 nnoremap <leader>gc :<C-U>Gcommit -m '
 nnoremap <leader>gA :<C-U>Git checkout -- %
 " Close diff window, go to gstatus window, add file
@@ -1262,7 +1262,7 @@ nnoremap <leader>f? z=
 
 " Machine specific settings loading {{{ "
 " Load local .vimrc for machine-specific options
-if filereadable(glob("~/.vimrc.local")) 
+if filereadable(glob("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
 " }}} Machine specific settings loading "
