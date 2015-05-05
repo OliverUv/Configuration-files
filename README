@@ -35,6 +35,7 @@ vimrc           -> .vimrc
 vimrc.voyager   -> .vimrc.local (for example)
 gvimrc          -> .gvimrc
 dotvim          -> .vim
+agignore        -> .agignore
 gitconfig       -> .gitconfig
 gitignoreglobal -> .gitignoreglobal
 
