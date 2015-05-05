@@ -142,6 +142,7 @@ set wildignore+=.ropeproject/**
 set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=obj/**
+set wildignore+=*.pbxproj,*.xcodeproj,Altitude-OSX.order,*.vcproj
 
 " Ignore output and VCS files: Note: do not ignore .git! It breaks fugitive's :Gdiff
 set wildignore+=*.o,*.out,*.obj,*.rbc,*.rbo,*.class,.svn,*.gem
@@ -454,7 +455,7 @@ call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
             \ '\.swp', '\.swo', '\~$',
             \ '\.git/', '\.svn/', '\.hg/',
             \ '^tags$', '\.taghl$',
-            \ '\.ropeproject/',
+            \ '\.ropeproject/', '\.pbxproj$', '\.xcodeproj', '\.vcproj', 
             \ 'node_modules/', 'log/', 'tmp/', 'obj/',
             \ '/vendor/gems/', '/vendor/cache/', '\.bundle/', '\.sass-cache/',
             \ '/tmp/cache/assets/.*/sprockets/', '/tmp/cache/assets/.*/sass/',
@@ -464,6 +465,9 @@ call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
             \ '\.o$', '\.out$', '\.obj$', '\.rbc$', '\.rbo$', '\.gem$',
             \ '\.zip$', '\.tar\.gz$', '\.tar\.bz2$', '\.rar$', '\.tar\.xz$'
             \ ], '\|'))
+
+" call unite#custom#source('file_rec', 'ignore_globs',
+    " \ split(&wildignore, ','))
 
 let g:unite_source_rec_max_cache_files = 0
 call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
