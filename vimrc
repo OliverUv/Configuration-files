@@ -1068,7 +1068,10 @@ nnoremap gZ <c-z>
 nnoremap <silent> z<cr> :call windowing#minimize_vertically()<cr>
 nnoremap <silent> co4 :<c-u>vertical resize 84<cr>
 nnoremap <silent> zh mzggzfip`z
-nnoremap <silent> <leader>nt :<c-u>split<cr><c-w>k:resize 10<cr>gg
+
+" navigating
+nnoremap <silent> <leader>nt :<c-u>split<cr><c-w>k:resize 17<cr>gg
+nnoremap <leader>ng :split<cr>g<c-]>
 
 " change buffers with ctrl-n and ctrl-p
 nnoremap <silent> <C-p> :BufSurfBack<cr>
@@ -1114,6 +1117,7 @@ nnoremap <leader>= gg=G`'
 nnoremap <leader>ms Vip:sort<cr>
 " Sort in paragraph, all but first row
 nnoremap <leader>mS {jjV}k:sort<cr>
+nnoremap <leader>mv V`]=
 
 " Tabularize things
 nnoremap <leader>mt= :Tabularize /=/<cr>
