@@ -251,7 +251,7 @@ function! FileEncoding()
     endif
 endfunction
 
-set statusline=%<%F\ %m%r%h%w%{fugitive#statusline()}\ %Y\ %{FileEncoding()}\ %{&ff}%=%#warningmsg#%{SyntasticStatuslineFlag()}%*\ %c\,\ %l/%L\ %p%%\
+set statusline=%<%F\ %m%r%h%w%{fugitive#statusline()}\ %Y\ %{FileEncoding()}\ %{&ff}%=%#warningmsg#%{SyntasticStatuslineFlag()}%*\ %c\,\ %l/%L\ %p%%\ 
 " <	truncation point
 " F	full path to file
 " m	modified marker
