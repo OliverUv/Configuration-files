@@ -19,6 +19,10 @@ core
 callgrind.out.*
 #mac
 *.DS_Store
+#modules/components
+node_modules/
+#binaries
+.Python
 
 # custom configuration files
 .lvimrc
