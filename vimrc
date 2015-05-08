@@ -665,6 +665,8 @@ let g:rainbow_conf = {
     \}
 let g:rainbow_active = 1
 let g:rainbow_operators = 1
+
+nnoremap coR :RainbowToggle<cr>
 " }}} Rainbow-Parentheses-Improved-and2 "
 
 " vim-togglelist {{{ "
