@@ -19,6 +19,9 @@ nnoremap u <c-u>
 nnoremap J <c-p>
 nnoremap K <c-n>
 
+nnoremap <leader>a :tabattach 
+nnoremap <leader>d :tabdetach<cr>
+
 nnoremap h 4h
 nnoremap j 4j
 nnoremap k 4k
