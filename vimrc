@@ -171,6 +171,9 @@ set wildignore+=*.swp,*~,._*
 
 " Ignore thirdparty assets
 set wildignore+=*/thirdparty/*
+set wildignore+=*web/static/components/*
+set wildignore+=*web/static/images/*
+set wildignore+=*web/static/external/*
 
 " Ignore Debug and Release folders
 set wildignore+=*/Debug/*,*/Release/*
@@ -452,7 +455,7 @@ call unite#custom#source('outline,line,grep,session', 'matchers', ['matcher_fuzz
 " Ignore some things
 " KEEP THESE IN SYNC WITH WILDIGNORE!
 " Need to escape dots in the patterns!
-call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
+call unite#custom#source('file_rec,file_rec/async,file_mru,file,grep',
             \ 'ignore_pattern', join([
             \ '\.swp', '\.swo', '\~$',
             \ '\.git/', '\.svn/', '\.hg/',
@@ -461,14 +464,15 @@ call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
             \ 'node_modules/', 'log/', 'tmp/', 'obj/',
             \ '/vendor/gems/', '/vendor/cache/', '\.bundle/', '\.sass-cache/',
             \ '/tmp/cache/assets/.*/sprockets/', '/tmp/cache/assets/.*/sass/',
-            \ 'thirdparty/', 'Debug/', 'Release/', '/web/static/components/',
+            \ 'thirdparty/', 'Debug/', 'Release/',
+            \ 'web/static/components/', 'web/static/external/', 'web/static/images/',
             \ '\.pyc$', 'pb2\.py$', '\.class$', '\.jar$', '\.min\.js$',
             \ '\.jpg$', '\.jpeg$', '\.bmp$', '\.png$', '\.gif$',
             \ '\.o$', '\.out$', '\.obj$', '\.rbc$', '\.rbo$', '\.gem$',
             \ '\.zip$', '\.tar\.gz$', '\.tar\.bz2$', '\.rar$', '\.tar\.xz$'
             \ ], '\|'))
 
-" call unite#custom#source('file_rec', 'ignore_globs',
+" call unite#custom#source('file_rec,file_rec/async,file_mru,file,grep', 'ignore_globs',
     " \ split(&wildignore, ','))
 
 let g:unite_source_rec_max_cache_files = 0
