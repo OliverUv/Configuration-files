@@ -79,9 +79,9 @@ hi TabModifiedSel  gui=BOLD guifg=#ffb0ff guibg=#602040
 
 " Diff
 hi DiffText     gui=BOLD guifg=NONE guibg=#1f1500
-hi DiffChange   gui=NONE guifg=#f0f0f0 guibg=#4A3000
-hi DiffDelete   gui=NONE guifg=#701D1D guibg=#701D1D
-hi DiffAdd      gui=NONE guifg=NONE guibg=#064008
+hi DiffChange   gui=NONE guifg=#B5A586 guibg=#4A3000
+hi DiffDelete   gui=NONE guifg=#701D1D guibg=#5A1D1D
+hi DiffAdd      gui=NONE guifg=NONE guibg=#063008
 
 " Autocompletion menu
 hi Pmenu        guifg=#f6f3e8 guibg=#303030 gui=NONE
@@ -250,8 +250,8 @@ hi link gitcommitSummary Conditional
 hi link gitcommitOverflow Error
 hi gitcommitFile guifg=#e8e8e8 guibg=NONE
 
-hi link diffAdded         DiffAdd
-hi link diffRemoved       DiffDelete
+hi diffAdded     gui=NONE guifg=#A0FFA0 guibg=#063008
+hi diffRemoved   gui=NONE guifg=#FFB7B7 guibg=#5A1D1D
 
 " Highlights for interesting words, see
 " https://bitbucket.org/sjl/dotfiles/src/tip/vim/vimrc

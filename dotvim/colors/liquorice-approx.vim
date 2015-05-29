@@ -1,5 +1,5 @@
 " This scheme was created by CSApproxSnapshot
-" on Thu, 23 Apr 2015
+" on Fri, 29 May 2015
 
 hi clear
 if exists("syntax_on")
@@ -67,6 +67,8 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi TabLineSel term=bold cterm=NONE ctermbg=95 ctermfg=253 gui=NONE guibg=#602040 guifg=#d6d6d6
     CSAHi TabLineFill term=reverse cterm=NONE ctermbg=233 ctermfg=16 gui=NONE guibg=#111111 guifg=#000000
     CSAHi CursorColumn term=reverse cterm=NONE ctermbg=233 ctermfg=fg gui=NONE guibg=#0f0f0f guifg=fg
+    CSAHi diffAdded term=NONE cterm=NONE ctermbg=22 ctermfg=157 gui=NONE guibg=#063008 guifg=#a0ffa0
+    CSAHi diffRemoved term=NONE cterm=NONE ctermbg=95 ctermfg=224 gui=NONE guibg=#5a1d1d guifg=#ffb7b7
     CSAHi InterestingWord1 term=NONE cterm=NONE ctermbg=182 ctermfg=16 gui=NONE guibg=#c6acc6 guifg=#000000
     CSAHi InterestingWord2 term=NONE cterm=NONE ctermbg=180 ctermfg=16 gui=NONE guibg=#b88853 guifg=#000000
     CSAHi InterestingWord3 term=NONE cterm=NONE ctermbg=215 ctermfg=16 gui=NONE guibg=#ffa724 guifg=#000000
@@ -123,9 +125,9 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi htmlLink term=NONE cterm=underline ctermbg=bg ctermfg=177 gui=underline guibg=bg guifg=#c777ff
     CSAHi Folded term=NONE cterm=NONE ctermbg=232 ctermfg=251 gui=NONE guibg=#0c0c0c guifg=#c8c8c8
     CSAHi FoldColumn term=NONE cterm=NONE ctermbg=234 ctermfg=251 gui=NONE guibg=#212121 guifg=#c8c8c8
-    CSAHi DiffAdd term=bold cterm=NONE ctermbg=22 ctermfg=fg gui=NONE guibg=#064008 guifg=fg
-    CSAHi DiffChange term=bold cterm=NONE ctermbg=58 ctermfg=255 gui=NONE guibg=#4a3000 guifg=#f0f0f0
-    CSAHi DiffDelete term=bold cterm=NONE ctermbg=95 ctermfg=95 gui=NONE guibg=#701d1d guifg=#701d1d
+    CSAHi DiffAdd term=bold cterm=NONE ctermbg=22 ctermfg=fg gui=NONE guibg=#063008 guifg=fg
+    CSAHi DiffChange term=bold cterm=NONE ctermbg=58 ctermfg=181 gui=NONE guibg=#4a3000 guifg=#b5a586
+    CSAHi DiffDelete term=bold cterm=NONE ctermbg=95 ctermfg=95 gui=NONE guibg=#5a1d1d guifg=#701d1d
     CSAHi DiffText term=reverse cterm=bold ctermbg=52 ctermfg=fg gui=bold guibg=#1f1500 guifg=fg
     CSAHi SignColumn term=NONE cterm=NONE ctermbg=233 ctermfg=255 gui=NONE guibg=#0e0e0e guifg=#f0f0f0
     CSAHi Conceal term=NONE cterm=NONE ctermbg=248 ctermfg=252 gui=NONE guibg=#a9a9a9 guifg=#d3d3d3
@@ -173,6 +175,8 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi TabLineSel term=bold cterm=NONE ctermbg=96 ctermfg=231 gui=NONE guibg=#602040 guifg=#d6d6d6
     CSAHi TabLineFill term=reverse cterm=NONE ctermbg=233 ctermfg=16 gui=NONE guibg=#111111 guifg=#000000
     CSAHi CursorColumn term=reverse cterm=NONE ctermbg=233 ctermfg=fg gui=NONE guibg=#0f0f0f guifg=fg
+    CSAHi diffAdded term=NONE cterm=NONE ctermbg=22 ctermfg=194 gui=NONE guibg=#063008 guifg=#a0ffa0
+    CSAHi diffRemoved term=NONE cterm=NONE ctermbg=95 ctermfg=224 gui=NONE guibg=#5a1d1d guifg=#ffb7b7
     CSAHi InterestingWord1 term=NONE cterm=NONE ctermbg=225 ctermfg=16 gui=NONE guibg=#c6acc6 guifg=#000000
     CSAHi InterestingWord2 term=NONE cterm=NONE ctermbg=180 ctermfg=16 gui=NONE guibg=#b88853 guifg=#000000
     CSAHi InterestingWord3 term=NONE cterm=NONE ctermbg=221 ctermfg=16 gui=NONE guibg=#ffa724 guifg=#000000
@@ -229,9 +233,9 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi htmlLink term=NONE cterm=underline ctermbg=bg ctermfg=219 gui=underline guibg=bg guifg=#c777ff
     CSAHi Folded term=NONE cterm=NONE ctermbg=232 ctermfg=251 gui=NONE guibg=#0c0c0c guifg=#c8c8c8
     CSAHi FoldColumn term=NONE cterm=NONE ctermbg=234 ctermfg=251 gui=NONE guibg=#212121 guifg=#c8c8c8
-    CSAHi DiffAdd term=bold cterm=NONE ctermbg=28 ctermfg=fg gui=NONE guibg=#064008 guifg=fg
-    CSAHi DiffChange term=bold cterm=NONE ctermbg=94 ctermfg=255 gui=NONE guibg=#4a3000 guifg=#f0f0f0
-    CSAHi DiffDelete term=bold cterm=NONE ctermbg=131 ctermfg=131 gui=NONE guibg=#701d1d guifg=#701d1d
+    CSAHi DiffAdd term=bold cterm=NONE ctermbg=22 ctermfg=fg gui=NONE guibg=#063008 guifg=fg
+    CSAHi DiffChange term=bold cterm=NONE ctermbg=94 ctermfg=187 gui=NONE guibg=#4a3000 guifg=#b5a586
+    CSAHi DiffDelete term=bold cterm=NONE ctermbg=95 ctermfg=131 gui=NONE guibg=#5a1d1d guifg=#701d1d
     CSAHi DiffText term=reverse cterm=bold ctermbg=52 ctermfg=fg gui=bold guibg=#1f1500 guifg=fg
     CSAHi SignColumn term=NONE cterm=NONE ctermbg=233 ctermfg=255 gui=NONE guibg=#0e0e0e guifg=#f0f0f0
     CSAHi Conceal term=NONE cterm=NONE ctermbg=248 ctermfg=231 gui=NONE guibg=#a9a9a9 guifg=#d3d3d3
@@ -279,6 +283,8 @@ elseif has("gui_running") || &t_Co == 256
     CSAHi TabLineSel term=bold cterm=NONE ctermbg=53 ctermfg=188 gui=NONE guibg=#602040 guifg=#d6d6d6
     CSAHi TabLineFill term=reverse cterm=NONE ctermbg=233 ctermfg=16 gui=NONE guibg=#111111 guifg=#000000
     CSAHi CursorColumn term=reverse cterm=NONE ctermbg=233 ctermfg=fg gui=NONE guibg=#0f0f0f guifg=fg
+    CSAHi diffAdded term=NONE cterm=NONE ctermbg=22 ctermfg=157 gui=NONE guibg=#063008 guifg=#a0ffa0
+    CSAHi diffRemoved term=NONE cterm=NONE ctermbg=52 ctermfg=217 gui=NONE guibg=#5a1d1d guifg=#ffb7b7
     CSAHi InterestingWord1 term=NONE cterm=NONE ctermbg=182 ctermfg=16 gui=NONE guibg=#c6acc6 guifg=#000000
     CSAHi InterestingWord2 term=NONE cterm=NONE ctermbg=137 ctermfg=16 gui=NONE guibg=#b88853 guifg=#000000
     CSAHi InterestingWord3 term=NONE cterm=NONE ctermbg=214 ctermfg=16 gui=NONE guibg=#ffa724 guifg=#000000
@@ -335,9 +341,9 @@ elseif has("gui_running") || &t_Co == 256
     CSAHi htmlLink term=NONE cterm=underline ctermbg=bg ctermfg=177 gui=underline guibg=bg guifg=#c777ff
     CSAHi Folded term=NONE cterm=NONE ctermbg=232 ctermfg=251 gui=NONE guibg=#0c0c0c guifg=#c8c8c8
     CSAHi FoldColumn term=NONE cterm=NONE ctermbg=234 ctermfg=251 gui=NONE guibg=#212121 guifg=#c8c8c8
-    CSAHi DiffAdd term=bold cterm=NONE ctermbg=22 ctermfg=fg gui=NONE guibg=#064008 guifg=fg
-    CSAHi DiffChange term=bold cterm=NONE ctermbg=58 ctermfg=255 gui=NONE guibg=#4a3000 guifg=#f0f0f0
-    CSAHi DiffDelete term=bold cterm=NONE ctermbg=52 ctermfg=52 gui=NONE guibg=#701d1d guifg=#701d1d
+    CSAHi DiffAdd term=bold cterm=NONE ctermbg=22 ctermfg=fg gui=NONE guibg=#063008 guifg=fg
+    CSAHi DiffChange term=bold cterm=NONE ctermbg=58 ctermfg=144 gui=NONE guibg=#4a3000 guifg=#b5a586
+    CSAHi DiffDelete term=bold cterm=NONE ctermbg=52 ctermfg=52 gui=NONE guibg=#5a1d1d guifg=#701d1d
     CSAHi DiffText term=reverse cterm=bold ctermbg=16 ctermfg=fg gui=bold guibg=#1f1500 guifg=fg
     CSAHi SignColumn term=NONE cterm=NONE ctermbg=233 ctermfg=255 gui=NONE guibg=#0e0e0e guifg=#f0f0f0
     CSAHi Conceal term=NONE cterm=NONE ctermbg=248 ctermfg=252 gui=NONE guibg=#a9a9a9 guifg=#d3d3d3
@@ -385,6 +391,8 @@ elseif has("gui_running") || &t_Co == 88
     CSAHi TabLineSel term=bold cterm=NONE ctermbg=32 ctermfg=86 gui=NONE guibg=#602040 guifg=#d6d6d6
     CSAHi TabLineFill term=reverse cterm=NONE ctermbg=16 ctermfg=16 gui=NONE guibg=#111111 guifg=#000000
     CSAHi CursorColumn term=reverse cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#0f0f0f guifg=fg
+    CSAHi diffAdded term=NONE cterm=NONE ctermbg=16 ctermfg=45 gui=NONE guibg=#063008 guifg=#a0ffa0
+    CSAHi diffRemoved term=NONE cterm=NONE ctermbg=32 ctermfg=74 gui=NONE guibg=#5a1d1d guifg=#ffb7b7
     CSAHi InterestingWord1 term=NONE cterm=NONE ctermbg=54 ctermfg=16 gui=NONE guibg=#c6acc6 guifg=#000000
     CSAHi InterestingWord2 term=NONE cterm=NONE ctermbg=53 ctermfg=16 gui=NONE guibg=#b88853 guifg=#000000
     CSAHi InterestingWord3 term=NONE cterm=NONE ctermbg=68 ctermfg=16 gui=NONE guibg=#ffa724 guifg=#000000
@@ -441,9 +449,9 @@ elseif has("gui_running") || &t_Co == 88
     CSAHi htmlLink term=NONE cterm=underline ctermbg=bg ctermfg=55 gui=underline guibg=bg guifg=#c777ff
     CSAHi Folded term=NONE cterm=NONE ctermbg=16 ctermfg=58 gui=NONE guibg=#0c0c0c guifg=#c8c8c8
     CSAHi FoldColumn term=NONE cterm=NONE ctermbg=80 ctermfg=58 gui=NONE guibg=#212121 guifg=#c8c8c8
-    CSAHi DiffAdd term=bold cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#064008 guifg=fg
-    CSAHi DiffChange term=bold cterm=NONE ctermbg=32 ctermfg=87 gui=NONE guibg=#4a3000 guifg=#f0f0f0
-    CSAHi DiffDelete term=bold cterm=NONE ctermbg=32 ctermfg=32 gui=NONE guibg=#701d1d guifg=#701d1d
+    CSAHi DiffAdd term=bold cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#063008 guifg=fg
+    CSAHi DiffChange term=bold cterm=NONE ctermbg=32 ctermfg=53 gui=NONE guibg=#4a3000 guifg=#b5a586
+    CSAHi DiffDelete term=bold cterm=NONE ctermbg=32 ctermfg=32 gui=NONE guibg=#5a1d1d guifg=#701d1d
     CSAHi DiffText term=reverse cterm=bold ctermbg=16 ctermfg=fg gui=bold guibg=#1f1500 guifg=fg
     CSAHi SignColumn term=NONE cterm=NONE ctermbg=16 ctermfg=87 gui=NONE guibg=#0e0e0e guifg=#f0f0f0
     CSAHi Conceal term=NONE cterm=NONE ctermbg=84 ctermfg=86 gui=NONE guibg=#a9a9a9 guifg=#d3d3d3
