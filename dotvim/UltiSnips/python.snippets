@@ -6,3 +6,23 @@ snippet pp "pprint"
 from pprint import pprint
 pprint(${0})
 endsnippet
+
+snippet if "if"
+if ${1:condition}:
+	${VISUAL}${0}
+endsnippet
+
+snippet el "else"
+else:
+	${VISUAL}${0}
+endsnippet
+
+snippet ei "elif"
+elif ${1:condition}:
+	${VISUAL}${0}
+endsnippet
+
+snippet for "for"
+for ${1:item} in ${2:items}:
+	${VISUAL}${0}
+endsnippet
