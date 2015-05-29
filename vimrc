@@ -1209,6 +1209,7 @@ nnoremap <leader>gm :<C-U>Gmove <c-r>=expand('%:p')<cr>
 nnoremap <leader>gl :<C-U>Glog --follow
 nnoremap <leader>gg :<C-U>Ggrep
 nnoremap <leader>gc :<C-U>Gcommit -m '
+nnoremap <leader>gC :<C-U>Gcommit --amend --no-edit<cr>
 nnoremap <leader>gA :<C-U>Git checkout -- %
 " Close diff window, go to gstatus window, add file
 nmap     <leader>gn :q<cr><c-k>-
