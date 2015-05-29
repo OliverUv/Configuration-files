@@ -21,6 +21,7 @@ nnoremap K <c-n>
 
 nnoremap <leader>a :tabattach 
 nnoremap <leader>d :tabdetach<cr>
+nnoremap <leader>D :tabduplicate<cr>
 
 nnoremap h 4h
 nnoremap j 4j
