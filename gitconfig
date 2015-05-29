@@ -18,7 +18,7 @@
         bb = branch -rav
         c = checkout
 	x = commit -m
-	xa = commit -a -m
+	xa = commit --amend --no-edit
 	m = checkout master
 	hub = push origin
 	buh = pull origin
