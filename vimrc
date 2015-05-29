@@ -183,6 +183,7 @@ if has("autocmd")
     autocmd!
     au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
     au FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2
+    au FileType htmldjango setlocal expandtab shiftwidth=2 softtabstop=2
     au BufNewFile,BufReadPost *.coffee setlocal foldmethod=indent shiftwidth=2 softtabstop=2 expandtab
     au BufWritePost,FileWritePost *.coffee silent make!
     au FileType c setlocal colorcolumn=79
