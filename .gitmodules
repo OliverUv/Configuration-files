@@ -281,3 +281,6 @@
 [submodule "dotvim/bundle/vim-gutentags"]
 	path = dotvim/bundle/vim-gutentags
 	url = https://github.com/ludovicchabant/vim-gutentags.git
+[submodule "dotvim/bundle/vim-jsx"]
+	path = dotvim/bundle/vim-jsx
+	url = https://github.com/mxw/vim-jsx.git
