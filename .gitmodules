@@ -287,3 +287,6 @@
 [submodule "dotvim/bundle/vim-you-keep-using-that-word"]
 	path = dotvim/bundle/vim-you-keep-using-that-word
 	url = https://github.com/ap/vim-you-keep-using-that-word.git
+[submodule "dotvim/bundle/CamelCaseMotion"]
+	path = dotvim/bundle/CamelCaseMotion
+	url = https://github.com/bkad/CamelCaseMotion.git
