@@ -21,6 +21,7 @@
     },
     "globals": {
         "_": false,
+        "Mousetrap": true,
         "FA": false
     }
 }
