@@ -191,7 +191,7 @@ if has("autocmd")
     au BufWritePost,FileWritePost *.coffee silent make!
     au FileType c setlocal colorcolumn=79
     au FileType cpp setlocal list expandtab shiftwidth=4 softtabstop=4
-    au FileType gitcommit setlocal nolist
+    au FileType gitcommit setlocal nolist cursorline cursorcolumn
     au FileType {make,gitconfig} set noexpandtab sw=4
     au QuickFixCmdPost * nested cwindow | redraw!
     au FileType vim setlocal foldmethod=marker
@@ -1213,12 +1213,17 @@ nnoremap <silent> <leader>gH :<C-U>Gpull<cr>
 nnoremap <silent> <leader>gp :<C-U>Git push
 nnoremap <leader>gm :<C-U>Gmove <c-r>=expand('%:p')<cr>
 nnoremap <leader>gl :<C-U>Glog --follow
-nnoremap <leader>gg :<C-U>Ggrep
+nnoremap <leader>gG :<C-U>Ggrep
 nnoremap <leader>gc :<C-U>Gcommit -m '
 nnoremap <leader>gC :<C-U>Gcommit --amend --no-edit<cr>
 nnoremap <leader>gA :<C-U>Git checkout -- %
-" Close diff window, go to gstatus window, add file
+
+" Get gittin!
+nmap <leader>gg <c-w>s<c-w>T:Gstatus<cr>/not staged<cr><c-n>:noh<cr>
+
+" Close diff window, go to gstatus window, add file (or don't)
 nmap     <leader>gn :q<cr><c-k>-
+nmap     <leader>gN :q<cr><c-k><c-n>
 
 " File management mappings
 nnoremap <leader>er :<C-U>Rename <c-r>=expand('%:t')<cr>
