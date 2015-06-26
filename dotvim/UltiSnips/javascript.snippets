@@ -1,0 +1,41 @@
+snippet fun "function"
+function ${1:function_name}(${2}) {
+	${VISUAL}${0}
+}
+endsnippet
+snippet ff "anonymous function" i
+function(${1}) {
+	${VISUAL}${0}
+}
+endsnippet
+snippet vf
+var ${1:function_name} = function(${2}) {
+	${VISUAL}${0}
+};
+endsnippet
+snippet (f
+(function(${1}) {
+	${VISUAL}${0}
+}(${2}));
+endsnippet
+# member function
+snippet mf
+${1}: function (${2}) {
+	${VISUAL}${0}
+},
+endsnippet
+# Flow control
+
+# if
+snippet if
+if (${1:true}) {
+	${VISUAL}${0}
+}
+endsnippet
+snippet ife
+if (${1:true}) {
+	${VISUAL}${2}
+} else {
+	${0}
+}
+endsnippet
