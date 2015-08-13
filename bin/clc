@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+dc -e "5k $1 p"
