@@ -102,8 +102,7 @@ bindsym $mod+e layout default
 bindsym $mod+Shift+Z floating toggle
 
 # hide/show i3 bar
-bindsym $mod+Shift+X bar mode dock
-bindsym $mod+x bar mode invisible
+bindsym $mod+a bar mode toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+z focus mode_toggle
