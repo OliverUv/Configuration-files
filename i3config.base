@@ -20,7 +20,7 @@ set $quickswitch /home/oliver/Projects/quickswitch-for-i3/quickswitch.py --dmenu
 # This requires a recent version of i3 with xft support.
 # font pango:NanumGothic Regular 10, FreeSans 10
 # font pango:DejaVu Sans Bold 11
-font pango:WenQuanYi Micro Hei Mono Bold 11
+font pango:WenQuanYi Micro Hei Mono Bold 9.4
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -99,7 +99,11 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout default
 
 # toggle tiling / floating
-bindsym $mod+Shift+z floating toggle
+bindsym $mod+Shift+Z floating toggle
+
+# hide/show i3 bar
+bindsym $mod+Shift+X bar mode dock
+bindsym $mod+x bar mode invisible
 
 # change focus between tiling / floating windows
 bindsym $mod+z focus mode_toggle
