@@ -1,3 +1,6 @@
+set PATH $PATH /usr/local/bin
+set PATH $PATH /usr/bin
+set PATH $PATH /bin
 set PATH $PATH ~/bin
 set PATH $PATH ~/bin.priv
 
