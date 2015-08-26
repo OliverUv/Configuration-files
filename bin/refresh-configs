@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+cat ~/.i3/config.local ~/.i3/config.base > ~/.i3/config
