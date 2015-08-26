@@ -7,6 +7,8 @@ config.fish     -> .config/fish/config.fish
 fish-functions/ -> .config/fish/functions/
 Xdefaults       -> .Xdefaults
 
+mpv-input.conf      -> .mpv/input.conf
+
 # i3 window manager n stuff
 i3status.conf  -> .i3/status.conf
 i3config.base  -> .i3/config.base
@@ -17,9 +19,6 @@ conkyrc.laptop -> .conkyrc (for example)
 sudo pip install i3-py
 git clone 'git@github.com:OliverUv/quickswitch-for-i3.git' /home/oliver/Projects/quickswitch-for-i3
 
-# video things
-mpv-input.conf      -> .mpv/input.conf
-youtube-viewer.conf -> .config/youtube-viewer/youtube-viewer.conf
 
 # urxvt-256color
 # requires xclip and xsel
