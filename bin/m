@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+mosh -- $1 tmux -u -2 attach
