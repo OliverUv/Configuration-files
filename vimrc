@@ -195,7 +195,6 @@ if has("autocmd")
     au FileType {make,gitconfig} set noexpandtab sw=4
     au QuickFixCmdPost * nested cwindow | redraw!
     au FileType vim setlocal foldmethod=marker
-    au FileType man IndentGuidesDisable
 
     " Autocommands for fswitch.vim
     au BufEnter *.cpp let b:fswitchdst = 'h'
@@ -671,8 +670,6 @@ let g:rainbow_conf = {
     \}
 let g:rainbow_active = 1
 let g:rainbow_operators = 1
-
-nnoremap coR :RainbowToggle<cr>
 " }}} Rainbow-Parentheses-Improved-and2 "
 
 " vim-togglelist {{{ "
@@ -844,6 +841,7 @@ let g:indent_guides_auto_colors = 0
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_exclude_filetypes = ['help', 'unite', 'man']
 " }}} vim-indent-guides "
 
 " haskellmode-vim {{{ "
@@ -1231,7 +1229,6 @@ nnoremap <leader>er :<C-U>Rename <c-r>=expand('%:t')<cr>
 nnoremap <leader>ed :<C-U>Remove
 nnoremap <leader>em :<C-U>Move <c-r>=expand('%:p')<cr>
 
-
 " Mappings for interacting with diff merges
 nnoremap <silent> dgh :diffget \\2<cr>
 nnoremap <silent> dgl :diffget \\3<cr>
@@ -1243,6 +1240,10 @@ nnoremap <silent> <leader>ee :UltiSnipsEdit<cr>
 nnoremap <silent> <leader>u :UndotreeToggle<cr>
 nnoremap <silent> <leader>a :sign unplace *<cr>:Lclose<cr>
 nnoremap <silent> - mz:<c-u>:Switch<cr><esc>`z
+
+" Option toggles
+nnoremap coD :IndentGuidesToggle<cr>
+nnoremap coR :RainbowToggle<cr>
 
 " Go to tabs with F-keys
 nnoremap <F1> 1gt
