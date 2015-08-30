@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+gvim -c "Man $1 $2" -c "silent only"
