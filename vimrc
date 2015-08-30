@@ -195,6 +195,7 @@ if has("autocmd")
     au FileType {make,gitconfig} set noexpandtab sw=4
     au QuickFixCmdPost * nested cwindow | redraw!
     au FileType vim setlocal foldmethod=marker
+    au FileType man IndentGuidesDisable
 
     " Autocommands for fswitch.vim
     au BufEnter *.cpp let b:fswitchdst = 'h'
