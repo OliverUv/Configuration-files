@@ -290,3 +290,6 @@
 [submodule "dotvim/bundle/CamelCaseMotion"]
 	path = dotvim/bundle/CamelCaseMotion
 	url = https://github.com/bkad/CamelCaseMotion.git
+[submodule "dotvim/bundle/vim-man"]
+	path = dotvim/bundle/vim-man
+	url = https://github.com/bruno-/vim-man.git
