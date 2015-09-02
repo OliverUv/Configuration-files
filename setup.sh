@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-DOTNAMED="profile tmux.conf Xdefaults vimrc gvimrc agignore gitconfig gitignoreglobal vimperatorrc"
+DOTNAMED="profile tmux.conf Xdefaults vimrc gvimrc ctags agignore gitconfig gitignoreglobal vimperatorrc"
+HOME=~
 
 for f in $DOTNAMED ; do
-    ln -s "~/Configuration-files/$f" "~/.$f"
+    ln -s "$HOME/Configuration-files/$f" "$HOME/.$f"
 done
 
 mkdir -p ~/.config/fish
@@ -16,6 +17,8 @@ ln -s ~/Configuration-files/flake8 ~/.config/flake8
 
 ln -s ~/Configuration-files/config.fish ~/.config/fish/config.fish
 ln -s ~/Configuration-files/fish-functions ~/.config/fish/functions
+
+ln -s ~/Configuration-files/ranger.rc.conf ~/.config/ranger/rc.conf
 
 ln -s ~/Configuration-files/vimperatorcolors ~/.vimperator/colors
 ln -s ~/Configuration-files/vimperatorplugin ~/.vimperator/plugin
