@@ -3,4 +3,4 @@
 title="mosh [$1]"
 echo -e "\033]2;$title\007"
 
-mosh -- $1 tmux -u -2 attach
+mosh -- $1 tmux -u -2 attach -d
