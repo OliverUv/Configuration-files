@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-gvim -c "Man $1 $2" -c "silent only"
+gvim -c "Fontzoom 14" -c "Man $2 $1" -c "silent only"
