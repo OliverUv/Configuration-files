@@ -1043,13 +1043,28 @@ nnoremap <silent> <leader>ob :call g:BuildClang("VisuLove", "visuclean")<cr>
 " Toggle colorcolumn TODO make this save previous value
 " instead of using 79 all the time.
 function! g:ToggleColorColumn()
-  if &colorcolumn != ''
-    setlocal colorcolumn&
-  else
-    setlocal colorcolumn=79
-  endif
+    if &colorcolumn != ''
+        setlocal colorcolumn&
+    else
+        setlocal colorcolumn=79
+    endif
 endfunction
-nnoremap <silent> coC :call g:ToggleColorColumn()<cr>
+
+function! g:ToggleColorScheme()
+    if g:colors_name == 'liquorice' || g:colors_name == 'liquorice-approx'
+        let l:theme = 'proton'
+    else
+        let l:theme = 'liquorice'
+    endif
+
+    echo ""
+
+    if has("gui_running")
+        execute "colorscheme " . l:theme
+    else
+        execute "colorscheme " . l:theme . '-approx'
+    end
+endfunction
 
 " Pull word under cursor into LHS of a substitute
 nnoremap <leader>z :%s#\<<c-r>=expand("<cword>")<cr>\>##gc<left><left><left>
@@ -1244,6 +1259,8 @@ nnoremap <silent> - mz:<c-u>:Switch<cr><esc>`z
 " Option toggles
 nnoremap coD :IndentGuidesToggle<cr>
 nnoremap coR :RainbowToggle<cr>
+nnoremap <silent> coC :call g:ToggleColorColumn()<cr>
+nnoremap <silent> coL :call g:ToggleColorScheme()<cr>
 
 " Go to tabs with F-keys
 nnoremap <F1> 1gt
