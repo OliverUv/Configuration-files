@@ -12,7 +12,8 @@
 
 set $mod Mod1
 
-set $quickswitch ~/Projects/quickswitch-for-i3/quickswitch.py --dmenu "dmenu -i -l 20 -fn 'DejaVu Sans 10' -sb '#E17800' -sf '#000000' -h 23"
+# dmenu -i -l 20 -fn 'WenQuanYi Zen Hei Mono:bold' -sb '#E17800' -sf '#000000' -h 23
+set $quickswitch ~/Projects/quickswitch-for-i3/quickswitch.py --dmenu "dmenu -i -l 20 -fn 'robotomono:medium' -sb '#E17800' -sf '#000000' -h 23"
 
 # font for window titles. ISO 10646 = Unicode
 #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -46,9 +47,10 @@ bindsym $mod+Control+Return exec ~/bin/color_urxvt -e ranger
 bindsym $mod+Shift+W kill
 
 # start dmenu
-bindsym $mod+d exec dmenu_run -i -fn 'DejaVu Sans 10' -sb '#E17800' -sf '#000000' -h 23
+bindsym $mod+d exec dmenu_run -i -fn 'robotomono:medium' -sb '#E17800' -sf '#000000' -h 23
 # start dmenu for .desktop entries
-bindsym $mod+Shift+D exec i3-dmenu-desktop --dmenu "dmenu -i -fn 'DejaVu Sans 10' -sb '#E17800' -sf '#000000' -h 23"
+bindsym $mod+Shift+D exec i3-dmenu-desktop --dmenu "dmenu -i -fn 'robotomono:medium' -sb '#E17800' -sf '#000000' -h 23"
+bindsym $mod+Control+d exec dmenu_path | dmenu -i -fn 'robotomono:medium' -sb '#E17800' -sf '#000000' -h 23 | xargs van
 
 # start apps
 bindsym $mod+Control+p exec bash -c 'scrot $HOME/screenshot_$(date +"%F_-_%H-%M-%S").png'
