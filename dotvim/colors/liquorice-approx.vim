@@ -1,5 +1,5 @@
 " This scheme was created by CSApproxSnapshot
-" on Fri, 26 Jun 2015
+" on Sat, 05 Sep 2015
 
 hi clear
 if exists("syntax_on")
@@ -29,13 +29,14 @@ if 0
 elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^screen") && exists("g:CSApprox_konsole") && g:CSApprox_konsole) || (&term =~? "^konsole" && s:old_kde())
     CSAHi Normal term=NONE cterm=NONE ctermbg=233 ctermfg=255 gui=NONE guibg=#141414 guifg=#eaeaea
     CSAHi UniteSelectedLine term=NONE cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#000000 guifg=fg
+    CSAHi CursorIM term=NONE cterm=NONE ctermbg=129 ctermfg=231 gui=NONE guibg=#8800ff guifg=#ffffff
     CSAHi LocalVariable term=NONE cterm=NONE ctermbg=bg ctermfg=196 gui=NONE guibg=bg guifg=#ff0000
+    CSAHi javaScriptAjaxMethods term=NONE cterm=NONE ctermbg=bg ctermfg=110 gui=NONE guibg=bg guifg=#6699cc
     CSAHi javaScriptAjaxProperties term=NONE cterm=NONE ctermbg=bg ctermfg=217 gui=NONE guibg=bg guifg=#ff9494
     CSAHi javaScriptFuncName term=NONE cterm=NONE ctermbg=bg ctermfg=189 gui=NONE guibg=bg guifg=#b5e4f7
     CSAHi javaScriptHtmlElemProperties term=NONE cterm=NONE ctermbg=bg ctermfg=217 gui=NONE guibg=bg guifg=#ff9494
     CSAHi javaScriptEventListenerKeyword term=NONE cterm=NONE ctermbg=bg ctermfg=110 gui=NONE guibg=bg guifg=#6699cc
     CSAHi coffeeSpecialVar term=NONE cterm=NONE ctermbg=bg ctermfg=222 gui=NONE guibg=bg guifg=#edc37c
-    CSAHi gitcommitFile term=NONE cterm=NONE ctermbg=bg ctermfg=254 gui=NONE guibg=bg guifg=#e8e8e8
     CSAHi Statement term=bold cterm=NONE ctermbg=bg ctermfg=110 gui=NONE guibg=bg guifg=#6699cc
     CSAHi PreProc term=underline cterm=NONE ctermbg=bg ctermfg=219 gui=NONE guibg=bg guifg=#ffa8ff
     CSAHi Type term=underline cterm=NONE ctermbg=bg ctermfg=121 gui=NONE guibg=bg guifg=#60f0a8
@@ -67,6 +68,7 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi TabLineSel term=bold cterm=NONE ctermbg=95 ctermfg=253 gui=NONE guibg=#602040 guifg=#d6d6d6
     CSAHi TabLineFill term=reverse cterm=NONE ctermbg=233 ctermfg=16 gui=NONE guibg=#111111 guifg=#000000
     CSAHi CursorColumn term=reverse cterm=NONE ctermbg=233 ctermfg=fg gui=NONE guibg=#0f0f0f guifg=fg
+    CSAHi gitcommitFile term=NONE cterm=NONE ctermbg=bg ctermfg=254 gui=NONE guibg=bg guifg=#e8e8e8
     CSAHi diffAdded term=NONE cterm=NONE ctermbg=233 ctermfg=71 gui=NONE guibg=#141414 guifg=#26a938
     CSAHi diffRemoved term=NONE cterm=NONE ctermbg=52 ctermfg=138 gui=NONE guibg=#400707 guifg=#8a4d4d
     CSAHi InterestingWord1 term=NONE cterm=NONE ctermbg=182 ctermfg=16 gui=NONE guibg=#c6acc6 guifg=#000000
@@ -76,11 +78,8 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi InterestingWord5 term=NONE cterm=NONE ctermbg=151 ctermfg=16 gui=NONE guibg=#acdd82 guifg=#000000
     CSAHi InterestingWord6 term=NONE cterm=NONE ctermbg=109 ctermfg=16 gui=NONE guibg=#79a9a9 guifg=#000000
     CSAHi SneakPluginTarget term=NONE cterm=bold ctermbg=219 ctermfg=16 gui=bold guibg=#ffa8ff guifg=#000000
-    CSAHi SneakPluginScope term=NONE cterm=NONE ctermbg=245 ctermfg=fg gui=NONE guibg=#8a8a8a guifg=fg
-    CSAHi javaDocSeeTag term=NONE cterm=NONE ctermbg=bg ctermfg=188 gui=NONE guibg=bg guifg=#cccccc
     CSAHi Member term=NONE cterm=NONE ctermbg=bg ctermfg=223 gui=NONE guibg=bg guifg=#ffd7ab
-    CSAHi IndentGuidesOdd term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#0a0a0a guifg=fg
-    CSAHi CursorIM term=NONE cterm=NONE ctermbg=129 ctermfg=231 gui=NONE guibg=#8800ff guifg=#ffffff
+    CSAHi IndentGuidesEven term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#0d0d0d guifg=fg
     CSAHi TabNumber term=NONE cterm=NONE ctermbg=233 ctermfg=219 gui=NONE guibg=#121212 guifg=#ffa8ff
     CSAHi TabNumberSel term=NONE cterm=NONE ctermbg=95 ctermfg=219 gui=NONE guibg=#602040 guifg=#ffa8ff
     CSAHi Boolean term=NONE cterm=NONE ctermbg=bg ctermfg=153 gui=NONE guibg=bg guifg=#86bbee
@@ -100,7 +99,8 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi VisualNOS term=bold,underline cterm=NONE ctermbg=96 ctermfg=fg gui=NONE guibg=#7c2b7c guifg=fg
     CSAHi WarningMsg term=NONE cterm=bold ctermbg=bg ctermfg=218 gui=bold guibg=bg guifg=#ff80c0
     CSAHi WildMenu term=NONE cterm=NONE ctermbg=218 ctermfg=16 gui=NONE guibg=#ff80c0 guifg=#000000
-    CSAHi IndentGuidesEven term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#0d0d0d guifg=fg
+    CSAHi IndentGuidesOdd term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#0a0a0a guifg=fg
+    CSAHi cssPseudoClassId term=NONE cterm=NONE ctermbg=bg ctermfg=152 gui=italic guibg=bg guifg=#9ccfdd
     CSAHi cssIdentifier term=NONE cterm=NONE ctermbg=bg ctermfg=152 gui=italic guibg=bg guifg=#a2ddb8
     CSAHi markdownUrl term=NONE cterm=NONE ctermbg=bg ctermfg=179 gui=NONE guibg=bg guifg=#e48944
     CSAHi markdownCode term=NONE cterm=bold ctermbg=bg ctermfg=152 gui=bold guibg=bg guifg=#a7bee4
@@ -109,7 +109,6 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi javaScriptDOMObjects term=NONE cterm=bold ctermbg=bg ctermfg=188 gui=bold guibg=bg guifg=#dbb6d2
     CSAHi javaScriptDOMMethods term=NONE cterm=NONE ctermbg=bg ctermfg=193 gui=NONE guibg=bg guifg=#d4fa9b
     CSAHi javaScriptAjaxObjects term=NONE cterm=underline ctermbg=bg ctermfg=110 gui=underline guibg=bg guifg=#5d91d3
-    CSAHi javaScriptAjaxMethods term=NONE cterm=NONE ctermbg=bg ctermfg=110 gui=NONE guibg=bg guifg=#6699cc
     CSAHi CursorLine term=underline cterm=NONE ctermbg=233 ctermfg=fg gui=NONE guibg=#0f0f0f guifg=fg
     CSAHi ColorColumn term=reverse cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#000000 guifg=fg
     CSAHi Cursor term=NONE cterm=bold ctermbg=125 ctermfg=231 gui=bold guibg=#99004c guifg=#ffffff
@@ -119,7 +118,8 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi Constant term=underline cterm=NONE ctermbg=bg ctermfg=225 gui=NONE guibg=bg guifg=#f8bef8
     CSAHi Special term=bold cterm=NONE ctermbg=233 ctermfg=215 gui=NONE guibg=#0f0f0f guifg=#ff9a4c
     CSAHi Identifier term=underline cterm=NONE ctermbg=bg ctermfg=87 gui=NONE guibg=bg guifg=#40f8f8
-    CSAHi cssPseudoClassId term=NONE cterm=NONE ctermbg=bg ctermfg=152 gui=italic guibg=bg guifg=#9ccfdd
+    CSAHi SneakPluginScope term=NONE cterm=NONE ctermbg=245 ctermfg=fg gui=NONE guibg=#8a8a8a guifg=fg
+    CSAHi javaDocSeeTag term=NONE cterm=NONE ctermbg=bg ctermfg=188 gui=NONE guibg=bg guifg=#cccccc
     CSAHi SyntasticWarningLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi htmlH1 term=NONE cterm=underline ctermbg=bg ctermfg=174 gui=underline guibg=bg guifg=#de675c
     CSAHi htmlLink term=NONE cterm=underline ctermbg=bg ctermfg=177 gui=underline guibg=bg guifg=#c777ff
@@ -137,13 +137,14 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
 elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^screen") && exists("g:CSApprox_eterm") && g:CSApprox_eterm) || &term =~? "^eterm"
     CSAHi Normal term=NONE cterm=NONE ctermbg=233 ctermfg=255 gui=NONE guibg=#141414 guifg=#eaeaea
     CSAHi UniteSelectedLine term=NONE cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#000000 guifg=fg
+    CSAHi CursorIM term=NONE cterm=NONE ctermbg=129 ctermfg=255 gui=NONE guibg=#8800ff guifg=#ffffff
     CSAHi LocalVariable term=NONE cterm=NONE ctermbg=bg ctermfg=196 gui=NONE guibg=bg guifg=#ff0000
+    CSAHi javaScriptAjaxMethods term=NONE cterm=NONE ctermbg=bg ctermfg=117 gui=NONE guibg=bg guifg=#6699cc
     CSAHi javaScriptAjaxProperties term=NONE cterm=NONE ctermbg=bg ctermfg=217 gui=NONE guibg=bg guifg=#ff9494
     CSAHi javaScriptFuncName term=NONE cterm=NONE ctermbg=bg ctermfg=195 gui=NONE guibg=bg guifg=#b5e4f7
     CSAHi javaScriptHtmlElemProperties term=NONE cterm=NONE ctermbg=bg ctermfg=217 gui=NONE guibg=bg guifg=#ff9494
     CSAHi javaScriptEventListenerKeyword term=NONE cterm=NONE ctermbg=bg ctermfg=117 gui=NONE guibg=bg guifg=#6699cc
     CSAHi coffeeSpecialVar term=NONE cterm=NONE ctermbg=bg ctermfg=229 gui=NONE guibg=bg guifg=#edc37c
-    CSAHi gitcommitFile term=NONE cterm=NONE ctermbg=bg ctermfg=254 gui=NONE guibg=bg guifg=#e8e8e8
     CSAHi Statement term=bold cterm=NONE ctermbg=bg ctermfg=117 gui=NONE guibg=bg guifg=#6699cc
     CSAHi PreProc term=underline cterm=NONE ctermbg=bg ctermfg=225 gui=NONE guibg=bg guifg=#ffa8ff
     CSAHi Type term=underline cterm=NONE ctermbg=bg ctermfg=122 gui=NONE guibg=bg guifg=#60f0a8
@@ -175,6 +176,7 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi TabLineSel term=bold cterm=NONE ctermbg=96 ctermfg=231 gui=NONE guibg=#602040 guifg=#d6d6d6
     CSAHi TabLineFill term=reverse cterm=NONE ctermbg=233 ctermfg=16 gui=NONE guibg=#111111 guifg=#000000
     CSAHi CursorColumn term=reverse cterm=NONE ctermbg=233 ctermfg=fg gui=NONE guibg=#0f0f0f guifg=fg
+    CSAHi gitcommitFile term=NONE cterm=NONE ctermbg=bg ctermfg=254 gui=NONE guibg=bg guifg=#e8e8e8
     CSAHi diffAdded term=NONE cterm=NONE ctermbg=233 ctermfg=77 gui=NONE guibg=#141414 guifg=#26a938
     CSAHi diffRemoved term=NONE cterm=NONE ctermbg=88 ctermfg=138 gui=NONE guibg=#400707 guifg=#8a4d4d
     CSAHi InterestingWord1 term=NONE cterm=NONE ctermbg=225 ctermfg=16 gui=NONE guibg=#c6acc6 guifg=#000000
@@ -184,11 +186,8 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi InterestingWord5 term=NONE cterm=NONE ctermbg=193 ctermfg=16 gui=NONE guibg=#acdd82 guifg=#000000
     CSAHi InterestingWord6 term=NONE cterm=NONE ctermbg=152 ctermfg=16 gui=NONE guibg=#79a9a9 guifg=#000000
     CSAHi SneakPluginTarget term=NONE cterm=bold ctermbg=225 ctermfg=16 gui=bold guibg=#ffa8ff guifg=#000000
-    CSAHi SneakPluginScope term=NONE cterm=NONE ctermbg=245 ctermfg=fg gui=NONE guibg=#8a8a8a guifg=fg
-    CSAHi javaDocSeeTag term=NONE cterm=NONE ctermbg=bg ctermfg=252 gui=NONE guibg=bg guifg=#cccccc
     CSAHi Member term=NONE cterm=NONE ctermbg=bg ctermfg=230 gui=NONE guibg=bg guifg=#ffd7ab
-    CSAHi IndentGuidesOdd term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#0a0a0a guifg=fg
-    CSAHi CursorIM term=NONE cterm=NONE ctermbg=129 ctermfg=255 gui=NONE guibg=#8800ff guifg=#ffffff
+    CSAHi IndentGuidesEven term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#0d0d0d guifg=fg
     CSAHi TabNumber term=NONE cterm=NONE ctermbg=233 ctermfg=225 gui=NONE guibg=#121212 guifg=#ffa8ff
     CSAHi TabNumberSel term=NONE cterm=NONE ctermbg=96 ctermfg=225 gui=NONE guibg=#602040 guifg=#ffa8ff
     CSAHi Boolean term=NONE cterm=NONE ctermbg=bg ctermfg=153 gui=NONE guibg=bg guifg=#86bbee
@@ -208,7 +207,8 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi VisualNOS term=bold,underline cterm=NONE ctermbg=133 ctermfg=fg gui=NONE guibg=#7c2b7c guifg=fg
     CSAHi WarningMsg term=NONE cterm=bold ctermbg=bg ctermfg=219 gui=bold guibg=bg guifg=#ff80c0
     CSAHi WildMenu term=NONE cterm=NONE ctermbg=219 ctermfg=16 gui=NONE guibg=#ff80c0 guifg=#000000
-    CSAHi IndentGuidesEven term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#0d0d0d guifg=fg
+    CSAHi IndentGuidesOdd term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#0a0a0a guifg=fg
+    CSAHi cssPseudoClassId term=NONE cterm=NONE ctermbg=bg ctermfg=195 gui=italic guibg=bg guifg=#9ccfdd
     CSAHi cssIdentifier term=NONE cterm=NONE ctermbg=bg ctermfg=194 gui=italic guibg=bg guifg=#a2ddb8
     CSAHi markdownUrl term=NONE cterm=NONE ctermbg=bg ctermfg=216 gui=NONE guibg=bg guifg=#e48944
     CSAHi markdownCode term=NONE cterm=bold ctermbg=bg ctermfg=189 gui=bold guibg=bg guifg=#a7bee4
@@ -217,7 +217,6 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi javaScriptDOMObjects term=NONE cterm=bold ctermbg=bg ctermfg=225 gui=bold guibg=bg guifg=#dbb6d2
     CSAHi javaScriptDOMMethods term=NONE cterm=NONE ctermbg=bg ctermfg=230 gui=NONE guibg=bg guifg=#d4fa9b
     CSAHi javaScriptAjaxObjects term=NONE cterm=underline ctermbg=bg ctermfg=111 gui=underline guibg=bg guifg=#5d91d3
-    CSAHi javaScriptAjaxMethods term=NONE cterm=NONE ctermbg=bg ctermfg=117 gui=NONE guibg=bg guifg=#6699cc
     CSAHi CursorLine term=underline cterm=NONE ctermbg=233 ctermfg=fg gui=NONE guibg=#0f0f0f guifg=fg
     CSAHi ColorColumn term=reverse cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#000000 guifg=fg
     CSAHi Cursor term=NONE cterm=bold ctermbg=162 ctermfg=255 gui=bold guibg=#99004c guifg=#ffffff
@@ -227,7 +226,8 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi Constant term=underline cterm=NONE ctermbg=bg ctermfg=225 gui=NONE guibg=bg guifg=#f8bef8
     CSAHi Special term=bold cterm=NONE ctermbg=233 ctermfg=222 gui=NONE guibg=#0f0f0f guifg=#ff9a4c
     CSAHi Identifier term=underline cterm=NONE ctermbg=bg ctermfg=123 gui=NONE guibg=bg guifg=#40f8f8
-    CSAHi cssPseudoClassId term=NONE cterm=NONE ctermbg=bg ctermfg=195 gui=italic guibg=bg guifg=#9ccfdd
+    CSAHi SneakPluginScope term=NONE cterm=NONE ctermbg=245 ctermfg=fg gui=NONE guibg=#8a8a8a guifg=fg
+    CSAHi javaDocSeeTag term=NONE cterm=NONE ctermbg=bg ctermfg=252 gui=NONE guibg=bg guifg=#cccccc
     CSAHi SyntasticWarningLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi htmlH1 term=NONE cterm=underline ctermbg=bg ctermfg=210 gui=underline guibg=bg guifg=#de675c
     CSAHi htmlLink term=NONE cterm=underline ctermbg=bg ctermfg=219 gui=underline guibg=bg guifg=#c777ff
@@ -245,13 +245,14 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
 elseif has("gui_running") || &t_Co == 256
     CSAHi Normal term=NONE cterm=NONE ctermbg=233 ctermfg=255 gui=NONE guibg=#141414 guifg=#eaeaea
     CSAHi UniteSelectedLine term=NONE cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#000000 guifg=fg
+    CSAHi CursorIM term=NONE cterm=NONE ctermbg=93 ctermfg=231 gui=NONE guibg=#8800ff guifg=#ffffff
     CSAHi LocalVariable term=NONE cterm=NONE ctermbg=bg ctermfg=196 gui=NONE guibg=bg guifg=#ff0000
+    CSAHi javaScriptAjaxMethods term=NONE cterm=NONE ctermbg=bg ctermfg=68 gui=NONE guibg=bg guifg=#6699cc
     CSAHi javaScriptAjaxProperties term=NONE cterm=NONE ctermbg=bg ctermfg=210 gui=NONE guibg=bg guifg=#ff9494
     CSAHi javaScriptFuncName term=NONE cterm=NONE ctermbg=bg ctermfg=153 gui=NONE guibg=bg guifg=#b5e4f7
     CSAHi javaScriptHtmlElemProperties term=NONE cterm=NONE ctermbg=bg ctermfg=210 gui=NONE guibg=bg guifg=#ff9494
     CSAHi javaScriptEventListenerKeyword term=NONE cterm=NONE ctermbg=bg ctermfg=68 gui=NONE guibg=bg guifg=#6699cc
     CSAHi coffeeSpecialVar term=NONE cterm=NONE ctermbg=bg ctermfg=216 gui=NONE guibg=bg guifg=#edc37c
-    CSAHi gitcommitFile term=NONE cterm=NONE ctermbg=bg ctermfg=254 gui=NONE guibg=bg guifg=#e8e8e8
     CSAHi Statement term=bold cterm=NONE ctermbg=bg ctermfg=68 gui=NONE guibg=bg guifg=#6699cc
     CSAHi PreProc term=underline cterm=NONE ctermbg=bg ctermfg=219 gui=NONE guibg=bg guifg=#ffa8ff
     CSAHi Type term=underline cterm=NONE ctermbg=bg ctermfg=85 gui=NONE guibg=bg guifg=#60f0a8
@@ -283,6 +284,7 @@ elseif has("gui_running") || &t_Co == 256
     CSAHi TabLineSel term=bold cterm=NONE ctermbg=53 ctermfg=188 gui=NONE guibg=#602040 guifg=#d6d6d6
     CSAHi TabLineFill term=reverse cterm=NONE ctermbg=233 ctermfg=16 gui=NONE guibg=#111111 guifg=#000000
     CSAHi CursorColumn term=reverse cterm=NONE ctermbg=233 ctermfg=fg gui=NONE guibg=#0f0f0f guifg=fg
+    CSAHi gitcommitFile term=NONE cterm=NONE ctermbg=bg ctermfg=254 gui=NONE guibg=bg guifg=#e8e8e8
     CSAHi diffAdded term=NONE cterm=NONE ctermbg=233 ctermfg=35 gui=NONE guibg=#141414 guifg=#26a938
     CSAHi diffRemoved term=NONE cterm=NONE ctermbg=52 ctermfg=95 gui=NONE guibg=#400707 guifg=#8a4d4d
     CSAHi InterestingWord1 term=NONE cterm=NONE ctermbg=182 ctermfg=16 gui=NONE guibg=#c6acc6 guifg=#000000
@@ -292,11 +294,8 @@ elseif has("gui_running") || &t_Co == 256
     CSAHi InterestingWord5 term=NONE cterm=NONE ctermbg=150 ctermfg=16 gui=NONE guibg=#acdd82 guifg=#000000
     CSAHi InterestingWord6 term=NONE cterm=NONE ctermbg=109 ctermfg=16 gui=NONE guibg=#79a9a9 guifg=#000000
     CSAHi SneakPluginTarget term=NONE cterm=bold ctermbg=219 ctermfg=16 gui=bold guibg=#ffa8ff guifg=#000000
-    CSAHi SneakPluginScope term=NONE cterm=NONE ctermbg=245 ctermfg=fg gui=NONE guibg=#8a8a8a guifg=fg
-    CSAHi javaDocSeeTag term=NONE cterm=NONE ctermbg=bg ctermfg=252 gui=NONE guibg=bg guifg=#cccccc
     CSAHi Member term=NONE cterm=NONE ctermbg=bg ctermfg=223 gui=NONE guibg=bg guifg=#ffd7ab
-    CSAHi IndentGuidesOdd term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#0a0a0a guifg=fg
-    CSAHi CursorIM term=NONE cterm=NONE ctermbg=93 ctermfg=231 gui=NONE guibg=#8800ff guifg=#ffffff
+    CSAHi IndentGuidesEven term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#0d0d0d guifg=fg
     CSAHi TabNumber term=NONE cterm=NONE ctermbg=233 ctermfg=219 gui=NONE guibg=#121212 guifg=#ffa8ff
     CSAHi TabNumberSel term=NONE cterm=NONE ctermbg=53 ctermfg=219 gui=NONE guibg=#602040 guifg=#ffa8ff
     CSAHi Boolean term=NONE cterm=NONE ctermbg=bg ctermfg=111 gui=NONE guibg=bg guifg=#86bbee
@@ -316,7 +315,8 @@ elseif has("gui_running") || &t_Co == 256
     CSAHi VisualNOS term=bold,underline cterm=NONE ctermbg=90 ctermfg=fg gui=NONE guibg=#7c2b7c guifg=fg
     CSAHi WarningMsg term=NONE cterm=bold ctermbg=bg ctermfg=211 gui=bold guibg=bg guifg=#ff80c0
     CSAHi WildMenu term=NONE cterm=NONE ctermbg=211 ctermfg=16 gui=NONE guibg=#ff80c0 guifg=#000000
-    CSAHi IndentGuidesEven term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#0d0d0d guifg=fg
+    CSAHi IndentGuidesOdd term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#0a0a0a guifg=fg
+    CSAHi cssPseudoClassId term=NONE cterm=NONE ctermbg=bg ctermfg=152 gui=italic guibg=bg guifg=#9ccfdd
     CSAHi cssIdentifier term=NONE cterm=NONE ctermbg=bg ctermfg=151 gui=italic guibg=bg guifg=#a2ddb8
     CSAHi markdownUrl term=NONE cterm=NONE ctermbg=bg ctermfg=173 gui=NONE guibg=bg guifg=#e48944
     CSAHi markdownCode term=NONE cterm=bold ctermbg=bg ctermfg=146 gui=bold guibg=bg guifg=#a7bee4
@@ -325,7 +325,6 @@ elseif has("gui_running") || &t_Co == 256
     CSAHi javaScriptDOMObjects term=NONE cterm=bold ctermbg=bg ctermfg=182 gui=bold guibg=bg guifg=#dbb6d2
     CSAHi javaScriptDOMMethods term=NONE cterm=NONE ctermbg=bg ctermfg=192 gui=NONE guibg=bg guifg=#d4fa9b
     CSAHi javaScriptAjaxObjects term=NONE cterm=underline ctermbg=bg ctermfg=68 gui=underline guibg=bg guifg=#5d91d3
-    CSAHi javaScriptAjaxMethods term=NONE cterm=NONE ctermbg=bg ctermfg=68 gui=NONE guibg=bg guifg=#6699cc
     CSAHi CursorLine term=underline cterm=NONE ctermbg=233 ctermfg=fg gui=NONE guibg=#0f0f0f guifg=fg
     CSAHi ColorColumn term=reverse cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#000000 guifg=fg
     CSAHi Cursor term=NONE cterm=bold ctermbg=89 ctermfg=231 gui=bold guibg=#99004c guifg=#ffffff
@@ -335,7 +334,8 @@ elseif has("gui_running") || &t_Co == 256
     CSAHi Constant term=underline cterm=NONE ctermbg=bg ctermfg=219 gui=NONE guibg=bg guifg=#f8bef8
     CSAHi Special term=bold cterm=NONE ctermbg=233 ctermfg=209 gui=NONE guibg=#0f0f0f guifg=#ff9a4c
     CSAHi Identifier term=underline cterm=NONE ctermbg=bg ctermfg=87 gui=NONE guibg=bg guifg=#40f8f8
-    CSAHi cssPseudoClassId term=NONE cterm=NONE ctermbg=bg ctermfg=152 gui=italic guibg=bg guifg=#9ccfdd
+    CSAHi SneakPluginScope term=NONE cterm=NONE ctermbg=245 ctermfg=fg gui=NONE guibg=#8a8a8a guifg=fg
+    CSAHi javaDocSeeTag term=NONE cterm=NONE ctermbg=bg ctermfg=252 gui=NONE guibg=bg guifg=#cccccc
     CSAHi SyntasticWarningLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi htmlH1 term=NONE cterm=underline ctermbg=bg ctermfg=167 gui=underline guibg=bg guifg=#de675c
     CSAHi htmlLink term=NONE cterm=underline ctermbg=bg ctermfg=177 gui=underline guibg=bg guifg=#c777ff
@@ -353,13 +353,14 @@ elseif has("gui_running") || &t_Co == 256
 elseif has("gui_running") || &t_Co == 88
     CSAHi Normal term=NONE cterm=NONE ctermbg=16 ctermfg=87 gui=NONE guibg=#141414 guifg=#eaeaea
     CSAHi UniteSelectedLine term=NONE cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#000000 guifg=fg
+    CSAHi CursorIM term=NONE cterm=NONE ctermbg=35 ctermfg=79 gui=NONE guibg=#8800ff guifg=#ffffff
     CSAHi LocalVariable term=NONE cterm=NONE ctermbg=bg ctermfg=64 gui=NONE guibg=bg guifg=#ff0000
+    CSAHi javaScriptAjaxMethods term=NONE cterm=NONE ctermbg=bg ctermfg=38 gui=NONE guibg=bg guifg=#6699cc
     CSAHi javaScriptAjaxProperties term=NONE cterm=NONE ctermbg=bg ctermfg=69 gui=NONE guibg=bg guifg=#ff9494
     CSAHi javaScriptFuncName term=NONE cterm=NONE ctermbg=bg ctermfg=59 gui=NONE guibg=bg guifg=#b5e4f7
     CSAHi javaScriptHtmlElemProperties term=NONE cterm=NONE ctermbg=bg ctermfg=69 gui=NONE guibg=bg guifg=#ff9494
     CSAHi javaScriptEventListenerKeyword term=NONE cterm=NONE ctermbg=bg ctermfg=38 gui=NONE guibg=bg guifg=#6699cc
     CSAHi coffeeSpecialVar term=NONE cterm=NONE ctermbg=bg ctermfg=73 gui=NONE guibg=bg guifg=#edc37c
-    CSAHi gitcommitFile term=NONE cterm=NONE ctermbg=bg ctermfg=87 gui=NONE guibg=bg guifg=#e8e8e8
     CSAHi Statement term=bold cterm=NONE ctermbg=bg ctermfg=38 gui=NONE guibg=bg guifg=#6699cc
     CSAHi PreProc term=underline cterm=NONE ctermbg=bg ctermfg=71 gui=NONE guibg=bg guifg=#ffa8ff
     CSAHi Type term=underline cterm=NONE ctermbg=bg ctermfg=45 gui=NONE guibg=bg guifg=#60f0a8
@@ -391,6 +392,7 @@ elseif has("gui_running") || &t_Co == 88
     CSAHi TabLineSel term=bold cterm=NONE ctermbg=32 ctermfg=86 gui=NONE guibg=#602040 guifg=#d6d6d6
     CSAHi TabLineFill term=reverse cterm=NONE ctermbg=16 ctermfg=16 gui=NONE guibg=#111111 guifg=#000000
     CSAHi CursorColumn term=reverse cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#0f0f0f guifg=fg
+    CSAHi gitcommitFile term=NONE cterm=NONE ctermbg=bg ctermfg=87 gui=NONE guibg=bg guifg=#e8e8e8
     CSAHi diffAdded term=NONE cterm=NONE ctermbg=16 ctermfg=20 gui=NONE guibg=#141414 guifg=#26a938
     CSAHi diffRemoved term=NONE cterm=NONE ctermbg=16 ctermfg=37 gui=NONE guibg=#400707 guifg=#8a4d4d
     CSAHi InterestingWord1 term=NONE cterm=NONE ctermbg=54 ctermfg=16 gui=NONE guibg=#c6acc6 guifg=#000000
@@ -400,11 +402,8 @@ elseif has("gui_running") || &t_Co == 88
     CSAHi InterestingWord5 term=NONE cterm=NONE ctermbg=41 ctermfg=16 gui=NONE guibg=#acdd82 guifg=#000000
     CSAHi InterestingWord6 term=NONE cterm=NONE ctermbg=37 ctermfg=16 gui=NONE guibg=#79a9a9 guifg=#000000
     CSAHi SneakPluginTarget term=NONE cterm=bold ctermbg=71 ctermfg=16 gui=bold guibg=#ffa8ff guifg=#000000
-    CSAHi SneakPluginScope term=NONE cterm=NONE ctermbg=83 ctermfg=fg gui=NONE guibg=#8a8a8a guifg=fg
-    CSAHi javaDocSeeTag term=NONE cterm=NONE ctermbg=bg ctermfg=58 gui=NONE guibg=bg guifg=#cccccc
     CSAHi Member term=NONE cterm=NONE ctermbg=bg ctermfg=73 gui=NONE guibg=bg guifg=#ffd7ab
-    CSAHi IndentGuidesOdd term=NONE cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#0a0a0a guifg=fg
-    CSAHi CursorIM term=NONE cterm=NONE ctermbg=35 ctermfg=79 gui=NONE guibg=#8800ff guifg=#ffffff
+    CSAHi IndentGuidesEven term=NONE cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#0d0d0d guifg=fg
     CSAHi TabNumber term=NONE cterm=NONE ctermbg=16 ctermfg=71 gui=NONE guibg=#121212 guifg=#ffa8ff
     CSAHi TabNumberSel term=NONE cterm=NONE ctermbg=32 ctermfg=71 gui=NONE guibg=#602040 guifg=#ffa8ff
     CSAHi Boolean term=NONE cterm=NONE ctermbg=bg ctermfg=43 gui=NONE guibg=bg guifg=#86bbee
@@ -424,7 +423,8 @@ elseif has("gui_running") || &t_Co == 88
     CSAHi VisualNOS term=bold,underline cterm=NONE ctermbg=33 ctermfg=fg gui=NONE guibg=#7c2b7c guifg=fg
     CSAHi WarningMsg term=NONE cterm=bold ctermbg=bg ctermfg=70 gui=bold guibg=bg guifg=#ff80c0
     CSAHi WildMenu term=NONE cterm=NONE ctermbg=70 ctermfg=16 gui=NONE guibg=#ff80c0 guifg=#000000
-    CSAHi IndentGuidesEven term=NONE cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#0d0d0d guifg=fg
+    CSAHi IndentGuidesOdd term=NONE cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#0a0a0a guifg=fg
+    CSAHi cssPseudoClassId term=NONE cterm=NONE ctermbg=bg ctermfg=42 gui=italic guibg=bg guifg=#9ccfdd
     CSAHi cssIdentifier term=NONE cterm=NONE ctermbg=bg ctermfg=42 gui=italic guibg=bg guifg=#a2ddb8
     CSAHi markdownUrl term=NONE cterm=NONE ctermbg=bg ctermfg=52 gui=NONE guibg=bg guifg=#e48944
     CSAHi markdownCode term=NONE cterm=bold ctermbg=bg ctermfg=42 gui=bold guibg=bg guifg=#a7bee4
@@ -433,7 +433,6 @@ elseif has("gui_running") || &t_Co == 88
     CSAHi javaScriptDOMObjects term=NONE cterm=bold ctermbg=bg ctermfg=58 gui=bold guibg=bg guifg=#dbb6d2
     CSAHi javaScriptDOMMethods term=NONE cterm=NONE ctermbg=bg ctermfg=61 gui=NONE guibg=bg guifg=#d4fa9b
     CSAHi javaScriptAjaxObjects term=NONE cterm=underline ctermbg=bg ctermfg=38 gui=underline guibg=bg guifg=#5d91d3
-    CSAHi javaScriptAjaxMethods term=NONE cterm=NONE ctermbg=bg ctermfg=38 gui=NONE guibg=bg guifg=#6699cc
     CSAHi CursorLine term=underline cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#0f0f0f guifg=fg
     CSAHi ColorColumn term=reverse cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#000000 guifg=fg
     CSAHi Cursor term=NONE cterm=bold ctermbg=33 ctermfg=79 gui=bold guibg=#99004c guifg=#ffffff
@@ -443,7 +442,8 @@ elseif has("gui_running") || &t_Co == 88
     CSAHi Constant term=underline cterm=NONE ctermbg=bg ctermfg=75 gui=NONE guibg=bg guifg=#f8bef8
     CSAHi Special term=bold cterm=NONE ctermbg=16 ctermfg=69 gui=NONE guibg=#0f0f0f guifg=#ff9a4c
     CSAHi Identifier term=underline cterm=NONE ctermbg=bg ctermfg=31 gui=NONE guibg=bg guifg=#40f8f8
-    CSAHi cssPseudoClassId term=NONE cterm=NONE ctermbg=bg ctermfg=42 gui=italic guibg=bg guifg=#9ccfdd
+    CSAHi SneakPluginScope term=NONE cterm=NONE ctermbg=83 ctermfg=fg gui=NONE guibg=#8a8a8a guifg=fg
+    CSAHi javaDocSeeTag term=NONE cterm=NONE ctermbg=bg ctermfg=58 gui=NONE guibg=bg guifg=#cccccc
     CSAHi SyntasticWarningLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi htmlH1 term=NONE cterm=underline ctermbg=bg ctermfg=53 gui=underline guibg=bg guifg=#de675c
     CSAHi htmlLink term=NONE cterm=underline ctermbg=bg ctermfg=55 gui=underline guibg=bg guifg=#c777ff

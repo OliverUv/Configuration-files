@@ -3,6 +3,12 @@
 " I only source this after having first sourced liquorice.vim, during
 " daytime when the sun shines. Not tested without the liquorice colors.
 
+set background=light
+hi clear
+if exists("syntax_on")
+   syntax reset
+endif
+let g:colors_name = "proton"
 
 hi Normal guibg=#f0f0f0 guifg=#404040 gui=none
 hi Comment guibg=#f0f0f0 guifg=#9098a0 gui=none

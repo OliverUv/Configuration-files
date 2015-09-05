@@ -44,7 +44,7 @@ if exists("syntax_on")
    syntax reset
 endif
 
-let colors_name = "liquorice"
+let g:colors_name = "liquorice"
 
 hi Normal       guifg=#eaeaea guibg=#141414
 
