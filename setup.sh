@@ -27,11 +27,10 @@ ln -s ~/Configuration-files/vimperatorignored-keys ~/.vimperator/info/dev-editio
 
 ln -s ~/Configuration-files/i3status.conf ~/.i3/status.conf
 ln -s ~/Configuration-files/i3config.base ~/.i3/config.base
-ln -s ~/Configuration-files/i3config.local ~/.i3/config.local
 
 ln -s ~/Configuration-files/mpv-input.conf ~/.mpv/input.conf
 
-echo "conkyrc urxvt-perls vimrc.local" | xargs echo "Needs manual linking:"
+echo "conkyrc urxvt-perls vimrc.local i3config.local" | xargs echo "Needs manual linking:"
 
 echo "Needs install:"
 echo "sudo pip install i3-py"
