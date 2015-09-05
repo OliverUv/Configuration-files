@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-mpg123 $HOME/Dropbox/pin.mp3 &> /dev/null &
+mpg123 $HOME/Storage/csync/pin.mp3 &> /dev/null &
