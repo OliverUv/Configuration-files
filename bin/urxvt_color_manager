@@ -1,123 +1,179 @@
 #!/usr/bin/env python2
 # encoding: utf-8
 
+''' MIT LICENSE ~ ヽ(  ﾟ ヮﾟ )ノ ! REJOICE
+Urxvt Color Manager (ucm) - manages your terminal colors
+Copyright © 2015 Oliver Uvman
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the "Software"),
+to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
+OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+'''
+
 import argparse
 import os.path
 import struct
 
-from colorsys import rgb_to_hls, hls_to_rgb, rgb_to_hsv, hsv_to_rgb
+from colorsys import rgb_to_hls, hls_to_rgb
 
-parser = argparse.ArgumentParser(description='''quickswitch for i3''')
-parser.add_argument('--readonly', default=False, action='store_true',
-        help='Do not update shade')
-parser.add_argument('--urxvtarg', default=False, action='store_true',
-        help="Returns text suitable for specifying urxvt's background")
-parser.add_argument('--toggle', default=False, action='store_true',
-        help='Toggles color scheme')
-args = parser.parse_args()
+parser = argparse.ArgumentParser(
+    description='''Urxvt Color Manager (ucm)''',
+    usage='''
+        ucm is a utility for managing and letting programs access
+        your themes, and the variations on themes we call shades.
 
-# themes[theme_idx][shade_idx]
-themes = [
-    [  # Dark latte
-        '090909',
-        '0b1217',
-        '13130F',
-        '071009',
-        '100b13',
-        '100707',
-        '0a0a14',
-        '15110b',
-        '10070a',
-    ],
-    [  # Light creme
-        'ededed',
-        'dbe3ee',
-        'e1f5e8',
-        'e8e0ed',
-        'dfdfef',
-        'f2e2e2',
-        'f1dee1',
-        'ede7de',
-        'efefeb',
-    ],
-]
+        Shades are modifications to themes that help you visually
+        distinguish different terminals, e.g. by giving them
+        slightly different background hues.
 
-# fg_colors[theme_idx] contains term colors 0-15
-fg_colors = [
-    [  # Subdued
-        '303030',
-        'c03000',
-        '8AB22C',
-        'B5C865',
-        '426870',
-        '6D506D',
-        '4bb5c1',
-        'b2b2b5',
-        '5F5F5F',
-        'FF3A78',
-        'A6CD07',
-        'fecf35',
-        '4A7781',
-        'FF3B77',
-        '4bb5c1',
-        'c2c2c5',
-    ],
-    [  # Light creme
-        '272822',
-        'ee3a7b',
-        '2b7b6a',
-        'a46d1f',
-        '2874b6',
-        '513998',
-        'bc4c1a',
-        'f1f0ed',
-        '75715e',
-        'ee0055',
-        '03ac88',
-        'f49107',
-        '007af4',
-        '5a1ce9',
-        'f44c00',
-        'f8f8f2',
-    ],
-]
-
-theme_idx = 0
-shade_idx = 0
+        Running the program without arguments prints the Xterm-ish
+        setting strings for this color configuration.
+    ''')
 
 color_file = '/tmp/termcolor'
 
-if os.path.isfile(color_file):
-    with open(color_file, 'r+') as f:
-        theme_idx = int(f.read(1))
-        shade_idx = int(f.read(1))
-    if not args.readonly:
+
+def add_flag(name, help):
+    parser.add_argument(
+        '--%s' % name,
+        default=False,
+        action='store_true',
+        help=help)
+
+add_flag('shade', "This invocation will update the theme's shade and return updated data")
+add_flag('toggle', "Toggles color scheme and return updated data")
+add_flag('urxvtarg', "Returns text suitable for specifying urxvt's background via its startup arguments")
+
+
+class Theme(object):
+    """Represents a consistent look for urxvt-256color, with spooky variations."""
+    def __init__(self, name, shade_list, fg_main, fg_colors):
+        self.name = name
+        self.shade_list = shade_list
+        self.fg_main = fg_main
+        self.fg_colors = fg_colors
+
+
+def main():
+    themes = [
+        Theme(
+            'subduedlatte',
+            [
+                '090909',
+                '0b1217',
+                '13130F',
+                '071009',
+                '100b13',
+                '100707',
+                '0a0a14',
+                '15110b',
+                '10070a',
+            ],
+            '7e7e7e',
+            [
+                '303030',
+                'c03000',
+                '8AB22C',
+                'B5C865',
+                '426870',
+                '6D506D',
+                '4bb5c1',
+                'b2b2b5',
+                '5F5F5F',
+                'FF3A78',
+                'A6CD07',
+                'fecf35',
+                '4A7781',
+                'FF3B77',
+                '4bb5c1',
+                'c2c2c5',
+            ],
+        ),
+        Theme(
+            'Faith',
+            [
+                'ededd0',
+                'dbe3ee',
+                'e1f5e8',
+                'f2e2d2',
+                'e8e0ed',
+                'dfdfef',
+                'f1dee1',
+                'edf3de',
+                'efefeb',
+            ],
+            '49483e',
+            [
+                '272822',
+                'ee3a7b',
+                '2b7b6a',
+                'a46d1f',
+                '2874b6',
+                '513998',
+                'bc4c1a',
+                'f1f0ed',
+                '75715e',
+                'ee0055',
+                '03ac88',
+                'f49107',
+                '007af4',
+                '5a1ce9',
+                'f44c00',
+                'f8f8f2',
+            ],
+        )
+    ]
+
+    args = parser.parse_args()
+
+    theme_idx = 0
+    shade_idx = 0
+
+    if os.path.isfile(color_file):
+        with open(color_file, 'r+') as f:
+            theme_idx = int(f.read(1))
+            shade_idx = int(f.read(1))
         if args.toggle:
-            theme_idx = (theme_idx + 1) % min(len(fg_colors), len(themes))
-        shade_idx = (shade_idx + 1) % len(themes[theme_idx])
+            theme_idx = (theme_idx + 1) % len(themes)
+        if args.toggle or args.shade:
+            shade_idx = (shade_idx + 1) % len(themes[theme_idx].shade_list)
 
-shades = themes[theme_idx]
-shade = shades[shade_idx]
-fgs = fg_colors[theme_idx]
+    if args.toggle or args.shade:
+        with open(color_file, 'w+') as f:
+            f.write(str(theme_idx))
+            f.write(str(shade_idx))
 
-if not args.readonly:
-    with open(color_file, 'w+') as f:
-        f.write(str(theme_idx))
-        f.write(str(shade_idx))
-        f.write('\n')
+    theme = themes[theme_idx]
+    shades = theme.shade_list
+    shade = shades[shade_idx]
+    fgs = theme.fg_colors
 
-if args.urxvtarg:
-    args = "-bg #%s " % (shade,)
-    for (i, color) in enumerate(fgs):
-        args += ('--color%d #%s ' % (i, color))
-    print(args)
-else:
-    print("background: #%s\n" % (shade,))
-    for (i, color) in enumerate(fgs):
-        print('color%d: #%s\n' % (i, color))
+    if args.urxvtarg:
+        args = "-bg #%s " % (shade,)
+        args += "-fg #%s " % (theme.fg_main,)
+        for (i, color) in enumerate(fgs):
+            args += ('--color%d #%s ' % (i, color))
+        print(args)
+    else:
+        print("background: #%s" % (shade,))
+        for (i, color) in enumerate(fgs):
+            print('color%d: #%s' % (i, color))
 
-
-exit(0)
+    exit(0)
 
 
 def hex_to_int(col):
@@ -153,7 +209,7 @@ def modify_in_space(rgb, to_space, modify, from_space):
     u = unratio(rgb)
     x = int_to_hex(u)
     # for i in [rgb, hx, r, hsv, hsi, rgb, u, x]:
-    #     print('%s ->\n' % (i,))
+    #     print('%s ->' % (i,))
     return x
 
 
@@ -161,3 +217,6 @@ def inv_bright(c):
     return modify_in_space(c, rgb_to_hls, invert_brightness, hls_to_rgb)
 
 # map(inv_bright, shades[0]) ~= shades[1]
+
+if __name__ == '__main__':
+    main()
