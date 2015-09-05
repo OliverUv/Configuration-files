@@ -1,23 +1,26 @@
 #!/usr/bin/env bash
 
-#define some theme sequence
-#theme[0]="-bg #090909"
-#theme[1]="-bg #05080A"
-#theme[2]="-bg #050A05"
-#theme[3]="-bg #0A0509"
-#theme[4]="-bg #05050A"
-#theme[5]="-bg #0A0505"
-#theme[6]="-bg #0A0A05"
-#theme[7]="-bg #0A0805"
-
+# Dark theme
 theme[0]="-bg #090909"
 theme[1]="-bg #0B1217"
-theme[2]="-bg #101209"
-theme[3]="-bg #100B13"
-theme[4]="-bg #0A0A14"
+theme[2]="-bg #13130f"
+theme[3]="-bg #071009"
+theme[4]="-bg #100B13"
 theme[5]="-bg #100707"
-theme[6]="-bg #14140A"
+theme[6]="-bg #0A0A14"
 theme[7]="-bg #15110B"
+theme[8]="-bg #10070A"
+
+# Perfect cream light theme
+ltheme[0]="-bg #ededed"
+ltheme[1]="-bg #dbe3ee"
+ltheme[2]="-bg #e1f5e8"
+ltheme[3]="-bg #e8e0ed"
+ltheme[4]="-bg #dfdfef"
+ltheme[5]="-bg #f2e2e2"
+ltheme[6]="-bg #f1dee1"
+ltheme[7]="-bg #ede7de"
+ltheme[8]="-bg #efefeb"
 
 #check for last used theme id
 if [ ! -f "/tmp/termtheme" ] ; then
