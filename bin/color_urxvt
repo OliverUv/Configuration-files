@@ -1,42 +1,10 @@
 #!/usr/bin/env bash
 
-# Dark theme
-theme[0]="-bg #090909"
-theme[1]="-bg #0B1217"
-theme[2]="-bg #13130f"
-theme[3]="-bg #071009"
-theme[4]="-bg #100B13"
-theme[5]="-bg #100707"
-theme[6]="-bg #0A0A14"
-theme[7]="-bg #15110B"
-theme[8]="-bg #10070A"
-
-# Perfect cream light theme
-ltheme[0]="-bg #ededed"
-ltheme[1]="-bg #dbe3ee"
-ltheme[2]="-bg #e1f5e8"
-ltheme[3]="-bg #e8e0ed"
-ltheme[4]="-bg #dfdfef"
-ltheme[5]="-bg #f2e2e2"
-ltheme[6]="-bg #f1dee1"
-ltheme[7]="-bg #ede7de"
-ltheme[8]="-bg #efefeb"
-
-#check for last used theme id
-if [ ! -f "/tmp/termtheme" ] ; then
-  theme_id=0 #defaulting to first theme
-else
-  theme_id=`cat /tmp/termtheme` #load previous
-  theme_id=`expr ${theme_id} + 1` #increment it
-  theme_id=`expr ${theme_id} % ${#theme[@]}` #don't exceed max
+GEN=~/bin/urxvt_color_manager
+COLORS=""
+if [ -f $GEN ];
+then
+    COLORS=$(eval $GEN --urxvtarg)
 fi
 
-#store theme id we're about to use
-echo "${theme_id}" > /tmp/termtheme
-
-#launch the terminal
-urxvtc ${theme[${theme_id}]} $*
-if [ $? -eq 2 ]; then
-    urxvtd -q -o -f
-    urxvtc ${theme[${theme_id}]} $*
-fi
+urxvt_dispatch $COLORS $*

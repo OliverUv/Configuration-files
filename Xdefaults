@@ -1,52 +1,59 @@
 URxvt*scrollBar: false
 URxvt*saveLines: 12000
 
-!old
 !URxvt*font: xft:Liberation Mono:pixelsize=13:antialias=true:hinting=true
 !URxvt*boldFont: xft:Liberation Mono:bold:pixelsize=13:antialias=true:hinting=true
 
-URxvt*font: xft:Inconsolata:style=Medium:pixelsize=14:antialias=true:hinting=true:hintstyle=hintfull
-URxvt*boldFont: xft:Inconsolata:style=Medium:bold:pixelsize=14:antialias=true:hinting=true:hintstyle=hintfull
+!URxvt*font: xft:Inconsolata:style=Medium:bold:pixelsize=18:antialias=true:hinting=true:hintstyle=hintfull
+!URxvt*boldFont: xft:Bitstream Vera Sans Mono:style=Medium:bold:pixelsize=18:antialias=true:hinting=true:hintstyle=hintfull
+
+URxvt*font: xft:Inconsolata:style=Medium:bold:pixelsize=18:antialias=true:hinting=true:hintstyle=hintfull
+URxvt*boldFont: xft:robotomono:style=Medium:italic:pixelsize=18:antialias=true:hinting=true:hintstyle=hintfull
 
 ! Colors
 URxvt.foreground: #7e7e7e
 URxvt.background: #0A1015
 
+! Subdued
 *color0:   #303030
-*color8:   #5F5F5F
 *color1:   #c03000
-*color9:   #FF3A78
 *color2:   #8AB22C
-*color10:  #A6CD07
 *color3:   #B5C865
-*color11:  #fecf35
 *color4:   #426870
-*color12:  #4A7781
 *color5:   #6D506D
-*color13:  #FF3B77
 *color6:   #4bb5c1
-*color14:  #4bb5c1
 *color7:   #b2b2b5
+*color8:   #5F5F5F
+*color9:   #FF3A78
+*color10:  #A6CD07
+*color11:  #fecf35
+*color12:  #4A7781
+*color13:  #FF3B77
+*color14:  #4bb5c1
 *color15:  #c2c2c5
 
-!URxvt.foreground: #868686
-!URxvt.background: #0A1015
-!URxvt.color0:  #2E3436
-!URxvt.color1:  #a40000
-!URxvt.color2:  #4E9A06
-!URxvt.color3:  #C4A000
-!URxvt.color4:  #3465A4
-!URxvt.color5:  #75507B
-!URxvt.color6:  #ce5c00
-!URxvt.color7:  #babdb9
-!URxvt.color8:  #555753
-!URxvt.color9:  #EF2929
-!URxvt.color10: #8AE234
-!URxvt.color11: #FCE94F
-!URxvt.color12: #729FCF
-!URxvt.color13: #AD7FA8
-!URxvt.color14: #fcaf3e
-!URxvt.color15: #EEEEEC
+! Light creme
+!*.foreground:   #49483e
+!*.background:   #efefeb
+!*.cursorColor:  #49483e
+!
+!*.color0:       #272822
+!*.color1:       #ee3a7b
+!*.color2:       #2b7b6a
+!*.color3:       #a46d1f
+!*.color4:       #2874b6
+!*.color5:       #513998
+!*.color6:       #bc4c1a
+!*.color7:       #f1f0ed
+!*.color8:       #75715e
+!*.color9:       #ee0055
+!*.color10:      #03ac88
+!*.color11:      #f49107
+!*.color12:      #007af4
+!*.color13:      #5a1ce9
+!*.color14:      #f44c00
+!*.color15:      #f8f8f2
+
 
 ! Disable interfering unicode insert w/ ctrl-shift
 URxvt.iso14755: false
