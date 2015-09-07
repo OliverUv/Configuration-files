@@ -4,7 +4,7 @@ GEN=~/bin/urxvt_color_manager
 COLORS=""
 if [ -f $GEN ];
 then
-    COLORS=$(eval $GEN --urxvtarg --shade)
+    COLORS=$(eval $GEN --shade --urxvt-arg)
 fi
 
 urxvt_dispatch $COLORS $*

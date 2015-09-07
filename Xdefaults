@@ -14,45 +14,29 @@ URxvt*boldFont: xft:robotomono:style=Medium:italic:pixelsize=18:antialias=true:h
 URxvt.foreground: #7e7e7e
 URxvt.background: #0A1015
 
-! Subdued
-*color0:   #303030
-*color1:   #c03000
-*color2:   #8AB22C
-*color3:   #B5C865
-*color4:   #426870
-*color5:   #6D506D
-*color6:   #4bb5c1
-*color7:   #b2b2b5
-*color8:   #5F5F5F
-*color9:   #FF3A78
-*color10:  #A6CD07
-*color11:  #fecf35
-*color12:  #4A7781
-*color13:  #FF3B77
-*color14:  #4bb5c1
-*color15:  #c2c2c5
+! Subdued Latte
 
-! Light creme
-!*.foreground:   #49483e
-!*.background:   #efefeb
-!*.cursorColor:  #49483e
-!
-!*.color0:       #272822
-!*.color1:       #ee3a7b
-!*.color2:       #2b7b6a
-!*.color3:       #a46d1f
-!*.color4:       #2874b6
-!*.color5:       #513998
-!*.color6:       #bc4c1a
-!*.color7:       #f1f0ed
-!*.color8:       #75715e
-!*.color9:       #ee0055
-!*.color10:      #03ac88
-!*.color11:      #f49107
-!*.color12:      #007af4
-!*.color13:      #5a1ce9
-!*.color14:      #f44c00
-!*.color15:      #f8f8f2
+! Faith
+*.foreground:   #49483e
+*.background:   #efefeb
+*.cursorColor:  #49483e
+
+*.color0:       #272822
+*.color1:       #ee3a7b
+*.color2:       #2b7b6a
+*.color3:       #a46d1f
+*.color4:       #2874b6
+*.color5:       #513998
+*.color6:       #bc4c1a
+*.color7:       #f1f0ed
+*.color8:       #75715e
+*.color9:       #ee0055
+*.color10:      #03ac88
+*.color11:      #f49107
+*.color12:      #007af4
+*.color13:      #5a1ce9
+*.color14:      #f44c00
+*.color15:      #f8f8f2
 
 
 ! Disable interfering unicode insert w/ ctrl-shift
@@ -65,7 +49,7 @@ URxvt.clipboard.autocopy: true
 URxvt.url-launcher:  firefox
 
 ! perls selection
-! can't get this to work >:(
+! can not get this to work >:(
 ! Copy stuff into /usr/lib/urxvt/perl/ or $HOME/.urxvt/ext/ instead.
 !URxvt.perl-lib: /home/oliver/Configuration-files/urxvt-perls/
 URxvt.perl-ext-common: default,matcher,url-select,clipboard,keyboard-select,font-size

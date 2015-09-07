@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 ''' MIT LICENSE ~ ヽ(  ﾟ ヮﾟ )ノ ! REJOICE
-Urxvt Color Manager (ucm) - manages your terminal colors
+Rosary Color Manager (rcm) - manages your colors
 Copyright © 2015 Oliver Uvman
 
 Permission is hereby granted, free of charge, to any person obtaining
@@ -24,24 +24,22 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
 OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 '''
 
+from __future__ import print_function
+from colorsys import rgb_to_hls, hls_to_rgb
+
 import argparse
 import os.path
 import struct
-
-from colorsys import rgb_to_hls, hls_to_rgb
+import sys
 
 parser = argparse.ArgumentParser(
-    description='''Urxvt Color Manager (ucm)''',
-    usage='''
-        ucm is a utility for managing and letting programs access
+    description='''Rosary Color Manager (rcm)
+
+        is a utility for managing and letting programs access
         your themes, and the variations on themes we call shades.
-
-        Shades are modifications to themes that help you visually
-        distinguish different terminals, e.g. by giving them
-        slightly different background hues.
-
-        Running the program without arguments prints the Xterm-ish
-        setting strings for this color configuration.
+    ''',
+    usage='''
+        Run with no arguments or --help or -h for help.
     ''')
 
 color_file = '/tmp/termcolor'
@@ -54,13 +52,16 @@ def add_flag(name, help):
         action='store_true',
         help=help)
 
-add_flag('shade', "This invocation will update the theme's shade and return updated data")
-add_flag('toggle', "Toggles color scheme and return updated data")
-add_flag('urxvtarg', "Returns text suitable for specifying urxvt's background via its startup arguments")
+# add_flag('help', "Update the theme's shade before acting")
+add_flag('shade', "Update the theme's shade before acting")
+add_flag('toggle', "Toggles color scheme before acting")
+add_flag('urxvt-arg', "Prints text suitable for specifying urxvt's background via its startup arguments")
+add_flag('urxvt-escape', "Prints escape characters and text that will cause an urxvt terminal to switch colors")
+add_flag('xresource', "Prints text suitable for Xresource files")
 
 
 class Theme(object):
-    """Represents a consistent look for urxvt-256color, with spooky variations."""
+    """Represents a consistent look with variations."""
     def __init__(self, name, shade_list, fg_main, fg_colors):
         self.name = name
         self.shade_list = shade_list
@@ -68,8 +69,8 @@ class Theme(object):
         self.fg_colors = fg_colors
 
 
-def main():
-    themes = [
+def construct_themes():
+    return [
         Theme(
             'subduedlatte',
             [
@@ -138,8 +139,12 @@ def main():
         )
     ]
 
-    args = parser.parse_args()
 
+def main():
+    args = parser.parse_args()
+    themes = construct_themes()
+
+    # Find current theme
     theme_idx = 0
     shade_idx = 0
 
@@ -162,17 +167,34 @@ def main():
     shade = shades[shade_idx]
     fgs = theme.fg_colors
 
-    if args.urxvtarg:
-        args = "-bg #%s " % (shade,)
-        args += "-fg #%s " % (theme.fg_main,)
+    if not any(args.__dict__.values()):
+        # TODO figure out if accessing __dict__ is reasonable
+        parser.print_help()
+
+    elif args.urxvt_arg:
+        def p(string):
+            print(string, end=' ')
+        p("-bg #%s" % (shade,))
+        p("-fg #%s" % (theme.fg_main,))
+        # TODO add cursor color
         for (i, color) in enumerate(fgs):
-            args += ('--color%d #%s ' % (i, color))
-        print(args)
-    else:
-        print("background: #%s" % (shade,))
+            p('--color%d #%s' % (i, color))
+
+    elif args.xresource:
+        print('background: #%s' % (shade,))
+        print('foreground: #%s' % (theme.fg_main,))
+        # TODO add cursor color
         for (i, color) in enumerate(fgs):
             print('color%d: #%s' % (i, color))
 
+    elif args.urxvt_escape:
+        print('\x1b]11;#%s' % (shade,), end='\a')
+        print('\x1b]10;#%s' % (theme.fg_main,), end='\a')
+        # TODO add cursor color
+        for (i, color) in enumerate(fgs):
+            print('\x1b]4;%s;#%s' % (i, color), end='\a')
+
+    sys.stdout.flush()
     exit(0)
 
 
