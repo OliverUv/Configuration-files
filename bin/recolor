@@ -1,2 +1,2 @@
 #!/bin/sh
-urxvt_color_manager --urxvt-escape
+rcm --urxvt-escape

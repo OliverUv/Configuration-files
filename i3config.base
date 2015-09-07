@@ -46,7 +46,11 @@ mouse_warping none
 set $term color_urxvt
 bindsym $mod+Return exec $term
 bindsym $mod+Control+Return exec $term -e ranger
-bindsym $mod+F1 exec urxvt_color_manager --toggle
+# toggle terminal theme
+bindsym $mod+F1 exec rcm --toggle
+# safe terminal in case of failure
+bindsym $mod2+t exec urxvt
+bindsym $mod2+Shift+T exec xterm
 
 # kill focused window
 bindsym $mod+Shift+W kill

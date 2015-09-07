@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-GEN=~/bin/urxvt_color_manager
+GEN=~/bin/rcm
 COLORS=""
 if [ -f $GEN ];
 then
