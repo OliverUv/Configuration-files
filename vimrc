@@ -745,8 +745,8 @@ endif
 " }}} jedi-vim "
 
 " vim-sparkup {{{ "
-let g:sparkupExecuteMapping = '<leader>v'
-let g:sparkupNextMapping = '<leader>b'
+let g:sparkupExecuteMapping = '<leader>V'
+let g:sparkupNextMapping = '<leader>B'
 " }}} vim-sparkup "
 
 " Misc {{{ "
@@ -1200,16 +1200,21 @@ nnoremap <silent> <leader>x :<C-U>wq<cr>
 nnoremap <silent> <leader>X :<C-U>wqa<cr>
 nnoremap <silent> <leader>d :<C-U>q<cr>
 nnoremap <silent> <leader>D :<C-U>qa<cr>
+
 nnoremap <silent> <leader>h :<C-U>FSHere<cr>
 nnoremap <silent> <leader>hk :<C-U>FSSplitAbove<cr>
 nnoremap <silent> <leader>hj :<C-U>FSSplitBelow<cr>
 nnoremap <silent> <leader>hh :<C-U>FSSplitLeft<cr>
 nnoremap <silent> <leader>hl :<C-U>FSSplitRight<cr>
 nmap     <silent> <leader>ha :<C-U>FSSplitLeft<cr><c-h>zhco4<c-l>zh
+
+nnoremap <leader>b <c-w>s<c-w>T
+
 " Maximize buffer toggling
 nnoremap <silent> <leader><tab> :<C-U>MaximizerToggle<cr>
 vnoremap <silent> <leader><tab> :<C-U>MaximizerToggle<cr>gv
 inoremap <silent> <leader><tab> <c-o>:MaximizerToggle<cr>
+
 " w!! -> write even if you forgot sudo
 cmap w!! w !sudo tee >/dev/null %
 
