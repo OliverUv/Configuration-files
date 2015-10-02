@@ -32,6 +32,8 @@ import os.path
 import struct
 import sys
 
+__version__ = '0.1'
+
 parser = argparse.ArgumentParser(
     description='''Rosary Color Manager (rcm)
 
@@ -52,12 +54,11 @@ def add_flag(name, help):
         action='store_true',
         help=help)
 
-# add_flag('help', "Update the theme's shade before acting")
 add_flag('shade', "Update the theme's shade before acting")
 add_flag('toggle', "Toggles color scheme before acting")
 add_flag('urxvt-arg', "Prints text suitable for specifying urxvt's background via its startup arguments")
 add_flag('urxvt-escape', "Prints escape characters and text that will cause an urxvt terminal to switch colors")
-add_flag('xresource', "Prints text suitable for Xresource files")
+add_flag('xresource', "Prints Xterm-like setting lines, suitable for Xresource files")
 
 
 class Theme(object):
