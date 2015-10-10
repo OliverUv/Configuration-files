@@ -81,9 +81,49 @@ style -name tab chrome://* <<EOM
   background-image: none !important;
 }
 
+.tab-background-middle
+{
+  background-image: none !important;
+}
+
+.tab-background-start,
+.tab-background-end {
+  background-image: none !important;
+}
+
+.tab-background-start[visuallyselected=true]:-moz-locale-dir(ltr):not(:-moz-lwtheme)::before,
+.tab-background-end[visuallyselected=true]:-moz-locale-dir(rtl):not(:-moz-lwtheme)::before {
+  background-image: none !important;
+  background-color: #E17800 !important;
+  background-size: 100% 100%;
+}
+
+.tab-background-end[visuallyselected=true]:-moz-locale-dir(ltr):not(:-moz-lwtheme)::before,
+.tab-background-start[visuallyselected=true]:-moz-locale-dir(rtl):not(:-moz-lwtheme)::before {
+  background-image: none !important;
+  background-color: #E17800 !important;
+  background-size: 100% 100%;
+}
+
+.tab-background-start[visuallyselected=true]::after,
+.tab-background-end[visuallyselected=true]::after {
+  /* position ::after on top of its parent */
+  display: none !important;
+}
+
+.tab-background-start[visuallyselected=true]::before,
+.tab-background-end[visuallyselected=true]::before {
+  display: none !important;
+}
+
+#tabbrowser-tabs::before {
+    background-image: none !important;
+}
+
 .tabbrowser-tab {
   font-weight: bold;
   color: #DADADA !important;
+  text-shadow: none !important;
 }
 
 .tabbrowser-tab[selected] {
@@ -91,6 +131,7 @@ style -name tab chrome://* <<EOM
   background-color: #E17800 !important;
   box-shadow: none !important;
   border: none !important;
+  text-shadow: none !important;
 }
 
 EOM
