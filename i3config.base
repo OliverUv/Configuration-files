@@ -271,7 +271,9 @@ client.focused_inactive #000000 #000000 #dddddd #181e20
 client.unfocused        #000000 #000000 #666666 #191d1e
 client.urgent           #2f343a #900000 #ffffff #900000
 
-exec --no-startup-id redshift -l 58.411975:15.559395 -t 6500:3700 -b 0.95
+set $linkoping 58.411975:15.559395
+set $shenzhen 22.543099:114.057868
+exec --no-startup-id redshift -l $shenzhen -t 6500:3700 -b 0.95
 
 # keyboard key autorepeat rate
 exec --no-startup-id xset r rate 210 30
