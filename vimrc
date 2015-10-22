@@ -1208,7 +1208,7 @@ nnoremap <silent> <leader>hh :<C-U>FSSplitLeft<cr>
 nnoremap <silent> <leader>hl :<C-U>FSSplitRight<cr>
 nmap     <silent> <leader>ha :<C-U>FSSplitLeft<cr><c-h>zhco4<c-l>zh
 
-nnoremap <leader>b <c-w>s<c-w>T
+nnoremap <leader>b <c-w>s<c-w>TgT<c-w>cgt
 
 " Maximize buffer toggling
 nnoremap <silent> <leader><tab> :<C-U>MaximizerToggle<cr>
