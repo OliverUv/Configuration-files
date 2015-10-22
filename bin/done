@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-mpg123 $HOME/Storage/csync/pin.mp3 &> /dev/null &
+mpv $HOME/Storage/csync/misc/click.wav &> /dev/null &
