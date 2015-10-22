@@ -8,6 +8,9 @@
 color="3700"
 brightness="0.95"
 
+linkoping="58.411975:15.559395"
+shenzhen="22.543099:114.057868"
+
 if [ $# -gt 0 ] ; then
     color="$1"
 fi
@@ -16,4 +19,4 @@ if [ $# -gt 1 ] ; then
     brightness="$2"
 fi
 
-redshift -l 58.411975:15.559395 -t "6500:$color" -b "$brightness" &
+redshift -l $shenzhen -t "6500:$color" -b "$brightness" &
