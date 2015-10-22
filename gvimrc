@@ -44,7 +44,7 @@ set guicursor+=a:blinkon0
 set linespace=-2
 
 " Set GUI Font depending on the kind of gui/platform being loaded.
-set guifont=Liberation\ Mono\ 10  " Sane default
+set guifont=Liberation\ Mono\ 18  " Sane default
 if has("gui_win32")
 	set guifont=Consolas:h11:cANSI
 elseif has("gui_macvim")
@@ -52,7 +52,7 @@ elseif has("gui_macvim")
 	set guifont=Menlo\ Regular:h15
 elseif has("gui_gnome") || has("gui_gtk") || has("gui_gtk2")
         " set guifont=Inconsolata\ Bold\ 12
-        set guifont=Roboto\ Mono\ Bold\ 11
+        set guifont=Roboto\ Mono\ Bold\ 16
 endif
 
 " Bindings for font-zoom plugin
