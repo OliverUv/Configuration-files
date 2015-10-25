@@ -1,18 +1,29 @@
-Superb Vim Plugins
-==================
+Suggestions for new Vim users
+=============================
 
 Vim is more powerful than you think. Always.
 
-1 You should keep your .vimrc in source control. I keep mine on
-  `github <https://github.com/OliverUv/Configuration-files>`_
+1 You should keep your .vimrc in source control.
 
-2 Get a plugin manager. I use pathogen because it was the only one
-  around when I started. NeoBundle, Vundle and vim-plug all seem like good
-  and more user-friendly plugin managers.
+  I keep mine on `github <https://github.com/OliverUv/Configuration-files>`_.
 
-  I would only use pathogen now if you want to pin your plugins to
-  specific commits in their git repositories. It's quite possible one of
-  the above plugins support that functionality as well.
+2 Get a plugin manager.
+
+  I use pathogen because it was the only one around when I started.
+  NeoBundle, Vundle and vim-plug all seem like good and more
+  user-friendly plugin managers.
+
+  At present date I would only recommend pathogen if you want to pin
+  your plugins to specific commits. It's quite possible one of the above
+  plugins support that functionality as well. Have a look around.
+
+3 Learn how to use the help system.
+
+  `:h` is your friend. Even after using vim for over ten years, I use it
+  often. If you haven't done it before, take a few hours to read through
+  the tutorials and skim most of the help articles. It will give you an
+  idea of vim's capabilities, so that you can look them up if you find
+  that you need them.
 
 Below you will find a list of plugins I've found useful, and a
 small description of what each does. I haven't listed any language
