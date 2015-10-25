@@ -1,29 +1,32 @@
+=============================
 Suggestions for new Vim users
 =============================
 
+Introduction
+============
+
 Vim is more powerful than you think. Always.
 
-1 You should keep your .vimrc in source control.
+1. You should keep your .vimrc and other vim settings in source control.
+   I keep mine on `github <https://github.com/OliverUv/Configuration-files>`_.
 
-  I keep mine on `github <https://github.com/OliverUv/Configuration-files>`_.
+2. Get a plugin manager.
 
-2 Get a plugin manager.
+   I use pathogen because it was the only one around when I started.
+   NeoBundle, Vundle and vim-plug all seem like good and more
+   user-friendly plugin managers.
 
-  I use pathogen because it was the only one around when I started.
-  NeoBundle, Vundle and vim-plug all seem like good and more
-  user-friendly plugin managers.
+   At present I would only recommend pathogen if you want to pin your
+   plugins to specific commits. It's quite possible one of the above
+   plugins support that functionality as well. Have a look around.
 
-  At present date I would only recommend pathogen if you want to pin
-  your plugins to specific commits. It's quite possible one of the above
-  plugins support that functionality as well. Have a look around.
+3. Learn how to use the help system.
 
-3 Learn how to use the help system.
-
-  `:h` is your friend. Even after using vim for over ten years, I use it
-  often. If you haven't done it before, take a few hours to read through
-  the tutorials and skim most of the help articles. It will give you an
-  idea of vim's capabilities, so that you can look them up if you find
-  that you need them.
+   `:h` is your friend. Even after using vim for over ten years, I use it
+   often. If you haven't done it before, take a few hours to read through
+   the tutorials and skim most of the help articles. It will give you an
+   idea of vim's capabilities, so that you can look them up if you find
+   that you need them.
 
 Below you will find a list of plugins I've found useful, and a
 small description of what each does. I haven't listed any language
@@ -53,10 +56,12 @@ one. Otherwise you will forget you installed it, and forget how to use
 it.
 
 vim-fugitive
-  Incredible plugin for using git. `This
-  <http://vimcasts.org/blog/2011/05/the-fugitive-series/>`_ is the best
-  resource I know for learning how it works. It is a complex plugin, so
-  just reading the helpfile for it is not enough.
+  Incredible plugin for using git. `The Vimcast episodes
+  <http://vimcasts.org/blog/2011/05/the-fugitive-series/>`_ about
+  fugitive is the best resource I know for learning how it works. It is
+  a complex plugin, so just reading the helpfile for it is not enough to
+  realize its power. Watch the videos to learn, and then use the text
+  under the videos for reference.
 
 vim-surround
   Makes surrounding pieces of text with things super easy, lets you change
@@ -164,19 +169,19 @@ unite.vim
   that many other plugins (and sub-plugins) can use to let you display
   and execute actions on arbitrary information. I mostly use it to:
 
-  1 Go between files in the directory
+  1. Go between files in the directory
 
-  2 Go between recently used files
+  2. Go between recently used files
 
-  3 Grep through files in projects
+  3. Grep through files in projects
 
-  4 Set vim's current working directory
+  4. Set vim's current working directory
 
-  5 Go between functions and classes defined in the current file
+  5. Go between functions and classes defined in the current file
 
-  6 Choose and paste previously deleted/yanked text.
+  6. Choose and paste previously deleted/yanked text.
 
-  7 Go between previously opened files.
+  7. Open hidden buffers.
 
   CtrlP is a competitor to unite.vim. It should be easier to set up, but
   is not as configurable.
