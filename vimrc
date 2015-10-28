@@ -1,5 +1,4 @@
 " Initialization {{{ "
-"let g:pathogen_disabled = ['ctrlp', 'ctrlp-funky', 'vim-sneak', 'CoVim', 'neocomplcache', 'neocomplcache-ultisnips', 'python-mode', 'Rainbow-Parentheses-Improved-and2']
 let g:pathogen_disabled = ['ctrlp', 'ctrlp-funky', 'CoVim', 'neocomplcache', 'neocomplcache-ultisnips', 'python-mode', 'vim-niji']
 
 if has("win32") || has("win64")
