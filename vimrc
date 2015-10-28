@@ -862,6 +862,9 @@ let g:switch_custom_definitions =
     \     '\Cfalse': 'true',
     \   },
     \   ['width', 'height'],
+    \   ['left', 'right'],
+    \   ['top', 'bottom'],
+    \   ['above', 'below'],
     \ ]
 if has("autocmd")
 augroup SwitchVimFtGroups
