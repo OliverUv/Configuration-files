@@ -32,12 +32,7 @@ short_units yes
 TEXT
 [
 	{ 
-	  "full_text" : "~${fs_free /home}", 
-	  "min_width": 72,
-	  "color" : "\#999999"
-	},
-	{ 
-	  "full_text" : "/${fs_free /}", 
+	  "full_text" : "${fs_free /}", 
 	  "min_width": 130,
 	  "color" : "\#999999"
 	},
