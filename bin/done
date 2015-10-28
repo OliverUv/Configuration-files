@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-mpv $HOME/Storage/csync/misc/click.wav &> /dev/null &
+mpv --volume 80 $HOME/Storage/csync/misc/click.wav &> /dev/null &
