@@ -62,13 +62,12 @@ bindsym $mod+Shift+D exec i3-dmenu-desktop --dmenu "dmenu -i -fn 'robotomono:med
 bindsym $mod+Control+d exec dmenu_path | dmenu -i -fn 'robotomono:medium' -sb '#E17800' -sf '#000000' -h 23 | xargs van
 
 # start apps
-bindsym $mod+Control+p exec bash -c 'scrot $HOME/screenshot_$(date +"%F_-_%H-%M-%S").png'
-bindsym $mod+Control+g exec google-chrome
+bindsym $mod+Control+p exec pavucontrol
+bindsym $mod+Control+g exec chromium-browser
 bindsym $mod+Control+f exec firefox
 bindsym $mod+Control+v exec gvim
 bindsym $mod+Shift+V exec gvim -S $HOME/.cache/unite/session/life.vim
 bindsym $mod+Control+a exec $term -e alsamixer
-bindsym $mod+Control+u exec $term -e youtube-viewer
 bindsym $mod+Control+y exec my
 bindsym $mod+Control+i exec mi
 bindsym $mod+Shift+Y exec mclip
