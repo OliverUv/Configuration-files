@@ -141,6 +141,7 @@ text objects. For example, I can press `dip` to "delete in paragraph",
 or `cas` to "change a sentence". There are plugins that add new text
 objects. I have listed some of these below.
 
+* targets.vim
 * vim-indent-object
 * vim-textobj-function
 * vim-textobj-user
