@@ -1,7 +1,6 @@
 "=============================================================================
 " FILE: vimproc.vim
 " AUTHOR: Shougo Matsushita <Shougo.Matsu@gmail.com>
-" Last Modified: 26 Oct 2012.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -36,10 +35,33 @@ let s:save_cpo = &cpo
 set cpo&vim
 " }}}
 
+command! -nargs=* VimProcInstall call s:install(<q-args>)
 command! -nargs=+ -complete=shellcmd VimProcBang call s:bang(<q-args>)
 command! -nargs=+ -complete=shellcmd VimProcRead call s:read(<q-args>)
 
 " Command functions:
+function! s:install(args) "{{{
+  let savemp = &makeprg
+  let savecwd = getcwd()
+
+  try
+    if executable('gmake')
+      let &makeprg = 'gmake'
+    elseif executable('make')
+      let &makeprg = 'make'
+    elseif executable('nmake')
+      let &makeprg = 'nmake -f make_msvc.mak nodebug=1'
+    endif
+
+    " Change to the correct directory and run make
+    execute 'lcd' fnameescape(fnamemodify(g:vimproc#dll_path, ':h:h'))
+    execute 'make' a:args
+  finally
+     " Restore working directory and makeprg
+     execute 'lcd' fnameescape(savecwd)
+     let &makeprg = savemp
+  endtry
+endfunction"}}}
 function! s:bang(cmdline) "{{{
   " Expand % and #.
   let cmdline = join(map(vimproc#parser#split_args_through(

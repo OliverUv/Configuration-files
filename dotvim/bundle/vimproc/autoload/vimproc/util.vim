@@ -1,6 +1,5 @@
 "=============================================================================
 " FILE: util.vim
-" Last Modified: 04 Mar 2014.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -30,13 +29,18 @@ set cpo&vim
 
 let s:is_windows = has('win32')
 let s:is_cygwin = has('win32unix')
-let s:is_mac = !s:is_windows
+let s:is_mac = !s:is_windows && !s:is_cygwin
       \ && (has('mac') || has('macunix') || has('gui_macvim') ||
       \   (!isdirectory('/proc') && executable('sw_vers')))
 
 " iconv() wrapper for safety.
+function! vimproc#util#has_iconv() "{{{
+  " On Windows, some encodings can be converted by iconv() even if
+  " libiconv.dll is not available.
+  return (has('iconv') || (s:is_windows && exists('*iconv')))
+endfunction"}}}
 function! vimproc#util#iconv(expr, from, to) "{{{
-  if !has('iconv')
+  if !vimproc#util#has_iconv()
         \ || a:expr == '' || a:from == ''
         \ || a:to == '' || a:from ==# a:to
     return a:expr
@@ -87,6 +91,9 @@ endfunction"}}}
 function! vimproc#util#substitute_path_separator(path) "{{{
   return s:is_windows ? substitute(a:path, '\\', '/', 'g') : a:path
 endfunction"}}}
+function! vimproc#util#cd(path)  "{{{
+  execute 'lcd' fnameescape(a:path)
+endfunction"}}}
 
 function! vimproc#util#uniq(list, ...) "{{{
   let list = a:0 ? map(copy(a:list), printf('[v:val, %s]', a:1)) : copy(a:list)
@@ -111,6 +118,7 @@ function! vimproc#util#set_default(var, val, ...)  "{{{
           \ {alternate_var} : a:val
   endif
 endfunction"}}}
+
 
 " Global options definition. "{{{
 call vimproc#util#set_default(

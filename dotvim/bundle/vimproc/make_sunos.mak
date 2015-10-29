@@ -2,18 +2,18 @@
 
 ifneq ($(SUNCC),)
 CC=$(SUNCC)
-CFLAGS=-errwarn -xc99 -xO3 -native -KPIC
-LDFLAGS=-G
+CFLAGS+=-errwarn -xc99 -xO3 -native -KPIC
+LDFLAGS+=-G
 else # gcc
 CC=gcc
-CFLAGS=-W -Wall -Wno-unused -Wno-unused-parameter -std=c99 -O2 -fPIC -pedantic
-LDFLAGS=-shared
+CFLAGS+=-W -Wall -Wno-unused -Wno-unused-parameter -std=c99 -O2 -fPIC -pedantic
+LDFLAGS+=-shared
 endif
-CPPFLAGS=-D_XPG6 -D__EXTENSIONS__
+CPPFLAGS+=-D_XPG6 -D__EXTENSIONS__
 
-TARGET=autoload/vimproc_unix.so
-SRC=autoload/proc.c autoload/ptytty.c
-INC=autoload/vimstack.c
+TARGET=lib/vimproc_unix.so
+SRC=src/proc.c src/ptytty.c
+INC=src/vimstack.c src/ptytty.h
 
 all: $(TARGET)
 

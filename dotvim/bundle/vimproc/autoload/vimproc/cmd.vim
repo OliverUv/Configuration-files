@@ -1,7 +1,6 @@
 "=============================================================================
 " FILE: cmd.vim
 " AUTHOR:  Shougo Matsushita <Shougo.Matsu@gmail.com>
-" Last Modified: 13 Jun 2013.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -75,22 +74,26 @@ function! s:cmd.system(cmd) "{{{
   call self.vimproc.stdin.write(input . "\n")
 
   " Wait until getting prompt.
-  let result = []
   let output = ''
-  while output !~ '.\+>$'
-    let out = split(output . self.vimproc.stdout.read(), '\r\n\|\n')
-    let output = get(out, -1, '')
-    let result += out[ : -2]
+  while 1
+    let output .= self.vimproc.stdout.read()
+    let lastnl = strridx(output, "\n")
+    if lastnl >= 0 &&
+          \ output[lastnl + 1:] =~ '^\%([A-Z]:\\\|\\\\.\+\\.\+\\\).*>$'
+      break
+    endif
   endwhile
+  let result = split(output, '\r\n\|\n')[1:-2]
 
-  return join(result[1 :], "\n")
+  return join(result, "\n")
 endfunction"}}}
 
 call s:cmd.open()
 
 function! vimproc#cmd#system(expr)
   let cmd = type(a:expr) == type('') ? a:expr :
-        \ join(map(a:expr, '"\"".v:val."\""'))
+        \ join(map(a:expr,
+        \   'match(v:val, "\\s") >= 0 ? "\"".v:val."\"" : v:val'))
   return s:cmd.system(cmd)
 endfunction
 

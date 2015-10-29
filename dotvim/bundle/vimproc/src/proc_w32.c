@@ -59,7 +59,9 @@ const int debug = 0;
 #endif
 
 #ifdef _MSC_VER
-# define snprintf _snprintf
+# if _MSC_VER < 1900
+#  define snprintf _snprintf
+# endif
 # if _MSC_VER < 1400
 #  define vsnprintf _vsnprintf
 # endif
@@ -76,19 +78,19 @@ EXPORT const char *vp_dlversion(char *args);     /* [version] () */
 
 EXPORT const char *vp_file_open(char *args);   /* [fd] (path, flags, mode) */
 EXPORT const char *vp_file_close(char *args);  /* [] (fd) */
-EXPORT const char *vp_file_read(char *args);   /* [hd, eof] (fd, cnt, timeout) */
+EXPORT const char *vp_file_read(char *args);   /* [eof, hd] (fd, cnt, timeout) */
 EXPORT const char *vp_file_write(char *args);  /* [nleft] (fd, timeout, hd) */
 
 EXPORT const char *vp_pipe_open(char *args);   /* [pid, [fd] * npipe]
                                                   (npipe, argc, [argv]) */
 EXPORT const char *vp_pipe_close(char *args);  /* [] (fd) */
-EXPORT const char *vp_pipe_read(char *args);   /* [hd, eof] (fd, cnt, timeout) */
+EXPORT const char *vp_pipe_read(char *args);   /* [eof, hd] (fd, cnt, timeout) */
 EXPORT const char *vp_pipe_write(char *args);  /* [nleft] (fd, timeout, hd) */
 
 EXPORT const char *vp_pty_open(char *args);    /* [pid, fd, ttyname]
                                                   (width, height, argc, [argv]) */
 EXPORT const char *vp_pty_close(char *args);   /* [] (fd) */
-EXPORT const char *vp_pty_read(char *args);    /* [hd, eof] (fd, cnt, timeout) */
+EXPORT const char *vp_pty_read(char *args);    /* [eof, hd] (fd, cnt, timeout) */
 EXPORT const char *vp_pty_write(char *args);   /* [nleft] (fd, timeout, hd) */
 EXPORT const char *vp_pty_get_winsize(char *args); /* [width, height] (fd) */
 EXPORT const char *vp_pty_set_winsize(char *args); /* [] (fd, width, height) */
@@ -99,7 +101,7 @@ EXPORT const char *vp_close_handle(char *args); /* [] (fd) */
 
 EXPORT const char *vp_socket_open(char *args); /* [socket] (host, port) */
 EXPORT const char *vp_socket_close(char *args);/* [] (socket) */
-EXPORT const char *vp_socket_read(char *args); /* [hd, eof] (socket, cnt, timeout) */
+EXPORT const char *vp_socket_read(char *args); /* [eof, hd] (socket, cnt, timeout) */
 EXPORT const char *vp_socket_write(char *args);/* [nleft] (socket, hd, timeout) */
 
 EXPORT const char *vp_host_exists(char *args); /* [int] (host) */
@@ -119,7 +121,7 @@ static BOOL ExitRemoteProcess(HANDLE hProcess, UINT_PTR uExitCode);
 /* --- */
 
 #define VP_BUFSIZE      (65536)
-#define VP_READ_BUFSIZE (VP_BUFSIZE - 4)
+#define VP_READ_BUFSIZE (VP_BUFSIZE - (VP_HEADER_SIZE + 1) * 2 - 1)
 
 static LPWSTR
 utf8_to_utf16(const char *str)
@@ -226,8 +228,112 @@ vp_dlclose(char *args)
 const char *
 vp_dlversion(char *args)
 {
-    vp_stack_push_num(&_result, "%2d%02d", 8, 0);
+    vp_stack_push_num(&_result, "%2d%02d", 9, 2);
     return vp_stack_return(&_result);
+}
+
+static int
+str_to_oflag(const char *flags)
+{
+    int oflag = 0;
+
+    if (strchr("rwa", flags[0])) {
+        if (strchr(flags, '+')) {
+            oflag = _O_RDWR;
+        } else {
+            oflag = flags[0] == 'r' ? _O_RDONLY : _O_WRONLY;
+        }
+        if (flags[0] == 'w' || flags[0] == 'a') {
+            oflag |= _O_CREAT | (flags[0] == 'w' ? _O_TRUNC : _O_APPEND);
+        }
+#define VP_CHR_TO_OFLAG(_c, _f) do { \
+    if (strchr(flags, (_c))) { oflag |= _ ## _f; } \
+} while (0)
+
+#ifdef _O_EXCL
+        VP_CHR_TO_OFLAG('x', O_EXCL);
+#endif
+#ifdef _O_CLOEXEC
+        VP_CHR_TO_OFLAG('e', O_CLOEXEC);
+#endif
+#ifdef _O_BINARY
+        VP_CHR_TO_OFLAG('b', O_BINARY);
+#endif
+#ifdef _O_TEXT
+        VP_CHR_TO_OFLAG('t', O_TEXT);
+#endif
+#ifdef _O_SEQUENTIAL
+        VP_CHR_TO_OFLAG('S', O_SEQUENTIAL);
+#endif
+#ifdef _O_RANDOM
+        VP_CHR_TO_OFLAG('R', O_RANDOM);
+#endif
+
+#undef VP_CHR_TO_OFLAG
+    } else {
+        if (strstr(flags, "O_RDONLY")) {
+            oflag = _O_RDONLY;
+        } else if (strstr(flags, "O_WRONLY")) {
+            oflag = _O_WRONLY;
+        } else if (strstr(flags, "O_RDWR")) {
+            oflag = _O_RDWR;
+        } else {
+            return -1;
+        }
+#define VP_STR_TO_OFLAG(_f) do { \
+    if (strstr(flags, #_f)) { oflag |= _ ## _f; } \
+} while (0)
+
+        VP_STR_TO_OFLAG(O_APPEND);
+        VP_STR_TO_OFLAG(O_CREAT);
+        VP_STR_TO_OFLAG(O_TRUNC);
+#ifdef _O_EXCL
+        VP_STR_TO_OFLAG(O_EXCL);
+#endif
+#ifdef _O_NONBLOCK
+        VP_STR_TO_OFLAG(O_NONBLOCK);
+#endif
+#ifdef _O_SHLOCK
+        VP_STR_TO_OFLAG(O_SHLOCK);
+#endif
+#ifdef _O_EXLOCK
+        VP_STR_TO_OFLAG(O_EXLOCK);
+#endif
+#ifdef _O_DIRECT
+        VP_STR_TO_OFLAG(O_DIRECT);
+#endif
+#ifdef _O_FSYNC
+        VP_STR_TO_OFLAG(O_FSYNC);
+#endif
+#ifdef _O_NOFOLLOW
+        VP_STR_TO_OFLAG(O_NOFOLLOW);
+#endif
+#ifdef _O_TEMPORARY
+        VP_STR_TO_OFLAG(O_TEMPORARY);
+#endif
+#ifdef _O_RANDOM
+        VP_STR_TO_OFLAG(O_RANDOM);
+#endif
+#ifdef _O_SEQUENTIAL
+        VP_STR_TO_OFLAG(O_SEQUENTIAL);
+#endif
+#ifdef _O_BINARY
+        VP_STR_TO_OFLAG(O_BINARY);
+#endif
+#ifdef _O_TEXT
+        VP_STR_TO_OFLAG(O_TEXT);
+#endif
+#ifdef _O_INHERIT
+        VP_STR_TO_OFLAG(O_INHERIT);
+#endif
+#ifdef _O_SHORT_LIVED
+        VP_STR_TO_OFLAG(O_SHORT_LIVED);
+#endif
+
+#undef VP_STR_TO_OFLAG
+    }
+
+    return oflag;
 }
 
 const char *
@@ -238,7 +344,7 @@ vp_file_open(char *args)
     LPWSTR pathw;
     char *flags;
     int mode;  /* used when flags have O_CREAT */
-    int f = 0;
+    int oflag = 0;
     int fd;
 
     VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
@@ -246,77 +352,21 @@ vp_file_open(char *args)
     VP_RETURN_IF_FAIL(vp_stack_pop_str(&stack, &flags));
     VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &mode));
 
-#ifdef O_RDONLY
-    if (strstr(flags, "O_RDONLY"))      f |= O_RDONLY;
-#endif
-#ifdef O_WRONLY
-    if (strstr(flags, "O_WRONLY"))      f |= O_WRONLY;
-#endif
-#ifdef O_RDWR
-    if (strstr(flags, "O_RDWR"))        f |= O_RDWR;
-#endif
-#ifdef O_NONBLOCK
-    if (strstr(flags, "O_NONBLOCK"))    f |= O_NONBLOCK;
-#endif
-#ifdef O_APPEND
-    if (strstr(flags, "O_APPEND"))      f |= O_APPEND;
-#endif
-#ifdef O_CREAT
-    if (strstr(flags, "O_CREAT"))       f |= O_CREAT;
-#endif
-#ifdef O_EXCL
-    if (strstr(flags, "O_EXCL"))        f |= O_EXCL;
-#endif
-#ifdef O_TRUNC
-    if (strstr(flags, "O_TRUNC"))       f |= O_TRUNC;
-#endif
-#ifdef O_SHLOCK
-    if (strstr(flags, "O_SHLOCK"))      f |= O_SHLOCK;
-#endif
-#ifdef O_EXLOCK
-    if (strstr(flags, "O_EXLOCK"))      f |= O_EXLOCK;
-#endif
-#ifdef O_DIRECT
-    if (strstr(flags, "O_DIRECT"))      f |= O_DIRECT;
-#endif
-#ifdef O_FSYNC
-    if (strstr(flags, "O_FSYNC"))       f |= O_FSYNC;
-#endif
-#ifdef O_NOFOLLOW
-    if (strstr(flags, "O_NOFOLLOW"))    f |= O_NOFOLLOW;
-#endif
-#ifdef O_TEMPORARY
-    if (strstr(flags, "O_TEMPORARY"))   f |= O_TEMPORARY;
-#endif
-#ifdef O_RANDOM
-    if (strstr(flags, "O_RANDOM"))      f |= O_RANDOM;
-#endif
-#ifdef O_SEQUENTIAL
-    if (strstr(flags, "O_SEQUENTIAL"))  f |= O_SEQUENTIAL;
-#endif
-#ifdef O_BINARY
-    if (strstr(flags, "O_BINARY"))      f |= O_BINARY;
-#endif
-#ifdef O_TEXT
-    if (strstr(flags, "O_TEXT"))        f |= O_TEXT;
-#endif
-#ifdef O_INHERIT
-    if (strstr(flags, "O_INHERIT"))     f |= O_INHERIT;
-#endif
-#ifdef _O_SHORT_LIVED
-    if (strstr(flags, "O_SHORT_LIVED")) f |= _O_SHORT_LIVED;
-#endif
+    oflag = str_to_oflag(flags);
+    if (oflag == -1)
+        return vp_stack_return_error(&_result, "open flag error.");
 
     pathw = utf8_to_utf16(path);
     if (pathw == NULL)
         return lasterror();
-    fd = _wopen(pathw, f, mode);
+
+    fd = _wopen(pathw, oflag, mode);
     free(pathw);
     if (fd == -1) {
         return vp_stack_return_error(&_result, "open() error: %s",
                 strerror(errno));
     }
-    if (f & O_APPEND) {
+    if (oflag & O_APPEND) {
         /* Note: Windows7 ignores O_APPEND flag. why? */
         lseek(fd, 0, SEEK_END);
     }
@@ -350,6 +400,7 @@ vp_file_read(char *args)
     int n;
     char *buf;
     char *eof;
+    unsigned int size = 0;
     HANDLE hFile;
 
     VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
@@ -362,9 +413,12 @@ vp_file_read(char *args)
     }
 
     /* initialize buffer */
-    buf = _result.top = _result.buf;
+    _result.top = _result.buf;
+    vp_stack_push_num(&_result, "%d", 0);   /* set eof to 0 */
+    eof = _result.top - 1;
+    buf = _result.top;
     *(buf++) = VP_EOV;
-    *(eof = buf++) = '0';
+    buf += VP_HEADER_SIZE;
 
     hFile = (HANDLE)_get_osfhandle(fd);
     while (cnt > 0) {
@@ -388,9 +442,11 @@ vp_file_read(char *args)
         /* decrease stack top for concatenate. */
         cnt -= n;
         buf += n;
+        size += n;
         /* try read more bytes without waiting */
         timeout = 0;
     }
+    vp_encode_size(size, _result.top + 1);
     _result.top = buf;
     return vp_stack_return(&_result);
 }
@@ -412,9 +468,8 @@ vp_file_write(char *args)
     VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &fd));
     VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &timeout));
 
-    buf = stack.buf;
-    size = (stack.top - 1) - stack.buf;
-    buf[size] = 0;
+    size = vp_decode_size(stack.top);
+    buf = stack.top + VP_HEADER_SIZE;
 
     nleft = 0;
     hFile = (HANDLE)_get_osfhandle(fd);
@@ -602,6 +657,7 @@ vp_pipe_read(char *args)
     DWORD err;
     char *buf;
     char *eof;
+    unsigned int size = 0;
     HANDLE hPipe;
 
     VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
@@ -614,9 +670,12 @@ vp_pipe_read(char *args)
     }
 
     /* initialize buffer */
-    buf = _result.top = _result.buf;
+    _result.top = _result.buf;
+    vp_stack_push_num(&_result, "%d", 0);   /* set eof to 0 */
+    eof = _result.top - 1;
+    buf = _result.top;
     *(buf++) = VP_EOV;
-    *(eof = buf++) = '0';
+    buf += VP_HEADER_SIZE;
 
     hPipe = (HANDLE)_get_osfhandle(fd);
     while (cnt > 0) {
@@ -647,9 +706,11 @@ vp_pipe_read(char *args)
         /* decrease stack top for concatenate. */
         cnt -= n;
         buf += n;
+        size += n;
         /* try read more bytes without waiting */
         timeout = 0;
     }
+    vp_encode_size(size, _result.top + 1);
     _result.top = buf;
     return vp_stack_return(&_result);
 }
@@ -741,16 +802,26 @@ vp_waitpid(char *args)
     vp_stack_t stack;
     HANDLE handle;
     DWORD exitcode;
+    DWORD ret;
 
     VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
     VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%p", &handle));
 
-    if (!GetExitCodeProcess(handle, &exitcode)) {
+    ret = WaitForSingleObject(handle, 0);
+    if (ret == WAIT_OBJECT_0) {
+        /* The process has been exited. */
+        if (!GetExitCodeProcess(handle, &exitcode)) {
+            return vp_stack_return_error(&_result,
+                    "GetExitCodeProcess() error: %s", lasterror());
+        }
+    } else if (ret == WAIT_TIMEOUT) {
+        exitcode = STILL_ACTIVE;
+    } else {
         return vp_stack_return_error(&_result,
-                "GetExitCodeProcess() error: %s", lasterror());
+                "WaitForSingleObject() error: %s", lasterror());
     }
 
-    vp_stack_push_str(&_result, (exitcode == STILL_ACTIVE) ? "run" : "exit");
+    vp_stack_push_str(&_result, (ret == WAIT_TIMEOUT) ? "run" : "exit");
     vp_stack_push_num(&_result, "%u", exitcode);
     return vp_stack_return(&_result);
 }
@@ -883,6 +954,7 @@ vp_socket_read(char *args)
     int n;
     char *buf;
     char *eof;
+    unsigned int size = 0;
     fd_set fdset;
 
     VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
@@ -897,9 +969,12 @@ vp_socket_read(char *args)
     }
 
     /* initialize buffer */
-    buf = _result.top = _result.buf;
+    _result.top = _result.buf;
+    vp_stack_push_num(&_result, "%d", 0);   /* set eof to 0 */
+    eof = _result.top - 1;
+    buf = _result.top;
     *(buf++) = VP_EOV;
-    *(eof = buf++) = '0';
+    buf += VP_HEADER_SIZE;
 
     while (cnt > 0) {
         FD_ZERO(&fdset);
@@ -925,11 +1000,13 @@ vp_socket_read(char *args)
         /* decrease stack top for concatenate. */
         cnt -= n;
         buf += n;
+        size += n;
         /* try read more bytes without waiting */
         timeout = 0;
         tv.tv_sec = 0;
         tv.tv_usec = 0;
     }
+    vp_encode_size(size, _result.top + 1);
     _result.top = buf;
     return vp_stack_return(&_result);
 }
@@ -953,9 +1030,8 @@ vp_socket_write(char *args)
     tv.tv_sec = timeout / 1000;
     tv.tv_usec = (timeout - tv.tv_sec * 1000) * 1000;
 
-    buf = stack.buf;
-    size = (stack.top - 1) - stack.buf;
-    buf[size] = 0;
+    size = vp_decode_size(stack.top);
+    buf = stack.top + VP_HEADER_SIZE;
 
     nleft = 0;
     while (nleft < size) {
@@ -1211,6 +1287,6 @@ vp_get_signals(char *args)
     return vp_stack_return(&_result);
 }
 
-/* 
+/*
  * vim:set sw=4 sts=4 et:
  */

@@ -28,9 +28,9 @@
 
 /* for poll() */
 #if defined __APPLE__
-#include "fakepoll.h"
+# include "fakepoll.h"
 #else
-#include <poll.h>
+# include <poll.h>
 #endif
 
 /* for forkpty() / login_tty() */
@@ -40,16 +40,14 @@
 #elif defined __APPLE__ || defined __NetBSD__ || defined __OpenBSD__
 # include <util.h>
 #elif defined __sun__ || defined __ANDROID__
-# include <termios.h>
-int openpty(int *, int *, char *, struct termios *, struct winsize *);
-int forkpty(int *, char *, struct termios *, struct winsize *);
+# include "ptytty.h"
 #else
 # include <termios.h>
 # include <libutil.h>
 #endif
 
 /* for ioctl() */
-#ifdef __APPLE__ 
+#ifdef __APPLE__
 # include <sys/ioctl.h>
 #endif
 
@@ -64,20 +62,25 @@ int forkpty(int *, char *, struct termios *, struct winsize *);
 #include <sys/types.h>
 #include <sys/wait.h>
 #if defined __NetBSD__
-#define WIFCONTINUED(x) (_WSTATUS(x) == _WSTOPPED && WSTOPSIG(x) == 0x13)
+# define WIFCONTINUED(x) (_WSTATUS(x) == _WSTOPPED && WSTOPSIG(x) == 0x13)
 #elif defined __ANDROID__
-#define WIFCONTINUED(x) (WIFSTOPPED(x) && WSTOPSIG(x) == 0x13)
+# define WIFCONTINUED(x) (WIFSTOPPED(x) && WSTOPSIG(x) == 0x13)
 #endif
 
 /* for socket */
 #if defined __FreeBSD__
-#define __BSD_VISIBLE 1
-#include <arpa/inet.h>
+# define __BSD_VISIBLE 1
+# include <arpa/inet.h>
 #endif
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <netdb.h>
+
+/* for ctermid */
+#if defined __ANDROID__
+# define ctermid(x) "/dev/tty"
+#endif
 
 #include "vimstack.c"
 
@@ -90,20 +93,20 @@ const char *vp_dlversion(char *args);   /* [version] () */
 
 const char *vp_file_open(char *args);   /* [fd] (path, flags, mode) */
 const char *vp_file_close(char *args);  /* [] (fd) */
-const char *vp_file_read(char *args);   /* [hd, eof] (fd, cnt, timeout) */
+const char *vp_file_read(char *args);   /* [eof, hd] (fd, cnt, timeout) */
 const char *vp_file_write(char *args);  /* [nleft] (fd, timeout, hd) */
 
 const char *vp_pipe_open(char *args);   /* [pid, [fd] * npipe]
                                            (npipe, hstdin, hstdout, hstderr, argc, [argv]) */
 const char *vp_pipe_close(char *args);  /* [] (fd) */
-const char *vp_pipe_read(char *args);   /* [hd, eof] (fd, cnt, timeout) */
+const char *vp_pipe_read(char *args);   /* [eof, hd] (fd, cnt, timeout) */
 const char *vp_pipe_write(char *args);  /* [nleft] (fd, timeout, hd) */
 
 const char *vp_pty_open(char *args);
 /* [pid, stdin, stdout, stderr]
    (npipe, width, height,hstdin, hstdout, hstderr, argc, [argv]) */
 const char *vp_pty_close(char *args);   /* [] (fd) */
-const char *vp_pty_read(char *args);    /* [hd, eof] (fd, cnt, timeout) */
+const char *vp_pty_read(char *args);    /* [eof, hd] (fd, cnt, timeout) */
 const char *vp_pty_write(char *args);   /* [nleft] (fd, timeout, hd) */
 const char *vp_pty_get_winsize(char *args); /* [width, height] (fd) */
 const char *vp_pty_set_winsize(char *args); /* [] (fd, width, height) */
@@ -113,7 +116,7 @@ const char *vp_waitpid(char *args);     /* [cond, status] (pid) */
 
 const char *vp_socket_open(char *args); /* [socket] (host, port) */
 const char *vp_socket_close(char *args);/* [] (socket) */
-const char *vp_socket_read(char *args); /* [hd, eof] (socket, cnt, timeout) */
+const char *vp_socket_read(char *args); /* [eof, hd] (socket, cnt, timeout) */
 const char *vp_socket_write(char *args);/* [nleft] (socket, hd, timeout) */
 
 const char *vp_host_exists(char *args); /* [int] (host) */
@@ -124,22 +127,9 @@ const char *vp_get_signals(char *args); /* [signals] () */
 /* --- */
 
 #define VP_BUFSIZE      (65536)
-#define VP_READ_BUFSIZE (VP_BUFSIZE - 4)
+#define VP_READ_BUFSIZE (VP_BUFSIZE - (VP_HEADER_SIZE + 1) * 2 - 1)
 
 static vp_stack_t _result = VP_STACK_NULL;
-
-static void
-close_fds(int fds[3][2])
-{
-    int i;
-
-    for (i = 0; i < 6; ++i) {
-        int fd = fds[i / 2][i % 2];
-
-        if (fd > 0)
-            close(fd);
-    }
-}
 
 const char *
 vp_dlopen(char *args)
@@ -178,8 +168,224 @@ vp_dlclose(char *args)
 const char *
 vp_dlversion(char *args)
 {
-    vp_stack_push_num(&_result, "%2d%02d", 8, 0);
+    vp_stack_push_num(&_result, "%2d%02d", 9, 2);
     return vp_stack_return(&_result);
+}
+
+static int
+str_to_oflag(const char *flags)
+{
+    int oflag = 0;
+
+    if (strchr("rwa", flags[0])) {
+        if (strchr(flags, '+')) {
+            oflag = O_RDWR;
+        } else {
+            oflag = flags[0] == 'r' ? O_RDONLY : O_WRONLY;
+        }
+        if (flags[0] == 'w' || flags[0] == 'a') {
+            oflag |= O_CREAT | (flags[0] == 'w' ? O_TRUNC : O_APPEND);
+        }
+#define VP_CHR_TO_OFLAG(_c, _f) do { \
+    if (strchr(flags, (_c))) { oflag |= (_f); } \
+} while (0)
+
+#ifdef O_EXCL
+        VP_CHR_TO_OFLAG('x', O_EXCL);
+#endif
+#ifdef O_CLOEXEC
+        VP_CHR_TO_OFLAG('e', O_CLOEXEC);
+#endif
+#ifdef O_BINARY
+        VP_CHR_TO_OFLAG('b', O_BINARY);
+#endif
+#ifdef O_TEXT
+        VP_CHR_TO_OFLAG('t', O_TEXT);
+#endif
+#ifdef O_SEQUENTIAL
+        VP_CHR_TO_OFLAG('S', O_SEQUENTIAL);
+#endif
+#ifdef O_RANDOM
+        VP_CHR_TO_OFLAG('R', O_RANDOM);
+#endif
+
+#undef VP_CHR_TO_OFLAG
+    } else {
+        if (strstr(flags, "O_RDONLY")) {
+            oflag = O_RDONLY;
+        } else if (strstr(flags, "O_WRONLY")) {
+            oflag = O_WRONLY;
+        } else if (strstr(flags, "O_RDWR")) {
+            oflag = O_RDWR;
+        } else {
+            return -1;
+        }
+#define VP_STR_TO_OFLAG(_f) do { \
+    if (strstr(flags, #_f)) { oflag |= (_f); } \
+} while (0)
+
+        VP_STR_TO_OFLAG(O_APPEND);
+        VP_STR_TO_OFLAG(O_CREAT);
+        VP_STR_TO_OFLAG(O_TRUNC);
+#ifdef O_EXCL
+        VP_STR_TO_OFLAG(O_EXCL);
+#endif
+#ifdef O_NONBLOCK
+        VP_STR_TO_OFLAG(O_NONBLOCK);
+#endif
+#ifdef O_SHLOCK
+        VP_STR_TO_OFLAG(O_SHLOCK);
+#endif
+#ifdef O_EXLOCK
+        VP_STR_TO_OFLAG(O_EXLOCK);
+#endif
+#ifdef O_DIRECT
+        VP_STR_TO_OFLAG(O_DIRECT);
+#endif
+#ifdef O_FSYNC
+        VP_STR_TO_OFLAG(O_FSYNC);
+#endif
+#ifdef O_NOFOLLOW
+        VP_STR_TO_OFLAG(O_NOFOLLOW);
+#endif
+#ifdef O_TEMPORARY
+        VP_STR_TO_OFLAG(O_TEMPORARY);
+#endif
+#ifdef O_RANDOM
+        VP_STR_TO_OFLAG(O_RANDOM);
+#endif
+#ifdef O_SEQUENTIAL
+        VP_STR_TO_OFLAG(O_SEQUENTIAL);
+#endif
+#ifdef O_BINARY
+        VP_STR_TO_OFLAG(O_BINARY);
+#endif
+#ifdef O_TEXT
+        VP_STR_TO_OFLAG(O_TEXT);
+#endif
+#ifdef O_INHERIT
+        VP_STR_TO_OFLAG(O_INHERIT);
+#endif
+#ifdef _O_SHORT_LIVED
+        VP_STR_TO_OFLAG(O_SHORT_LIVED);
+#endif
+
+#undef VP_STR_TO_OFLAG
+    }
+
+    return oflag;
+}
+
+static int
+fd_set_nonblock(int fd)
+{
+#if defined(F_GETFL) && defined(F_SETFL) && defined(O_NONBLOCK)
+    int flag;
+
+    if ((flag = fcntl(fd, F_GETFL, 0)) == -1)
+        return -1;
+    if (!(flag & O_NONBLOCK))
+        return fcntl(fd, F_SETFL, flag | O_NONBLOCK);
+#endif
+    return 0;
+}
+#ifdef __linux__
+# define VP_SET_NONBLOCK_IF_NEEDED(_fd) (void)fd_set_nonblock(_fd)
+#else
+# define VP_SET_NONBLOCK_IF_NEEDED(_fd) do { /* nop */ } while (0)
+#endif
+
+const char *
+vp_fd_read(char *args, int is_pty_pipe)
+{
+#ifdef __linux__
+# define VP_POLLIN (POLLIN | POLLHUP)
+#else
+# define VP_POLLIN (POLLIN)
+#endif
+    vp_stack_t stack;
+    int fd;
+    int cnt;
+    int timeout;
+    int n;
+    char *buf;
+    char *eof;
+    unsigned int size = 0;
+    struct pollfd pfd = {0, POLLIN, 0};
+
+    VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
+    VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &fd));
+    VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &cnt));
+    VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &timeout));
+
+    if (cnt < 0 || VP_READ_BUFSIZE < cnt) {
+        cnt = VP_READ_BUFSIZE;
+    }
+
+    /* initialize buffer */
+    _result.top = _result.buf;
+    vp_stack_push_num(&_result, "%d", 0);   /* set eof to 0 */
+    eof = _result.top - 1;
+    buf = _result.top;
+    *(buf++) = VP_EOV;
+    buf += VP_HEADER_SIZE;
+
+    pfd.fd = fd;
+    while (cnt > 0) {
+        n = poll(&pfd, 1, timeout);
+        if (n == -1) {
+            /* eof or error */
+            *eof = '1';
+            break;
+        } else if (n == 0) {
+            /* timeout */
+            break;
+        }
+        if (pfd.revents & VP_POLLIN) {
+            n = read(fd, buf, cnt);
+            if (n == -1) {
+                if (pfd.revents & POLLERR
+                        || pfd.revents & POLLNVAL
+                        || pfd.revents & POLLWRNORM
+                        /* Cygwin(after ver.2.0) fails pty read and returns
+                         * POLLIN. */
+                        || (!is_pty_pipe && pfd.revents & POLLIN)
+                        ) {
+                    return vp_stack_return_error(&_result,
+                            "read() error: revents = %d, error = %s",
+                            pfd.revents, strerror(errno));
+                }
+                /* eof */
+                *eof = '1';
+                break;
+            } else if (n == 0) {
+                /* eof */
+                *eof = '1';
+                break;
+            }
+            /* decrease stack top for concatenate. */
+            cnt -= n;
+            buf += n;
+            size += n;
+            /* try read more bytes without waiting */
+            timeout = 0;
+            continue;
+        } else if (pfd.revents & (POLLERR | POLLHUP)) {
+            /* eof or error */
+            *eof = '1';
+            break;
+        } else if (pfd.revents & POLLNVAL) {
+            return vp_stack_return_error(&_result, "poll() POLLNVAL: %d",
+                    pfd.revents);
+        }
+        /* DO NOT REACH HERE */
+        return vp_stack_return_error(&_result, "poll() unknown status: %d",
+                pfd.revents);
+    }
+    vp_encode_size(size, _result.top + 1);
+    _result.top = buf;
+    return vp_stack_return(&_result);
+#undef VP_POLLIN
 }
 
 const char *
@@ -189,7 +395,7 @@ vp_file_open(char *args)
     char *path;
     char *flags;
     int mode;  /* used when flags have O_CREAT */
-    int f = 0;
+    int oflag = 0;
     int fd;
 
     VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
@@ -197,68 +403,11 @@ vp_file_open(char *args)
     VP_RETURN_IF_FAIL(vp_stack_pop_str(&stack, &flags));
     VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &mode));
 
-#ifdef O_RDONLY
-    if (strstr(flags, "O_RDONLY"))      f |= O_RDONLY;
-#endif
-#ifdef O_WRONLY
-    if (strstr(flags, "O_WRONLY"))      f |= O_WRONLY;
-#endif
-#ifdef O_RDWR
-    if (strstr(flags, "O_RDWR"))        f |= O_RDWR;
-#endif
-#ifdef O_NONBLOCK
-    if (strstr(flags, "O_NONBLOCK"))    f |= O_NONBLOCK;
-#endif
-#ifdef O_APPEND
-    if (strstr(flags, "O_APPEND"))      f |= O_APPEND;
-#endif
-#ifdef O_CREAT
-    if (strstr(flags, "O_CREAT"))       f |= O_CREAT;
-#endif
-#ifdef O_EXCL
-    if (strstr(flags, "O_EXCL"))        f |= O_EXCL;
-#endif
-#ifdef O_TRUNC
-    if (strstr(flags, "O_TRUNC"))       f |= O_TRUNC;
-#endif
-#ifdef O_SHLOCK
-    if (strstr(flags, "O_SHLOCK"))      f |= O_SHLOCK;
-#endif
-#ifdef O_EXLOCK
-    if (strstr(flags, "O_EXLOCK"))      f |= O_EXLOCK;
-#endif
-#ifdef O_DIRECT
-    if (strstr(flags, "O_DIRECT"))      f |= O_DIRECT;
-#endif
-#ifdef O_FSYNC
-    if (strstr(flags, "O_FSYNC"))       f |= O_FSYNC;
-#endif
-#ifdef O_NOFOLLOW
-    if (strstr(flags, "O_NOFOLLOW"))    f |= O_NOFOLLOW;
-#endif
-#ifdef O_TEMPORARY
-    if (strstr(flags, "O_TEMPORARY"))   f |= O_TEMPORARY;
-#endif
-#ifdef O_RANDOM
-    if (strstr(flags, "O_RANDOM"))      f |= O_RANDOM;
-#endif
-#ifdef O_SEQUENTIAL
-    if (strstr(flags, "O_SEQUENTIAL"))  f |= O_SEQUENTIAL;
-#endif
-#ifdef O_BINARY
-    if (strstr(flags, "O_BINARY"))      f |= O_BINARY;
-#endif
-#ifdef O_TEXT
-    if (strstr(flags, "O_TEXT"))        f |= O_TEXT;
-#endif
-#ifdef O_INHERIT
-    if (strstr(flags, "O_INHERIT"))     f |= O_INHERIT;
-#endif
-#ifdef _O_SHORT_LIVED
-    if (strstr(flags, "O_SHORT_LIVED")) f |= _O_SHORT_LIVED;
-#endif
+    oflag = str_to_oflag(flags);
+    if (oflag == -1)
+        return vp_stack_return_error(&_result, "open flag error.");
 
-    fd = open(path, f, mode);
+    fd = open(path, oflag, mode);
     if (fd == -1)
         return vp_stack_return_error(&_result, "open() error: %s",
                 strerror(errno));
@@ -284,70 +433,7 @@ vp_file_close(char *args)
 const char *
 vp_file_read(char *args)
 {
-    vp_stack_t stack;
-    int fd;
-    int cnt;
-    int timeout;
-    int n;
-    char *buf;
-    char *eof;
-    struct pollfd pfd = {0, POLLIN, 0};
-
-    VP_RETURN_IF_FAIL(vp_stack_from_args(&stack, args));
-    VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &fd));
-    VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &cnt));
-    VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &timeout));
-
-    if (cnt < 0 || VP_READ_BUFSIZE < cnt) {
-        cnt = VP_READ_BUFSIZE;
-    }
-
-    /* initialize buffer */
-    buf = _result.top = _result.buf;
-    *(buf++) = VP_EOV;
-    *(eof = buf++) = '0';
-
-    pfd.fd = fd;
-    while (cnt > 0) {
-        n = poll(&pfd, 1, timeout);
-        if (n == -1) {
-            /* eof or error */
-            *eof = '1';
-            break;
-        } else if (n == 0) {
-            /* timeout */
-            break;
-        }
-        if (pfd.revents & POLLIN) {
-            n = read(fd, buf, cnt);
-            if (n == -1) {
-                return vp_stack_return_error(&_result, "read() error: %s",
-                        strerror(errno));
-            } else if (n == 0) {
-                /* eof */
-                *eof = '1';
-                break;
-            }
-            /* decrease stack top for concatenate. */
-            cnt -= n;
-            buf += n;
-            /* try read more bytes without waiting */
-            timeout = 0;
-            continue;
-        } else if (pfd.revents & (POLLERR | POLLHUP)) {
-            /* eof or error */
-            *eof = '1';
-            break;
-        } else if (pfd.revents & POLLNVAL) {
-            return vp_stack_return_error(&_result, "poll() POLLNVAL: %d",
-                    pfd.revents);
-        }
-        /* DO NOT REACH HERE */
-        return vp_stack_return_error(&_result, "poll() unknown status: %d",
-                pfd.revents);
-    }
-    _result.top = buf;
-    return vp_stack_return(&_result);
+    return vp_fd_read(args, 0);
 }
 
 const char *
@@ -366,9 +452,8 @@ vp_file_write(char *args)
     VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &fd));
     VP_RETURN_IF_FAIL(vp_stack_pop_num(&stack, "%d", &timeout));
 
-    buf = stack.buf;
-    size = (stack.top - 1) - stack.buf;
-    buf[size] = 0;
+    size = vp_decode_size(stack.top);
+    buf = stack.top + VP_HEADER_SIZE;
 
     pfd.fd = fd;
     nleft = 0;
@@ -404,6 +489,20 @@ vp_file_write(char *args)
     }
     vp_stack_push_num(&_result, "%zu", nleft);
     return vp_stack_return(&_result);
+}
+
+static void
+close_allfd(int fds[3][2])
+{
+    int i;
+
+    for (i = 0; i < 6; ++i) {
+        int fd = fds[i / 2][i % 2];
+
+        if (fd > 0) {
+            (void)close(fd);
+        }
+    }
 }
 
 const char *
@@ -551,7 +650,7 @@ vp_pipe_open(char *args)
 
     /* error */
 error:
-    close_fds(fd);
+    close_allfd(fd);
     return vp_stack_return_error(&_result, errfmt, strerror(errno));
 
 child_error:
@@ -569,7 +668,7 @@ vp_pipe_close(char *args)
 const char *
 vp_pipe_read(char *args)
 {
-    return vp_file_read(args);
+    return vp_fd_read(args, 1);
 }
 
 const char *
@@ -629,6 +728,7 @@ vp_pty_open(char *args)
             if (openpty(&fd[2][0], &fd[2][1], NULL, NULL, &ws) < 0) {
                 VP_GOTO_ERROR("openpty() error: %s");
             }
+            VP_SET_NONBLOCK_IF_NEEDED(fd[2][0]);
         }
     }
 
@@ -698,6 +798,7 @@ vp_pty_open(char *args)
         }
         if (hstdout == 0) {
             fd[1][0] = hstdin == 0 ? dup(fdm) : fdm;
+            VP_SET_NONBLOCK_IF_NEEDED(fd[1][0]);
         }
 
         vp_stack_push_num(&_result, "%d", pid);
@@ -713,7 +814,7 @@ vp_pty_open(char *args)
 
     /* error */
 error:
-    close_fds(fd);
+    close_allfd(fd);
     return vp_stack_return_error(&_result, errfmt, strerror(errno));
 
 child_error:
@@ -731,7 +832,7 @@ vp_pty_close(char *args)
 const char *
 vp_pty_read(char *args)
 {
-    return vp_file_read(args);
+    return vp_fd_read(args, 1);
 }
 
 const char *
@@ -902,7 +1003,7 @@ vp_socket_close(char *args)
 const char *
 vp_socket_read(char *args)
 {
-    return vp_file_read(args);
+    return vp_fd_read(args, 0);
 }
 
 const char *
@@ -992,8 +1093,8 @@ vp_decode(char *args)
 
         hb = CHR2XD[(int)*(p++)];
         lb = CHR2XD[(int)*(p++)];
-        if (hb >= 0 && lb >= 0) {
-            *(q++) = (char)((hb << 4) | lb);
+        if (hb != (char)-1 && lb != (char)-1) {
+            *(q++) = (hb << 4) | lb;
         }
     }
     *(q++) = VP_EOV;
@@ -1167,6 +1268,6 @@ vp_get_signals(char *args)
 #undef VP_STACK_PUSH_ALTSIGNAME
 }
 
-/* 
+/*
  * vim:set sw=4 sts=4 et:
  */

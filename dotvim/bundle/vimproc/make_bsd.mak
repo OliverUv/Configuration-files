@@ -1,10 +1,7 @@
-# for *nix platform.
+# for *BSD platform.
 
-ifneq (,$(wildcard /lib*/ld-linux*.so.2))
-	SUFFIX=linux$(if $(wildcard /lib*/ld-linux*64.so.2),64,32)
-else
-	SUFFIX=unix
-endif
+SUFFIX!=uname -sm | tr '[:upper:]' '[:lower:]' | sed -e 's/ /_/'
+
 TARGET=lib/vimproc_$(SUFFIX).so
 
 SRC=src/proc.c
