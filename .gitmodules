@@ -305,3 +305,6 @@
 [submodule "dotvim/bundle/neco-look"]
 	path = dotvim/bundle/neco-look
 	url = https://github.com/ujihisa/neco-look.git
+[submodule "dotvim/bundle/tern_for_vim"]
+	path = dotvim/bundle/tern_for_vim
+	url = https://github.com/marijnh/tern_for_vim.git
