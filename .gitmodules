@@ -299,3 +299,6 @@
 [submodule "dotvim/bundle/neoyank"]
 	path = dotvim/bundle/neoyank
 	url = https://github.com/Shougo/neoyank.vim.git
+[submodule "dotvim/bundle/neco-syntax"]
+	path = dotvim/bundle/neco-syntax
+	url = https://github.com/Shougo/neco-syntax.git
