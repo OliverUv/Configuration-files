@@ -308,3 +308,6 @@
 [submodule "dotvim/bundle/tern_for_vim"]
 	path = dotvim/bundle/tern_for_vim
 	url = https://github.com/marijnh/tern_for_vim.git
+[submodule "dotvim/bundle/vim-neco-calc"]
+	path = dotvim/bundle/vim-neco-calc
+	url = https://github.com/hrsh7th/vim-neco-calc.git
