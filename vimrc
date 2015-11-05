@@ -865,6 +865,7 @@ let g:switch_custom_definitions =
     \   ['left', 'right'],
     \   ['top', 'bottom'],
     \   ['above', 'below'],
+    \   ['GET', 'POST'],
     \ ]
 if has("autocmd")
 augroup SwitchVimFtGroups
