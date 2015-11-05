@@ -1167,7 +1167,7 @@ endfunction
 nnoremap <leader>mq :<C-U><C-R>=ModifyRegister()<CR><C-E><C-F><Left>
 
 " Move cpp // comment at end of line to line above
-nnoremap <leader>cU $F/hhr<cr>kddpk$
+nnoremap <leader>mc $F/hhr<cr>kddpk$
 
 " Drag current line(s) up/down
 vnoremap <leader>j :m'>+<CR>gv
