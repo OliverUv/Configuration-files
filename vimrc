@@ -91,6 +91,8 @@ set mousehide           " Hide the mouse when typing text
 set smarttab            " <TAB> inserts 'shiftwidth' spaces
 set shiftwidth=4        " Amount of spaces for tab to insert
 set autoindent          " Automatically set the indent when creating new lines.
+set expandtab           " Makes <tab> insert spaces in insert mode
+set breakindent         " Makes vim display visually wrapped lines with correct indentation
 set showcmd             " Shows current command in statusline
 set ruler               " Show cursor position information in statusline
 set relativenumber      " Show relative line numbers by default
@@ -104,7 +106,6 @@ set incsearch           " Incremental searching as soon as typing begins.
 set ignorecase          " Ignores case when searching
 set smartcase           " Will override ignorecase if searching w/ diff cases.
 set modeline            " Use modelines
-set expandtab           " Makes <tab> insert spaces in insert mode
 set wildchar=<TAB>      " Key that triggers command-line expansion.
 set wildmenu            " Completion on commandline
 set wildmode=longest:full " Commandline completion mode
