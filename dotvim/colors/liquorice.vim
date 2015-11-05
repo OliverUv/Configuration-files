@@ -98,8 +98,8 @@ hi Cursor       gui=BOLD guifg=#ffffff guibg=#99004c
 hi MatchParen   gui=NONE guifg=#ffffff guibg=#146666
 hi lCursor      gui=NONE guifg=#ffffff guibg=#8800ff
 hi CursorIM     gui=NONE guifg=#ffffff guibg=#8800ff
-hi CursorLine   gui=NONE guifg=NONE    guibg=#0f0f0f
-hi CursorColumn gui=NONE guifg=NONE    guibg=#0f0f0f
+hi CursorLine   gui=NONE guifg=NONE    guibg=#0d0d0d
+hi CursorColumn gui=NONE guifg=NONE    guibg=#0d0d0d
 
 " Fold
 hi Folded       gui=NONE guifg=#c8c8c8 guibg=#0c0c0c
