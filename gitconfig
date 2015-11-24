@@ -48,6 +48,9 @@
         ours   = "!f() { git checkout --ours $@ && git add $@; }; f"
         theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
 
+        # Reset file permissions
+        permission-reset = "!git diff -p -R | grep -E '^(diff|(old|new) mode)' | git apply"
+
 [github]
 	user = OliverUv
 [giggle]
