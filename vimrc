@@ -1226,6 +1226,10 @@ nnoremap <silent> <leader><tab> :<C-U>MaximizerToggle<cr>
 vnoremap <silent> <leader><tab> :<C-U>MaximizerToggle<cr>gv
 inoremap <silent> <leader><tab> <c-o>:MaximizerToggle<cr>
 
+" Goyo toggle
+nnoremap <silent> <leader>cc :<C-U>Goyo 85%x95%<cr>
+nnoremap <silent> <leader>cx :<C-U>Goyo!<cr>
+
 " w!! -> write even if you forgot sudo
 cmap w!! w !sudo tee >/dev/null %
 
