@@ -163,6 +163,13 @@ set wildignore+=*/tmp/cache/assets/*/sprockets/*,*/tmp/cache/assets/*/sass/*
 " Ignore node modules
 set wildignore+=node_modules/*
 
+" Ignore bower components
+set wildignore+=bower_components/*
+
+" Ignore build artifacts
+set wildignore+=build/*
+set wildignore+=dist/*
+
 " Ignore tag files
 set wildignore+=tags,*.taghl
 
@@ -461,10 +468,10 @@ call unite#custom#source('file_rec,file_rec/async,file_mru,file,grep',
             \ '\.git/', '\.svn/', '\.hg/',
             \ '^tags$', '\.taghl$',
             \ '\.ropeproject/', '\.pbxproj$', '\.xcodeproj', '\.vcproj', 
-            \ 'node_modules/', 'log/', 'tmp/', 'obj/',
+            \ 'node_modules/', 'bower_components/', 'log/', 'tmp/', 'obj/',
             \ '/vendor/gems/', '/vendor/cache/', '\.bundle/', '\.sass-cache/',
             \ '/tmp/cache/assets/.*/sprockets/', '/tmp/cache/assets/.*/sass/',
-            \ 'thirdparty/', 'Debug/', 'Release/',
+            \ 'thirdparty/', 'Debug/', 'Release/', 'build/', 'dist/',
             \ 'web/static/components/', 'web/static/external/', 'web/static/images/',
             \ '\.pyc$', 'pb2\.py$', '\.class$', '\.jar$', '\.min\.js$',
             \ '\.jpg$', '\.jpeg$', '\.bmp$', '\.png$', '\.gif$',
