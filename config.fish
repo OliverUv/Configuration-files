@@ -3,6 +3,7 @@ set PATH $PATH /usr/bin
 set PATH $PATH /bin
 set PATH $PATH ~/bin
 set PATH $PATH ~/bin.priv
+set PATH $PATH ~/.g-npm/bin
 
 set fish_greeting " "
 
