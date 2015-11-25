@@ -738,7 +738,7 @@ let g:jedi#documentation_command    = "K"
 let g:jedi#usages_command           = "<leader>ju"
 let g:jedi#completions_command      = "<leader>jc"
 let g:jedi#rename_command           = "<leader>jr"
-let g:jedi#show_call_signatures     = "1"
+let g:jedi#show_call_signatures     = "0"
 
 if has("autocmd")
 augroup JediGroup
