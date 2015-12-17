@@ -314,3 +314,6 @@
 [submodule "dotvim/bundle/goyo.vim"]
 	path = dotvim/bundle/goyo.vim
 	url = https://github.com/junegunn/goyo.vim.git
+[submodule "dotvim/bundle/Vim-Jinja2-Syntax"]
+	path = dotvim/bundle/Vim-Jinja2-Syntax
+	url = https://github.com/Glench/Vim-Jinja2-Syntax.git
