@@ -3,7 +3,18 @@ function ${1:function_name}(${2}) {
 	${VISUAL}${0}
 }
 endsnippet
-snippet ff "anonymous function" i
+snippet fof "for of"
+for (${1} of ${2}) {
+	${VISUAL}${0}
+}
+endsnippet
+snippet re "require"
+let ${1} = require('$1${2}')${0}
+endsnippet
+snippet ff "short anonymous function" i
+function(${1}) { ${VISUAL}${0} }
+endsnippet
+snippet fff "anonymous function" i
 function(${1}) {
 	${VISUAL}${0}
 }
