@@ -1183,13 +1183,14 @@ vnoremap <leader>k :m-2<CR>gv
 
 " Ctrl-h for next line + <backspace>
 " Ctrl-o for next line
-" ;a for <esc>
 inoremap <c-h> <esc>o<BS>
 inoremap <c-o> <esc>o
 inoremap <c-space> <esc>A;<esc>
 noremap <c-space> A;<esc>
-noremap ;a <esc>
-inoremap ;a <esc>
+
+" jk/kj for <esc>
+inoremap jk <esc>
+inoremap kj <esc>
 
 "Like D for yanking
 noremap Y y$
