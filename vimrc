@@ -284,17 +284,17 @@ set statusline=%<%F\ %m%r%h%w%{fugitive#statusline()}\ %Y\ %{FileEncoding()}\ %{
 " p	percentage through file (in lines as CTRL-G
 
 " change status line colour if it is in insert mode
-if version >= 700
-    if has("autocmd")
-    augroup StatuslineColorGroup
-        " Clear autocmds for this group
-        autocmd!
+" if version >= 700
+"     if has("autocmd")
+"     augroup StatuslineColorGroup
+"         " Clear autocmds for this group
+"         autocmd!
 
-        au InsertEnter * hi StatusLine gui=NONE guifg=#FFFFFF guibg=#9D3569
-        au InsertLeave * hi StatusLine gui=NONE guifg=#d6d6d6 guibg=#602040
-    augroup end
-    endif
-endif
+"         au InsertEnter * hi StatusLine gui=NONE guifg=#FFFFFF guibg=#9D3569
+"         au InsertLeave * hi StatusLine gui=NONE guifg=#d6d6d6 guibg=#602040
+"     augroup end
+"     endif
+" endif
 " }}} Statusline settings "
 
 " Tabline settings {{{ "
