@@ -1227,10 +1227,6 @@ nnoremap <silent> <leader><tab> :<C-U>MaximizerToggle<cr>
 vnoremap <silent> <leader><tab> :<C-U>MaximizerToggle<cr>gv
 inoremap <silent> <leader><tab> <c-o>:MaximizerToggle<cr>
 
-" Goyo toggle
-nnoremap <silent> <leader>cc :<C-U>Goyo 85%x95%<cr>
-nnoremap <silent> <leader>cx :<C-U>Goyo!<cr>
-
 " w!! -> write even if you forgot sudo
 cmap w!! w !sudo tee >/dev/null %
 
@@ -1282,6 +1278,11 @@ nnoremap coD :IndentGuidesToggle<cr>
 nnoremap coR :RainbowToggle<cr>
 nnoremap <silent> coC :call g:ToggleColorColumn()<cr>
 nnoremap <silent> coL :call g:ToggleColorScheme()<cr>
+
+" Goyo toggle
+nnoremap <silent> cog :<C-U>Goyo 85%x95%<cr>
+nnoremap <silent> coG :<C-U>Goyo!<cr>
+
 
 " Go to tabs with F-keys
 nnoremap <F1> 1gt
