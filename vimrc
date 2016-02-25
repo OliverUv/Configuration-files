@@ -1053,6 +1053,18 @@ nnoremap <silent> <leader>ob :call g:BuildClang("VisuLove", "visuclean")<cr>
 
 " }}} Build scripts "
 
+" Visual-linewise macro playback aka visual-at.vim {{{ "
+" https://github.com/stoeffel/.dotfiles/blob/master/vim/visual-at.vim
+
+function! ExecuteMacroOverVisualRange()
+    echo "@".getcmdline()
+    execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+" }}} Visual-linewise macro playback " 
+
 " Keymaps {{{ "
 
 " Toggle colorcolumn TODO make this save previous value
