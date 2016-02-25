@@ -22,6 +22,7 @@ ln -s ~/Configuration-files/dotvim ~/.vim
 
 ln -s ~/Configuration-files/config.fish ~/.config/fish/config.fish
 ln -s ~/Configuration-files/fish-functions ~/.config/fish/functions
+ln -s ~/Configuration-files/fish-completions ~/.config/fish/completions
 
 ln -s ~/Configuration-files/urxvt-perls/clipboard ~/.urxvt/ext/
 ln -s ~/Configuration-files/urxvt-perls/keyboard-select ~/.urxvt/ext/
