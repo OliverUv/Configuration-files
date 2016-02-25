@@ -32,12 +32,12 @@ augroup MyAutoCmd
     autocmd!
 
     " Automatically load vimrc when it is saved
-    autocmd bufwritepost .vimrc source $MYVIMRC
-    autocmd BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc
-          \ so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+    " autocmd bufwritepost .vimrc source $MYVIMRC
+    " autocmd BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc
+    "       \ so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 
     " Mapping for checking for existing mappings in vimrc
-    autocmd BufEnter .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc
+    autocmd BufEnter .vimrc,vimrc,.gvimrc,gvimrc
           \ nnoremap <leader>' /leader>
 
     " Set ghc as compiler for haskell files
