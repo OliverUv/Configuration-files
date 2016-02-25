@@ -1241,6 +1241,10 @@ nnoremap <silent> <leader><tab> :<C-U>MaximizerToggle<cr>
 vnoremap <silent> <leader><tab> :<C-U>MaximizerToggle<cr>gv
 inoremap <silent> <leader><tab> <c-o>:MaximizerToggle<cr>
 
+" recover.vim
+nnoremap <silent> <leader>rh :<C-U>RecoveryPluginGet<cr>
+nnoremap <silent> <leader>rl :<C-U>RecoverPluginFinish<cr>
+
 " w!! -> write even if you forgot sudo
 cmap w!! w !sudo tee >/dev/null %
 
