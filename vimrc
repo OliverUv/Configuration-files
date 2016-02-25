@@ -1197,9 +1197,7 @@ nnoremap <leader>mc $F/hhr<cr>kddpk$
 vnoremap <leader>j :m'>+<CR>gv
 vnoremap <leader>k :m-2<CR>gv
 
-" Ctrl-h for next line + <backspace>
-" Ctrl-o for next line
-inoremap <c-h> <esc>o<BS>
+" Insertion esc conveniences
 inoremap <c-o> <esc>o
 inoremap <c-space> <esc>A;<esc>
 noremap <c-space> A;<esc>
