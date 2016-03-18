@@ -1,2 +1,3 @@
 #!/usr/bin/env sh
-livestreamer -O twitch.tv/$* best | mpv --really-quiet -cache 3000 -
+# livestreamer -O twitch.tv/$* best | mpv --really-quiet -cache 3000 -
+mpv --really-quiet http://twitch.tv/$*
