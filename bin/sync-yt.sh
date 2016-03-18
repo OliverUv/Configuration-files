@@ -17,7 +17,7 @@ else
     TMPFILE=$(mktemp)
     while read p; do
         # Download videos, log to tmp file
-        youtube-dl --download-archive "archive-log" --ignore-errors -f best -o '%(playlist)s/%(playlist_index)s-%(title)s-%(id)s.%(ext)s' "$p" 2>&1 | tee -a $TMPFILE
+        youtube-dl --download-archive "archive-log" --ignore-errors -f best -o '%(playlist)s/%(autonumber)s-%(title)s-%(id)s.%(ext)s' "$p" 2>&1 | tee -a $TMPFILE
     done < "$1"
     echo ""
     echo ""
