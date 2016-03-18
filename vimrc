@@ -584,6 +584,9 @@ nnoremap <silent><leader>lV :<C-u>UniteResume
 
 nnoremap <leader>lS :<C-u>UniteSessionSave
 
+nnoremap <silent>[r :<C-u>UnitePrevious<cr>
+nnoremap <silent>]r :<C-u>UniteNext<cr>
+
 function! s:unite_my_settings()
   "Don't add parens to my filters
   let b:delimitMate_autoclose = 0
