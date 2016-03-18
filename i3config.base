@@ -18,6 +18,8 @@ set $mod2 Mod4
 # dmenu -i -l 20 -fn 'WenQuanYi Zen Hei Mono:bold' -sb '#E17800' -sf '#000000' -h 23
 set $quickswitch ~/Projects/quickswitch-for-i3/quickswitch.py --dmenu "dmenu -i -l 20 -fn 'robotomono:medium' -sb '#E17800' -sf '#000000' -h 23"
 
+set $redshift ~/bin/reds
+
 # font for window titles. ISO 10646 = Unicode
 #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 
@@ -270,9 +272,7 @@ client.focused_inactive #000000 #000000 #dddddd #181e20
 client.unfocused        #000000 #000000 #666666 #191d1e
 client.urgent           #2f343a #900000 #ffffff #900000
 
-set $linkoping 58.411975:15.559395
-set $shenzhen 22.543099:114.057868
-exec --no-startup-id redshift -l $shenzhen -t 6500:3700 -b 0.95
+exec --no-startup-id $redshift
 
 # keyboard key autorepeat rate
 exec --no-startup-id xset r rate 210 30
