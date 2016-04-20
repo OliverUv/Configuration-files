@@ -202,10 +202,10 @@ bindsym $mod+F11 exec pactl set-sink-volume $audiosink -- -5%
 bindsym $mod+F12 exec pactl set-sink-volume $audiosink +5%
 
 # Change brightness with media keys
-bindsym XF86KbdBrightnessDown exec xbacklight -dec 15
-bindsym XF86KbdBrightnessUp exec xbacklight -inc 15
-bindsym $mod+F5 exec xbacklight -dec 15
-bindsym $mod+F6 exec xbacklight -inc 15
+bindsym XF86KbdBrightnessDown exec xbacklight -dec 5
+bindsym XF86KbdBrightnessUp exec xbacklight -inc 5
+bindsym $mod+F5 exec xbacklight -dec 5
+bindsym $mod+F6 exec xbacklight -inc 5
 
 # Scratchpad
 bindsym $mod+Shift+minus move scratchpad
