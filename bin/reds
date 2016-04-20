@@ -3,7 +3,7 @@
 # Usage: $(basename $0) [night time color value] [brightness]
 # daytime-color: 6500
 # night-time default color: 3700
-# brightness default: 0.95
+# brightness default: 1.00
 
 color="4900"
 brightness="1.0"
@@ -19,4 +19,4 @@ if [ $# -gt 1 ] ; then
     brightness="$2"
 fi
 
-redshift -l $shenzhen -t "6500:$color" -b "$brightness" &
+redshift -l $linkoping -t "6500:$color" -b "$brightness" &
