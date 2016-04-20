@@ -3,7 +3,15 @@
 "source! /home/oliver/.vimperatorrc.local
 
 nnoremap <F1> <Nop>
+inoremap <F1> <Nop>
+cnoremap <F1> <Nop>
+
+" Remove search highlight
 nnoremap <c-q> :noh<cr><esc>
+
+" Disable quit keybinds
+inoremap <c-q> <Nop>
+cnoremap <c-q> <Nop>
 
 colorscheme dorkness
 
@@ -32,6 +40,17 @@ cnoremap <c-n> <tab>
 cnoremap <c-p> <s-tab>
 
 nnoremap e ;y
+
+" Copy page title
+nnoremap <c-y> :js util.copyToClipboard(buffer.title, true)<CR>
+
+" Go to last used tab
+nnoremap <bs> <c-^>
+
+" Ctrl+a to select all text in input box
+inoremap <c-y> <C-Home><C-S-End>
+
+nnoremap gh :hs! 
 
 map <Leader>r :lowlight<cr>
 map <Leader>i :o ip<cr>
