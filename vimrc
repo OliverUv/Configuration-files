@@ -162,11 +162,10 @@ set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
 " Ignore rails temporary asset caches
 set wildignore+=*/tmp/cache/assets/*/sprockets/*,*/tmp/cache/assets/*/sass/*
 
-" Ignore node modules
+" Ignore modules / components
 set wildignore+=node_modules/*
-
-" Ignore bower components
 set wildignore+=bower_components/*
+set wildignore+=libs/*
 
 " Ignore build artifacts
 set wildignore+=build/*
@@ -474,7 +473,7 @@ call unite#custom#source('file_rec,file_rec/async,file_mru,file,grep',
             \ '\.git/', '\.svn/', '\.hg/',
             \ '^tags$', '\.taghl$',
             \ '\.ropeproject/', '\.pbxproj$', '\.xcodeproj', '\.vcproj', 
-            \ 'node_modules/', 'bower_components/', 'log/', 'tmp/', 'obj/',
+            \ 'node_modules/', 'bower_components/', 'libs/', 'log/', 'tmp/', 'obj/',
             \ '/vendor/gems/', '/vendor/cache/', '\.bundle/', '\.sass-cache/',
             \ '/tmp/cache/assets/.*/sprockets/', '/tmp/cache/assets/.*/sass/',
             \ 'thirdparty/', 'Debug/', 'Release/', 'build/', 'dist/',
