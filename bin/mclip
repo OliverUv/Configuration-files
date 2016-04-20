@@ -1,2 +1,0 @@
-#!/usr/bin/env sh
-livestreamer -O `xclip -o -sel clip` best | mpv --really-quiet -cache 3000 -
