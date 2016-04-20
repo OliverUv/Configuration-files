@@ -630,7 +630,7 @@ let g:tagbar_width = 40
 " }}} Tagbar "
 
 " Vim-latex {{{ "
-set grepprg=grep\ -nH\ $*
+" set grepprg=grep\ -nH\ $*
 
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:tex_flavor='latex'
