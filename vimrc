@@ -129,6 +129,8 @@ set fillchars=fold:\ ,vert:\  " fill characters for fold lines and lines between
 set ttimeoutlen=50      " Faster twitchin' for everything
 set tildeop             " Tilde acts as an operator (no need to g~ to switch case with motions)
 set virtualedit=block   " Allow cursor to be moved into empty space while in visual mode
+set display=lastline    " Show last line at bottom of window, even if it can't be displayed entirely
+" set spellfile=$HOME/.vim/spell/ TODO
 
 " Make Vim able to edit crontab files again.
 set backupskip=/tmp/*,/private/tmp/*"
