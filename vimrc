@@ -1332,15 +1332,6 @@ lmap <F1> <esc>
 nnoremap <silent> <leader>ff :setlocal spell!<cr>
 nnoremap <silent> <leader>fs :setlocal spelllang=sv<cr>
 nnoremap <silent> <leader>fe :setlocal spelllang=en<cr>
-
-"go to next error
-nnoremap <leader>fn ]s
-"go to previous error
-nnoremap <leader>fp [s
-"add to spellfile
-nnoremap <leader>fa zg
-"suggest correct words
-nnoremap <leader>f? z=
 " }}} Spell checking mappings "
 " }}} Keymaps "
 
