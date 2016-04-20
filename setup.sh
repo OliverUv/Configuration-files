@@ -40,7 +40,3 @@ ln -s ~/Configuration-files/i3config.base ~/.i3/config.base
 ln -s ~/Configuration-files/mpv-input.conf ~/.mpv/input.conf
 
 echo "conkyrc urxvt-perls .vimrc.local .tmux.conf.local i3config.local" | xargs echo "Needs manual linking:"
-
-echo "Needs install:"
-echo "sudo pip install i3-py virtualfish virtualenv"
-echo "git clone 'git@github.com:OliverUv/quickswitch-for-i3.git'"
