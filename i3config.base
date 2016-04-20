@@ -169,6 +169,10 @@ bindsym $mod+n exec $quickswitch -n
 bindsym $mod+p exec $quickswitch -p
 bindsym $mod+Tab exec $quickswitch
 
+# switch between the current and the previously focused one
+bindsym $mod+BackSpace workspace back_and_forth
+bindsym $mod+Shift+BackSpace move container to workspace back_and_forth
+
 # move focused container to workspace
 bindsym $mod+Shift+exclam move container to workspace number 1
 bindsym $mod+Shift+at move container to workspace number 2
