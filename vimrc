@@ -1273,8 +1273,10 @@ nnoremap <leader>gm :<C-U>Gmove <c-r>=expand('%:p')<cr>
 nnoremap <leader>gl :<C-U>Glog --follow
 nnoremap <leader>gG :<C-U>Ggrep
 nnoremap <leader>gc :<C-U>Gcommit -m '
-nnoremap <leader>gC :<C-U>Gcommit --amend --no-edit<cr>
-nnoremap <leader>gA :<C-U>Git checkout -- %
+nnoremap <leader>gA :<C-U>Gcommit --amend --no-edit<cr>
+nnoremap <leader>ga :<C-U>Gcommit --amend<cr>
+nnoremap <leader>gr :<C-U>Git checkout -- %
+nnoremap <leader>gR :<C-U>Git reset --hard 
 
 " Get gittin!
 nmap <leader>gg <c-w>s<c-w>T:Gstatus<cr>/not staged<cr><c-n>:noh<cr>
