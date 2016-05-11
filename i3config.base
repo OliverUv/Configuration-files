@@ -75,7 +75,7 @@ bindsym $mod+Control+i exec mi
 
 # lock X session
 bindsym $mod2+l exec lock
-bindsym $mod2+Shift+L exec "lock; systemctl hybrid-sleep"
+bindsym $mod2+Shift+L exec suspend
 
 # move focus
 bindsym $mod+h focus left
