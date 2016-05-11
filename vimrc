@@ -1289,6 +1289,8 @@ nmap     <leader>gN :q<cr><c-k><c-n>
 nnoremap <leader>er :<C-U>Rename <c-r>=expand('%:t')<cr>
 nnoremap <leader>ed :<C-U>Remove
 nnoremap <leader>em :<C-U>Move <c-r>=expand('%:p')<cr>
+" Remove DOS line endings from unix file with mixed endings
+nnoremap <leader>el :%s/\r$//<cr>
 
 " Mappings for interacting with diff merges
 nnoremap <silent> dgh :diffget \\2<cr>
