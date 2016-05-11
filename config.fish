@@ -4,6 +4,7 @@ set PATH $PATH /bin
 set PATH $PATH ~/bin
 set PATH $PATH ~/bin.priv
 set PATH $PATH ~/.g-npm/bin
+set PATH $PATH ~/.arcanist/arcanist/bin
 
 set fish_greeting " "
 
