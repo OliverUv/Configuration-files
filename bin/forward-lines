@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+set -ue
+if [ $# -eq 0 ] || [ -z "$1" ]; then
+    echo "Please provide a command to execute." 1>&2
+    exit 1
+fi
+
+# Grab the command and shift the args.
+command="$1"
+shift
+
+# Check if the command is valid.
+if ! command -v "$command" > /dev/null; then
+    echo "Unkown command name: $command" 1>&2
+    exit 1
+fi
+
+# Read all lines into an array.
+line_list=()
+
+while read line; do
+    line_list+=("$line")
+done
+
+# Call the command with arguments prefixed, and use the lines as additional
+# arguments.
+"$command" "$@" "${line_list[@]}"
