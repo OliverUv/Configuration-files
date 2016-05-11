@@ -11,16 +11,16 @@ endsnippet
 snippet re "require"
 let ${1} = require('$1${2}')${0}
 endsnippet
-snippet ff "short anonymous function" i
+snippet sf "short anonymous function" i
 function(${1}) { ${VISUAL}${0} }
 endsnippet
-snippet fff "anonymous function" i
+snippet ff "anonymous function" i
 function(${1}) {
 	${VISUAL}${0}
 }
 endsnippet
 snippet vf
-var ${1:function_name} = function(${2}) {
+var ${1:function_name} = function ${2}(${3}) {
 	${VISUAL}${0}
 };
 endsnippet
@@ -31,7 +31,7 @@ snippet (f
 endsnippet
 # member function
 snippet mf
-${1}: function (${2}) {
+${1}: function $1${2}(${3}) {
 	${VISUAL}${0}
 },
 endsnippet
@@ -47,6 +47,29 @@ snippet ife
 if (${1:true}) {
 	${VISUAL}${2}
 } else {
-	${0}
-}
+	${3}
+}${0}
+endsnippet
+snippet ife
+else {
+	${1}
+}${0}
+endsnippet
+snippet undef "isundefined" i
+typeof(${VISUAL}${1}) === 'undefined'${0}
+endsnippet
+snippet ifnu
+if (typeof(${1}) !== 'undefined') {
+	${VISUAL}${2}
+}${0}
+endsnippet
+snippet ifu
+if (typeof(${1}) === 'undefined') {
+	${VISUAL}${2}
+} else {
+	${3}
+}${0}
+endsnippet
+snippet ternu
+${1} = (typeof($1) !== 'undefined') ? $1 : ${2}
 endsnippet
