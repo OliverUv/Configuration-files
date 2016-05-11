@@ -293,9 +293,6 @@
 [submodule "dotvim/bundle/vim-man"]
 	path = dotvim/bundle/vim-man
 	url = https://github.com/bruno-/vim-man.git
-[submodule "dotvim/bundle/typescript-vim"]
-	path = dotvim/bundle/typescript-vim
-	url = https://github.com/leafgarland/typescript-vim.git
 [submodule "dotvim/bundle/neoyank"]
 	path = dotvim/bundle/neoyank
 	url = https://github.com/Shougo/neoyank.vim.git
