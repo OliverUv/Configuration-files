@@ -85,6 +85,8 @@ command! Pass read !openssl rand -base64 32
 syntax enable           " Enables syntax highlighting with custom colors
 filetype plugin indent on " React on filetypes with plugins and syntax
 set scrolloff=4         " Minimum number of lines to display around cursor
+set sidescroll=1        " Number of cols to autoscroll when reaching end of nowrap line
+set sidescrolloff=40    " Number of cols of text to show on the right of caret, minimum
 set autoread            " Files changed from outside are automatically reread
 set hlsearch            " Highlight search results
 set mousehide           " Hide the mouse when typing text
