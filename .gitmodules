@@ -314,3 +314,6 @@
 [submodule "dotvim/bundle/Vim-Jinja2-Syntax"]
 	path = dotvim/bundle/Vim-Jinja2-Syntax
 	url = https://github.com/Glench/Vim-Jinja2-Syntax.git
+[submodule "dotvim/bundle/yats.vim"]
+	path = dotvim/bundle/yats.vim
+	url = https://github.com/HerringtonDarkholme/yats.vim.git
