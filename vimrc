@@ -1199,6 +1199,9 @@ nnoremap <leader>mq :<C-U><C-R>=ModifyRegister()<CR><C-E><C-F><Left>
 " Move cpp // comment at end of line to line above
 nnoremap <leader>mc $F/hhr<cr>kddpk$
 
+" RST-style header creation
+nnoremap <leader>mh yypVr
+
 " Drag current line(s) up/down
 vnoremap <leader>j :m'>+<CR>gv
 vnoremap <leader>k :m-2<CR>gv
