@@ -317,3 +317,6 @@
 [submodule "dotvim/bundle/yats.vim"]
 	path = dotvim/bundle/yats.vim
 	url = https://github.com/HerringtonDarkholme/yats.vim.git
+[submodule "dotvim/bundle/tsuquyomi"]
+	path = dotvim/bundle/tsuquyomi
+	url = https://github.com/Quramy/tsuquyomi.git

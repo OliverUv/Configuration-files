@@ -194,8 +194,15 @@ if has("autocmd")
     augroup MyFtCommands
     " Clear autocmds for this group
     autocmd!
-    au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
+    au FileType python setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=8 
     au FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2
+
+    " Typescript
+    au FileType typescript setlocal expandtab shiftwidth=2 softtabstop=2 omnifunc=tsuquyomi#complete
+    au FileType typescript nnoremap <buffer> <Leader>mr <Plug>(TsuquyomiRenameSymbol)
+    au FileType typescript nnoremap <buffer> <Leader>mR <Plug>(TsuquyomiRenameSymbolC)
+    au FileType typescript nnoremap <buffer> <Leader>k :<C-u>echo tsuquyomi#hint()<CR>
+    au FileType typescript nnoremap <silent> <leader>lp :<C-u>Unite tsproject<CR>
     au FileType htmldjango setlocal expandtab shiftwidth=2 softtabstop=2
     au BufNewFile,BufReadPost *.coffee setlocal foldmethod=indent shiftwidth=2 softtabstop=2 expandtab
     au BufWritePost,FileWritePost *.coffee silent make!
@@ -450,6 +457,13 @@ nnoremap <silent> <leader>.. :edit %:h<CR>
 let g:space_no_buffers = 1
 let g:space_no_tabs = 1
 " }}} vim-space "
+
+" tsuquyomi {{{ "
+"" https://github.com/Quramy/tsuquyomi
+""
+let g:tsuquyomi_disable_quickfix = 1 " Use syntastic's shizzle instead
+let g:syntastic_typescript_checkers = ['tsuquyomi']
+" }}} tsuquyomi "
 
 " Gist {{{ "
 "" https://github.com/mattn/gist-vim
@@ -736,6 +750,7 @@ let g:neocomplete#force_omni_input_patterns.objc =
             \ '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplete#force_omni_input_patterns.objcpp =
             \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplete#force_omni_input_patterns.typescript = '[^. \t]\.\w*'
 
     " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
@@ -1212,10 +1227,6 @@ nnoremap <leader>mc $F/hhr<cr>kddpk$
 
 " RST-style header creation
 nnoremap <leader>mh yypVr
-
-" Drag current line(s) up/down
-vnoremap <leader>j :m'>+<CR>gv
-vnoremap <leader>k :m-2<CR>gv
 
 " Insertion esc conveniences
 inoremap <c-o> <esc>o
