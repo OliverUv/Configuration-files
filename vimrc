@@ -546,6 +546,16 @@ function! g:DoUniteNonFuzzyQuickfix()
     call unite#custom#source('quickfix', 'matchers', 'matcher_glob')
     exec "Unite -buffer-name=quickfix quickfix"
 endfunction
+function! g:DoUniteFuzzyLine()
+    call unite#custom#source('line', 'sorters', 'sorter_rank')
+    call unite#custom#source('line', 'matchers', 'matcher_fuzzy')
+    exec "Unite -buffer-name=line line"
+endfunction
+function! g:DoUniteNonFuzzyLine()
+    call unite#custom#source('line', 'sorters', 'sorter_nothing')
+    call unite#custom#source('line', 'matchers', 'matcher_glob')
+    exec "Unite -buffer-name=line line"
+endfunction
 function! UltiSnipsCallUnite()
     Unite -immediately -no-empty -vertical -buffer-name=ultisnips ultisnips
     return ''
@@ -558,6 +568,8 @@ nnoremap <silent><leader>lr :call g:DoUniteFuzzy()<CR>
 nnoremap <silent><leader>lR :call g:DoUniteNonFuzzy()<CR>
 nnoremap <silent><leader>lq :call g:DoUniteFuzzyQuickfix()<CR>
 nnoremap <silent><leader>lQ :call g:DoUniteNonFuzzyQuickfix()<CR>
+nnoremap <silent><leader>ll :call g:DoUniteFuzzyLine()<CR>
+nnoremap <silent><leader>lL :call g:DoUniteNonFuzzyLine()<CR>
 nnoremap <silent><leader>le :<C-u>Unite -buffer-name=files file_mru bookmark<CR>
 nnoremap <silent><leader>lE :<C-u>Unite -buffer-name=files file_mru bookmark file_rec/async file/new<CR>
 nnoremap <silent><leader>lB :<C-u>Unite -buffer-name=buffers buffer<CR>
@@ -570,7 +582,6 @@ nnoremap <silent><leader>l; :<C-u>Unite -buffer-name=commands history/command<CR
 nnoremap <silent><leader>l/ :<C-u>Unite -buffer-name=commands history/search<CR>
 nnoremap <silent><leader>lo :<C-u>Unite -buffer-name=outline outline<CR>
 nnoremap <silent><leader>la :<C-u>Unite -buffer-name=outline -vertical outline<CR>
-nnoremap <silent><leader>ll :<C-u>Unite -buffer-name=line line<CR>
 nnoremap <silent><leader>lw :<C-u>Unite -buffer-name=location_list location_list<CR>
 nnoremap <silent><leader>l* :<C-u>UniteWithCursorWord -buffer-name=line line<CR>
 nnoremap <silent><leader>lg :<C-u>Unite -buffer-name=grep grep<CR>
