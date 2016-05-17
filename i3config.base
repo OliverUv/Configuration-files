@@ -206,8 +206,8 @@ bindsym XF86KbdBrightnessUp exec xbacklight -inc 5
 bindsym $mod+F5 exec xbacklight -dec 5
 bindsym $mod+F6 exec xbacklight -inc 5
 
+bindsym $mod+F7 exec ~/.layout/laptop.sh
 bindsym $mod+F8 exec ~/.layout/office.sh
-bindsym $mod+F9 exec ~/.layout/laptop.sh
 
 # Scratchpad
 bindsym $mod+Shift+minus move scratchpad
