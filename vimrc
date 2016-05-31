@@ -168,6 +168,7 @@ set wildignore+=*/tmp/cache/assets/*/sprockets/*,*/tmp/cache/assets/*/sass/*
 set wildignore+=node_modules/*
 set wildignore+=bower_components/*
 set wildignore+=libs/*
+set wildignore+=typings/*
 
 " Ignore build artifacts
 set wildignore+=build/*
@@ -489,7 +490,7 @@ call unite#custom#source('file_rec,file_rec/async,file_mru,file,grep',
             \ '\.git/', '\.svn/', '\.hg/',
             \ '^tags$', '\.taghl$',
             \ '\.ropeproject/', '\.pbxproj$', '\.xcodeproj', '\.vcproj', 
-            \ 'node_modules/', 'bower_components/', 'libs/', 'log/', 'tmp/', 'obj/',
+            \ 'node_modules/', 'bower_components/', 'typings/', 'libs/', 'log/', 'tmp/', 'obj/',
             \ '/vendor/gems/', '/vendor/cache/', '\.bundle/', '\.sass-cache/',
             \ '/tmp/cache/assets/.*/sprockets/', '/tmp/cache/assets/.*/sass/',
             \ 'thirdparty/', 'Debug/', 'Release/', 'build/', 'dist/',
