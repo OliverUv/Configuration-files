@@ -33,7 +33,7 @@ font pango:WenQuanYi Micro Hei Mono Bold 9.4
 floating_modifier $mod
 
 # Use 1 pixel borders by default
-new_window 1pixel
+new_window pixel 2
 
 # No vertical borders on screen edges
 hide_edge_borders vertical
