@@ -76,6 +76,7 @@ bindsym $mod+Control+i exec mi
 # lock X session
 bindsym $mod2+l exec lock
 bindsym $mod2+Shift+L exec suspend
+bindsym $mod2+Shift+H exec nolock_suspend
 
 # move focus
 bindsym $mod+h focus left
