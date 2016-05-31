@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+# ssh-add -D
+
+dbus-send --system --print-reply \
+    --dest="org.freedesktop.UPower" \
+    /org/freedesktop/UPower \
+    org.freedesktop.UPower.AboutToSleep
+
+dbus-send --system --print-reply \
+    --dest="org.freedesktop.UPower" \
+    /org/freedesktop/UPower \
+    org.freedesktop.UPower.Suspend
