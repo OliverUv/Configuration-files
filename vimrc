@@ -200,10 +200,11 @@ if has("autocmd")
 
     " Typescript
     au FileType typescript setlocal expandtab shiftwidth=2 softtabstop=2 omnifunc=tsuquyomi#complete
-    au FileType typescript nnoremap <buffer> <Leader>mr <Plug>(TsuquyomiRenameSymbol)
-    au FileType typescript nnoremap <buffer> <Leader>mR <Plug>(TsuquyomiRenameSymbolC)
-    au FileType typescript nnoremap <buffer> <Leader>k :<C-u>echo tsuquyomi#hint()<CR>
+    au FileType typescript nmap <buffer> <Leader>mr :TsuquyomiRenameSymbol<CR>
+    au FileType typescript nmap <buffer> <Leader>mR :TsuquyomiRenameSymbolC<CR>
+    au FileType typescript nmap <buffer> <Leader>k :<C-u>echo tsuquyomi#hint()<CR>
     au FileType typescript nnoremap <silent> <leader>lp :<C-u>Unite tsproject<CR>
+
     au FileType htmldjango setlocal expandtab shiftwidth=2 softtabstop=2
     au BufNewFile,BufReadPost *.coffee setlocal foldmethod=indent shiftwidth=2 softtabstop=2 expandtab
     au BufWritePost,FileWritePost *.coffee silent make!
