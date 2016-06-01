@@ -1,0 +1,237 @@
+snippet ci "console.info" b
+console.info(${1:\`${2:value}\`})
+endsnippet
+
+snippet cl "console.log" b
+console.log(${1:\`${2:value}\`})
+endsnippet
+
+snippet cw "console.warn" b
+console.warn(${1:\`${2:value}\`})
+endsnippet
+
+# react
+
+#
+#  React snippets
+#
+
+snippet cs "React.addons.classSet" b
+let cx = React.addons.classSet
+endsnippet
+
+snippet cdm "component did mount" b
+componentDidMount() {
+	${1}
+},${0}
+endsnippet
+
+snippet cdup "component did update" b
+componentDidUpdate(prevProps, prevState) {
+	${1}
+},${0}
+endsnippet
+
+snippet cwm "component will mount" b
+componentWillMount() {
+	${1}
+},${0}
+endsnippet
+
+snippet cwr "component will receive props" b
+componentWillReceiveProps(nextProps) {
+	${1}
+},${0}
+endsnippet
+
+snippet cwun "component will unmount" b
+componentWillUnmount() {
+	${1}
+},${0}
+endsnippet
+
+snippet cwu "component will update" b
+componentWillUpdate(nextProps, nextState) {
+	${1}
+},${0}
+endsnippet
+
+snippet cx
+cx({
+	${1}: ${2}
+})
+endsnippet
+
+snippet fup
+forceUpdate(${1:callback})
+endsnippet
+
+snippet gdp "get default props" b
+getDefaultProps() {
+	return {
+		${1}
+	}
+},${0}
+endsnippet
+
+snippet gis "get initial state" b
+getInitialState() {
+	return {
+		${1}: ${2}
+	}
+},${0}
+endsnippet
+
+snippet ism "is mounted"
+isMounted()
+endsnippet
+
+snippet pt "propTypes" b
+propTypes: {
+	${1}: React.PropTypes.${2:string}
+},
+endsnippet
+
+snippet rcc "create class/component" b
+import React from 'react'
+
+let ${2:ClassName} = React.createClass({
+
+render() {
+	return (
+		${VISUAL}$4
+	)
+}
+
+})
+${0}
+${3:export default $2}
+endsnippet
+
+snippet ren
+render() {
+	return (
+		${1:<div />}
+	)
+}${0}
+endsnippet
+
+snippet sst "set state" b
+this.setState({
+	${1}: ${2}
+})${0}
+endsnippet
+
+snippet scu "should component update"
+shouldComponentUpdate(nextProps, nextState) {
+	${1}
+},${0}
+endsnippet
+
+snippet props "get property" i
+this.props.${1}
+endsnippet
+
+snippet state "get state" i
+this.state.${1}
+endsnippet
+
+snippet trp
+this.transferPropsTo(${VISUAL}${0})
+endsnippet
+
+# lodash
+
+snippet map
+_.map(${1:collection}, ${2:obj} => {
+	${0}
+})
+endsnippet
+
+snippet collect
+_.collect(${1:collection}, ${2:obj} => {
+	${0}
+})
+endsnippet
+
+snippet groupby
+_.groupBy(${1:collection}, ${2:obj})
+endsnippet
+
+snippet reduce
+_.reduce(${1:collection}, (${7:memo}, ${2:obj}${4:, ${3:key}}) => {
+	${5:return $7 + $2}
+}, ${6:initial})
+endsnippet
+
+snippet chain
+_.chain(${1:collection})
+endsnippet
+
+snippet pluck
+_.pluck(${1:collection})
+endsnippet
+
+snippet max
+_.max(${1:array})
+endsnippet
+
+snippet min
+_.min(${1:array})
+endsnippet
+
+snippet filter
+_.filter(${1:array}, '${2:arg}')
+endsnippet
+
+snippet uniq
+_.uniq(${1:array}, ${4:, '${3:false}'})
+endsnippet
+
+snippet range
+_.range(${1:limit})
+endsnippet
+
+snippet fe "_.forEach" i
+_.forEach(${1:collection}, ${2:${3:(${4:args})} => ${5:{
+	${VISUAL}${6}
+}}})${0}
+endsnippet
+
+snippet af "anonymous function" i
+${1:(${2:args})} => ${3:{
+	${VISUAL}${4}
+}}${0}
+endsnippet
+
+
+snippet findwhere
+_.findWhere(${1:collection}, ${2:matchObject})
+endsnippet
+
+snippet find
+_.find(${1:collection}, ${2:obj} => {
+	$2
+})
+endsnippet
+
+snippet contains
+_.contains(${1:collection}, ${2:searchValue})
+endsnippet
+
+snippet includes
+_.includes(${1:collection}, ${2:searchValue})
+endsnippet
+
+snippet pluck
+_.pluck(${1:collection}, ${2:propertyToPluck})
+endsnippet
+
+snippet where
+_.where(${1:collection}, ${2:objectToDeepCompare})
+endsnippet
+
+snippet partial
+_.partial(${1:function}, ${2:prependedArgument})
+endsnippet
+
