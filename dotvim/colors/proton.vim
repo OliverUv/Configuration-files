@@ -91,3 +91,12 @@ hi IndentGuidesOdd  gui=NONE guifg=NONE guibg=#e5e5e5
 hi IndentGuidesEven gui=NONE guifg=NONE guibg=#dadada
 
 hi SignColumn   gui=NONE guifg=#202020 guibg=#d0d0d0
+
+" Highlights for interesting words, see
+" https://bitbucket.org/sjl/dotfiles/src/tip/vim/vimrc
+hi def InterestingWord1 guifg=#000000 guibg=#E6CCE6
+hi def InterestingWord2 guifg=#000000 guibg=#E8B893
+hi def InterestingWord3 guifg=#000000 guibg=#ffB764
+hi def InterestingWord4 guifg=#000000 guibg=#C799B0
+hi def InterestingWord5 guifg=#000000 guibg=#CcFdA2
+hi def InterestingWord6 guifg=#000000 guibg=#99C9C9
