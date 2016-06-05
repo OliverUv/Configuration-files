@@ -950,6 +950,20 @@ map gl <Plug>SneakNext
 map gh <Plug>SneakPrevious
 " }}} vim-sneak "
 
+" zeavim {{{ "
+nmap gzz <Plug>Zeavim
+vmap gzz <Plug>ZVVisSelection
+nmap gz <Plug>ZVMotion
+nmap gZ <Plug>ZVKeyDocset
+nmap GZ :ZVKeyDocset<cr>
+
+let g:zv_file_types = {
+            \	'^(G|g)ulpfile\.'       : 'gulp',
+            \	'typescript'            : 'typescript,javascript,Lo-Dash,jQuery',
+            \	'javascript'            : 'typescript,javascript,Lo-Dash,jQuery',
+            \ }
+" }}} zeavim "
+
 " }}} Plugin settings "
 
 " VisualSearch {{{ "

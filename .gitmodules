@@ -323,3 +323,6 @@
 [submodule "dotvim/bundle/flattened"]
 	path = dotvim/bundle/flattened
 	url = https://github.com/romainl/flattened.git
+[submodule "dotvim/bundle/zeavim.vim"]
+	path = dotvim/bundle/zeavim.vim
+	url = https://github.com/KabbAmine/zeavim.vim.git
