@@ -1194,6 +1194,9 @@ cnoremap <C-N>	<Down>
 inoremap <expr> <c-j> ("\<C-n>")
 inoremap <expr> <c-k> ("\<C-p>")
 
+" Engage line-wise autocomplete with <c-f>
+inoremap <c-f> <c-x><c-l>
+
 " Indent the entire file
 nnoremap <leader>= gg=G`'
 
