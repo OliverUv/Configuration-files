@@ -1154,7 +1154,7 @@ nnoremap <silent> co4 :<c-u>vertical resize 84<cr>
 nnoremap <silent> zh mzggzfip`z
 
 " navigating
-nnoremap <silent> <leader>nt :<c-u>split<cr><c-w>k:resize 17<cr>gg
+nnoremap <silent> <leader>nt <c-w>s:resize 17<cr>gg
 nnoremap <leader>ng :split<cr>g<c-]>
 
 " change buffers with ctrl-n and ctrl-p
