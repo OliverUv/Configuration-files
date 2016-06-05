@@ -1,3 +1,6 @@
+extends javascript
+priority 10
+
 snippet ci "console.info" b
 console.info(${1:\`${2:value}\`})
 endsnippet
@@ -203,7 +206,6 @@ ${1:(${2:args})} => ${3:{
 	${VISUAL}${4}
 }}${0}
 endsnippet
-
 
 snippet findwhere
 _.findWhere(${1:collection}, ${2:matchObject})
