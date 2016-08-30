@@ -867,6 +867,7 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 let g:syntastic_mode_map = { "mode": "active",
             \ "active_filetypes": ["coffee", "javascript", "python"],
             \ "passive_filetypes": ["cpp"] }
+nnoremap <silent> <Leader>Jz :SyntasticReset<cr>:SyntasticCheck<cr>
 " }}} Syntastic "
 
 " clang_complete {{{ "
