@@ -1,5 +1,5 @@
-extends javascript
-priority 10
+extends javascript, typescript
+priority 15
 
 snippet ci "console.info" b
 console.info(${1:\`${2:value}\`})
@@ -11,6 +11,10 @@ endsnippet
 
 snippet cw "console.warn" b
 console.warn(${1:\`${2:value}\`})
+endsnippet
+
+snippet ce "console.error" b
+console.error(${1:\`${2:value}\`})
 endsnippet
 
 # react
@@ -237,3 +241,15 @@ snippet partial
 _.partial(${1:function}, ${2:prependedArgument})
 endsnippet
 
+snippet im "ES6 import"
+import ${1:{${2}}} ${3:as ${4}} from './${5:$2}';${0}
+endsnippet
+
+snippet jsdoc "jsdoc"
+/**
+ * ${1}
+ *
+ * ${2:@param {${3:type}} ${4:arg} ${5:desc}}
+ * ${6:@return {${7:type}} ${8:desc}}${0}
+ */
+endsnippet
