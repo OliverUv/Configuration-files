@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# livestreamer -O twitch.tv/$* best | mpv --really-quiet -cache 3000 -
+URL=$*
+ARTIST=$(echo "$URL" | sed 's#https://\(.*\)\.bandcamp.*#\1#')
+echo "Downloading $ARTIST $URL"
+youtube-dl -o "${ARTIST}_%(playlist)s/%(autonumber)s-%(title)s.%(ext)s" "$URL"
