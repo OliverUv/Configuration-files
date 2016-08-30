@@ -15,4 +15,9 @@ set -x LC_ALL en_US.UTF-8
 set -x LANG en_US.UTF-8
 set -x EDITOR vim
 
+set -x KITTEN "/home/polydrone/codemao/egret-ide"
+set -x BLOCKLYCRAFT "/home/polydrone/codemao/BlocklyCraft"
+set -x MC_SERVER_DIR "/home/polydrone/mc_tmp/spigot1102"
+set -x LODASH "/home/polydrone/work_tmp/lodash.js"
+
 eval (python -m virtualfish)
