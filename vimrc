@@ -3,14 +3,16 @@ let g:pathogen_disabled = ['ctrlp', 'ctrlp-funky', 'CoVim', 'neocomplcache', 'ne
 
 if has("win32") || has("win64")
    " Required by pathogen.vim for loading plugins
-   call pathogen#infect()
+   if !has("nvim")
+      call pathogen#infect()
+   end
 
    "Required by vim-latex on windows machines
    set shellslash
 
    "Otherwise vim will try to write temp files in sys32 folder when editing new file
    set directory=.,$TEMP
-else
+elseif !has("nvim")
    call pathogen#infect('~/.vim/bundle')
    " Unless we're in gvim, set up colors
    if !has("gui_running")
