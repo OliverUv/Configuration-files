@@ -1221,6 +1221,9 @@ inoremap <c-f> <c-x><c-l>
 " Indent the entire file
 nnoremap <leader>= gg=G`'
 
+" Pretty print entire file (if json)
+nnoremap <leader>mJ :<c-u>%!json_pp<cr>
+
 " Sort in paragraph
 nnoremap <leader>ms Vip:sort<cr>
 " Sort in paragraph, all but first row
