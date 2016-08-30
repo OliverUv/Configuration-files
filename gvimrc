@@ -52,7 +52,7 @@ elseif has("gui_macvim")
 	set guifont=Menlo\ Regular:h15
 elseif has("gui_gnome") || has("gui_gtk") || has("gui_gtk2")
         " set guifont=Inconsolata\ Bold\ 12
-        set guifont=Roboto\ Mono\ Bold\ 16
+        set guifont=Roboto\ Mono\ Bold\ 14
 endif
 
 " Bindings for font-zoom plugin
