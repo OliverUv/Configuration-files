@@ -201,10 +201,15 @@ if has("autocmd")
 
     " Typescript
     au FileType typescript setlocal expandtab shiftwidth=2 softtabstop=2 omnifunc=tsuquyomi#complete
-    au FileType typescript nmap <buffer> <Leader>mr :TsuquyomiRenameSymbol<CR>
-    au FileType typescript nmap <buffer> <Leader>mR :TsuquyomiRenameSymbolC<CR>
-    au FileType typescript nmap <buffer> <Leader>k :<C-u>echo tsuquyomi#hint()<CR>
-    au FileType typescript nnoremap <silent> <leader>lp :<C-u>Unite tsproject<CR>
+    au FileType typescript nmap <buffer> <Leader>jr :TsuquyomiRenameSymbol<CR>
+    au FileType typescript nmap <buffer> <Leader>jR :TsuquyomiRenameSymbolC<CR>
+    au FileType typescript nmap <buffer> <Leader>ju :TsuquyomiReferences<CR>
+    au FileType typescript nmap <buffer> <Leader>ji :TsuquyomiImport<CR>
+    au FileType typescript nmap <buffer> <Leader>jz :TsuquyomiOpen<CR>
+    au FileType typescript nmap <buffer> <Leader>jZ :TsuquyomiStopServer<CR>:TsuquyomiStartServer<CR>:TsuquyomiOpen<CR>
+    au FileType typescript nmap <buffer> <Leader>fk :<C-u>echo tsuquyomi#hint()<CR>
+    au FileType typescript nmap <buffer> <Leader>jk :<C-u>echo tsuquyomi#hint()<CR>
+    au FileType typescript nnoremap <silent> <leader>lf :<C-u>Unite tsproject<CR>
 
     au FileType htmldjango setlocal expandtab shiftwidth=2 softtabstop=2
     au BufNewFile,BufReadPost *.coffee setlocal foldmethod=indent shiftwidth=2 softtabstop=2 expandtab
