@@ -958,16 +958,15 @@ map gh <Plug>SneakPrevious
 " }}} vim-sneak "
 
 " zeavim {{{ "
-nmap gzz <Plug>Zeavim
-vmap gzz <Plug>ZVVisSelection
-nmap gz <Plug>ZVMotion
-nmap gZ <Plug>ZVKeyDocset
-nmap GZ :ZVKeyDocset<cr>
+nmap <leader>ff <Plug>Zeavim
+vmap <leader>ff <Plug>ZVVisSelection
+nmap <leader>f <Plug>ZVMotion
+nmap <leader>F <Plug>ZVKeyDocset
 
 let g:zv_file_types = {
-            \	'^(G|g)ulpfile\.'       : 'gulp',
-            \	'typescript'            : 'typescript,javascript,Lo-Dash,jQuery',
-            \	'javascript'            : 'typescript,javascript,Lo-Dash,jQuery',
+            \	'^(G|g)ulpfile\.'       : 'javascript,Lo-Dash,jQuery,gulp',
+            \	'typescript'            : 'javascript,Lo-Dash,jQuery,typescript',
+            \	'javascript'            : 'javascript,Lo-Dash,jQuery',
             \ }
 " }}} zeavim "
 
@@ -1391,9 +1390,9 @@ smap <F1> <esc>
 lmap <F1> <esc>
 
 " Spell checking mappings {{{ "
-" Pressing <leader>ff will toggle and untoggle spell checking,
+" Pressing <leader>ft will toggle and untoggle spell checking,
 " fe sets checking to english and fs sets checking to swedish.
-nnoremap <silent> <leader>ff :setlocal spell!<cr>
+nnoremap <silent> <leader>fz :setlocal spell!<cr>
 nnoremap <silent> <leader>fs :setlocal spelllang=sv<cr>
 nnoremap <silent> <leader>fe :setlocal spelllang=en<cr>
 " }}} Spell checking mappings "
