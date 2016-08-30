@@ -1294,6 +1294,7 @@ nnoremap <silent> <leader>hh :<C-U>FSSplitLeft<cr>
 nnoremap <silent> <leader>hl :<C-U>FSSplitRight<cr>
 nmap     <silent> <leader>ha :<C-U>FSSplitLeft<cr><c-h>zhco4<c-l>zh
 
+" Break pane out of tabpage
 nnoremap <leader>b <c-w>s<c-w>TgT<c-w>cgt
 
 " Maximize buffer toggling
@@ -1364,7 +1365,6 @@ nnoremap <silent> coL :call g:ToggleColorScheme()<cr>
 " Goyo toggle
 nnoremap <silent> cog :<C-U>Goyo 85%x95%<cr>
 nnoremap <silent> coG :<C-U>Goyo!<cr>
-
 
 " Go to tabs with F-keys
 nnoremap <F1> 1gt
