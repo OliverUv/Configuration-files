@@ -594,8 +594,8 @@ nnoremap <silent><leader>ll :call g:DoUniteFuzzyLine()<CR>
 nnoremap <silent><leader>lL :call g:DoUniteNonFuzzyLine()<CR>
 nnoremap <silent><leader>le :<C-u>Unite -buffer-name=files file_mru bookmark<CR>
 nnoremap <silent><leader>lE :<C-u>Unite -buffer-name=files file_mru bookmark file_rec/async file/new<CR>
-nnoremap <silent><leader>lB :<C-u>Unite -buffer-name=buffers buffer<CR>
-nnoremap <silent><leader>lb :<C-u>Unite -buffer-name=buffers buffer_tab<CR>
+nnoremap <silent><leader>lb :<C-u>Unite -buffer-name=buffers buffer<CR>
+nnoremap <silent><leader>lB :<C-u>Unite -buffer-name=buffers buffer_tab<CR>
 nnoremap <silent><leader>ly :<C-u>Unite -buffer-name=yanks history/yank<CR>
 nnoremap <silent><leader>lc :<C-u>Unite -buffer-name=changes change<CR>
 nnoremap <silent><leader>lj :<C-u>Unite -buffer-name=jumps jump<CR>
