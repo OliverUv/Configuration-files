@@ -1344,6 +1344,9 @@ nnoremap <leader>em :<C-U>Move <c-r>=expand('%:p')<cr>
 " Remove DOS line endings from unix file with mixed endings
 nnoremap <leader>el :%s/\r$//<cr>
 
+" Surround selected text with ${}
+vmap $ S}i$<esc>
+
 " Mappings for interacting with diff merges
 nnoremap <silent> dgh :diffget \\2<cr>
 nnoremap <silent> dgl :diffget \\3<cr>
