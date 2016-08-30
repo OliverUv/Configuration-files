@@ -237,7 +237,7 @@ endif
 
 " Extra syntax groups and keywords {{{ "
 function! MyCppadd()
-  syn keyword cMyItem contained TODO FIXME CLEAN PERF NARF XOXO
+  syn keyword cMyItem contained TODO FIXME CLEAN PERF INFOSEC XOXO XXX
   syn cluster cCommentGroup add=cMyItem
   hi link cMyItem Todo
 endfun
