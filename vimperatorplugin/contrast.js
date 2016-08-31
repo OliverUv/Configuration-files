@@ -75,7 +75,11 @@ function Contrast() {
   // an array containing the rgb string and the individual rgb integer values.
   function adjust(value, amount){
     var regex = new RegExp(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-    var [r, g, b] = [parseInt(v) for each (v in regex.exec(value).slice(1))];
+    // var [r, g, b] = [parseInt(v) for each (v in regex.exec(value).slice(1))];
+    var colors = regex.exec(value).slice(1);
+    var r = parseInt(colors[0]);
+    var g = parseInt(colors[1]);
+    var b = parseInt(colors[2]);
 
     r = amount > 0 ? Math.min(255, r + amount) : Math.max(0, r + amount);
     g = amount > 0 ? Math.min(255, g + amount) : Math.max(0, g + amount);
