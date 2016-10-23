@@ -326,3 +326,6 @@
 [submodule "dotvim/bundle/zeavim.vim"]
 	path = dotvim/bundle/zeavim.vim
 	url = https://github.com/KabbAmine/zeavim.vim.git
+[submodule "dotvim/bundle/vim-toml"]
+	path = dotvim/bundle/vim-toml
+	url = git@github.com:cespare/vim-toml.git
