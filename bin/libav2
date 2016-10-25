@@ -17,14 +17,16 @@ filename=$(basename "$1")
 extension="${filename##*.}"
 filename="${filename%.*}"
 
-codec="mpeg2video"
+codec="libx264"
 if [ $# -gt 1 ] ; then
     codec=$2
 fi
 
-extension="avi"
+extension="mp4"
 if [ $# -gt 2 ] ; then
     extension=$3
 fi
 
-avconv -i $1 -c:v $codec -an "$filename-$codec.$extension"
+# avconv -i $1 -c:v $codec -an "$filename-$codec.$extension"
+# ffmpeg -i $1 -c:v libx264 -vf scale=x:y -pix_fmt yuv420p -movflags +faststart output.mp4
+ffmpeg -i $1 -c:v $codec -an "$filename-$codec.$extension"
