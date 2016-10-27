@@ -762,6 +762,8 @@ let g:neocomplete#force_omni_input_patterns.objc =
 let g:neocomplete#force_omni_input_patterns.objcpp =
             \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 let g:neocomplete#force_omni_input_patterns.typescript = '[^. \t]\.\w*'
+let g:neocomplete#force_omni_input_patterns.rust =
+            \ '[^.[:digit:] *\t]\%(\.\|\::\)\%(\h\w*\)\?'
 
     " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
@@ -972,6 +974,11 @@ let g:zv_file_types = {
             \	'javascript'            : 'javascript,Lo-Dash,jQuery',
             \ }
 " }}} zeavim "
+
+" rust racer {{{ "
+let g:racer_cmd = "$HOME/.cargo/bin/racer"
+let $RUST_SRC_PATH = "$HOME/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
+" }}} rust racer "
 
 " }}} Plugin settings "
 

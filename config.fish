@@ -21,4 +21,6 @@ set -x BLOCKLYCRAFT "/home/polydrone/codemao/BlocklyCraft"
 set -x MC_SERVER_DIR "/home/polydrone/mc_tmp/spigot1102"
 set -x LODASH "/home/polydrone/work_tmp/lodash.js"
 
+set -x RUST_SRC_PATH "/home/polydrone/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
+
 eval (python -m virtualfish)
