@@ -1,12 +1,20 @@
 [global]
     font = "Droid Sans 20"
     allow_markup = yes
+
+    # The format of the message. Possible variables are:
+    #   %a  appname
+    #   %s  summary
+    #   %b  body
+    #   %i  iconname (including its path)
+    #   %I  iconname (without its path)
     format = "<b>%s</b>\n%b"
+
     sort = yes
     indicate_hidden = yes
     alignment = center
     bounce_freq = 0
-    show_age_threshold = 60
+    show_age_threshold = -1
     word_wrap = yes
     ignore_newline = no
     geometry = "500x20-6+30"
@@ -38,7 +46,7 @@
 [urgency_low]
     background = "#181818"
     foreground = "#E3C7AF"
-    timeout = 0
+    timeout = 3
 
 [urgency_normal]
     background = "#181818"
@@ -46,6 +54,21 @@
     timeout = 0
 
 [urgency_critical]
-    background = "#181818"
-    foreground = "#E3C7AF"
+    background = "#E17800"
+    foreground = "#000000"
     timeout = 0
+
+# Every section that isn't one of the above is interpreted as a rules
+# to override settings for certain messages.
+# Messages can be matched by 'appname', 'summary', 'body' or 'icon'
+# and you can override the 'timeout', 'urgency', 'foreground', 'background'
+# and 'format'.
+# Shell-like globbing will get expanded.
+
+[phabricator]
+    appname = Firefox
+    urgency = critical
+
+[KDE Connect]
+    appname = KDE Connect
+    urgency = low
