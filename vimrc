@@ -1103,7 +1103,7 @@ function! g:BuildClang(config, doclean)
             \ '%E%m'
 
     exec "make -C " . a:config . "/ -j4 " . a:doclean
-    silent exec "!/home/oliver/bin/done"
+    silent exec "!$HOME/bin/done"
 endfunction
 nnoremap <silent> <leader>oo :call g:BuildClang("Debug", "")<cr>
 nnoremap <silent> <leader>oc :call g:BuildClang("Debug", "clean")<cr>
