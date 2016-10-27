@@ -199,6 +199,7 @@ if has("autocmd")
     " Clear autocmds for this group
     autocmd!
     au FileType python setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=8 
+    au FileType yaml setlocal expandtab shiftwidth=2 softtabstop=2
     au FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2
 
     " Typescript
