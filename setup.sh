@@ -8,6 +8,7 @@ for f in $DOTNAMED ; do
 done
 
 mkdir -p ~/.config/fish
+mkdir -p ~/.config/dunst
 mkdir -p ~/.vimperator/info/dev-edition-default
 mkdir -p ~/.i3
 mkdir -p ~/.mpv
@@ -19,6 +20,7 @@ ln -s ~/Configuration-files/flake8 ~/.config/flake8
 ln -s ~/Configuration-files/bin ~/bin
 
 ln -s ~/Configuration-files/dotvim ~/.vim
+ln -s ~/Configuration-files/dunstrc ~/.config/dunst/dunstrc
 
 ln -s ~/Configuration-files/config.fish ~/.config/fish/config.fish
 ln -s ~/Configuration-files/fish-functions ~/.config/fish/functions

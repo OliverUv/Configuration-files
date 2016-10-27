@@ -294,6 +294,8 @@ client.unfocused        #000000 #000000 #666666 #191d1e
 client.urgent           #2f343a #900000 #ffffff #900000
 
 exec --no-startup-id $redshift
+exec killall -q notify-osd
+exec --no-startup-id dunst
 
 # keyboard key autorepeat rate
 exec --no-startup-id xset r rate 210 30

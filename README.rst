@@ -20,4 +20,5 @@ Default applications
 * pactl
 * wmctrl
 * zeal
+* dunst (and gnotifier plugin for firefox)
 
