@@ -31,6 +31,7 @@ file1=$(mktemp --tmpdir i3lock-wrapper-XXXXXXXXXX.png)
 file2=$(mktemp --tmpdir i3lock-wrapper-XXXXXXXXXX.png)
 
 echo "`date`: LOCK" >> ~/.log/onoff
+killall -SIGUSR1 dunst # pause
 
 scrot -d0 "$file1"
 #convert "$file1" -blur 0x4 "$file2"
@@ -38,3 +39,4 @@ convert "$file1" -noise 5x10 -median 0x2 -fill '#E17800' -tint 50 -blur 0x3 "$fi
 i3lock --nofork --image "$file2"
 rm "$file1" "$file2"
 echo "`date`: UNLOCK" >> ~/.log/onoff
+killall -SIGUSR2 dunst # resume
