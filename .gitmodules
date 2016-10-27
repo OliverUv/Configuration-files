@@ -329,3 +329,6 @@
 [submodule "dotvim/bundle/rust.vim"]
 	path = dotvim/bundle/rust.vim
 	url = git@github.com:rust-lang/rust.vim.git
+[submodule "dotvim/bundle/vim-racer"]
+	path = dotvim/bundle/vim-racer
+	url = git@github.com:racer-rust/vim-racer.git
