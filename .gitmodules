@@ -269,9 +269,6 @@
 [submodule "dotvim/bundle/vim-eunuch"]
 	path = dotvim/bundle/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch.git
-[submodule "dotvim/bundle/rust.vim"]
-	path = dotvim/bundle/rust.vim
-	url = https://github.com/wting/rust.vim.git
 [submodule "dotvim/bundle/nerdcommenter"]
 	path = dotvim/bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
