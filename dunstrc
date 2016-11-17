@@ -38,10 +38,14 @@
     color = "#383838"
 
 [shortcuts]
-    close = ctrl+space
-    close_all = ctrl+shift+space
-    history = ctrl+grave
-    context = ctrl+shift+period
+    # Shortcuts are specified as [modifier+][modifier+]...key
+    # Available modifiers are "ctrl", "mod1" (the alt-key), "mod2",
+    # "mod3" and "mod4" (windows-key).
+    # Xev might be helpful to find names for keys.
+    close = mod4+n
+    close_all = mod4+m
+    history = mod4+h
+    context = mod4+j
 
 [urgency_low]
     background = "#181818"
