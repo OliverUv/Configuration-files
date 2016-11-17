@@ -55,6 +55,7 @@ nnoremap gh :hs!
 map <Leader>r :lowlight<cr>
 map <Leader>i :o ip<cr>
 map <Leader>R :o rb<cr>
+map <Leader>s :o javascript:(function(){window.location='http://smmry.com/'+location.href})();<cr>
 map <Leader>t :set gui=invmenu,invnavigation<cr>
 
 javascript lowlightBackground = "#141414"
