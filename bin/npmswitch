@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+tmpfile=$(mktemp --tmpdir npmrctmp-XXXX)
+mv ~/.npmrc $tmpfile
+mv ~/.npmrc.alt ~/.npmrc
+mv $tmpfile ~/.npmrc.alt
