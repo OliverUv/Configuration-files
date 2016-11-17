@@ -194,15 +194,34 @@ set wildignore+=*/Debug/*,*/Release/*
 " }}} Completion ignores "
 
 " Filetype specific settings {{{ "
+
+" Build scripts {{{ "
+function! g:BuildClang(config, doclean)
+    " From Syntastic, to be used with clang
+    " -fshow-column
+    " -fshow-source-location
+    " -fno-caret-diagnostics
+    " -fno-color-diagnostics
+    " -fdiagnostics-format=clang
+    let errorformat =
+            \ '%E%f:%l:%c: fatal error: %m,' .
+            \ '%E%f:%l:%c: error: %m,' .
+            \ '%W%f:%l:%c: warning: %m,' .
+            \ '%-G%\m%\%%(LLVM ERROR:%\|No compilation database found%\)%\@!%.%#,' .
+            \ '%E%m'
+
+    exec "make -C " . a:config . "/ -j4 " . a:doclean
+    silent exec "!$HOME/bin/done"
+endfunction
+" }}} Build scripts "
+
+
 if has("autocmd")
     augroup MyFtCommands
     " Clear autocmds for this group
     autocmd!
-    au FileType python setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=8 
-    au FileType yaml setlocal expandtab shiftwidth=2 softtabstop=2
-    au FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2
 
-    " Typescript
+    " typescript {{{ "
     au FileType typescript setlocal expandtab shiftwidth=2 softtabstop=2 omnifunc=tsuquyomi#complete
     au FileType typescript nmap <buffer> <Leader>jr :TsuquyomiRenameSymbol<CR>
     au FileType typescript nmap <buffer> <Leader>jR :TsuquyomiRenameSymbolC<CR>
@@ -214,25 +233,45 @@ if has("autocmd")
     au FileType typescript nmap <buffer> <Leader>jk :<C-u>echo tsuquyomi#hint()<CR>
     au FileType typescript nnoremap <silent> <leader>lf :<C-u>Unite tsproject<CR>
 
-    au FileType htmldjango setlocal expandtab shiftwidth=2 softtabstop=2
-    au BufNewFile,BufReadPost *.coffee setlocal foldmethod=indent shiftwidth=2 softtabstop=2 expandtab
-    au BufWritePost,FileWritePost *.coffee silent make!
-    au FileType c setlocal colorcolumn=79
+    au FileType typescript let g:neomake_serialize = 1
+    au FileType typescript let g:neomake_serialize_abort_on_error = 1
+    au FileType typescript nnoremap <silent> <leader>oo :<C-u>Neomake! tsc tslint<cr>
+    " }}} typescript "
+
+    " cpp {{{ "
     au FileType cpp setlocal list expandtab shiftwidth=4 softtabstop=4
-    au FileType gitcommit setlocal nolist cursorline cursorcolumn
-    au FileType {make,gitconfig} set noexpandtab sw=4
-    au QuickFixCmdPost * nested cwindow | redraw!
-    au FileType vim setlocal foldmethod=marker
-    au FileType md setlocal linebreak
-    au FileType tex setlocal linebreak
-    au FileType txt setlocal linebreak
-    au FileType rst setlocal linebreak
+
+    au FileType cpp nnoremap <silent> <leader>oo :call g:BuildClang("Debug", "")<cr>
+    au FileType cpp nnoremap <silent> <leader>oc :call g:BuildClang("Debug", "clean")<cr>
+    au FileType cpp nnoremap <silent> <leader>oq :!qoden<cr>
+    au FileType cpp nnoremap <silent> <leader>oO :call g:BuildClang("Release", "")<cr>
+    au FileType cpp nnoremap <silent> <leader>oC :call g:BuildClang("Release", "clean")<cr>
+    au FileType cpp nnoremap <silent> <leader>ov :call g:BuildClang("VisuLove", "dvisulove")<cr>
+    au FileType cpp nnoremap <silent> <leader>ob :call g:BuildClang("VisuLove", "visuclean")<cr>
 
     " Autocommands for fswitch.vim
     au BufEnter *.cpp let b:fswitchdst = 'h'
     au BufEnter *.cpp let b:fswitchlocs = 'reg:/src/include/,reg:/src.*/include/,reg:|src|include/**|,../include'
     au BufEnter *.h let b:fswitchdst = 'cpp,c'
     au BufEnter *.h let b:fswitchlocs = 'reg:|include|src/**|,reg:|include.*|src/**|,../src'
+    " }}} cpp "
+
+    " All
+    au QuickFixCmdPost * nested cwindow | redraw!
+
+    " Misc
+    au FileType c setlocal colorcolumn=79
+    au BufNewFile,BufReadPost *.coffee setlocal foldmethod=indent shiftwidth=2 softtabstop=2 expandtab
+    au BufWritePost,FileWritePost *.coffee silent make!
+    au FileType gitcommit setlocal nolist cursorline cursorcolumn
+    au FileType htmldjango setlocal expandtab shiftwidth=2 softtabstop=2
+    au FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2
+    au FileType python setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=8 
+    au FileType yaml setlocal expandtab shiftwidth=2 softtabstop=2
+    au FileType {make,gitconfig} set noexpandtab sw=4
+    au FileType vim setlocal foldmethod=marker
+    au FileType {md,tex,txt,rst,text} setlocal linebreak
+
     augroup end
 
 endif
@@ -288,7 +327,7 @@ function! FileEncoding()
     endif
 endfunction
 
-set statusline=%<%F\ %m%r%h%w%{fugitive#statusline()}\ %Y\ %{FileEncoding()}\ %{&ff}%=%#warningmsg#%{SyntasticStatuslineFlag()}%*\ %c\,\ %l/%L\ %p%%\ 
+set statusline=%<%F\ %m%r%h%w%{fugitive#statusline()}\ %Y\ %{FileEncoding()}\ %{&ff}%=%#warningmsg#%{SyntasticStatuslineFlag()}%{neomake#statusline#LoclistStatus()}%{neomake#statusline#QflistStatus()}%*\ %l/%L\,\ %c\ %p%%\ 
 " <	truncation point
 " F	full path to file
 " m	modified marker
@@ -468,6 +507,40 @@ nnoremap <silent> <leader>.. :edit %:h<CR>
 let g:space_no_buffers = 1
 let g:space_no_tabs = 1
 " }}} vim-space "
+
+" NeoMake {{{ "
+"" https://github.com/neomake/neomake
+""
+
+" Seems like NeoMake doesn't honour this when 0 or 2, when using :Neomake!
+" let g:neomake_open_list = 2
+let g:neomake_list_height = 7
+
+" augroup my_neomake
+"     au!
+"     autocmd User NeomakeFinished silent exec "!$HOME/bin/done"
+" augroup END
+
+" Typescript {{{ "
+function! neomake#makers#ft#typescript#tsc() abort
+    " Copied from NeoMake source to remove the cwd set, which
+    " erroneous paths to be put in the location / quickfix list
+    return {
+        \ 'args': [],
+        \ 'append_file': 0,
+        \ 'errorformat':
+            \ '%E%f(%l\,%c): error TS%n: %m.,' .
+            \ '%E%f %#(%l\,%c): error %m,' .
+            \ '%E%f %#(%l\,%c): %m,' .
+            \ '%Eerror %m,' .
+            \ '%C%\s%\+%m'
+        \ }
+endfunction
+
+let g:neomake_typescript_tslint_args = ['--type-check', '--project', './tsconfig.json']
+" }}} Typescript "
+
+" }}} NeoMake "
 
 " tsuquyomi {{{ "
 "" https://github.com/Quramy/tsuquyomi
@@ -1087,37 +1160,6 @@ nnoremap <silent> <leader>6 :call HiInterestingWord(6)<cr>
 " if you do you'll probably want to use another mark.
 inoremap <c-b> <esc>mzgUiw`za
 " }}} Uppercase word mapping "
-
-" Build scripts {{{ "
-
-function! g:BuildClang(config, doclean)
-    " From Syntastic, to be used with clang
-    " -fshow-column
-    " -fshow-source-location
-    " -fno-caret-diagnostics
-    " -fno-color-diagnostics
-    " -fdiagnostics-format=clang
-    let errorformat =
-            \ '%E%f:%l:%c: fatal error: %m,' .
-            \ '%E%f:%l:%c: error: %m,' .
-            \ '%W%f:%l:%c: warning: %m,' .
-            \ '%-G%\m%\%%(LLVM ERROR:%\|No compilation database found%\)%\@!%.%#,' .
-            \ '%E%m'
-
-    exec "make -C " . a:config . "/ -j4 " . a:doclean
-    silent exec "!$HOME/bin/done"
-endfunction
-nnoremap <silent> <leader>oo :call g:BuildClang("Debug", "")<cr>
-nnoremap <silent> <leader>oc :call g:BuildClang("Debug", "clean")<cr>
-nnoremap <silent> <leader>oq :!qoden<cr>
-nnoremap <silent> <leader>oO :call g:BuildClang("Release", "")<cr>
-nnoremap <silent> <leader>oC :call g:BuildClang("Release", "clean")<cr>
-
-nnoremap <silent> <leader>ov :call g:BuildClang("VisuLove", "dvisulove")<cr>
-nnoremap <silent> <leader>ob :call g:BuildClang("VisuLove", "visuclean")<cr>
-
-
-" }}} Build scripts "
 
 " Visual-linewise macro playback aka visual-at.vim {{{ "
 " https://github.com/stoeffel/.dotfiles/blob/master/vim/visual-at.vim
