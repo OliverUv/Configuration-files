@@ -211,8 +211,8 @@ bindsym $mod+F5 exec xbacklight -dec 5
 bindsym $mod+F6 exec xbacklight -inc 5
 
 bindsym $mod+F7 exec ~/.layout/laptop.sh
-bindsym $mod+F8 exec ~/.layout/leftof.sh
-bindsym $mod+F9 exec ~/.layout/above.sh
+bindsym $mod+F8 exec ~/.layout/office.sh
+bindsym $mod+F9 exec ~/.layout/home.sh
 
 bindsym $mod2+Shift+X exec setx
 
@@ -304,5 +304,4 @@ exec --no-startup-id xset r rate 210 30
 exec --no-startup-id xset m 0 0
 # disable screen blanking TODO fix this
 exec --no-startup-id xset s 0
-#exec google-chrome
 
