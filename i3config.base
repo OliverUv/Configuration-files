@@ -305,3 +305,5 @@ exec --no-startup-id xset m 0 0
 # disable screen blanking TODO fix this
 exec --no-startup-id xset s 0
 
+# Clear background
+exec --no-startup-id xsetroot -solid "#000000"
