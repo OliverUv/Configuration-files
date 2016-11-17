@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 # ssh-add -D
 echo "`date`: SUSPEND" >> ~/.log/onoff
 
@@ -13,4 +13,4 @@ dbus-send --system --print-reply \
     /org/freedesktop/UPower \
     org.freedesktop.UPower.Suspend
 
-echo "`date`: UNSUSPEND" >> ~/.log/onoff
+echo -e "`date`: UNSUSPEND\n" >> ~/.log/onoff
