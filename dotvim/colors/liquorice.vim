@@ -268,5 +268,9 @@ hi def InterestingWord6 guifg=#000000 guibg=#79A9A9
 hi SneakPluginTarget gui=BOLD guifg=#000000 guibg=#ffa8ff
 hi SneakPluginScope  guifg=NONE guibg=#8a8a8a
 
+" Highlights for NeoMake
+hi link NeomakeWarningSign WarningMsg
+hi link NeomakeErrorSign ErrorMsg
+
 " lots more tiwddling available here:
 " https://github.com/altercation/vim-colors-solarized/commit/7a7e5c8818d717084730133ed6b84a3ffc9d0447
