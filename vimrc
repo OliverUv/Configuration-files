@@ -823,7 +823,7 @@ if ! exists('g:TagHighlightSettings')
     let g:TagHighlightSettings = {}
 endif
 " let g:TagHighlightSettings['TagFileName'] = '.git/tags'
-" let g:gutentags_tagfile = '.git/tags'
+let g:gutentags_exclude = ['node_modules', 'build', 'dist']
 
 let g:undotree_SetFocusWhenToggle = 1
 
