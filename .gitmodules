@@ -332,3 +332,6 @@
 [submodule "dotvim/bundle/vim-racer"]
 	path = dotvim/bundle/vim-racer
 	url = git@github.com:racer-rust/vim-racer.git
+[submodule "dotvim/bundle/neomake"]
+	path = dotvim/bundle/neomake
+	url = git@github.com:neomake/neomake.git
