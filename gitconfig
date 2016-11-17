@@ -3,7 +3,7 @@
 	editor = vim
 [user]
 	email = oliver.uvman@gmail.com
-	name = Oliver Uvman
+	name = OliverUv
 [merge]
 	tool = vimdiff
 [alias]
