@@ -230,14 +230,17 @@ if has("autocmd")
     au FileType typescript nmap <buffer> <Leader>ji :TsuquyomiImport<CR>
     au FileType typescript nmap <buffer> <Leader>jz :TsuquyomiOpen<CR>
     au FileType typescript nmap <buffer> <Leader>jZ :TsuquyomiStopServer<CR>:TsuquyomiStartServer<CR>:TsuquyomiOpen<CR>
+    au FileType typescript nnoremap <silent> <leader>lf :<C-u>Unite tsproject<CR>
+
+    au FileType typescript nmap <buffer> K :<C-u>echo tsuquyomi#hint()<CR>
     au FileType typescript nmap <buffer> <Leader>fk :<C-u>echo tsuquyomi#hint()<CR>
     au FileType typescript nmap <buffer> <Leader>jk :<C-u>echo tsuquyomi#hint()<CR>
-    au FileType typescript nnoremap <silent> <leader>lf :<C-u>Unite tsproject<CR>
 
     au FileType typescript let g:neomake_serialize = 1
     au FileType typescript let g:neomake_serialize_abort_on_error = 1
     au FileType typescript nnoremap <silent> <leader>oo :<C-u>Neomake! tsc tslint<cr>
     au FileType typescript nnoremap <silent> <leader>oO :<C-u>Neomake! tsc<cr>
+    au FileType typescript nnoremap <silent> <leader>of :<C-u>TsuquyomiGeterrProject<cr>
     " }}} typescript "
 
     " cpp {{{ "
@@ -549,6 +552,11 @@ let g:neomake_typescript_tslint_args = ['--type-check', '--project', './tsconfig
 ""
 let g:tsuquyomi_disable_quickfix = 1 " Use syntastic's shizzle instead
 let g:syntastic_typescript_checkers = ['tsuquyomi']
+
+let g:tsuquyomi_single_quote_import = 1
+
+let g:tsuquyomi_completion_detail = 1
+let g:tsuquyomi_completion_preview = 1
 " }}} tsuquyomi "
 
 " Gist {{{ "
