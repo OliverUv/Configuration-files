@@ -135,11 +135,11 @@ hi VisualNOS    gui=NONE guifg=NONE guibg=#7C2B7C
 " Syntax group
 hi Comment      gui=NONE guifg=#8a8a8a guibg=NONE
 hi Error        gui=BOLD guifg=#f2ca03 guibg=#000000
-hi Identifier   gui=NONE guifg=#40f8f8 guibg=NONE
+hi Identifier   gui=NONE guifg=#39e6e6 guibg=NONE
 hi Ignore       gui=NONE guifg=bg      guibg=NONE
 hi PreProc      gui=NONE guifg=#ffa8ff guibg=NONE
 hi Constant     gui=NONE guifg=#f8bef8 guibg=NONE
-hi Special      gui=NONE guifg=#ff9a4c guibg=#0f0f0f
+hi Special      gui=NONE guifg=#ce9662 guibg=#0f0f0f
 hi Statement    gui=NONE guifg=#6699cc guibg=NONE
 hi Repeat       gui=BOLD guifg=#6699cc guibg=NONE
 hi Todo         gui=UNDERLINE,ITALIC guifg=#ff80d0 guibg=NONE
@@ -184,7 +184,11 @@ hi link SpecialChar     Special
 hi link SpecialComment  Special
 hi link Debug           Special
 
-" Special for Java
+" TypeScript
+" defined by yats.vim
+hi link typescriptBraces Statement
+
+" Java
 " hi link javaClassDecl    Type
 hi link javaScopeDecl         Identifier 
 hi link javaCommentTitle      javaDocSeeTag 
@@ -196,12 +200,12 @@ hi  javaDocSeeTag guifg=#CCCCCC guibg=NONE gui=NONE
 hi  javaDocSeeTag guifg=#CCCCCC guibg=NONE gui=NONE
 "hi javaClassDecl guifg=#CCFFCC guibg=NONE gui=NONE
 
-" Special for XML
+" XML
 hi link xmlTag          Keyword 
 hi link xmlTagName      Conditional 
 hi link xmlEndTag       Identifier 
 
-" Special for HTML
+" HTML
 hi htmlH1 guifg=#de675c   gui=underline
 hi htmlLink guifg=#c777ff gui=underline
 hi link htmlTag         Keyword
@@ -211,7 +215,7 @@ hi link htmlH2          htmlH1
 hi link htmlH3          htmlH1
 hi link htmlH4          htmlH1
 
-" Special for CSS
+" CSS
 hi cssTagName guifg=#70a8dd gui=BOLD
 hi cssBoxProp guifg=#d0af76  gui=NONE
 hi link cssColorProp cssBoxProp
@@ -220,12 +224,12 @@ hi link cssTextProp cssBoxProp
 hi cssPseudoClassId guifg=#9ccfdd gui=italic
 hi cssIdentifier    guifg=#a2ddb8 gui=italic
 
-" Special for Markdown
+" Markdown
 hi markdownUrl guifg=#e48944
 hi markdownCode guifg=#a7bee4 gui=BOLD
 hi markdownCodeBlock guifg=#c5b1e4
 
-" Special for Javascript
+" Javascript
 hi javaScriptBrowserObjects       guifg=#DBB6D2      gui=italic
 
 hi javaScriptDOMObjects           guifg=#DBB6D2      gui=BOLD
@@ -243,10 +247,10 @@ hi javaScriptEventListenerKeyword guifg=#6699CC
 hi link javaScriptNumber      Number 
 hi link javaScriptPropietaryObjects javaScriptAjaxObjects
 
-" Special for CoffeeScript
+" CoffeeScript
 hi coffeeSpecialVar gui=NONE guifg=#edc37c guibg=NONE
 
-" Special for fugitive (via vim-git plugin)
+" fugitive (via vim-git plugin)
 hi link gitcommitSummary Conditional
 hi link gitcommitOverflow Error
 hi gitcommitFile guifg=#e8e8e8 guibg=NONE
