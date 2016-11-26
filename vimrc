@@ -1053,7 +1053,7 @@ let g:zv_file_types = {
 
 " rust, racer {{{ "
 let g:rustfmt_command = "$HOME/.cargo/bin/rustfmt"
-let g:rustfmt_autosave = 1
+let g:rustfmt_autosave = 0
 let g:racer_cmd = "$HOME/.cargo/bin/racer"
 let $RUST_SRC_PATH = "$HOME/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
 " }}} rust, racer "
