@@ -145,11 +145,11 @@ hi Repeat       gui=BOLD guifg=#6699cc guibg=NONE
 hi Todo         gui=UNDERLINE,ITALIC guifg=#ff80d0 guibg=NONE
 hi Type         gui=NONE guifg=#60f0a8 guibg=NONE
 hi Underlined   gui=UNDERLINE guifg=fg guibg=NONE
-hi String       gui=NONE guifg=#bccf72 guibg=#0f0f0f
+hi String       gui=NONE guifg=#baa798 guibg=#0f0f0f
 hi Number       gui=NONE guifg=#acdd82 guibg=NONE
 hi Conditional  gui=BOLD guifg=#86bbee guibg=NONE
 hi Boolean      gui=NONE guifg=#86bbee guibg=NONE
-hi Function     gui=NONE guifg=#CCA670 guibg=NONE
+hi Function     gui=NONE guifg=#cea662 guibg=NONE
 hi Delimiter    gui=NONE guifg=#00a0a0 guibg=NONE
 hi Operator     gui=NONE guifg=#86bbee guibg=NONE
 
