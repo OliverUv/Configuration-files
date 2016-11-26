@@ -1243,6 +1243,12 @@ nnoremap <Down> 3<C-e>
 nnoremap <Left> 10zh
 nnoremap <Right> 10zl
 
+" Smoother mouse scroll
+inoremap <ScrollWheelUp> 2<C-Y>
+inoremap <ScrollWheelDown> 2<C-E>
+nnoremap <ScrollWheelUp> 2<C-Y>
+nnoremap <ScrollWheelDown> 2<C-E>
+
 " Mark current word (as with * but without movement)
 " Switch HL / ^$ for faster movement
 noremap H ^
