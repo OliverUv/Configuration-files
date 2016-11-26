@@ -135,6 +135,7 @@ set tildeop             " Tilde acts as an operator (no need to g~ to switch cas
 set iskeyword+=å,ä,ö    " Add swedish characters to iskeyword
 set virtualedit=block   " Allow cursor to be moved into empty space while in visual mode
 set display=lastline    " Show last line at bottom of window, even if it can't be displayed entirely
+set noshowmode          " Don't show that we're in insert mode
 " set spellfile=$HOME/.vim/spell/ TODO
 
 " Make Vim able to edit crontab files again.
@@ -807,6 +808,7 @@ nnoremap <silent> <leader>q :Ctoggle<cr>
 " Neocomplete {{{ "
 " http://github.com/Shougo/neocomplete.vim
 let g:neocomplete#enable_at_startup = 1
+let g:echodoc_enable_at_startup = 1
 
 if !exists('g:neocomplete#sources#omni#functions')
     let g:neocomplete#sources#omni#functions = {}
