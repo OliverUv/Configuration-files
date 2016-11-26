@@ -328,7 +328,7 @@ function! FileEncoding()
     endif
 endfunction
 
-set statusline=%<%F\ %m%r%h%w%{fugitive#statusline()}\ %Y\ %{FileEncoding()}\ %{&ff}%=%#warningmsg#%{SyntasticStatuslineFlag()}%{neomake#statusline#LoclistStatus()}%{neomake#statusline#QflistStatus()}%*\ %l/%L\,\ %c\ %p%%\ 
+set statusline=%<%F\ %m%r%h%w%{fugitive#statusline()}\ %Y\ %{FileEncoding()}\ %{&ff}%=%#warningmsg#%{SyntasticStatuslineFlag()}%*\ %l/%L\,\ %c\ %p%%\ 
 " <	truncation point
 " F	full path to file
 " m	modified marker
