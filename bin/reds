@@ -2,10 +2,10 @@
 
 # Usage: $(basename $0) [night time color value] [brightness]
 # daytime-color: 6500
-# night-time default color: 3700
+# night-time default color: 4200
 # brightness default: 1.00
 
-color="4900"
+color="4200"
 brightness="1.0"
 
 linkoping="58.411975:15.559395"
