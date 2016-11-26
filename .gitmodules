@@ -335,3 +335,6 @@
 [submodule "dotvim/bundle/neomake"]
 	path = dotvim/bundle/neomake
 	url = git@github.com:neomake/neomake.git
+[submodule "dotvim/bundle/echodoc.vim"]
+	path = dotvim/bundle/echodoc.vim
+	url = git@github.com:Shougo/echodoc.vim.git
