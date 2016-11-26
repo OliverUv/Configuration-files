@@ -237,6 +237,7 @@ if has("autocmd")
     au FileType typescript let g:neomake_serialize = 1
     au FileType typescript let g:neomake_serialize_abort_on_error = 1
     au FileType typescript nnoremap <silent> <leader>oo :<C-u>Neomake! tsc tslint<cr>
+    au FileType typescript nnoremap <silent> <leader>oO :<C-u>Neomake! tsc<cr>
     " }}} typescript "
 
     " cpp {{{ "
