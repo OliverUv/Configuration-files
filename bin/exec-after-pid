@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 
 function usage {
-	echo "Usage: $(basename $0) command pid" >&2
+	echo "Usage: $(basename $0) pid command" >&2
 	echo "Runs bash -c command when pid exits" >&2
 }
 
 if [ "$1" = "-h" -o "$1" = "--help" ]; then
 	usage
 	exit 0
-elif [ $# != 2 ]; then
+elif [ $# -lt 2 ]; then
 	echo "No pid or command provided" >&2
 	usage
 	exit 16
 fi
 
-while [[ -d "/proc/$2" ]]; do sleep 1; done; bash -c "$1"
+while [[ -d "/proc/$1" ]]; do sleep 1; done; bash -c "${*:2}"
