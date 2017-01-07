@@ -106,11 +106,11 @@ hi Folded       gui=NONE guifg=#c8c8c8 guibg=#0c0c0c
 hi FoldColumn   gui=NONE guifg=#c8c8c8 guibg=#212121
 
 " vim-indent-guides
-hi IndentGuidesOdd  gui=NONE guifg=NONE guibg=#0a0a0a
-hi IndentGuidesEven gui=NONE guifg=NONE guibg=#0d0d0d
+hi IndentGuidesOdd  gui=NONE guifg=NONE guibg=#141414
+hi IndentGuidesEven gui=NONE guifg=NONE guibg=#060606
 
 " Signs
-hi SignColumn   gui=NONE guifg=#f0f0f0 guibg=#0e0e0e
+hi SignColumn   gui=NONE guifg=#f0f0f0 guibg=#060606
 
 " ColorColumn
 hi ColorColumn   gui=NONE guifg=NONE guibg=#000000
@@ -122,7 +122,7 @@ hi SpellBad	gui=UNDERCURL guifg=NONE guibg=NONE guisp=#FF0000
 
 " Other
 hi Directory    gui=NONE guifg=#c8c8ff guibg=NONE
-hi LineNr       gui=ITALIC guifg=#727272 guibg=#0e0e0e
+hi LineNr       gui=ITALIC guifg=#444444 guibg=#060606
 hi CursorLineNr gui=ITALIC,BOLD guifg=#0e0e0e guibg=#99004c
 "hi NonText      gui=BOLD guifg=#d84070 guibg=#0b0b0b
 "hi SpecialKey   gui=BOLD guifg=#8888ff guibg=NONE

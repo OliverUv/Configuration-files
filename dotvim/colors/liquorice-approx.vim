@@ -1,5 +1,5 @@
 " This scheme was created by CSApproxSnapshot
-" on Sat, 26 Nov 2016
+" on Sat, 07 Jan 2017
 
 hi clear
 if exists("syntax_on")
@@ -104,7 +104,7 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi vimSyncLinecont term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi vimSyncRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi vimHiLink term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi IndentGuidesOdd term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#0a0a0a guifg=fg
+    CSAHi IndentGuidesOdd term=NONE cterm=NONE ctermbg=233 ctermfg=fg gui=NONE guibg=#141414 guifg=fg
     CSAHi Identifier term=underline cterm=NONE ctermbg=bg ctermfg=87 gui=NONE guibg=bg guifg=#39e6e6
     CSAHi Statement term=bold cterm=NONE ctermbg=bg ctermfg=110 gui=NONE guibg=bg guifg=#6699cc
     CSAHi PreProc term=underline cterm=NONE ctermbg=bg ctermfg=219 gui=NONE guibg=bg guifg=#ffa8ff
@@ -202,7 +202,7 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi rainbow_o12 term=NONE cterm=NONE ctermbg=bg ctermfg=181 gui=NONE guibg=bg guifg=#c6a890
     CSAHi rainbow_p12 term=NONE cterm=NONE ctermbg=bg ctermfg=181 gui=NONE guibg=bg guifg=#c6a890
     CSAHi vimStdPlugin term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi IndentGuidesEven term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#0d0d0d guifg=fg
+    CSAHi IndentGuidesEven term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#060606 guifg=fg
     CSAHi SyntasticWarningLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi luaIfThen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi luaElseifThen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
@@ -251,14 +251,14 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi InterestingWord6 term=NONE cterm=NONE ctermbg=109 ctermfg=16 gui=NONE guibg=#79a9a9 guifg=#000000
     CSAHi SneakPluginTarget term=NONE cterm=bold ctermbg=219 ctermfg=16 gui=bold guibg=#ffa8ff guifg=#000000
     CSAHi SneakPluginScope term=NONE cterm=NONE ctermbg=245 ctermfg=fg gui=NONE guibg=#8a8a8a guifg=fg
-    CSAHi NeomakeMessageSignDefault term=NONE cterm=NONE ctermbg=233 ctermfg=153 gui=NONE guibg=#0e0e0e guifg=#a0d0ff
-    CSAHi NeomakeWarningSignDefault term=NONE cterm=NONE ctermbg=233 ctermfg=218 gui=NONE guibg=#0e0e0e guifg=#ff80d0
+    CSAHi NeomakeMessageSignDefault term=NONE cterm=NONE ctermbg=232 ctermfg=153 gui=NONE guibg=#060606 guifg=#a0d0ff
+    CSAHi NeomakeWarningSignDefault term=NONE cterm=NONE ctermbg=232 ctermfg=218 gui=NONE guibg=#060606 guifg=#ff80d0
     CSAHi luaFunctionBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi vimMenuMap term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi vimMenuRhs term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi vimNormCmds term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi vimGroupList term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi LineNr term=underline cterm=NONE ctermbg=233 ctermfg=243 gui=italic guibg=#0e0e0e guifg=#727272
+    CSAHi LineNr term=underline cterm=NONE ctermbg=232 ctermfg=238 gui=italic guibg=#060606 guifg=#444444
     CSAHi CursorLineNr term=bold cterm=bold ctermbg=125 ctermfg=233 gui=bold,italic guibg=#99004c guifg=#0e0e0e
     CSAHi Question term=NONE cterm=bold ctermbg=bg ctermfg=226 gui=bold guibg=bg guifg=#e8e800
     CSAHi StatusLine term=bold,reverse cterm=NONE ctermbg=95 ctermfg=253 gui=NONE guibg=#602040 guifg=#d6d6d6
@@ -276,8 +276,8 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi podBoldItalic term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi podBoldOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi podBoldAlternativeDelimOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi NeomakeErrorSignDefault term=NONE cterm=NONE ctermbg=233 ctermfg=16 gui=NONE guibg=#0e0e0e guifg=#000000
-    CSAHi NeomakeInfoSignDefault term=NONE cterm=NONE ctermbg=233 ctermfg=226 gui=NONE guibg=#0e0e0e guifg=#e8e800
+    CSAHi NeomakeErrorSignDefault term=NONE cterm=NONE ctermbg=232 ctermfg=16 gui=NONE guibg=#060606 guifg=#000000
+    CSAHi NeomakeInfoSignDefault term=NONE cterm=NONE ctermbg=232 ctermfg=226 gui=NONE guibg=#060606 guifg=#e8e800
     CSAHi unitePrompt term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi luaParen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi vimAuSyntax term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
@@ -289,7 +289,7 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi DiffChange term=bold cterm=NONE ctermbg=58 ctermfg=181 gui=NONE guibg=#4a3000 guifg=#b5a586
     CSAHi DiffDelete term=bold cterm=NONE ctermbg=52 ctermfg=52 gui=NONE guibg=#400707 guifg=#440606
     CSAHi DiffText term=reverse cterm=bold ctermbg=52 ctermfg=fg gui=bold guibg=#1f1500 guifg=fg
-    CSAHi SignColumn term=NONE cterm=NONE ctermbg=233 ctermfg=255 gui=NONE guibg=#0e0e0e guifg=#f0f0f0
+    CSAHi SignColumn term=NONE cterm=NONE ctermbg=232 ctermfg=255 gui=NONE guibg=#060606 guifg=#f0f0f0
     CSAHi Conceal term=NONE cterm=NONE ctermbg=248 ctermfg=252 gui=NONE guibg=#a9a9a9 guifg=#d3d3d3
     CSAHi SpellBad term=reverse cterm=undercurl ctermbg=bg ctermfg=196 gui=undercurl guibg=bg guifg=fg guisp=#ff0000
     CSAHi vimFunction term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
@@ -371,7 +371,7 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi vimSyncLinecont term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi vimSyncRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi vimHiLink term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi IndentGuidesOdd term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#0a0a0a guifg=fg
+    CSAHi IndentGuidesOdd term=NONE cterm=NONE ctermbg=233 ctermfg=fg gui=NONE guibg=#141414 guifg=fg
     CSAHi Identifier term=underline cterm=NONE ctermbg=bg ctermfg=87 gui=NONE guibg=bg guifg=#39e6e6
     CSAHi Statement term=bold cterm=NONE ctermbg=bg ctermfg=117 gui=NONE guibg=bg guifg=#6699cc
     CSAHi PreProc term=underline cterm=NONE ctermbg=bg ctermfg=225 gui=NONE guibg=bg guifg=#ffa8ff
@@ -469,7 +469,7 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi rainbow_o12 term=NONE cterm=NONE ctermbg=bg ctermfg=223 gui=NONE guibg=bg guifg=#c6a890
     CSAHi rainbow_p12 term=NONE cterm=NONE ctermbg=bg ctermfg=223 gui=NONE guibg=bg guifg=#c6a890
     CSAHi vimStdPlugin term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi IndentGuidesEven term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#0d0d0d guifg=fg
+    CSAHi IndentGuidesEven term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#060606 guifg=fg
     CSAHi SyntasticWarningLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi luaIfThen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi luaElseifThen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
@@ -518,14 +518,14 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi InterestingWord6 term=NONE cterm=NONE ctermbg=152 ctermfg=16 gui=NONE guibg=#79a9a9 guifg=#000000
     CSAHi SneakPluginTarget term=NONE cterm=bold ctermbg=225 ctermfg=16 gui=bold guibg=#ffa8ff guifg=#000000
     CSAHi SneakPluginScope term=NONE cterm=NONE ctermbg=245 ctermfg=fg gui=NONE guibg=#8a8a8a guifg=fg
-    CSAHi NeomakeMessageSignDefault term=NONE cterm=NONE ctermbg=233 ctermfg=195 gui=NONE guibg=#0e0e0e guifg=#a0d0ff
-    CSAHi NeomakeWarningSignDefault term=NONE cterm=NONE ctermbg=233 ctermfg=219 gui=NONE guibg=#0e0e0e guifg=#ff80d0
+    CSAHi NeomakeMessageSignDefault term=NONE cterm=NONE ctermbg=232 ctermfg=195 gui=NONE guibg=#060606 guifg=#a0d0ff
+    CSAHi NeomakeWarningSignDefault term=NONE cterm=NONE ctermbg=232 ctermfg=219 gui=NONE guibg=#060606 guifg=#ff80d0
     CSAHi luaFunctionBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi vimMenuMap term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi vimMenuRhs term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi vimNormCmds term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi vimGroupList term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi LineNr term=underline cterm=NONE ctermbg=233 ctermfg=243 gui=italic guibg=#0e0e0e guifg=#727272
+    CSAHi LineNr term=underline cterm=NONE ctermbg=232 ctermfg=238 gui=italic guibg=#060606 guifg=#444444
     CSAHi CursorLineNr term=bold cterm=bold ctermbg=162 ctermfg=233 gui=bold,italic guibg=#99004c guifg=#0e0e0e
     CSAHi Question term=NONE cterm=bold ctermbg=bg ctermfg=226 gui=bold guibg=bg guifg=#e8e800
     CSAHi StatusLine term=bold,reverse cterm=NONE ctermbg=96 ctermfg=231 gui=NONE guibg=#602040 guifg=#d6d6d6
@@ -543,8 +543,8 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi podBoldItalic term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi podBoldOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi podBoldAlternativeDelimOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi NeomakeErrorSignDefault term=NONE cterm=NONE ctermbg=233 ctermfg=16 gui=NONE guibg=#0e0e0e guifg=#000000
-    CSAHi NeomakeInfoSignDefault term=NONE cterm=NONE ctermbg=233 ctermfg=226 gui=NONE guibg=#0e0e0e guifg=#e8e800
+    CSAHi NeomakeErrorSignDefault term=NONE cterm=NONE ctermbg=232 ctermfg=16 gui=NONE guibg=#060606 guifg=#000000
+    CSAHi NeomakeInfoSignDefault term=NONE cterm=NONE ctermbg=232 ctermfg=226 gui=NONE guibg=#060606 guifg=#e8e800
     CSAHi unitePrompt term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi luaParen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi vimAuSyntax term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
@@ -556,7 +556,7 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi DiffChange term=bold cterm=NONE ctermbg=94 ctermfg=187 gui=NONE guibg=#4a3000 guifg=#b5a586
     CSAHi DiffDelete term=bold cterm=NONE ctermbg=88 ctermfg=88 gui=NONE guibg=#400707 guifg=#440606
     CSAHi DiffText term=reverse cterm=bold ctermbg=52 ctermfg=fg gui=bold guibg=#1f1500 guifg=fg
-    CSAHi SignColumn term=NONE cterm=NONE ctermbg=233 ctermfg=255 gui=NONE guibg=#0e0e0e guifg=#f0f0f0
+    CSAHi SignColumn term=NONE cterm=NONE ctermbg=232 ctermfg=255 gui=NONE guibg=#060606 guifg=#f0f0f0
     CSAHi Conceal term=NONE cterm=NONE ctermbg=248 ctermfg=231 gui=NONE guibg=#a9a9a9 guifg=#d3d3d3
     CSAHi SpellBad term=reverse cterm=undercurl ctermbg=bg ctermfg=196 gui=undercurl guibg=bg guifg=fg guisp=#ff0000
     CSAHi vimFunction term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
@@ -638,7 +638,7 @@ elseif has("gui_running") || &t_Co == 256
     CSAHi vimSyncLinecont term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi vimSyncRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi vimHiLink term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi IndentGuidesOdd term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#0a0a0a guifg=fg
+    CSAHi IndentGuidesOdd term=NONE cterm=NONE ctermbg=233 ctermfg=fg gui=NONE guibg=#141414 guifg=fg
     CSAHi Identifier term=underline cterm=NONE ctermbg=bg ctermfg=80 gui=NONE guibg=bg guifg=#39e6e6
     CSAHi Statement term=bold cterm=NONE ctermbg=bg ctermfg=68 gui=NONE guibg=bg guifg=#6699cc
     CSAHi PreProc term=underline cterm=NONE ctermbg=bg ctermfg=219 gui=NONE guibg=bg guifg=#ffa8ff
@@ -736,7 +736,7 @@ elseif has("gui_running") || &t_Co == 256
     CSAHi rainbow_o12 term=NONE cterm=NONE ctermbg=bg ctermfg=180 gui=NONE guibg=bg guifg=#c6a890
     CSAHi rainbow_p12 term=NONE cterm=NONE ctermbg=bg ctermfg=180 gui=NONE guibg=bg guifg=#c6a890
     CSAHi vimStdPlugin term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi IndentGuidesEven term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#0d0d0d guifg=fg
+    CSAHi IndentGuidesEven term=NONE cterm=NONE ctermbg=232 ctermfg=fg gui=NONE guibg=#060606 guifg=fg
     CSAHi SyntasticWarningLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi luaIfThen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi luaElseifThen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
@@ -785,14 +785,14 @@ elseif has("gui_running") || &t_Co == 256
     CSAHi InterestingWord6 term=NONE cterm=NONE ctermbg=109 ctermfg=16 gui=NONE guibg=#79a9a9 guifg=#000000
     CSAHi SneakPluginTarget term=NONE cterm=bold ctermbg=219 ctermfg=16 gui=bold guibg=#ffa8ff guifg=#000000
     CSAHi SneakPluginScope term=NONE cterm=NONE ctermbg=245 ctermfg=fg gui=NONE guibg=#8a8a8a guifg=fg
-    CSAHi NeomakeMessageSignDefault term=NONE cterm=NONE ctermbg=233 ctermfg=153 gui=NONE guibg=#0e0e0e guifg=#a0d0ff
-    CSAHi NeomakeWarningSignDefault term=NONE cterm=NONE ctermbg=233 ctermfg=212 gui=NONE guibg=#0e0e0e guifg=#ff80d0
+    CSAHi NeomakeMessageSignDefault term=NONE cterm=NONE ctermbg=232 ctermfg=153 gui=NONE guibg=#060606 guifg=#a0d0ff
+    CSAHi NeomakeWarningSignDefault term=NONE cterm=NONE ctermbg=232 ctermfg=212 gui=NONE guibg=#060606 guifg=#ff80d0
     CSAHi luaFunctionBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi vimMenuMap term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi vimMenuRhs term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi vimNormCmds term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi vimGroupList term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi LineNr term=underline cterm=NONE ctermbg=233 ctermfg=243 gui=italic guibg=#0e0e0e guifg=#727272
+    CSAHi LineNr term=underline cterm=NONE ctermbg=232 ctermfg=238 gui=italic guibg=#060606 guifg=#444444
     CSAHi CursorLineNr term=bold cterm=bold ctermbg=89 ctermfg=233 gui=bold,italic guibg=#99004c guifg=#0e0e0e
     CSAHi Question term=NONE cterm=bold ctermbg=bg ctermfg=184 gui=bold guibg=bg guifg=#e8e800
     CSAHi StatusLine term=bold,reverse cterm=NONE ctermbg=53 ctermfg=188 gui=NONE guibg=#602040 guifg=#d6d6d6
@@ -810,8 +810,8 @@ elseif has("gui_running") || &t_Co == 256
     CSAHi podBoldItalic term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi podBoldOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi podBoldAlternativeDelimOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi NeomakeErrorSignDefault term=NONE cterm=NONE ctermbg=233 ctermfg=16 gui=NONE guibg=#0e0e0e guifg=#000000
-    CSAHi NeomakeInfoSignDefault term=NONE cterm=NONE ctermbg=233 ctermfg=184 gui=NONE guibg=#0e0e0e guifg=#e8e800
+    CSAHi NeomakeErrorSignDefault term=NONE cterm=NONE ctermbg=232 ctermfg=16 gui=NONE guibg=#060606 guifg=#000000
+    CSAHi NeomakeInfoSignDefault term=NONE cterm=NONE ctermbg=232 ctermfg=184 gui=NONE guibg=#060606 guifg=#e8e800
     CSAHi unitePrompt term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi luaParen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi vimAuSyntax term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
@@ -823,7 +823,7 @@ elseif has("gui_running") || &t_Co == 256
     CSAHi DiffChange term=bold cterm=NONE ctermbg=58 ctermfg=144 gui=NONE guibg=#4a3000 guifg=#b5a586
     CSAHi DiffDelete term=bold cterm=NONE ctermbg=52 ctermfg=52 gui=NONE guibg=#400707 guifg=#440606
     CSAHi DiffText term=reverse cterm=bold ctermbg=16 ctermfg=fg gui=bold guibg=#1f1500 guifg=fg
-    CSAHi SignColumn term=NONE cterm=NONE ctermbg=233 ctermfg=255 gui=NONE guibg=#0e0e0e guifg=#f0f0f0
+    CSAHi SignColumn term=NONE cterm=NONE ctermbg=232 ctermfg=255 gui=NONE guibg=#060606 guifg=#f0f0f0
     CSAHi Conceal term=NONE cterm=NONE ctermbg=248 ctermfg=252 gui=NONE guibg=#a9a9a9 guifg=#d3d3d3
     CSAHi SpellBad term=reverse cterm=undercurl ctermbg=bg ctermfg=196 gui=undercurl guibg=bg guifg=fg guisp=#ff0000
     CSAHi vimFunction term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
@@ -905,7 +905,7 @@ elseif has("gui_running") || &t_Co == 88
     CSAHi vimSyncLinecont term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi vimSyncRegion term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi vimHiLink term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi IndentGuidesOdd term=NONE cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#0a0a0a guifg=fg
+    CSAHi IndentGuidesOdd term=NONE cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#141414 guifg=fg
     CSAHi Identifier term=underline cterm=NONE ctermbg=bg ctermfg=26 gui=NONE guibg=bg guifg=#39e6e6
     CSAHi Statement term=bold cterm=NONE ctermbg=bg ctermfg=38 gui=NONE guibg=bg guifg=#6699cc
     CSAHi PreProc term=underline cterm=NONE ctermbg=bg ctermfg=71 gui=NONE guibg=bg guifg=#ffa8ff
@@ -1003,7 +1003,7 @@ elseif has("gui_running") || &t_Co == 88
     CSAHi rainbow_o12 term=NONE cterm=NONE ctermbg=bg ctermfg=53 gui=NONE guibg=bg guifg=#c6a890
     CSAHi rainbow_p12 term=NONE cterm=NONE ctermbg=bg ctermfg=53 gui=NONE guibg=bg guifg=#c6a890
     CSAHi vimStdPlugin term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi IndentGuidesEven term=NONE cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#0d0d0d guifg=fg
+    CSAHi IndentGuidesEven term=NONE cterm=NONE ctermbg=16 ctermfg=fg gui=NONE guibg=#060606 guifg=fg
     CSAHi SyntasticWarningLine term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi luaIfThen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi luaElseifThen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
@@ -1052,14 +1052,14 @@ elseif has("gui_running") || &t_Co == 88
     CSAHi InterestingWord6 term=NONE cterm=NONE ctermbg=37 ctermfg=16 gui=NONE guibg=#79a9a9 guifg=#000000
     CSAHi SneakPluginTarget term=NONE cterm=bold ctermbg=71 ctermfg=16 gui=bold guibg=#ffa8ff guifg=#000000
     CSAHi SneakPluginScope term=NONE cterm=NONE ctermbg=83 ctermfg=fg gui=NONE guibg=#8a8a8a guifg=fg
-    CSAHi NeomakeMessageSignDefault term=NONE cterm=NONE ctermbg=16 ctermfg=43 gui=NONE guibg=#0e0e0e guifg=#a0d0ff
-    CSAHi NeomakeWarningSignDefault term=NONE cterm=NONE ctermbg=16 ctermfg=70 gui=NONE guibg=#0e0e0e guifg=#ff80d0
+    CSAHi NeomakeMessageSignDefault term=NONE cterm=NONE ctermbg=16 ctermfg=43 gui=NONE guibg=#060606 guifg=#a0d0ff
+    CSAHi NeomakeWarningSignDefault term=NONE cterm=NONE ctermbg=16 ctermfg=70 gui=NONE guibg=#060606 guifg=#ff80d0
     CSAHi luaFunctionBlock term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi vimMenuMap term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi vimMenuRhs term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi vimNormCmds term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi vimGroupList term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi LineNr term=underline cterm=NONE ctermbg=16 ctermfg=82 gui=italic guibg=#0e0e0e guifg=#727272
+    CSAHi LineNr term=underline cterm=NONE ctermbg=16 ctermfg=80 gui=italic guibg=#060606 guifg=#444444
     CSAHi CursorLineNr term=bold cterm=bold ctermbg=33 ctermfg=16 gui=bold,italic guibg=#99004c guifg=#0e0e0e
     CSAHi Question term=NONE cterm=bold ctermbg=bg ctermfg=76 gui=bold guibg=bg guifg=#e8e800
     CSAHi StatusLine term=bold,reverse cterm=NONE ctermbg=32 ctermfg=86 gui=NONE guibg=#602040 guifg=#d6d6d6
@@ -1077,8 +1077,8 @@ elseif has("gui_running") || &t_Co == 88
     CSAHi podBoldItalic term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi podBoldOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi podBoldAlternativeDelimOpen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
-    CSAHi NeomakeErrorSignDefault term=NONE cterm=NONE ctermbg=16 ctermfg=16 gui=NONE guibg=#0e0e0e guifg=#000000
-    CSAHi NeomakeInfoSignDefault term=NONE cterm=NONE ctermbg=16 ctermfg=76 gui=NONE guibg=#0e0e0e guifg=#e8e800
+    CSAHi NeomakeErrorSignDefault term=NONE cterm=NONE ctermbg=16 ctermfg=16 gui=NONE guibg=#060606 guifg=#000000
+    CSAHi NeomakeInfoSignDefault term=NONE cterm=NONE ctermbg=16 ctermfg=76 gui=NONE guibg=#060606 guifg=#e8e800
     CSAHi unitePrompt term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi luaParen term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi vimAuSyntax term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
@@ -1090,7 +1090,7 @@ elseif has("gui_running") || &t_Co == 88
     CSAHi DiffChange term=bold cterm=NONE ctermbg=32 ctermfg=53 gui=NONE guibg=#4a3000 guifg=#b5a586
     CSAHi DiffDelete term=bold cterm=NONE ctermbg=16 ctermfg=16 gui=NONE guibg=#400707 guifg=#440606
     CSAHi DiffText term=reverse cterm=bold ctermbg=16 ctermfg=fg gui=bold guibg=#1f1500 guifg=fg
-    CSAHi SignColumn term=NONE cterm=NONE ctermbg=16 ctermfg=87 gui=NONE guibg=#0e0e0e guifg=#f0f0f0
+    CSAHi SignColumn term=NONE cterm=NONE ctermbg=16 ctermfg=87 gui=NONE guibg=#060606 guifg=#f0f0f0
     CSAHi Conceal term=NONE cterm=NONE ctermbg=84 ctermfg=86 gui=NONE guibg=#a9a9a9 guifg=#d3d3d3
     CSAHi SpellBad term=reverse cterm=undercurl ctermbg=bg ctermfg=64 gui=undercurl guibg=bg guifg=fg guisp=#ff0000
     CSAHi vimFunction term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
