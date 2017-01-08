@@ -5,20 +5,20 @@ Configuration-files
 Default applications
 ====================
 
-* xbacklight
-* xsel
-* xclip
+* chromium-browser
+* dmenu_run, dmenu, ..
+* dunst (and gnotifier plugin for firefox)
+* firefox
+* i3-py
 * kdeconnect
+* pactl
+* pavucontrol
 * ranger
 * rcm
-* i3-py
 * urxvt && xterm
-* dmenu_run, dmenu, ..
-* pavucontrol
-* chromium-browser
-* firefox
-* pactl
 * wmctrl
+* xbacklight
+* xclip
+* xsel
 * zeal
-* dunst (and gnotifier plugin for firefox)
 
