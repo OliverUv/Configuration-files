@@ -45,6 +45,7 @@ Default applications
   - virtualenv
 * ranger
 * redshift
+* shadowsocks
 * tmux
 * urxvt
 * vim
