@@ -338,3 +338,6 @@
 [submodule "dotvim/bundle/echodoc.vim"]
 	path = dotvim/bundle/echodoc.vim
 	url = git@github.com:Shougo/echodoc.vim.git
+[submodule "tmux/plugins/tpm"]
+	path = tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm.git
