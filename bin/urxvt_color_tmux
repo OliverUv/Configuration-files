@@ -27,7 +27,7 @@ then
     if [[ "$NAME" == '' ]]; then
         NAME="fallback"
     fi
-    SESSION_NAME="-s "$NAME""
+    SESSION_NAME="-s "_$NAME""
 fi
 
 urxvt_dispatch $COLORS -e tmux -u -2 new-session $SESSION_NAME $*
