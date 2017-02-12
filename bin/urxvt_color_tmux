@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+GEN=~/bin/rcm
+COLORS=""
+WORDS="/usr/share/dict/words"
+SESSION_NAME=""
+
+if [ -f $GEN ];
+then
+    COLORS=$(eval $GEN --shade --urxvt-arg)
+fi
+
+if [ -f $WORDS ];
+then
+    NAME="$(shuf -n1 $WORDS)"
+    NAME=${NAME,,}
+    NAME=${NAME%%\'*}
+    NAME=${NAME%%er}
+    NAME=${NAME%%ed}
+    NAME=${NAME%%ing}
+    NAME=${NAME%%er}
+    NAME=${NAME%%ally}
+    NAME=${NAME%%tly}
+    NAME=${NAME%%ous}
+    NAME=${NAME%%ism}
+    NAME=${NAME:0:8}
+    if [[ "$NAME" == '' ]]; then
+        NAME="fallback"
+    fi
+    SESSION_NAME="-s "$NAME""
+fi
+
+urxvt_dispatch $COLORS -e tmux -u -2 new-session $SESSION_NAME $*
