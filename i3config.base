@@ -46,9 +46,9 @@ workspace_auto_back_and_forth yes
 mouse_warping none
 
 # start a terminal
-set $term color_urxvt
+set $term urxvt_color_tmux
 bindsym $mod+Return exec $term
-bindsym $mod+Control+Return exec $term -e ranger
+bindsym $mod+Control+Return exec $term ranger
 # toggle terminal theme
 bindsym $mod+F1 exec rcm --toggle
 # safe terminal in case of failure
@@ -71,7 +71,7 @@ bindsym $mod+Control+f exec firefox
 bindsym $mod+Control+t exec firefox --new-window 'https://translate.google.com'
 bindsym $mod+Control+v exec gvim
 bindsym $mod+Shift+V exec gvim -S $HOME/.cache/unite/session/life.vim
-bindsym $mod+Control+a exec $term -e alsamixer
+bindsym $mod+Control+a exec $term alsamixer
 bindsym $mod+Control+y exec my
 bindsym $mod+Control+i exec mi
 bindsym $mod2+n exec restart_dunst.sh
@@ -172,6 +172,7 @@ bindsym $mod+m exec $quickbin -e
 bindsym $mod+Shift+M exec $quickbin -ej
 bindsym $mod+n exec $quickbin -n
 bindsym $mod+p exec $quickbin -p
+bindsym $mod+t exec --no-startup-id tmux_open_session
 bindsym $mod+Tab exec $quickswitch
 
 # switch between the current and the previously focused one
