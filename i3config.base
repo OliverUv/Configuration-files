@@ -16,7 +16,8 @@ set $mod Mod1
 set $mod2 Mod4
 
 # dmenu -i -l 20 -fn 'WenQuanYi Zen Hei Mono:bold' -sb '#E17800' -sf '#000000' -h 23
-set $quickswitch ~/Projects/quickswitch-for-i3/quickswitch.py --dmenu "dmenu -i -l 20 -fn 'robotomono:medium' -sb '#E17800' -sf '#000000' -h 23"
+set $quickbin python3 ~/Projects/quickswitch-for-i3/quickswitch.py
+set $quickswitch python3 ~/Projects/quickswitch-for-i3/quickswitch.py --dmenu "dmenu -i -l 20 -fn 'robotomono:medium' -sb '#E17800' -sf '#000000' -h 23"
 
 set $redshift ~/bin/reds
 
@@ -167,10 +168,10 @@ bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
 
-bindsym $mod+m exec $quickswitch -e
-bindsym $mod+Shift+M exec $quickswitch -ej
-bindsym $mod+n exec $quickswitch -n
-bindsym $mod+p exec $quickswitch -p
+bindsym $mod+m exec $quickbin -e
+bindsym $mod+Shift+M exec $quickbin -ej
+bindsym $mod+n exec $quickbin -n
+bindsym $mod+p exec $quickbin -p
 bindsym $mod+Tab exec $quickswitch
 
 # switch between the current and the previously focused one
