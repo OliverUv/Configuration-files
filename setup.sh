@@ -13,6 +13,7 @@ mkdir -p ~/.config/dunst
 mkdir -p ~/.vimperator/info/dev-edition-default
 mkdir -p ~/.i3
 mkdir -p ~/.mpv
+mkdir -p ~/.proxychains
 mkdir -p ~/.urxvt/ext
 
 ln -s ~/Configuration-files/coffeelint.json ~/.config/coffeelint.json
@@ -43,5 +44,7 @@ ln -s ~/Configuration-files/i3status.conf ~/.i3/status.conf
 ln -s ~/Configuration-files/i3config.base ~/.i3/config.base
 
 ln -s ~/Configuration-files/mpv-input.conf ~/.mpv/input.conf
+
+ln -s ~/Configuration-files/proxychains.conf ~/.proxychains/proxychains.conf
 
 echo "conkyrc urxvt-perls .vimrc.local .tmux.conf.local i3config.local" | xargs echo "Needs manual linking:"
