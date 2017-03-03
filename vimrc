@@ -556,7 +556,7 @@ let g:syntastic_typescript_checkers = ['tsuquyomi']
 let g:tsuquyomi_single_quote_import = 1
 
 let g:tsuquyomi_completion_detail = 1
-let g:tsuquyomi_completion_preview = 1
+" let g:tsuquyomi_completion_preview = 1
 " }}} tsuquyomi "
 
 " Gist {{{ "
