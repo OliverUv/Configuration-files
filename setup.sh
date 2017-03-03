@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DOTNAMED="profile tmux.conf Xdefaults vimrc gvimrc ctags agignore gitconfig gitignoreglobal vimperatorrc gtkrc-2.0"
+DOTNAMED="profile tmux.conf Xdefaults vimrc gvimrc ctags agignore gitconfig gitignoreglobal vimperatorrc gtkrc-2.0 dmenurc"
 HOME=~
 
 for f in $DOTNAMED ; do

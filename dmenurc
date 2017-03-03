@@ -1,0 +1,1 @@
+DMENU='dmenu -i -l 20 -fn robotomono:medium -sb #E17800 -sf #000000 -h 23'
