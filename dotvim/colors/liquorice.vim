@@ -106,7 +106,7 @@ hi Folded       gui=NONE guifg=#c8c8c8 guibg=#0c0c0c
 hi FoldColumn   gui=NONE guifg=#c8c8c8 guibg=#212121
 
 " vim-indent-guides
-hi IndentGuidesOdd  gui=NONE guifg=NONE guibg=#141414
+hi IndentGuidesOdd  gui=NONE guifg=NONE guibg=#1d1d1d
 hi IndentGuidesEven gui=NONE guifg=NONE guibg=#060606
 
 " Signs
