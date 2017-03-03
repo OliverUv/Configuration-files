@@ -937,10 +937,10 @@ let g:niji_light_colours = g:niji_dark_colours
 " }}} niji "
 
 " Syntastic {{{ "
-let g:syntastic_error_symbol = '✗✗'
-let g:syntastic_warning_symbol = '⚠⚠'
-let g:syntastic_style_error_symbol = '✠✠'
-let g:syntastic_style_warning_symbol = '≈≈'
+let g:syntastic_error_symbol = '✗ '
+let g:syntastic_warning_symbol = '⚠ '
+let g:syntastic_style_error_symbol = '✠ '
+let g:syntastic_style_warning_symbol = '≈ '
 let g:syntastic_enable_balloons = 0
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_loc_list_height = 6
