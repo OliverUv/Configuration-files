@@ -19,7 +19,7 @@ Default applications
 * firefox
   - decentraleyes
   - disconnect
-  - disconnect
+  - stylish
   - gnotifier
   - random agent spoofer
   - ublock origin
@@ -33,6 +33,8 @@ Default applications
   - rcm
 * imagemagick
 * kdeconnect
+* lnav
+* meld
 * mpv
 * n (for getting node envs)
 * pactl
@@ -46,7 +48,8 @@ Default applications
 * ranger
 * redshift
 * shadowsocks
-* tmux
+* tig
+* tmux (1.9+)
 * urxvt
 * vim
   - vimproc
