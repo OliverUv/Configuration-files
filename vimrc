@@ -1214,8 +1214,8 @@ function! g:ToggleColorScheme()
 endfunction
 
 " Pull word under cursor into LHS of a substitute
-nnoremap <leader>z :%s#\<<c-r>=expand("<cword>")<cr>\>##gc<left><left><left>
-nnoremap <leader>Z :bufdo %s#\<<c-r>=expand("<cword>")<cr>\>##gce<space><bar><space>update<left><left><left><left><left><left><left><left><left><left><left><left><left>
+nnoremap <leader>z :%s#\<<c-r>=expand("<cword>")<cr>\>#<c-r>=expand("<cword>")<cr>#gc<left><left><left>
+nnoremap <leader>Z :bufdo %s#\<<c-r>=expand("<cword>")<cr>\>#<c-r>=expand("<cword>")<cr>#gce<space><bar><space>update<left><left><left><left><left><left><left><left><left><left><left><left><left>
 
 " move between windows
 nnoremap <C-j> <C-W>j
