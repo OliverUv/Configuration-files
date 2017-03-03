@@ -44,7 +44,7 @@ URxvt.iso14755: false
 
 ! Also copy to CLIPBOARD buffer when ordinarly copying
 ! to only PRIMARY.
-URxvt.clipboard.autocopy: true
+URxvt.clipboard.autocopy: false
 
 URxvt.url-launcher:  firefox
 
