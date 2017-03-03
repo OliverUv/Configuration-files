@@ -271,6 +271,7 @@ if has("autocmd")
     au FileType gitcommit setlocal nolist cursorline cursorcolumn
     au FileType htmldjango setlocal expandtab shiftwidth=2 softtabstop=2
     au FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2
+    au FileType java setlocal noexpandtab shiftwidth=2 tabstop=2 softtabstop=0
     au FileType python setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=8 
     au FileType yaml setlocal expandtab shiftwidth=2 softtabstop=2
     au FileType {make,gitconfig} set noexpandtab sw=4
