@@ -7,6 +7,7 @@ for f in $DOTNAMED ; do
     ln -s "$HOME/Configuration-files/$f" "$HOME/.$f"
 done
 
+mkdir -p ~/.config/conky
 mkdir -p ~/.config/fish
 mkdir -p ~/.config/nvim
 mkdir -p ~/.config/dunst
@@ -50,4 +51,4 @@ ln -s ~/Configuration-files/proxychains.conf ~/.proxychains/proxychains.conf
 
 cp -r ~/Configuration-files/tmux/plugins/tpm ~/.tmux/plugins/
 
-echo "conkyrc urxvt-perls .vimrc.local .tmux.conf.local i3config.local" | xargs echo "Needs manual linking:"
+echo "conkyrc .vimrc.local .tmux.conf.local i3config.local" | xargs echo "Needs manual linking:"
