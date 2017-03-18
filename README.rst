@@ -50,6 +50,7 @@ Default applications
 * shadowsocks
 * tig
 * tmux (1.9+)
+* tree
 * urxvt
 * vim
   - vimproc
