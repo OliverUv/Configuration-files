@@ -37,6 +37,7 @@ Default applications
 * meld
 * mpv
 * n (for getting node envs)
+* ncdu (ncurses du)
 * pactl
 * pavucontrol
 * proxychains
