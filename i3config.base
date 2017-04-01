@@ -307,6 +307,7 @@ exec --no-startup-id xset r rate 210 30
 exec --no-startup-id xset m 0 0
 # disable screen blanking TODO fix this
 exec --no-startup-id xset s 0
-
+# start kde-connect
+exec --no-startup-id kdeconnect-cli --refresh
 # Clear background
 exec --no-startup-id xsetroot -solid "#000000"
