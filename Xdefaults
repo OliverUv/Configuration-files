@@ -74,5 +74,6 @@ URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 !URxvt.keysym.C-A-V: perl:clipboard:paste_escaped
 
 ! vim-like keyboard controlled copying
-URxvt.keysym.Shift-Control-Y: perl:keyboard-select:activate
-URxvt.keysym.Shift-Control-L: perl:keyboard-select:search
+! use tmux for this
+! URxvt.keysym.Shift-Control-Y: perl:keyboard-select:activate
+! URxvt.keysym.Shift-Control-L: perl:keyboard-select:search
