@@ -75,7 +75,7 @@ custom_cursor_colors: true
 colors:
   # Default colors
   primary:
-    background: '0x13130f'
+    background: '0x10070a'
     foreground: '0x7e7e7e'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
