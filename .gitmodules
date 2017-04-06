@@ -341,3 +341,6 @@
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm.git
+[submodule "dotvim/bundle/vim-tiddlywiki"]
+	path = dotvim/bundle/vim-tiddlywiki
+	url = https://github.com/sukima/vim-tiddlywiki.git
