@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # keyboard key autorepeat rate
-xset r rate 210 30
+xset r rate 180 40
 # disable mouse acceleration
 xset m 0 0
 # disable screen blanking TODO fix this
