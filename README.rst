@@ -49,6 +49,7 @@ Default applications
 * ranger
 * redshift
 * shadowsocks
+* taskwarrior
 * tig
 * tmux (1.9+)
 * tree
