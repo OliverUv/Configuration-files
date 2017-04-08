@@ -17,7 +17,7 @@ set $mod2 Mod4
 
 # dmenu -i -l 20 -fn 'WenQuanYi Zen Hei Mono:bold' -sb '#E17800' -sf '#000000' -h 23
 set $quickbin python3 ~/Projects/quickswitch-for-i3/quickswitch.py
-set $quickswitch python3 ~/Projects/quickswitch-for-i3/quickswitch.py --dmenu "dmenu -i -l 20 -fn 'robotomono:medium' -sb '#E17800' -sf '#000000' -h 23"
+set $quickdmenu --dmenu "dmenu -i -l 20 -fn 'robotomono:medium' -sb '#E17800' -sf '#000000' -h 23"
 
 set $redshift ~/bin/reds
 
@@ -169,11 +169,15 @@ bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
 
 bindsym $mod+m exec $quickbin -e
-bindsym $mod+Shift+M exec $quickbin -ej
+bindsym $mod+Shift+M exec $quickbin -ejF
 bindsym $mod+n exec $quickbin -n
 bindsym $mod+p exec $quickbin -p
+bindsym $mod+Shift+N exec $quickbin -nmF
+bindsym $mod+Shift+P exec $quickbin -pmF
 bindsym $mod+t exec --no-startup-id tmux_open_session
-bindsym $mod+Tab exec $quickswitch
+bindsym $mod+Tab exec $quickbin $quickdmenu
+bindsym $mod2+Tab exec $quickbin --workspaces $quickdmenu
+bindsym $mod2+Shift+Tab exec $quickbin --workspaces --journey -F $quickdmenu
 
 # switch between the current and the previously focused one
 bindsym $mod+BackSpace workspace back_and_forth
