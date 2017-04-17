@@ -12,6 +12,7 @@ mkdir -p ~/.config/conky
 mkdir -p ~/.config/dunst
 mkdir -p ~/.config/fish
 mkdir -p ~/.config/nvim
+mkdir -p ~/.config/ranger
 mkdir -p ~/.i3
 mkdir -p ~/.mpv
 mkdir -p ~/.proxychains
@@ -51,6 +52,8 @@ ln -s ~/Configuration-files/i3config.base ~/.i3/config.base
 ln -s ~/Configuration-files/mpv-input.conf ~/.mpv/input.conf
 
 ln -s ~/Configuration-files/proxychains.conf ~/.proxychains/proxychains.conf
+
+ln -s ~/Configuration-files/ranger.rc.conf ~/.config/ranger/rc.conf
 
 cp -r ~/Configuration-files/tmux/plugins/tpm ~/.tmux/plugins/
 
