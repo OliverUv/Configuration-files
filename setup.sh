@@ -9,15 +9,15 @@ done
 
 mkdir -p ~/.config/alacritty
 mkdir -p ~/.config/conky
+mkdir -p ~/.config/dunst
 mkdir -p ~/.config/fish
 mkdir -p ~/.config/nvim
-mkdir -p ~/.config/dunst
-mkdir -p ~/.vimperator/info/dev-edition-default
 mkdir -p ~/.i3
 mkdir -p ~/.mpv
 mkdir -p ~/.proxychains
 mkdir -p ~/.tmux/plugins
 mkdir -p ~/.urxvt/ext
+mkdir -p ~/.vimperator/info/dev-edition-default
 
 ln -s ~/Configuration-files/alacritty.yml ~/.config/alacritty/
 
