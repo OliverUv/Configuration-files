@@ -1,16 +1,7 @@
 #!/usr/bin/env bash
-# ssh-add -D
 
 echo "`date`: SUSPEND" >> ~/.log/onoff
 
-dbus-send --system --print-reply \
-    --dest="org.freedesktop.UPower" \
-    /org/freedesktop/UPower \
-    org.freedesktop.UPower.AboutToSleep
-
-dbus-send --system --print-reply \
-    --dest="org.freedesktop.UPower" \
-    /org/freedesktop/UPower \
-    org.freedesktop.UPower.Suspend
+systemctl suspend
 
 echo -e "`date`: UNSUSPEND\n" >> ~/.log/onoff
