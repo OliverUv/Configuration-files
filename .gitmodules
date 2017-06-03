@@ -344,3 +344,9 @@
 [submodule "dotvim/bundle/vim-tiddlywiki"]
 	path = dotvim/bundle/vim-tiddlywiki
 	url = https://github.com/sukima/vim-tiddlywiki.git
+[submodule "dotvim/bundle/vimwiki"]
+	path = dotvim/bundle/vimwiki
+	url = git@github.com:vimwiki/vimwiki.git
+[submodule "dotvim/bundle/taskwiki"]
+	path = dotvim/bundle/taskwiki
+	url = git@github.com:tbabej/taskwiki.git
