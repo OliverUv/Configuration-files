@@ -33,5 +33,6 @@ color=on
 urgency.tags.coefficient=0.0
 urgency.annotations.coefficient=0.0
 context.work=+cm
-context.flicker=+flicker
 context.free=-cm
+urgency.user.tag.horizon.coefficient=-1.0
+urgency.user.tag.sec.coefficient=3
