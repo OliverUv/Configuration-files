@@ -350,3 +350,6 @@
 [submodule "dotvim/bundle/taskwiki"]
 	path = dotvim/bundle/taskwiki
 	url = git@github.com:tbabej/taskwiki.git
+[submodule "dotvim/bundle/vim-taskwarrior"]
+	path = dotvim/bundle/vim-taskwarrior
+	url = git@github.com:blindFS/vim-taskwarrior.git
