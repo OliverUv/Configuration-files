@@ -11,11 +11,23 @@
 # Use the command 'task show' to see all defaults and overrides
 
 # Files
-data.location=~/Storage/csync/taskwarrior_tasks
+# data.location=~/Storage/csync/taskwarrior_tasks
+data.location=~/Storage/taskwarrior_tasks
+
+# Bugwarrior UDAs
+uda.phabricatortype.type=string
+uda.phabricatortype.label=Phabricator Type
+uda.phabricatorid.type=string
+uda.phabricatorid.label=Phabricator Object
+uda.phabricatortitle.type=string
+uda.phabricatortitle.label=Phabricator Title
+uda.phabricatorurl.type=string
+uda.phabricatorurl.label=Phabricator URL
+# END Bugwarrior UDAs
 
 # Color theme (uncomment one to use)
 #include /usr/local/share/doc/task/rc/light-16.theme
-#include /usr/local/share/doc/task/rc/light-256.theme
+# include /usr/local/share/doc/task/rc/light-256.theme
 #include /usr/local/share/doc/task/rc/dark-16.theme
 include /usr/local/share/doc/task/rc/dark-256.theme
 #include /usr/local/share/doc/task/rc/dark-red-256.theme
@@ -32,7 +44,16 @@ include /usr/local/share/doc/task/rc/dark-256.theme
 color=on
 urgency.tags.coefficient=0.0
 urgency.annotations.coefficient=0.0
-context.work=+cm
-context.free=-cm
-urgency.user.tag.horizon.coefficient=-1.0
+context.work=(+cm or +all)
+context.free=(-cm or +all)
+urgency.blocked.coefficient=-0.1
+urgency.blocking.coefficient=0.1
+urgency.user.tag.bw.coefficient=-4
+urgency.user.tag.econ.coefficient=2
+urgency.user.tag.horizon.coefficient=-0.8
+urgency.user.tag.minor.coefficient=-1.1
+urgency.user.tag.risk.coefficient=3
 urgency.user.tag.sec.coefficient=3
+urgency.user.tag.visa.coefficient=3
+report.next.filter=status:pending limit:page -minor
+context=work
