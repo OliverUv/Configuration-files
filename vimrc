@@ -749,8 +749,8 @@ endif
 " }}} Unite "
 
 " Tagbar {{{ "
-nnoremap <silent> <leader>tt :TagbarToggle<cr>
-nnoremap <silent> <leader>tg :TagbarOpen fj<cr>
+" nnoremap <silent> <leader>tt :TagbarToggle<cr>
+" nnoremap <silent> <leader>tg :TagbarOpen fj<cr>
 let g:tagbar_compact = 1
 let g:tagbar_width = 40
 " }}} Tagbar "
@@ -1070,6 +1070,25 @@ let g:rustfmt_autosave = 0
 let g:racer_cmd = "$HOME/.cargo/bin/racer"
 let $RUST_SRC_PATH = "$HOME/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
 " }}} rust, racer "
+
+" vimwiki / taskwiki / taskwarrior {{{ "
+let g:task_rc_override     = 'rc.defaultwidth=999'
+let g:taskwiki_sort_order = 'status+,urgency-,end+,pri-,project+'
+let g:taskwiki_source_tw_colors = 'yes'
+
+let g:vimwiki_dir_link = 'index'
+let g:vimwiki_auto_chdir = 1
+
+let personalwiki = {}
+let personalwiki.path = '~/Storage/documents/vim_wiki'
+let personalwiki.index = 'index'
+
+let cmaowiki = {}
+let cmaowiki.path = '~/Storage/documents/codemao_wiki'
+let cmaowiki.index = 'index'
+
+let g:vimwiki_list = [personalwiki, cmaowiki]
+" }}} vimwiki / taskwiki / taskwarrior " 
 
 " }}} Plugin settings "
 
