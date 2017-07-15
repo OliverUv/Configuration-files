@@ -224,10 +224,14 @@ if has("autocmd")
 
     " typescript {{{ "
     au FileType typescript setlocal expandtab shiftwidth=2 softtabstop=2 omnifunc=tsuquyomi#complete
+    au FileType typescript nmap <buffer> <Leader>jg :TsuquyomiImplementation<CR>
+    au FileType typescript nmap <buffer> <Leader>ji :TsuquyomiImport<CR>
+    au FileType typescript nmap <buffer> <Leader>jq :TsuquyomiQuickFix<CR>
     au FileType typescript nmap <buffer> <Leader>jr :TsuquyomiRenameSymbol<CR>
     au FileType typescript nmap <buffer> <Leader>jR :TsuquyomiRenameSymbolC<CR>
+    au FileType typescript nmap <buffer> <Leader>js :TsuquyomiSignatureHelp<CR>
+    au FileType typescript nmap <buffer> <Leader>jt :TsuquyomiTypeDefinition<CR>
     au FileType typescript nmap <buffer> <Leader>ju :TsuquyomiReferences<CR>
-    au FileType typescript nmap <buffer> <Leader>ji :TsuquyomiImport<CR>
     au FileType typescript nmap <buffer> <Leader>jz :TsuquyomiOpen<CR>
     au FileType typescript nmap <buffer> <Leader>jZ :TsuquyomiStopServer<CR>:TsuquyomiStartServer<CR>:TsuquyomiOpen<CR>
     au FileType typescript nnoremap <silent> <leader>lf :<C-u>Unite tsproject<CR>
