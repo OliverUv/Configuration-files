@@ -1398,6 +1398,7 @@ nnoremap <silent> <leader>gH :<C-U>Gpull<cr>
 nnoremap <silent> <leader>gp :<C-U>Git push
 nnoremap <leader>gm :<C-U>Gmove <c-r>=expand('%:p')<cr>
 nnoremap <leader>gl :<C-U>Glog --follow
+nnoremap <leader>gL :<C-U>Glog --follow -- %<cr>
 nnoremap <leader>gG :<C-U>Ggrep
 nnoremap <leader>gc :<C-U>Gcommit -m '
 nnoremap <leader>gA :<C-U>Gcommit --amend --no-edit<cr>
