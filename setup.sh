@@ -8,6 +8,7 @@ for f in $DOTNAMED ; do
 done
 
 mkdir -p ~/.config/alacritty
+mkdir -p ~/.config/bugwarrior
 mkdir -p ~/.config/conky
 mkdir -p ~/.config/dunst
 mkdir -p ~/.config/fish
@@ -21,6 +22,8 @@ mkdir -p ~/.urxvt/ext
 mkdir -p ~/.vimperator/info/dev-edition-default
 
 ln -s ~/Configuration-files/alacritty.yml ~/.config/alacritty/
+
+ln -s ~/Configuration-files/bugwarriorrc ~/.config/bugwarrior/
 
 ln -s ~/Configuration-files/coffeelint.json ~/.config/coffeelint.json
 ln -s ~/Configuration-files/flake8 ~/.config/flake8
