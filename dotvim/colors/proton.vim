@@ -88,8 +88,8 @@ hi UniteSelectedLine gui=NONE guifg=NONE guibg=#d8d1c8
 
 hi gitcommitFile guifg=#404040 guibg=NONE
 
-hi IndentGuidesOdd  gui=NONE guifg=NONE guibg=#d8d1c8
-hi IndentGuidesEven gui=NONE guifg=NONE guibg=#e5e5e5
+hi IndentGuidesOdd  gui=NONE guifg=NONE guibg=#f8eae0
+hi IndentGuidesEven gui=NONE guifg=NONE guibg=#e8e1df
 
 hi SignColumn   gui=NONE guifg=#202020 guibg=#d8d1c8
 
