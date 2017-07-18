@@ -61,6 +61,11 @@ map <Leader>s :o javascript:(function(){window.location='http://smmry.com/'+loca
 map <Leader>b :o javascript:function%20newsblur_bookmarklet()%20{%20var%20d=document,z=d.createElement('scr'+'ipt'),b=d.body,l=d.location;%20try{%20if(!b)%20{%20throw(0);%20}%20d.title%20=%20'(Sharing...)%20'%20+%20d.title;%20z.setAttribute('src','https://www.newsblur.com/api/add_site_load_script/ff7021d817c4?url='+encodeURIComponent(l.href)+'&time='+(new%20Date().getTime()));%20b.appendChild(z);%20}%20catch(e)%20{alert('Please%20wait%20until%20the%20page%20has%20loaded.');}}newsblur_bookmarklet();void(0)<cr>
 
 map <Leader>t :set gui=invmenu,invnavigation<cr>
+map <Leader>T :set gui=invtabs<cr>
+map <Leader>f :set gui=notabs<cr>:set statuslinevisibility=hidden<cr>
+map <Leader>F :set gui=tabs<cr>:set statuslinevisibility=auto<cr>
+map <Leader>G :set statuslinevisibility=hidden<cr>
+map <Leader>g :set statuslinevisibility=auto<cr>
 
 javascript lowlightBackground = "#141414"
 javascript lowlightForeground = "#eaeaea"
