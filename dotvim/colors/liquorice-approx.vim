@@ -37,7 +37,7 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi InterestingWord1 term=NONE cterm=NONE ctermbg=182 ctermfg=16 gui=NONE guibg=#c6acc6 guifg=#000000
     CSAHi InterestingWord2 term=NONE cterm=NONE ctermbg=180 ctermfg=16 gui=NONE guibg=#b88853 guifg=#000000
     CSAHi IndentGuidesOdd term=NONE cterm=NONE ctermbg=234 ctermfg=fg gui=NONE guibg=#1d1d1d guifg=fg
-    CSAHi Identifier term=underline cterm=NONE ctermbg=bg ctermfg=140 gui=NONE guibg=bg guifg=#a778de
+    CSAHi Identifier term=underline cterm=NONE ctermbg=bg ctermfg=146 gui=NONE guibg=bg guifg=#b085e1
     CSAHi Statement term=bold cterm=NONE ctermbg=bg ctermfg=110 gui=NONE guibg=bg guifg=#6699cc
     CSAHi PreProc term=underline cterm=NONE ctermbg=bg ctermfg=219 gui=NONE guibg=bg guifg=#ffa8ff
     CSAHi Type term=underline cterm=NONE ctermbg=bg ctermfg=121 gui=NONE guibg=bg guifg=#60f0a8
@@ -147,7 +147,7 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi InterestingWord1 term=NONE cterm=NONE ctermbg=225 ctermfg=16 gui=NONE guibg=#c6acc6 guifg=#000000
     CSAHi InterestingWord2 term=NONE cterm=NONE ctermbg=180 ctermfg=16 gui=NONE guibg=#b88853 guifg=#000000
     CSAHi IndentGuidesOdd term=NONE cterm=NONE ctermbg=234 ctermfg=fg gui=NONE guibg=#1d1d1d guifg=fg
-    CSAHi Identifier term=underline cterm=NONE ctermbg=bg ctermfg=183 gui=NONE guibg=bg guifg=#a778de
+    CSAHi Identifier term=underline cterm=NONE ctermbg=bg ctermfg=183 gui=NONE guibg=bg guifg=#b085e1
     CSAHi Statement term=bold cterm=NONE ctermbg=bg ctermfg=117 gui=NONE guibg=bg guifg=#6699cc
     CSAHi PreProc term=underline cterm=NONE ctermbg=bg ctermfg=225 gui=NONE guibg=bg guifg=#ffa8ff
     CSAHi Type term=underline cterm=NONE ctermbg=bg ctermfg=122 gui=NONE guibg=bg guifg=#60f0a8
@@ -257,7 +257,7 @@ elseif has("gui_running") || &t_Co == 256
     CSAHi InterestingWord1 term=NONE cterm=NONE ctermbg=182 ctermfg=16 gui=NONE guibg=#c6acc6 guifg=#000000
     CSAHi InterestingWord2 term=NONE cterm=NONE ctermbg=137 ctermfg=16 gui=NONE guibg=#b88853 guifg=#000000
     CSAHi IndentGuidesOdd term=NONE cterm=NONE ctermbg=234 ctermfg=fg gui=NONE guibg=#1d1d1d guifg=fg
-    CSAHi Identifier term=underline cterm=NONE ctermbg=bg ctermfg=140 gui=NONE guibg=bg guifg=#a778de
+    CSAHi Identifier term=underline cterm=NONE ctermbg=bg ctermfg=140 gui=NONE guibg=bg guifg=#b085e1
     CSAHi Statement term=bold cterm=NONE ctermbg=bg ctermfg=68 gui=NONE guibg=bg guifg=#6699cc
     CSAHi PreProc term=underline cterm=NONE ctermbg=bg ctermfg=219 gui=NONE guibg=bg guifg=#ffa8ff
     CSAHi Type term=underline cterm=NONE ctermbg=bg ctermfg=85 gui=NONE guibg=bg guifg=#60f0a8
@@ -367,7 +367,7 @@ elseif has("gui_running") || &t_Co == 88
     CSAHi InterestingWord1 term=NONE cterm=NONE ctermbg=54 ctermfg=16 gui=NONE guibg=#c6acc6 guifg=#000000
     CSAHi InterestingWord2 term=NONE cterm=NONE ctermbg=53 ctermfg=16 gui=NONE guibg=#b88853 guifg=#000000
     CSAHi IndentGuidesOdd term=NONE cterm=NONE ctermbg=80 ctermfg=fg gui=NONE guibg=#1d1d1d guifg=fg
-    CSAHi Identifier term=underline cterm=NONE ctermbg=bg ctermfg=38 gui=NONE guibg=bg guifg=#a778de
+    CSAHi Identifier term=underline cterm=NONE ctermbg=bg ctermfg=54 gui=NONE guibg=bg guifg=#b085e1
     CSAHi Statement term=bold cterm=NONE ctermbg=bg ctermfg=38 gui=NONE guibg=bg guifg=#6699cc
     CSAHi PreProc term=underline cterm=NONE ctermbg=bg ctermfg=71 gui=NONE guibg=bg guifg=#ffa8ff
     CSAHi Type term=underline cterm=NONE ctermbg=bg ctermfg=45 gui=NONE guibg=bg guifg=#60f0a8
