@@ -35,3 +35,5 @@ set -x LODASH "$HOME/work_tmp/lodash.js"
 set -x RUST_SRC_PATH "$HOME/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
 
 eval (python -m virtualfish)
+
+rcm --shade --urxvt-escape --tmux
