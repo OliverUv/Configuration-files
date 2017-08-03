@@ -46,7 +46,8 @@ workspace_auto_back_and_forth yes
 mouse_warping none
 
 # start a terminal
-set $term urxvt_color_tmux
+# set $term urxvt_color_tmux
+set $term alacritty_tmux
 bindsym $mod+Return exec $term
 bindsym $mod+Control+Return exec $term ranger
 # toggle terminal theme
@@ -174,7 +175,8 @@ bindsym $mod+n exec $quickbin -n
 bindsym $mod+p exec $quickbin -p
 bindsym $mod+Shift+N exec $quickbin -nmF
 bindsym $mod+Shift+P exec $quickbin -pmF
-bindsym $mod+t exec --no-startup-id tmux_open_session
+# bindsym $mod+t exec --no-startup-id tmux_open_session
+bindsym $mod+t exec --no-startup-id tmux_open_session_alacritty
 bindsym $mod+Tab exec $quickbin $quickdmenu
 bindsym $mod2+Tab exec $quickbin --workspaces $quickdmenu
 bindsym $mod2+Shift+Tab exec $quickbin --workspaces --journey -F $quickdmenu
