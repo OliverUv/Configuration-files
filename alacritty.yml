@@ -28,7 +28,7 @@ dpi:
 tabspaces: 8
 
 # When true, bold text is drawn using the bright variant of colors.
-draw_bold_text_with_bright_colors: false
+draw_bold_text_with_bright_colors: true
 
 # Font configuration (changes require restart)
 font:
@@ -43,7 +43,7 @@ font:
   bold:
     family: RobotoMono # should be "Menlo" or something on macOS.
     # Style can be specified to pick a specific face.
-    style: Italic
+    style: Bold Italic
 
   # The italic font face
   italic:
@@ -52,12 +52,12 @@ font:
     style: Italic
 
   # Point size of the font
-  size: 14.0
+  size: 15.0
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
   offset:
-    x: 4.0
-    y: -14.0
+    x: 0.0
+    y: 0.0
 
   # OS X only: use thin stroke font rendering. Thin strokes are suitable
   # for retina displays, but for non-retina you probably want this set to
@@ -168,6 +168,11 @@ key_bindings:
   - { key: C,        mods: Command, action: Copy                         }
   - { key: Q,        mods: Command, action: Quit                         }
   - { key: W,        mods: Command, action: Quit                         }
+  - { key: Key0,     mods: Control, action: ResetFontSize                }
+  # - { key: Equals,   mods: Control, action: IncreaseFontSize             }
+  # - { key: Subtract, mods: Control, action: DecreaseFontSize             }
+  - { key: Up,   mods: Control, action: IncreaseFontSize             }
+  - { key: Down, mods: Control, action: DecreaseFontSize             }
   - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                    chars: "\x1b[1~",  mode: ~AppCursor  }
   - { key: End,                     chars: "\x1bOF",   mode: AppCursor   }
@@ -185,7 +190,7 @@ key_bindings:
   - { key: Right,                   chars: "\x1b[C",   mode: ~AppCursor  }
   - { key: Right,                   chars: "\x1bOC",   mode: AppCursor   }
   - { key: Up,       mods: Shift,   chars: "\x1b[1;2A"                   }
-  - { key: Up,       mods: Control, chars: "\x1b[1;5A"                   }
+  # - { key: Up,       mods: Control, chars: "\x1b[1;5A"                   }
   - { key: Up,       mods: Alt,     chars: "\x1b[1;3A"                   }
   - { key: Up,                      chars: "\x1b[A",   mode: ~AppCursor  }
   - { key: Up,                      chars: "\x1bOA",   mode: AppCursor   }
