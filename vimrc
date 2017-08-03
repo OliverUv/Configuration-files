@@ -1068,7 +1068,7 @@ let g:zv_file_types = {
 let g:rustfmt_command = "$HOME/.cargo/bin/rustfmt"
 let g:rustfmt_autosave = 0
 let g:racer_cmd = "$HOME/.cargo/bin/racer"
-let $RUST_SRC_PATH = "$HOME/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
+" let $RUST_SRC_PATH = "$HOME/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
 " }}} rust, racer "
 
 " vimwiki / taskwiki / taskwarrior {{{ "
