@@ -74,7 +74,7 @@ bindsym $mod+Shift+V exec gvim -S $HOME/.cache/unite/session/life.vim
 bindsym $mod+Control+a exec $term alsamixer
 bindsym $mod+Control+y exec my
 bindsym $mod+Control+i exec mi
-bindsym $mod2+n exec restart_dunst.sh
+# bindsym $mod2+n exec restart_dunst.sh
 bindsym --release $mod+Control+s exec scrot -s $HOME/t/scrot.png
 bindsym --release $mod+Control+Shift+S exec scrot $HOME/t/scrot.png
 
