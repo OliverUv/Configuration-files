@@ -42,8 +42,10 @@
     # Available modifiers are "ctrl", "mod1" (the alt-key), "mod2",
     # "mod3" and "mod4" (windows-key).
     # Xev might be helpful to find names for keys.
-    close = mod4+n
-    close_all = mod4+m
+    # close = ctrl+shift+n
+    # close_all = ctrl+shift+m
+    close = mod4+k
+    close_all = mod4+space
     history = mod4+h
     context = mod4+j
 
