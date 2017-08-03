@@ -54,10 +54,13 @@ def add_flag(name, help):
         action='store_true',
         help=help)
 
+
+add_flag('tmux', "Wrap printed escape codes in tmux passthrough escape code")
 add_flag('shade', "Update the theme's shade before acting")
 add_flag('toggle', "Toggles color scheme before acting")
 add_flag('urxvt-arg', "Prints text suitable for specifying urxvt's background via its startup arguments")
-add_flag('urxvt-escape', "Prints escape characters and text that will cause an urxvt terminal to switch colors")
+add_flag('urxvt-escape', "Prints escape characters and text that will cause an urxvt terminal to switch all colors")
+add_flag('bg-escape', "Prints escape characters and text that will cause an urxvt terminal to switch background color")
 add_flag('xresource', "Prints Xterm-like setting lines, suitable for Xresource files")
 
 
@@ -168,6 +171,10 @@ def main():
     shade = shades[shade_idx]
     fgs = theme.fg_colors
 
+    printwrap = wrap_print
+    if args.tmux:
+        printwrap = wrap_tmux_print
+
     if not any(args.__dict__.values()):
         # TODO figure out if accessing __dict__ is reasonable
         parser.print_help()
@@ -188,15 +195,26 @@ def main():
         for (i, color) in enumerate(fgs):
             print('color%d: #%s' % (i, color))
 
+    elif args.bg_escape:
+        printwrap('\x1b]11;#%s' % (shade,))
+
     elif args.urxvt_escape:
-        print('\x1b]11;#%s' % (shade,), end='\a')
-        print('\x1b]10;#%s' % (theme.fg_main,), end='\a')
+        printwrap('\x1b]11;#%s' % (shade,))
+        printwrap('\x1b]10;#%s' % (theme.fg_main,))
         # TODO add cursor color
         for (i, color) in enumerate(fgs):
-            print('\x1b]4;%s;#%s' % (i, color), end='\a')
+            printwrap('\x1b]4;%s;#%s' % (i, color))
 
     sys.stdout.flush()
     exit(0)
+
+
+def wrap_tmux_print(t):
+    print('\x1bPtmux;\x1b' + t, end='\a\x1b\\')
+
+
+def wrap_print(t):
+    print(t, end='\a')
 
 
 def hex_to_int(col):
@@ -240,6 +258,7 @@ def inv_bright(c):
     return modify_in_space(c, rgb_to_hls, invert_brightness, hls_to_rgb)
 
 # map(inv_bright, shades[0]) ~= shades[1]
+
 
 if __name__ == '__main__':
     main()
