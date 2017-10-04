@@ -46,28 +46,28 @@ endif
 
 let g:colors_name = "liquorice"
 
-hi Normal       guifg=#eaeaea guibg=#141414
+hi Normal       guifg=#c4d0d2 guibg=#181214
 
 " Search
 hi IncSearch    gui=BOLD guifg=#ffffff guibg=#99004c
 hi Search       gui=BOLD guifg=#cc99ff guibg=#430075
 
 " Messages
-hi ErrorMsg     gui=BOLD guifg=#ff80c0 guibg=NONE
-hi WarningMsg   gui=BOLD guifg=#ff80c0 guibg=NONE
+hi ErrorMsg     gui=BOLD guifg=#cea662 guibg=NONE
+hi WarningMsg   gui=BOLD guifg=#cea662 guibg=NONE
 hi ModeMsg      gui=BOLD guifg=#a0d0ff guibg=NONE
 hi MoreMsg      gui=BOLD guifg=#70ffc0 guibg=#8040ff
 hi Question     gui=BOLD guifg=#e8e800 guibg=NONE
 
 " Split area
-hi StatusLine   gui=NONE guifg=#d6d6d6 guibg=#602040
-hi StatusLineNC gui=NONE guifg=#000000 guibg=#808080
-hi VertSplit    gui=NONE guifg=#909090 guibg=#111111
+hi StatusLine   gui=NONE guifg=#d6d6d6 guibg=#37323B
+hi StatusLineNC gui=NONE guifg=#998B73 guibg=#2C272E
+hi VertSplit    gui=NONE guifg=#909090 guibg=#120C14
 hi WildMenu     gui=NONE guifg=#000000 guibg=#ff80c0
 
 " Tab bar
-hi TabLineFill     gui=NONE guifg=#000000 guibg=#111111
-hi TabLine         gui=NONE guifg=#8a8a8a guibg=#121212
+hi TabLineFill     gui=NONE guifg=#000000 guibg=#120C14
+hi TabLine         gui=NONE guifg=#8a8a8a guibg=#120C14
 hi TabLineSel      gui=NONE guifg=#d6d6d6 guibg=#602040
 
 " These are custom for tabs, see script in .vimrc
@@ -80,7 +80,6 @@ hi TabModifiedSel  gui=BOLD guifg=#ffb0ff guibg=#602040
 " Diff
 hi DiffText     gui=BOLD guifg=NONE guibg=#1f1500
 hi DiffChange   gui=NONE guifg=#B5A586 guibg=#4A3000
-"hi DiffDelete   gui=NONE guifg=#551212 guibg=#4A1010
 hi DiffDelete   gui=NONE guifg=#440606 guibg=#400707
 hi DiffAdd      gui=NONE guifg=NONE guibg=#042806
 
@@ -102,15 +101,15 @@ hi CursorLine   gui=NONE guifg=NONE    guibg=#0d0d0d
 hi CursorColumn gui=NONE guifg=NONE    guibg=#0d0d0d
 
 " Fold
-hi Folded       gui=NONE guifg=#c8c8c8 guibg=#0c0c0c
-hi FoldColumn   gui=NONE guifg=#c8c8c8 guibg=#212121
+hi Folded       gui=NONE guifg=#cea662 guibg=#0b000e
+hi FoldColumn   gui=NONE guifg=#c8c8c8 guibg=#0b000e
 
 " vim-indent-guides
-hi IndentGuidesOdd  gui=NONE guifg=NONE guibg=#1d1d1d
-hi IndentGuidesEven gui=NONE guifg=NONE guibg=#060606
+hi IndentGuidesOdd  gui=NONE guifg=NONE guibg=#1f141c
+hi IndentGuidesEven gui=NONE guifg=NONE guibg=#0F080B
 
 " Signs
-hi SignColumn   gui=NONE guifg=#f0f0f0 guibg=#060606
+hi SignColumn   gui=NONE guifg=#f0f0f0 guibg=#0b000e
 
 " ColorColumn
 hi ColorColumn   gui=NONE guifg=NONE guibg=#000000
@@ -122,15 +121,13 @@ hi SpellBad	gui=UNDERCURL guifg=NONE guibg=NONE guisp=#FF0000
 
 " Other
 hi Directory    gui=NONE guifg=#c8c8ff guibg=NONE
-hi LineNr       gui=ITALIC guifg=#444444 guibg=#060606
+hi LineNr       gui=ITALIC guifg=#4D4347 guibg=#0b000e
 hi CursorLineNr gui=ITALIC,BOLD guifg=#0e0e0e guibg=#99004c
-"hi NonText      gui=BOLD guifg=#d84070 guibg=#0b0b0b
-"hi SpecialKey   gui=BOLD guifg=#8888ff guibg=NONE
 hi NonText      gui=BOLD guifg=#808080 guibg=NONE
 hi SpecialKey   gui=BOLD guifg=#808080 guibg=NONE
 hi Title        gui=NONE guifg=#d0d0d0 guibg=NONE
-hi Visual       gui=NONE guifg=NONE guibg=#7C2B7C
-hi VisualNOS    gui=NONE guifg=NONE guibg=#7C2B7C
+hi Visual       gui=NONE guifg=NONE guibg=#4D1C4D
+hi VisualNOS    gui=NONE guifg=NONE guibg=#4D1C4D
 
 " Syntax group
 hi Comment      gui=NONE guifg=#8a8a8a guibg=NONE
@@ -140,7 +137,7 @@ hi Ignore       gui=NONE guifg=bg      guibg=NONE
 hi PreProc      gui=NONE guifg=#ffa8ff guibg=NONE
 hi Constant     gui=NONE guifg=#f8bef8 guibg=NONE
 hi Special      gui=NONE guifg=#ce9662 guibg=#0f0f0f
-hi Statement    gui=NONE guifg=#6699cc guibg=NONE
+hi Statement    gui=NONE guifg=#6699cc guibg=#0F080B
 hi Repeat       gui=BOLD guifg=#6699cc guibg=NONE
 hi Todo         gui=UNDERLINE,ITALIC guifg=#ff80d0 guibg=NONE
 hi Type         gui=NONE guifg=#60f0a8 guibg=NONE

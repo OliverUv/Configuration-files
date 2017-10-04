@@ -10,11 +10,8 @@ if exists("syntax_on")
 endif
 let g:colors_name = "proton"
 
-" hi Normal guibg=#f8f1e8 guifg=#404040 gui=none
-" hi Comment guibg=#f8f1e8 guifg=#9098a0 gui=none
-hi Normal guibg=#f8f1e8 guifg=#404040 gui=none
-hi Comment guibg=#f8f1e8 guifg=#9098a0 gui=none
-"hi ToDo guibg=#f8f1e8 guifg=#9098a0 gui=bold
+hi Normal guibg=#F7EDDF guifg=#404040 gui=none
+hi Comment guibg=NONE guifg=#9098a0 gui=NONE
 hi Todo gui=UNDERLINE guifg=#99004C guibg=#d8d1c8
 
 hi Cursor guibg=#404040 guifg=#a0a0a0
@@ -48,7 +45,7 @@ hi LineNr guibg=#d8d1c8 guifg=#606060 gui=none
 
 hi Underlined guifg=#202020 guibg=#f8f1e8 gui=underline
 
-hi Statement guibg=#e8e1d8 guifg=#62605d gui=none
+hi Statement guibg=#EDE6E4 guifg=#62605d gui=none
 hi Label guibg=#e8e1d8 guifg=#000000 gui=none
 hi Operator guifg=#a77039 guibg=#f8f1e8 gui=none
 
@@ -61,7 +58,7 @@ hi Include guifg=#605080 guibg=#dcd8e0 gui=none
 hi Function guifg=#b08020 guibg=#f0e8c0 gui=underline
 
 hi Conditional guibg=#e0e8f0 guifg=#5080b0 gui=bold
-hi Repeat guibg=#e0e8d8 guifg=#509030 gui=bold
+hi Repeat guibg=#e0e8f0 guifg=#5080b0 gui=bold
 hi Exception guibg=#f8f1e8 guifg=#a03020 gui=bold
 
 hi Type guifg=#607080 guibg=#f8f1e8 gui=underline
@@ -71,8 +68,8 @@ hi Identifier guifg=#608050 guibg=#c0e0c0 gui=none
 
 hi Constant guifg=#508040 guibg=#f8f1e8
 hi Number guifg=#508040 guibg=#f8f1e8
-hi String guifg=#a07060 guibg=#f8eae0 gui=italic
-hi Special guifg=#693020 guibg=#f8ede4 gui=italic
+hi String guifg=#a07060 guibg=#F5E6DC gui=italic
+hi Special guifg=#693020 guibg=#EDDDD1 gui=italic
 
 hi Error gui=BOLD guifg=#f2ca03 guibg=#191919
 hi SyntasticWarningLine guibg=#f8f1e8
@@ -88,8 +85,8 @@ hi UniteSelectedLine gui=NONE guifg=NONE guibg=#d8d1c8
 
 hi gitcommitFile guifg=#404040 guibg=NONE
 
-hi IndentGuidesOdd  gui=NONE guifg=NONE guibg=#f8eae0
-hi IndentGuidesEven gui=NONE guifg=NONE guibg=#e8e1df
+hi IndentGuidesOdd  gui=NONE guifg=NONE guibg=#F7E6DA
+hi IndentGuidesEven gui=NONE guifg=NONE guibg=#EDE6E4
 
 hi SignColumn   gui=NONE guifg=#202020 guibg=#d8d1c8
 
