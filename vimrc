@@ -1387,8 +1387,8 @@ nnoremap <silent> <leader>s :<C-U>w<cr>
 nnoremap <silent> <leader>S :<C-U>w<cr>
 nnoremap <silent> <leader>x :<C-U>wq<cr>
 nnoremap <silent> <leader>X :<C-U>wqa<cr>
-nnoremap <silent> <leader>d :<C-U>q<cr>
-nnoremap <silent> <leader>D :<C-U>qa<cr>
+nnoremap <silent> <leader>d :<C-U>confirm q<cr>
+nnoremap <silent> <leader>D :<C-U>confirm qa<cr>
 
 nnoremap <silent> <leader>h :<C-U>FSHere<cr>
 nnoremap <silent> <leader>hk :<C-U>FSSplitAbove<cr>
