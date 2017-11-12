@@ -138,6 +138,7 @@ set iskeyword+=å,ä,ö    " Add swedish characters to iskeyword
 set virtualedit=block   " Allow cursor to be moved into empty space while in visual mode
 set display=lastline    " Show last line at bottom of window, even if it can't be displayed entirely
 set noshowmode          " Don't show that we're in insert mode
+set concealcursor=""    " Don't do syntax based conceal when cursor is on same line
 " set spellfile=$HOME/.vim/spell/ TODO
 
 " Make Vim able to edit crontab files again.
