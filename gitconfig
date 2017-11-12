@@ -24,7 +24,7 @@
 	hub = push origin
 	buh = pull origin
         sm = submodule
-        lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+        lg = log --color --graph --pretty=format:'%Cred%h%Creset %s %Cgreen%cr%C(blue) %an%Creset %C(bold cyan)%D%Creset' --abbrev-commit
 
         # will put a file into gitignore
 	ignore=!([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
