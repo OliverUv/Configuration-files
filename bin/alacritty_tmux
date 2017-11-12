@@ -23,4 +23,4 @@ then
     SESSION_NAME="-s "_$NAME""
 fi
 
-alacritty -e tmux -u -2 new-session "$SESSION_NAME" "$@"
+alacritty -e tmux -u new-session "$SESSION_NAME" "$@"

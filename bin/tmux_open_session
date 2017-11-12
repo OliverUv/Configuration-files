@@ -15,7 +15,7 @@ tmux_run="$(tmux list-sessions -F '#S')"
 prompt="attach-local:"
 
 spawn_local() {
-    color_urxvt -e tmux -u -2 attach -d -t "$1"
+    color_urxvt -e tmux -u attach -d -t "$1"
 }
 target=$(echo $tmux_run | sed 's/ /\n/g' | ${DMENU} -p "$prompt")
 

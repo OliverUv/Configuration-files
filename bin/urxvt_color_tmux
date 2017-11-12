@@ -30,4 +30,4 @@ then
     SESSION_NAME="-s "_$NAME""
 fi
 
-urxvt_dispatch $COLORS -e tmux -u -2 new-session $SESSION_NAME $*
+urxvt_dispatch $COLORS -e tmux -u new-session $SESSION_NAME $*
