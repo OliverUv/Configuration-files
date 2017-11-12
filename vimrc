@@ -1265,7 +1265,7 @@ nnoremap <silent> <C-Z> :tabnew<CR>
 
 " alternate mappings for increase/decrease numeral
 nnoremap gA <c-a>
-nnoremap gZ <c-z>
+nnoremap gZ <c-x>
 
 " windowing
 nnoremap <silent> z<cr> :call windowing#minimize_vertically()<cr>
