@@ -10,7 +10,7 @@ env:
   # specify all features alacritty supports. This does pose
   # a few issues with programs relying on terminfo and the
   # `tput` command
-  TERM: xterm-256color
+  TERM: tmux-256color
 
 # Window dimensions in character columns and lines
 # (changes require restart)
