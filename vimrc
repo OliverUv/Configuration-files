@@ -97,6 +97,8 @@ set shiftwidth=4        " Amount of spaces for tab to insert
 set autoindent          " Automatically set the indent when creating new lines.
 set expandtab           " Makes <tab> insert spaces in insert mode
 set breakindent         " Makes vim display visually wrapped lines with correct indentation
+set breakindentopt=min:20,shift:-2
+set showbreak=↳\ 
 set showcmd             " Shows current command in statusline
 set ruler               " Show cursor position information in statusline
 set relativenumber      " Show relative line numbers by default
