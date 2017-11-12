@@ -15,7 +15,7 @@ cnoremap <c-q> <Nop>
 
 colorscheme dorkness
 
-set gui=none,tabs
+set gui=none
 set status=input,location,bookmark,history,tabcount,ssl
 
 nnoremap x D
@@ -63,9 +63,9 @@ map <Leader>b :o javascript:function%20newsblur_bookmarklet()%20{%20var%20d=docu
 map <Leader>t :set gui=invmenu,invnavigation<cr>
 map <Leader>T :set gui=invtabs<cr>
 map <Leader>f :set gui=notabs<cr>:set statuslinevisibility=hidden<cr>
-map <Leader>F :set gui=tabs<cr>:set statuslinevisibility=auto<cr>
+map <Leader>F :set gui=tabs<cr>:set statuslinevisibility=visible<cr>
 map <Leader>G :set statuslinevisibility=hidden<cr>
-map <Leader>g :set statuslinevisibility=auto<cr>
+map <Leader>g :set statuslinevisibility=visible<cr>
 
 javascript lowlightBackground = "#141414"
 javascript lowlightForeground = "#eaeaea"
