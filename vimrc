@@ -1431,7 +1431,8 @@ nnoremap <leader>gm :<C-U>Gmove <c-r>=expand('%:p')<cr>
 nnoremap <leader>gl :<C-U>Glog --follow
 nnoremap <leader>gL :<C-U>Glog --follow -- %<cr>
 nnoremap <leader>gG :<C-U>Ggrep
-nnoremap <leader>gc :<C-U>Gcommit -m '
+nnoremap <leader>gc :<C-U>Gcommit -m ''<left>
+nnoremap <leader>gx :<C-U>Gcommit -m ''<left>
 nnoremap <leader>gA :<C-U>Gcommit --amend --no-edit<cr>
 nnoremap <leader>ga :<C-U>Gcommit --amend<cr>
 nnoremap <leader>gr :<C-U>Git checkout -- %
