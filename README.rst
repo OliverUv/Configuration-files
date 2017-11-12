@@ -27,7 +27,7 @@ Default applications
 * fish
 * git
 * i3
-  - i3-py
+  - i3-py (pip2,3)
   - i3-quickswitch
   - i3lock
   - rcm
@@ -62,5 +62,13 @@ Default applications
 * xclip
 * xsel
 * xterm
-* youtube-dl
 * zeal
+
+PIP2
+====
+* tasklib
+* youtube-dl
+
+PIP3
+====
+* tasklib
