@@ -789,7 +789,7 @@ let g:rainbow_conf = {
     \   'guifgs': ['#A77990', '#8DC4C4', '#C6ACC6', '#ADBCA0', '#A2B1C1', '#C6A0B3', '#98A7B7', '#7B907C', '#B7AB9B', '#96C1AC', '#79A9A9', '#96838D', '#C6A890'],
     \   'ctermfgs': ['darkgray', 'darkblue', 'darkmagenta', 'darkcyan'],
     \   'operators': '_,_',
-    \   'parentheses': [['(',')'], ['\[','\]'], ['{','}']],
+    \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
     \   'separately': {
     \       '*': {},
     \       'lisp': {
