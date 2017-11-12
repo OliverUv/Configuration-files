@@ -64,6 +64,7 @@ ln -s ~/Configuration-files/mpv-input.conf ~/.mpv/input.conf
 ln -s ~/Configuration-files/proxychains.conf ~/.proxychains/proxychains.conf
 
 ln -s ~/Configuration-files/ranger.rc.conf ~/.config/ranger/rc.conf
+ln -s ~/Configuration-files/rifle.conf ~/.config/ranger/rifle.conf
 
 cp -r ~/Configuration-files/tmux/plugins/tpm ~/.tmux/plugins/
 
