@@ -14,7 +14,7 @@ set TERM screen-256color
 set -x LOCATE_PATH "$HOME/.locate.db"
 set -x LC_ALL en_US.UTF-8
 set -x LANG en_US.UTF-8
-set -x EDITOR vim
+set -x EDITOR nvim
 
 set -x SPIGOT_JAR "spigot-1.10.2.jar"
 set -x NUKKIT_JAR "nukkit-1.0-SNAPSHOT.jar"
