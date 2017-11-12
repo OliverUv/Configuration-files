@@ -76,12 +76,12 @@ colors:
   # Default colors
   primary:
     background: '0x10070a'
-    foreground: '0x7e7e7e'
+    foreground: '0x7D716B'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
     text: '0x000000'
-    cursor: '0x49483e'
+    cursor: '0x716660'
 
   # Normal colors
   normal:
