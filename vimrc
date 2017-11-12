@@ -329,8 +329,6 @@ end
 " Statusline settings {{{ "
 set laststatus=2	" always show status line
 
-" Returns current file encoding.
-" Currently used for status line.
 function! FileEncoding()
     if &fileencoding == ''
         return "NONE"
@@ -339,7 +337,15 @@ function! FileEncoding()
     endif
 endfunction
 
-set statusline=%<%F\ %m%r%h%w%{fugitive#statusline()}\ %Y\ %{FileEncoding()}\ %{&ff}%=%#warningmsg#%{SyntasticStatuslineFlag()}%*\ %l/%L\,\ %c\ %p%%\ 
+function! EolSetting()
+    if &eol == 1
+        return "+"
+    else
+        return "-"
+    endif
+endfunction
+
+set statusline=%<%F\ %m%r%h%w%{fugitive#statusline()}\ %Y\ %{FileEncoding()}\ %{&ff}%{EolSetting()}%=%#warningmsg#%{SyntasticStatuslineFlag()}%*\ %l/%L\,\ %c\ %p%%\ 
 " <	truncation point
 " F	full path to file
 " m	modified marker
@@ -348,8 +354,9 @@ set statusline=%<%F\ %m%r%h%w%{fugitive#statusline()}\ %Y\ %{FileEncoding()}\ %{
 " w	preview window flag
 " {fug..Shows branch if file is in git repo
 " Y	file type
-" {&ff}	output of command ff (file format)
 " {FileEncoding} function defined above
+" {&ff}	current value for the fileformat (abbreviated ff) setting
+" {EolSetting} function defined above
 " =	split point for left/rigth justification
 " #warningmsg#     switch to WarningMsg color
 " {SyntasticStatuslineFlag()} syntax error stuff from syntastic
