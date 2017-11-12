@@ -10,7 +10,7 @@ if exists("syntax_on")
 endif
 let g:colors_name = "proton"
 
-hi Normal guibg=#F7EDDF guifg=#404040 gui=none
+hi Normal guibg=#F7EDDF guifg=#4A4A4A gui=none
 hi Comment guibg=NONE guifg=#9098a0 gui=NONE
 hi Todo gui=UNDERLINE guifg=#99004C guibg=#d8d1c8
 
@@ -20,13 +20,13 @@ hi CursorLine guibg=#e0e0e0 guifg=#202020
 
 hi TabLineFill  gui=NONE guifg=#606060 guibg=#d8d1c8
 hi TabLine      gui=NONE guifg=#606060 guibg=#d8d1c8
-hi TabLineSel   gui=NONE guifg=#404040 guibg=#f8f1e8
+hi TabLineSel   gui=NONE guifg=#404040 guibg=#F7EDDF
 " These are custom colors, for tab numbers used with the gt command see
 " the vimrc for tabline code that uses them.
 hi TabNumber    gui=NONE guifg=#99004C guibg=#d8d1c8
-hi TabNumberSel gui=NONE guifg=#99004C guibg=#f8f1e8
+hi TabNumberSel gui=NONE guifg=#99004C guibg=#F7EDDF
 hi TabModified     gui=BOLD guifg=#d0d0d0 guibg=#a0a0a0
-hi TabModifiedSel  gui=BOLD guifg=#202020 guibg=#f8f1e8
+hi TabModifiedSel  gui=BOLD guifg=#202020 guibg=#F7EDDF
 
 hi NonText guibg=#d8d1c8 guifg=#606060 gui=none
 hi Visual guibg=#d8d1c8 guifg=#606060 gui=none
@@ -39,13 +39,13 @@ hi MoreMsg guibg=#f8f1e8 guifg=#304050 gui=bold
 
 hi StatusLine guibg=#808080 guifg=#f8f1e8 gui=bold,italic
 hi StatusLineNC guibg=#707070 guifg=#d0d0d0 gui=italic
-hi VertSplit guibg=#707070 guifg=#909090 gui=none
+hi VertSplit guibg=#D1CAC2 guifg=#909090 gui=none
 
-hi LineNr guibg=#d8d1c8 guifg=#606060 gui=none
+hi LineNr guibg=#d8d1c8 guifg=#707070 gui=none
 
 hi Underlined guifg=#202020 guibg=#f8f1e8 gui=underline
 
-hi Statement guibg=#EDE6E4 guifg=#62605d gui=none
+hi Statement guibg=#EDE6E4 guifg=#994726 gui=none
 hi Label guibg=#e8e1d8 guifg=#000000 gui=none
 hi Operator guifg=#a77039 guibg=#f8f1e8 gui=none
 
@@ -85,7 +85,7 @@ hi UniteSelectedLine gui=NONE guifg=NONE guibg=#d8d1c8
 
 hi gitcommitFile guifg=#404040 guibg=NONE
 
-hi IndentGuidesOdd  gui=NONE guifg=NONE guibg=#F7E6DA
+hi IndentGuidesOdd  gui=NONE guifg=NONE guibg=#FBEADF
 hi IndentGuidesEven gui=NONE guifg=NONE guibg=#EDE6E4
 
 hi SignColumn   gui=NONE guifg=#202020 guibg=#d8d1c8

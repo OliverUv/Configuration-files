@@ -46,7 +46,9 @@ endif
 
 let g:colors_name = "liquorice"
 
-hi Normal       guifg=#c4d0d2 guibg=#181214
+" to use: CC478A - darkpink
+
+hi Normal       guifg=#B0A197 guibg=#181214
 
 " Search
 hi IncSearch    gui=BOLD guifg=#ffffff guibg=#99004c
@@ -123,32 +125,33 @@ hi SpellBad	gui=UNDERCURL guifg=NONE guibg=NONE guisp=#FF0000
 hi Directory    gui=NONE guifg=#c8c8ff guibg=NONE
 hi LineNr       gui=ITALIC guifg=#4D4347 guibg=#0b000e
 hi CursorLineNr gui=ITALIC,BOLD guifg=#0e0e0e guibg=#99004c
-hi NonText      gui=BOLD guifg=#808080 guibg=NONE
+hi NonText      gui=BOLD guifg=#3C3438 guibg=NONE
 hi SpecialKey   gui=BOLD guifg=#808080 guibg=NONE
 hi Title        gui=NONE guifg=#d0d0d0 guibg=NONE
 hi Visual       gui=NONE guifg=NONE guibg=#4D1C4D
 hi VisualNOS    gui=NONE guifg=NONE guibg=#4D1C4D
 
 " Syntax group
-hi Comment      gui=NONE guifg=#8a8a8a guibg=NONE
+hi Comment      gui=NONE guifg=#7A7D7D guibg=NONE
+hi Comment      gui=NONE guifg=#707373 guibg=NONE
 hi Error        gui=BOLD guifg=#f2ca03 guibg=#000000
 hi Identifier   gui=NONE guifg=#b085e1 guibg=NONE
 hi Ignore       gui=NONE guifg=bg      guibg=NONE
 hi PreProc      gui=NONE guifg=#ffa8ff guibg=NONE
 hi Constant     gui=NONE guifg=#f8bef8 guibg=NONE
-hi Special      gui=NONE guifg=#ce9662 guibg=#0f0f0f
+hi Special      gui=NONE guifg=#CF8F53 guibg=#0A0A0A
 hi Statement    gui=NONE guifg=#6699cc guibg=#0F080B
 hi Repeat       gui=BOLD guifg=#6699cc guibg=NONE
 hi Todo         gui=UNDERLINE,ITALIC guifg=#ff80d0 guibg=NONE
 hi Type         gui=NONE guifg=#60f0a8 guibg=NONE
 hi Underlined   gui=UNDERLINE guifg=fg guibg=NONE
-hi String       gui=NONE guifg=#baa798 guibg=#0f0f0f
+hi String       gui=NONE guifg=#876B99 guibg=#231A23
 hi Number       gui=NONE guifg=#acdd82 guibg=NONE
 hi Conditional  gui=BOLD guifg=#86bbee guibg=NONE
 hi Boolean      gui=NONE guifg=#86bbee guibg=NONE
 hi Function     gui=NONE guifg=#cea662 guibg=NONE
 hi Delimiter    gui=NONE guifg=#00a0a0 guibg=NONE
-hi Operator     gui=NONE guifg=#86bbee guibg=NONE
+hi Operator     gui=NONE guifg=#86BBEE guibg=NONE
 
 " TagHighlight plugin colors ( https://github.com/abudden/taghighlight-automirror )
 " hi link to from
@@ -160,13 +163,15 @@ hi link Union Constant
 hi link GlobalConstant Constant
 hi link GlobalVariable Special
 hi Member gui=NONE guifg=#ffd7ab guibg=NONE
-hi LocalVariable gui=NONE guifg=#ff0000 guibg=NONE
+
+" Not a real vim syntax group, used by some ftplugins
+hi LocalVariable gui=NONE guifg=#B058B0 guibg=NONE
 
 
 " Dependent syntax groups
 hi link Character       String
 hi link Float           Number
-hi link Label           Statement
+hi Label     gui=NONE guifg=#987FB0 guibg=#0F080B
 hi link Exception       Statement
 hi link Keyword         Statement
 hi link Include         PreProc
@@ -183,7 +188,26 @@ hi link Debug           Special
 
 " TypeScript
 " defined by yats.vim
+hi typescriptVariableDeclaration gui=NONE guifg=#B058B0 guibg=NONE
+hi link typescriptVariableDeclaration LocalVariable
+hi typescriptObjectLabel gui=ITALIC guifg=#987FB0 guibg=NONE
+hi typescriptEndColons gui=NONE guifg=#475866 guibg=NONE
+hi typescriptIdentifierName gui=NONE guifg=#B08686 guibg=NONE
+hi typescriptPropertySignature gui=NONE guifg=#9782AB guibg=NONE
+
 hi link typescriptBraces Statement
+
+hi link typescriptRestOrSpread Operator
+hi link typescriptObjectSpread Operator
+hi link typescriptDotNotation Operator
+hi link typescriptOpSymbols Operator
+hi link typescriptLogicSymbols Operator
+hi link typescriptOperator Operator
+hi link typescriptOptionalMark Operator
+
+" Rust
+" defined by rust.vim
+hi link rustIdentifier typescriptIdentifierName
 
 " Java
 " hi link javaClassDecl    Type
