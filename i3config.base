@@ -68,7 +68,7 @@ bindsym $mod+Control+d exec dmenu_path | dmenu -i -fn 'robotomono:medium' -sb '#
 
 # start apps
 bindsym $mod+Control+p exec pavucontrol
-bindsym $mod+Control+g exec chromium-browser
+bindsym $mod+Control+g exec ~/Projects/chromium-latest-linux/run.sh
 bindsym $mod+Control+f exec firefox
 bindsym $mod+Control+t exec firefox --new-window 'https://translate.google.com'
 bindsym $mod+Control+v exec gvim
