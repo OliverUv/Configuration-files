@@ -1327,6 +1327,8 @@ nnoremap <leader>= gg=G`'
 
 " Pretty print entire file (if json)
 nnoremap <leader>mJ :<c-u>%!json_pp<cr>
+nnoremap <leader>mJS :<c-u>%!js-beautify -q -s 2 -f - <cr>
+nnoremap <leader>mX :<c-u>%!xmllint --format --recover - <cr>
 
 " Sort in paragraph
 nnoremap <leader>ms Vip:sort<cr>
