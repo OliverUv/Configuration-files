@@ -1,3 +1,3 @@
 function vi --description 'alias vi vim'
-	vim  $argv;
+	nvim  $argv;
 end
