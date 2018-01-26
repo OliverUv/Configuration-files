@@ -353,3 +353,6 @@
 [submodule "dotvim/bundle/vim-taskwarrior"]
 	path = dotvim/bundle/vim-taskwarrior
 	url = git@github.com:blindFS/vim-taskwarrior.git
+[submodule "floating_fzf"]
+	path = floating_fzf
+	url = https://github.com/stagnation/floating_fzf.git
