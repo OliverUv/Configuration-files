@@ -120,9 +120,9 @@ hi SignColumn   gui=NONE guifg=#f0f0f0 guibg=#0b000e
 hi ColorColumn   gui=NONE guifg=NONE guibg=#000000
 
 " Spelling - SpellCap (and maybe others) also used by Syntastic
-hi SpellLocal	gui=UNDERCURL guifg=NONE guibg=NONE guisp=#FF99CC
-hi SpellCap	gui=UNDERCURL guifg=NONE guibg=NONE guisp=#00FF00
-hi SpellBad	gui=UNDERCURL guifg=NONE guibg=NONE guisp=#FF0000
+hi SpellBad	gui=NONE guifg=#B5A586 guibg=#400707
+hi SpellLocal	gui=NONE guifg=#8CB586 guibg=#071E40
+hi link SpellCap SpellLocal
 
 " Other
 hi Directory    gui=NONE guifg=#c8c8ff guibg=NONE
