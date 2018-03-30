@@ -49,6 +49,9 @@ let g:colors_name = "liquorice"
 " to use: CC478A - darkpink
 
 hi Normal       guifg=#B0A197 guibg=#181214
+" This does not work for some reason
+" hi link Conceal Operator
+hi Conceal     gui=NONE guifg=#86BBEE guibg=NONE
 
 " Search
 hi IncSearch    gui=BOLD guifg=#ffffff guibg=#99004c
