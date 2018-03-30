@@ -301,5 +301,17 @@ hi SneakPluginScope  guifg=NONE guibg=#8a8a8a
 hi link NeomakeWarningSign WarningMsg
 hi link NeomakeErrorSign ErrorMsg
 
+" Highlights for ALE
+" hi ALEErrorLine gui=NONE guifg=NONE guibg=#1C1015
+hi ALEErrorLine gui=NONE guifg=NONE guibg=#1F1117
+hi ALEWarningLine gui=NONE guifg=NONE guibg=#11161F
+hi link ALEError SpellBad
+hi link ALEWarning SpellLocal
+hi link ALEInfo SpellLocal
+
+hi AleErrorSign gui=BOLD guifg=#cea662 guibg=#0b000e
+hi AleWarningSign gui=BOLD guifg=#B058B0 guibg=#0b000e
+hi AleInfoSign gui=BOLD guifg=#587BB0 guibg=#0b000e
+
 " lots more tiwddling available here:
 " https://github.com/altercation/vim-colors-solarized/commit/7a7e5c8818d717084730133ed6b84a3ffc9d0447
