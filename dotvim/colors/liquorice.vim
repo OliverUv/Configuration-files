@@ -132,7 +132,7 @@ hi NonText      gui=BOLD guifg=#3C3438 guibg=NONE
 hi SpecialKey   gui=BOLD guifg=#808080 guibg=NONE
 hi Title        gui=NONE guifg=#d0d0d0 guibg=NONE
 hi Visual       gui=NONE guifg=NONE guibg=#4D1C4D
-hi VisualNOS    gui=NONE guifg=NONE guibg=#4D1C4D
+hi link VisualNOS Visual
 
 " Syntax group
 hi Comment      gui=NONE guifg=#7A7D7D guibg=NONE
@@ -285,10 +285,11 @@ hi diffRemoved   gui=NONE guifg=#8A4D4D guibg=#400707
 
 " Highlights for interesting words, see
 " https://bitbucket.org/sjl/dotfiles/src/tip/vim/vimrc
+" TODO all of these need to be changed
 hi def InterestingWord1 guifg=#000000 guibg=#C6ACC6
 hi def InterestingWord2 guifg=#000000 guibg=#b88853
 hi def InterestingWord3 guifg=#000000 guibg=#ffa724
-hi def InterestingWord4 guifg=#000000 guibg=#A77990
+hi def InterestingWord4 guifg=#000000 guibg=#994D73
 hi def InterestingWord5 guifg=#000000 guibg=#acdd82
 hi def InterestingWord6 guifg=#000000 guibg=#79A9A9
 
