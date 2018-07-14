@@ -179,10 +179,11 @@ if dein#load_state(deinpath)
     " }}} Finish Setup "
 " }}} Dein Plugin Loading "
 
-" Plugins {{{ "
+" Plugin Settings {{{ "
 
 " Deoplete {{{ "
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#file#enable_buffer_path = 1
 " No preview window
 set completeopt-=preview
 " More completions
@@ -225,7 +226,7 @@ let g:gutentags_ctags_exclude = ['node_modules', 'build', 'dist']
 let g:echodoc#enable_at_startup = 1
 " }}} Misc "
 
-" }}} Plugins "
+" }}} Plugin Settings "
 
 " Terminal Mode {{{ "
 
