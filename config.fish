@@ -9,7 +9,7 @@ set PATH $PATH ~/.cargo/bin
 
 set fish_greeting " "
 
-set TERM screen-256color
+set TERM xterm-256color
 
 set -x LOCATE_PATH "$HOME/.locate.db"
 set -x LC_ALL en_US.UTF-8
@@ -33,6 +33,8 @@ set -x NUKKIT_SERVER_DIR "$HOME/mc_tmp/nukkit1.0"
 set -x LODASH "$HOME/work_tmp/lodash.js"
 
 set -x RUST_SRC_PATH "$HOME/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
+
+set -x NVIM_TUI_ENABLE_TRUE_COLOR 1
 
 eval (python -m virtualfish)
 
