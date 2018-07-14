@@ -1,0 +1,21 @@
+# priority 15
+
+snippet try
+try {
+	${VISUAL}${1}
+}${2: catch (${3:e}) {
+	${4}
+}}${0}
+endsnippet
+
+snippet wh "while"
+while (${1:true}) {
+	${VISUAL}${2}
+}${0}
+endsnippet
+
+snippet el "else"
+else {
+	${VISUAL}${1}
+}${0}
+endsnippet
