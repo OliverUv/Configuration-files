@@ -67,7 +67,8 @@ map <Leader>F :set gui=tabs<cr>:set statuslinevisibility=visible<cr>
 map <Leader>G :set statuslinevisibility=hidden<cr>
 map <Leader>g :set statuslinevisibility=visible<cr>
 
-javascript lowlightBackground = "#141414"
-javascript lowlightForeground = "#eaeaea"
+javascript lowlightBackground = "#181214"
+" javascript lowlightForeground = "#eaeaea"
+javascript lowlightForeground = "#b0a197"
 
 " vim: set ft=vimperator:
