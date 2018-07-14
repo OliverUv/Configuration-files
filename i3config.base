@@ -17,7 +17,7 @@ set $mod2 Mod4
 
 # dmenu -i -l 20 -fn 'WenQuanYi Zen Hei Mono:bold' -sb '#E17800' -sf '#000000' -h 23
 set $quickbin python3 ~/Projects/quickswitch-for-i3/quickswitch.py
-set $quickdmenu --dmenu "dmenu -i -l 20 -fn 'robotomono:medium' -sb '#E17800' -sf '#000000' -h 23"
+set $quickdmenu --dmenu fzf_selector.sh
 
 set $redshift ~/bin/reds
 
@@ -61,10 +61,13 @@ bindsym $mod2+Shift+T exec xterm
 bindsym $mod+Shift+W kill
 
 # start dmenu
-bindsym $mod+d exec dmenu_run -i -fn 'robotomono:medium' -sb '#E17800' -sf '#000000' -h 23
+bindsym $mod+d exec fzf_launcher.sh
 # start dmenu for .desktop entries
-bindsym $mod+Shift+D exec i3-dmenu-desktop --dmenu "dmenu -i -fn 'robotomono:medium' -sb '#E17800' -sf '#000000' -h 23"
-bindsym $mod+Control+d exec dmenu_path | dmenu -i -fn 'robotomono:medium' -sb '#E17800' -sf '#000000' -h 23 | xargs van
+bindsym $mod+Shift+D exec i3-dmenu-desktop --dmenu "fzf_selector.sh"
+# start dmenu for emoji
+# bindsym $mod+Control+e mark z ; exec $HOME/bin/floating_fzf_emoji ; [con_mark="z"] focus
+# bindsym $mod+Control+e mark z ; exec $HOME/bin/floating_fzf_emoji ; exec sleep 4 ; [con_mark="z"] focus
+bindsym $mod+Control+e exec $HOME/bin/floating_fzf_emoji
 
 # start apps
 bindsym $mod+Control+p exec pavucontrol
@@ -235,8 +238,7 @@ bindsym $mod+minus scratchpad show
 for_window [title="^visulove$"] floating enable
 for_window [title="^Warsow$"] fullscreen
 for_window [title="^ioquake3$"] fullscreen
-# for_window [title="^Oden$"] floating disable
-# assign [class="^Oden$"] 9
+for_window [title = "fzffloater"] floating enable
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

@@ -17,7 +17,7 @@ prompt="attach-local:"
 spawn_local() {
     alacritty -e tmux -u attach -d -t "$1"
 }
-target=$(echo $tmux_run | sed 's/ /\n/g' | ${DMENU} -p "$prompt")
+target=$(echo $tmux_run | sed 's/ /\n/g' | ~/Projects/floating_fzf/bin/fzf_selector.sh)
 
 if [[ -n $target ]]; then
     spawn_local $target

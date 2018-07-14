@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+if [[ -f $HOME/.dmenurc ]]; then
+    . $HOME/.dmenurc
+else
+    DMENU='dmenu -i'
+fi
+
+lib=$HOME/Projects/weechat-emojis/emojis-dmenu.py
+
+prompt="choose your destiny:"
+
+target=$($lib | ${DMENU} -fn robotomono-20:medium -p "$prompt")
+
+if [[ -n $target ]]; then
+    $lib "$target" | xclip -sel clip
+fi
