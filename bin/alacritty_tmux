@@ -20,7 +20,7 @@ then
     if [[ "$NAME" == '' ]]; then
         NAME="fallback"
     fi
-    SESSION_NAME="-s "_$NAME""
+    SESSION_NAME="-s"_$NAME""
 fi
 
 alacritty -e tmux -u new-session "$SESSION_NAME" "$@"
