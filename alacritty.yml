@@ -10,13 +10,13 @@ env:
   # specify all features alacritty supports. This does pose
   # a few issues with programs relying on terminfo and the
   # `tput` command
-  TERM: tmux-256color
+  TERM: xterm-256color
 
 # Window dimensions in character columns and lines
 # (changes require restart)
-dimensions:
-  columns: 80
-  lines: 24
+# dimensions:
+  # columns: 80
+  # lines: 24
 
 # The FreeType rasterizer needs to know the device DPI for best results
 # (changes require restart)
@@ -28,32 +28,40 @@ dpi:
 tabspaces: 8
 
 # When true, bold text is drawn using the bright variant of colors.
-draw_bold_text_with_bright_colors: true
+draw_bold_text_with_bright_colors: false
 
 # Font configuration (changes require restart)
 font:
   # The normal (roman) font face to use.
   normal:
-    family: Inconsolata
+    # family: Iosevka Term
+    # style: Bold
+    family: RobotoMono
     style: Bold
 
   # The bold font face
   bold:
+    # family: Iosevka Term
+    # style: Heavy Italic
+    # family: Inconsolata
+    # style: Bold
     family: RobotoMono
     style: Bold Italic
 
   # The italic font face
   italic:
-    family: Inconsolata
-    style: Italic
+    family: Iosevka Term
+    style: Bold Italic
+    # family: RobotoMono
+    # style: Bold Italic
 
   # Point size of the font
   size: 15.0
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
   offset:
-    x: 0.0
-    y: 0.0
+    x: 0
+    y: 0
 
   # OS X only: use thin stroke font rendering. Thin strokes are suitable
   # for retina displays, but for non-retina you probably want this set to
@@ -246,6 +254,6 @@ hide_cursor_when_typing: false
 # You can set shell.program to the path of your favorite shell, e.g. /bin/fish.
 # Entries in shell.args are passed unmodified as arguments to the shell.
 shell:
- program: /usr/local/bin/fish
+ program: /usr/bin/fish
 #  args:
 #    - --login
