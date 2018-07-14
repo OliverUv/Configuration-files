@@ -1,5 +1,9 @@
-extends javascript, typescript
+extends javascript, typescript, cstyle
 priority 15
+
+snippet ud "undefined" i
+undefined
+endsnippet
 
 snippet ci "console.info" b
 console.info(${1:\`${2:value}\`})
@@ -147,13 +151,13 @@ snippet trp
 this.transferPropsTo(${VISUAL}${0})
 endsnippet
 
-snippet try
-try {
-	${VISUAL}${1}
-}${2: catch (${3:e}) {
-	${4}
-}}${0}
-endsnippet
+# snippet try
+# try {
+# 	${VISUAL}${1}
+# }${2: catch (${3:e}) {
+# 	${4}
+# }}${0}
+# endsnippet
 
 # lodash
 
