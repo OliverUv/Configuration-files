@@ -1,11 +1,13 @@
-set PATH $PATH /usr/local/bin
-set PATH $PATH /usr/bin
 set PATH $PATH /bin
-set PATH $PATH ~/bin
-set PATH $PATH ~/bin.priv
-set PATH $PATH ~/.g-npm/bin
+set PATH $PATH /usr/bin
+set PATH $PATH /usr/local/bin
 set PATH $PATH ~/.arcanist/arcanist/bin
 set PATH $PATH ~/.cargo/bin
+set PATH $PATH ~/.g-npm/bin
+set PATH $PATH ~/.local/bin
+set PATH $PATH ~/Configuration-files/floating_fzf/bin
+set PATH $PATH ~/bin
+set PATH $PATH ~/bin.priv
 
 set fish_greeting " "
 
