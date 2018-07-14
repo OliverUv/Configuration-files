@@ -49,9 +49,6 @@ let g:colors_name = "liquorice"
 " to use: CC478A - darkpink
 
 hi Normal       guifg=#B0A197 guibg=#181214
-" This does not work for some reason
-" hi link Conceal Operator
-hi Conceal     gui=NONE guifg=#86BBEE guibg=NONE
 
 " Search
 hi IncSearch    gui=BOLD guifg=#ffffff guibg=#99004c
@@ -158,6 +155,7 @@ hi Operator     gui=NONE guifg=#86BBEE guibg=NONE
 
 " TagHighlight plugin colors ( https://github.com/abudden/taghighlight-automirror )
 " hi link to from
+hi! link Conceal Operator
 hi link Class Type
 hi link DefinedName PreProc
 hi link Enumerator Constant

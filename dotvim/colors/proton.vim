@@ -48,6 +48,8 @@ hi Underlined guifg=#202020 guibg=#f8f1e8 gui=underline
 hi Statement guibg=#EDE6E4 guifg=#994726 gui=none
 hi Label guibg=#e8e1d8 guifg=#000000 gui=none
 hi Operator guifg=#a77039 guibg=#f8f1e8 gui=none
+hi! link Conceal NONE
+hi Conceal guifg=#AF4631 guibg=#F7EDDF gui=none
 
 hi Title guibg=#f8f1e8 guifg=#202020 gui=underline
 
