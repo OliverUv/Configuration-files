@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-feh `xclip -o -sel clip`
+$PP feh `xclip -o -sel clip`

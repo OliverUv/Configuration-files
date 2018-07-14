@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
-youtube-dl --hls-prefer-native "$@"
+URL=`xclip -o -sel clip`
+echo Downloading "$URL"
+$PP youtube-dl --hls-prefer-native "$URL" "$@"

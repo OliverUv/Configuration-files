@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-URL=$*
+URL=`xclip -o -sel clip`
+echo With URL "$URL"
+
 ARTIST=$(echo "$URL" | sed 's#https://\(.*\)\.bandcamp.*#\1#')
 echo "Downloading $ARTIST $URL"
-youtube-dl -o "${ARTIST}_%(playlist)s/%(autonumber)s-%(title)s.%(ext)s" "$URL"
+$PP youtube-dl -o "${ARTIST}_%(playlist)s/%(autonumber)s-%(title)s.%(ext)s" "$URL"
