@@ -196,7 +196,19 @@ endfunction
 " }}} Deoplete "
 
 " ALE {{{ "
+let g:ale_warn_about_trailing_whitespace = 0
+let g:ale_sign_error = '-▶'
+let g:ale_sign_warning = '-◈'
+let g:ale_sign_info = '-◇'
+let g:ale_linters = {
+\   'rust': [
+\       'rls',
+\   ],
+\}
 let g:ale_fixers = {
+\   'rust': [
+\       'rls',
+\   ],
 \   'typescript': [
 \       'tslint',
 \       'remove_trailing_lines',
@@ -204,8 +216,8 @@ let g:ale_fixers = {
 \   ],
 \}
 nmap <leader>ma <Plug>(ale_fix)
-" nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-" nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nmap <silent> [w <Plug>(ale_previous_wrap)
+nmap <silent> ]w <Plug>(ale_next_wrap)
 " }}} ALE "
 
 " Misc {{{ "
