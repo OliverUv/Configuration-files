@@ -89,6 +89,10 @@ bindsym $mod2+l exec lock
 bindsym $mod2+Shift+L exec suspend
 bindsym $mod2+Shift+H exec nolock_suspend
 
+# nvim anywhere
+for_window [title = "nvimanywhere"] floating enable
+bindsym --release $mod2+i exec --no-startup-id anywherenvim
+
 # move focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+file=$(mktemp)
+
+xdotool key --clearmodifiers ctrl+a ctrl+c
+
+xclip -sel clip -o > $file
+
+alacritty -t nvimanywhere -e nvim "$file" # replace with your favorite terminal
+
+cat $file | xclip -sel clip
+rm $file
+
+xdotool key --clearmodifiers ctrl+a ctrl+v
