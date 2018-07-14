@@ -1,11 +1,12 @@
 [core]
 	excludesfile = ~/.gitignoreglobal
-	editor = vim
+	editor = nvim
 [user]
 	email = oliver.uvman@gmail.com
 	name = OliverUv
 [merge]
 	tool = vimdiff
+	conflictstyle = diff3
 [alias]
 	unstage = reset HEAD --
 	undo = checkout --
