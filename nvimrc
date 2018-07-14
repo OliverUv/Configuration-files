@@ -69,6 +69,7 @@ if dein#load_state(deinpath)
 
     " IDE {{{ "
     " Language Focus {{{ "
+    call dein#add('jalvesaq/Nvim-R.git') " TypeScript
     call dein#add('Quramy/tsuquyomi.git') " TypeScript
     call dein#add('davidhalter/jedi-vim.git') " Python
     " call dein#add('klen/python-mode.git')
@@ -96,10 +97,11 @@ if dein#load_state(deinpath)
     call dein#add('vim-scripts/Enter-Indent.git')
     call dein#add('vim-scripts/RST-Tables.git')
     " call dein#add('tpope/vim-capslock.git')
-    " call dein#add('vim-scripts/colorv.vim.git') " Only works in Gvim
+    call dein#add('gu-fan/colorv.vim.git')
     " }}} Editing "
 
     call dein#add('tpope/vim-fugitive.git')
+    call dein#add('junegunn/gv.vim.git')
     call dein#add('w0rp/ale')
     " call dein#add('scrooloose/syntastic.git')
     call dein#add('tpope/vim-eunuch.git')
@@ -112,6 +114,7 @@ if dein#load_state(deinpath)
     call dein#add('marijnh/tern_for_vim.git')
     call dein#add('mbbill/undotree.git')
     call dein#add('embear/vim-localvimrc.git')
+    call dein#add('stevearc/vim-arduino.git')
     " call dein#add('tpope/vim-dispatch.git')
     " }}} IDE "
 
@@ -137,6 +140,7 @@ if dein#load_state(deinpath)
     call dein#add('sukima/vim-tiddlywiki.git')
     call dein#add('wting/rust.vim.git')
     call dein#add('Shougo/neco-syntax.git') " Shougo things
+    call dein#add('sudar/vim-arduino-snippets') " arduino ultisnips
     " }}} File Types "
 
     " Libs {{{ "
@@ -159,6 +163,7 @@ if dein#load_state(deinpath)
     call dein#add('morhetz/gruvbox.git')
     call dein#add('abudden/taghighlight-automirror.git')
     call dein#add('godlygeek/csapprox.git')
+    call dein#add('gerw/vim-HiLinkTrace.git')
     " }}} Bling "
 
     " Management {{{ "
