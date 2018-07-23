@@ -636,7 +636,11 @@ let g:unite_source_buffer_time_format = "%Y-%m-%d  %H:%M:%S  "
 let g:unite_source_file_mru_time_format = "%Y-%m-%d  %H:%M:%S  "
 
 " Use ag or ack as grep command if possible
-if executable('ag')
+if executable('rg')
+  let g:unite_source_grep_command = 'rg'
+  let g:unite_source_grep_default_opts = '-S --hidden --no-heading --vimgrep --iglob "!*.bcm" --iglob "!package-lock.json" --iglob "!yarn.lock"'
+  let g:unite_source_grep_recursive_opt = ''
+elseif executable('ag')
   let g:unite_source_grep_command = 'ag'
   let g:unite_source_grep_default_opts = '--nocolor --nogroup --hidden --ignore-case --ignore tags'
   let g:unite_source_grep_recursive_opt = ''
