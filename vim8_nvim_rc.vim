@@ -120,6 +120,9 @@ set display=lastline    " Show last line at bottom of window, even if it can't b
 set noshowmode          " Don't show that we're in insert mode
 set concealcursor=""    " Don't do syntax based conceal when cursor is on same line
 " set spellfile=$HOME/.vim/spell/ TODO
+if executable('rg')
+    set grepprg=rg\ --vimgrep
+endif
 
 " Make Vim able to edit crontab files again.
 set backupskip=/tmp/*,/private/tmp/*"
