@@ -241,7 +241,7 @@ bindsym $mod+F6 exec xbacklight -inc 5
 
 bindsym $mod+F7 exec ~/.layout/laptop.sh
 bindsym $mod+F8 exec ~/.layout/office.sh
-bindsym $mod+F9 exec ~/.layout/home.sh
+bindsym $mod+F9 exec ~/.layout/sofa.sh
 
 bindsym $mod2+x exec setx
 
