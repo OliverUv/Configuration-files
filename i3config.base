@@ -250,7 +250,6 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # Rules for specific windows
-for_window [title="^visulove$"] floating enable
 for_window [title="^Warsow$"] fullscreen
 for_window [title="^ioquake3$"] fullscreen
 for_window [title = "fzffloater"] floating enable
