@@ -243,7 +243,7 @@ bindsym $mod+F7 exec ~/.layout/laptop.sh
 bindsym $mod+F8 exec ~/.layout/office.sh
 bindsym $mod+F9 exec ~/.layout/home.sh
 
-bindsym $mod2+Shift+X exec setx
+bindsym $mod2+x exec setx
 
 # Scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -327,7 +327,7 @@ exec killall -q notify-osd
 exec --no-startup-id dunst
 
 # keyboard key autorepeat rate
-exec --no-startup-id xset r rate 210 30
+exec --no-startup-id xset r rate 200 40
 # disable mouse acceleration
 exec --no-startup-id xset m 0 0
 # disable screen blanking TODO fix this
