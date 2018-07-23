@@ -155,7 +155,7 @@ set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
 set wildignore+=*/tmp/cache/assets/*/sprockets/*,*/tmp/cache/assets/*/sass/*
 
 " Ignore modules / components
-set wildignore+=node_modules/*
+set wildignore+=*/node_modules/*
 set wildignore+=bower_components/*
 set wildignore+=libs/*
 set wildignore+=typings/*
