@@ -1384,14 +1384,14 @@ nnoremap <silent> <leader>a :sign unplace *<cr>:Lclose<cr>:Cclose<cr>
 nnoremap <silent> - mz:<c-u>:Switch<cr><esc>`z
 
 " Option toggles
-nnoremap coD :IndentGuidesToggle<cr>
-nnoremap coR :RainbowToggle<cr>
-nnoremap <silent> coC :call g:ToggleColorColumn()<cr>
-nnoremap <silent> coL :call g:ToggleColorScheme()<cr>
+nnoremap =oD :IndentGuidesToggle<cr>
+nnoremap =oR :RainbowToggle<cr>
+nnoremap <silent> =oC :call g:ToggleColorColumn()<cr>
+nnoremap <silent> =oL :call g:ToggleColorScheme()<cr>
 
 " Goyo toggle
-nnoremap <silent> cog :<C-U>Goyo 85%x95%<cr>
-nnoremap <silent> coG :<C-U>Goyo!<cr>
+nnoremap <silent> =og :<C-U>Goyo 85%x95%<cr>
+nnoremap <silent> =oG :<C-U>Goyo 50%x95%<cr>
 
 " Go to tabs with F-keys
 nnoremap <F1> 1gt
