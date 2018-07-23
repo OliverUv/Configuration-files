@@ -16,7 +16,7 @@ augroup MyAutoCmd
     "       \ so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 
     " Mapping for checking for existing mappings in vimrc
-    autocmd BufEnter .vimrc,vimrc,.gvimrc,gvimrc
+    autocmd BufEnter .vimrc,vimrc,.gvimrc,gvimrc,.vim8_nvim_rc.vim,init.vim
           \ nnoremap <leader>' /leader>
 
     " Set ghc as compiler for haskell files
