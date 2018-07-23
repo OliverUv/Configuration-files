@@ -1215,7 +1215,7 @@ noremap ' `
 nnoremap <silent> <leader>8 :let stay_star_view = winsaveview()<cr>*:call winrestview(stay_star_view)<cr>
 
 " Easier linewise reselection of what you just pasted.
-nnoremap <leader>V V`]
+nnoremap <leader>v V`]
 
 " Bash-like keys for the command line
 cnoremap <C-A>	<Home>
