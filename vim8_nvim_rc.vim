@@ -551,8 +551,6 @@ augroup FugitiveGroup
 augroup end
 endif
 
-nnoremap <silent> <leader>.. :edit %:h<CR>
-
 " }}} Fugitive "
 
 " vim-space {{{ "
@@ -1351,6 +1349,11 @@ nnoremap <leader>ed :<C-U>Remove
 nnoremap <leader>em :<C-U>Move <c-r>=expand('%:p')<cr>
 " Remove DOS line endings from unix file with mixed endings
 nnoremap <leader>el :%s/\r$//<cr>
+
+" netrw things
+nnoremap <leader>ex :<C-U>Explore<cr>
+nnoremap <leader>ej :<C-U>Sexplore<cr>
+nnoremap <leader>ek :<C-U>Vexplore<cr>
 
 " Surround selected text with ${}
 vmap $ S}i$<esc>
