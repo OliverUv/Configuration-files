@@ -373,9 +373,9 @@ endfunction
 
 function! EolSetting()
     if &eol == 1
-        return "+"
+        return "↵"
     else
-        return "-"
+        return "⤓"
     endif
 endfunction
 
