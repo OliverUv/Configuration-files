@@ -100,6 +100,16 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
+bindsym $mod2+h focus output left
+bindsym $mod2+j focus output down
+bindsym $mod2+k focus output up
+bindsym $mod2+l focus output right
+
+bindsym $mod2+Shift+H move container to output left
+bindsym $mod2+Shift+J move container to output down
+bindsym $mod2+Shift+K move container to output up
+bindsym $mod2+Shift+L move container to output right
+
 # move focused window
 bindsym $mod+Shift+H move left
 bindsym $mod+Shift+J move down
