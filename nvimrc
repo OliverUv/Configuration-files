@@ -252,6 +252,7 @@ filetype plugin indent on
 set t_ut=
 set termguicolors
 colorscheme liquorice
+" colorscheme proton
 " }}} Color Settings "
 
 let sharedrc = expand('~/Configuration-files/vim8_nvim_rc.vim')
