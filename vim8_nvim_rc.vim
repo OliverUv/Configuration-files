@@ -208,6 +208,36 @@ if has("autocmd")
     " Clear autocmds for this group
     autocmd!
 
+    " Rice Operators {{{ "
+
+    function Riceoperators()
+        " if !exists('w:hasricedoperators')
+            setl conceallevel=1
+            " Priorities must be lower than the matches for hlsearch,
+            " otherwise all hlsearch hilighted things are concealed
+            " https://github.com/vim/vim/issues/2185
+            " call matchadd('Conceal', '^\s*[^/][^/].*\zs!==\ze', -1, -1, {'conceal': '≠'})
+            call matchadd('Conceal', '!==', -1, -1, {'conceal': '≠'})
+            call matchadd('Conceal', '===', -1, -1, {'conceal': '≗'})
+            call matchadd('Conceal', '==', -2, -1, {'conceal': '≡'})
+            call matchadd('Conceal', '!=', -2, -1, {'conceal': '≢'})
+            call matchadd('Conceal', '<=', -2, -1, {'conceal': '≤'})
+            call matchadd('Conceal', '>=', -2, -1, {'conceal': '≥'})
+            call matchadd('Conceal', '=>', -2, -1, {'conceal': '⇒'})
+            call matchadd('Conceal', '->', -2, -1, {'conceal': '→'})
+            call matchadd('Conceal', '&&', -2, -1, {'conceal': '⋀'})
+            call matchadd('Conceal', '||', -2, -1, {'conceal': '⋁'})
+            call matchadd('Conceal', '+=', -2, -1, {'conceal': '⊞'})
+            call matchadd('Conceal', '-=', -2, -1, {'conceal': '⊟'})
+            " Because JS has both `for in` and `for of`, I'm not enabling this for now
+            " call matchadd('Conceal', 'for\s*([^)]*\s\+\<\zsin\ze\>', -2, -1, {'conceal': '∈'})
+            call matchadd('Conceal', '\s\zs=\ze\s', -3, -1, {'conceal': '⇐'})
+        " endif
+        " let w:hasricedoperators=1
+    endfunction
+
+    " }}} Rice Operators " 
+
     " arduino {{{ "
     au FileType arduino nnoremap <silent> <leader>ov :split<cr><c-w>j:<C-u>ArduinoVerify<cr>A
     au FileType arduino nnoremap <silent> <leader>oo :split<cr><c-w>j:<C-u>ArduinoUpload<cr>A
@@ -243,6 +273,9 @@ if has("autocmd")
     au FileType typescript nnoremap <silent> <leader>oo :<C-u>Neomake! tsc tslint<cr>
     au FileType typescript nnoremap <silent> <leader>oO :<C-u>Neomake! tsc<cr>
     au FileType typescript nnoremap <silent> <leader>of :<C-u>TsuquyomiGeterrProject<cr>
+
+    au BufWinEnter *.ts,*.tsx call Riceoperators()
+    au WinEnter *.ts,*.tsx call Riceoperators()
     " }}} typescript "
 
     " cpp {{{ "
@@ -266,7 +299,8 @@ if has("autocmd")
     " All
     au QuickFixCmdPost * nested cwindow | redraw!
 
-    " Misc
+    " misc {{{ "
+
     au FileType c setlocal colorcolumn=79
     au BufNewFile,BufReadPost *.coffee setlocal foldmethod=indent shiftwidth=2 softtabstop=2 expandtab
     au BufWritePost,FileWritePost *.coffee silent make!
@@ -279,6 +313,10 @@ if has("autocmd")
     au FileType {make,gitconfig} set noexpandtab sw=4
     au FileType vim setlocal foldmethod=marker
     au FileType {md,tex,txt,rst,text} setlocal linebreak
+
+    au BufWinEnter *.py call Riceoperators()
+    au WinEnter *.py call Riceoperators()
+    " }}} misc "
 
     augroup end
 
