@@ -973,6 +973,8 @@ let g:zv_file_types = {
 " }}} zeavim "
 
 " rust, racer {{{ "
+let g:rust_conceal = 1
+let g:rust_fold = 1
 let g:rustfmt_command = "$HOME/.cargo/bin/rustfmt"
 let g:rustfmt_autosave = 0
 let g:racer_cmd = "$HOME/.cargo/bin/racer"
