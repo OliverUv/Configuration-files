@@ -86,9 +86,9 @@ bindsym --release $mod+Control+s exec scrot -s $HOME/t/scrot.png
 bindsym --release $mod+Control+Shift+S exec scrot $HOME/t/scrot.png
 
 # lock X session
-bindsym $mod2+l exec lock
-bindsym $mod2+Shift+L exec suspend
-bindsym $mod2+Shift+H exec nolock_suspend
+bindsym $mod2+s exec lock
+bindsym $mod2+Shift+S exec suspend
+# bindsym $mod2+Shift+H exec nolock_suspend
 
 # nvim anywhere
 for_window [title = "nvimanywhere"] floating enable
