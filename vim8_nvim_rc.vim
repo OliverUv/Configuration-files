@@ -1120,6 +1120,8 @@ xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
 " Keymaps {{{ "
 
+" ToggleColorColumn() {{{ "
+
 " Toggle colorcolumn TODO make this save previous value
 " instead of using 79 all the time.
 function! g:ToggleColorColumn()
@@ -1145,6 +1147,13 @@ function! g:ToggleColorScheme()
         execute "colorscheme " . l:theme . '-approx'
     end
 endfunction
+
+" }}} ToggleColorColumn() "
+
+" Map the leader keys
+let mapleader="\\"
+" let maplocalleader="\\\\"
+let maplocalleader=","
 
 " Pull word under cursor into LHS of a substitute
 nnoremap <leader>z :%s#\<<c-r>=expand("<cword>")<cr>\>#<c-r>=expand("<cword>")<cr>#gc<left><left><left>
