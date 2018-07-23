@@ -208,6 +208,18 @@ if has("autocmd")
     " Clear autocmds for this group
     autocmd!
 
+    " arduino {{{ "
+    au FileType arduino nnoremap <silent> <leader>ov :split<cr><c-w>j:<C-u>ArduinoVerify<cr>A
+    au FileType arduino nnoremap <silent> <leader>oo :split<cr><c-w>j:<C-u>ArduinoUpload<cr>A
+    au FileType arduino nnoremap <silent> <leader>oO :split<cr><c-w>j:<C-u>ArduinoUploadAndSerial<cr>A
+    au FileType arduino nnoremap <silent> <leader>os :split<cr><c-w>j:<C-u>ArduinoSerial<cr>A
+    au FileType arduino let g:arduino_serial_port = '/dev/ttyACM0'
+    au FileType arduino let g:arduino_serial_baud = '9600'
+    au FileType arduino let g:arduino_serial_cmd = 'picocom {port} -b {baud} -l'
+    " au FileType arduino let g:arduino_serial_tmux = 'split-window -d'
+    au FileType arduino let g:arduino_serial_tmux = ''
+    " }}} arduino "
+
     " typescript {{{ "
     au FileType typescript setlocal expandtab shiftwidth=2 softtabstop=2 omnifunc=tsuquyomi#complete
     au FileType typescript nmap <buffer> <Leader>jg :TsuquyomiImplementation<CR>
