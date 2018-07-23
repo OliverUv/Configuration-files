@@ -1346,6 +1346,8 @@ nnoremap <leader>gA :<C-U>Gcommit --amend --no-edit<cr>
 nnoremap <leader>ga :<C-U>Gcommit --amend<cr>
 nnoremap <leader>gr :<C-U>Git checkout -- %
 nnoremap <leader>gR :<C-U>Git reset --hard 
+nnoremap <leader>gv :<C-U>GV --all<cr>
+nnoremap <leader>gV :<C-U>GV! --all<cr>
 
 " Get gittin!
 nmap <leader>gg <c-w>s<c-w>T:Gstatus<cr>/not staged<cr><c-n>:noh<cr>
