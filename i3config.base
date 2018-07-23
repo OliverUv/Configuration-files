@@ -220,7 +220,7 @@ bindsym $mod+Shift+parenright move container to workspace number 10
 # reload the configuration file
 bindsym $mod+Shift+C exec refresh-configs ; reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+R exec refresh-configs ; reload
+bindsym $mod+Shift+R exec refresh-configs ; restart
 
 # Change system volume with media keys
 # bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
