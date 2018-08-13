@@ -268,6 +268,8 @@ if has("autocmd")
     au FileType typescript nmap <buffer> <Leader>fk :<C-u>echo tsuquyomi#hint()<CR>
     au FileType typescript nmap <buffer> <Leader>jk :<C-u>echo tsuquyomi#hint()<CR>
 
+    au FileType typescript let b:splitjoin_trailing_comma = 1
+
     au FileType typescript let g:neomake_serialize = 1
     au FileType typescript let g:neomake_serialize_abort_on_error = 1
     au FileType typescript nnoremap <silent> <leader>oo :<C-u>Neomake! tsc tslint<cr>
