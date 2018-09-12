@@ -948,8 +948,8 @@ let g:rainbow_operators = 1
 
 " vim-togglelist {{{ "
 " https://github.com/xaimus/vim-togglelist
-nnoremap <silent> <leader>A :Ltoggle<cr>
-nnoremap <silent> <leader>q :Ctoggle<cr>
+" nnoremap <silent> <leader>A :Ltoggle<cr>
+nnoremap <silent> <leader>Q :Ctoggle<cr>
 " }}} vim-togglelist "
 
 " jedi-vim {{{ "
@@ -1520,7 +1520,7 @@ nnoremap <leader>I i <esc>la <esc>h
 nnoremap <silent> <leader><space> :noh<cr>
 nnoremap <silent> <leader>ee :UltiSnipsEdit<cr>
 nnoremap <silent> <leader>u :UndotreeToggle<cr>
-nnoremap <silent> <leader>a :sign unplace *<cr>:Lclose<cr>:Cclose<cr>
+nnoremap <silent> <leader>q :sign unplace *<cr>:Lclose<cr>:Cclose<cr>
 nnoremap <silent> - mz:<c-u>:Switch<cr><esc>`z
 
 " Option toggles
