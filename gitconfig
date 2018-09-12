@@ -53,6 +53,9 @@
         # Reset file permissions
         permission-reset = "!git diff -p -R | grep -E '^(diff|(old|new) mode)' | git apply"
 
+	# Make tmp squashed branch
+	tmpsquash = "!f() { git checkout master && git branch -D tmp ; git checkout -b tmp $2 && git reset --soft $1 && git commit -m tmpsquash ; }; f"
+
 [github]
 	user = OliverUv
 [giggle]
