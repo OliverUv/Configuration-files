@@ -1438,6 +1438,7 @@ nnoremap <silent> <leader>s :<C-U>w<cr>
 nnoremap <silent> <leader>S :<C-U>w<cr>
 nnoremap <silent> <leader>x :<C-U>wq<cr>
 nnoremap <silent> <leader>X :<C-U>wqa<cr>
+nnoremap <silent> <leader>T :<C-U>tabclose<cr>
 nnoremap <silent> <leader>d :<C-U>confirm q<cr>
 nnoremap <silent> <leader>D :<C-U>confirm qa<cr>
 
