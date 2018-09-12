@@ -40,8 +40,12 @@ if dein#load_state(deinpath)
     " }}} Auto-Completion "
 
     " Navigation {{{ "
-    " Unite/Denite {{{ "
+    " Denite {{{ "
     call dein#add('Shougo/denite.nvim.git')
+    call dein#add('neoclide/denite-extra.git')
+    " }}} Denite "
+    " Unite {{{ "
+    " Some of these are also used by Denite
     call dein#add('Shougo/unite.vim.git') " to use unite plugins
     call dein#add('Shougo/unite-help.git')
     call dein#add('Shougo/unite-outline.git')
