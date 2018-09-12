@@ -766,6 +766,139 @@ endif
 
 " }}} Unite "
 
+" Denite {{{ "
+
+" Denite config {{{ "
+
+" Denite grep ripgrep config {{{ "
+if executable('rg')
+    call denite#custom#var('file_rec', 'command',
+    	\ ['rg', '--files', '--color', 'never'])
+
+    call denite#custom#var('grep', 'command', ['rg'])
+    call denite#custom#var('grep', 'default_opts',
+                \ ['--vimgrep', '--no-heading', '--color', 'never'])
+    call denite#custom#var('grep', 'recursive_opts', [])
+    call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+    call denite#custom#var('grep', 'separator', ['--'])
+    call denite#custom#var('grep', 'final_opts', [])
+endif
+" }}} Denite grep ripgrep config "
+
+call denite#custom#option('_', 'highlight_mode_insert', 'UniteSelectedLine')
+
+" }}} Denite config "
+
+" Denite internal mappings {{{ "
+
+call denite#custom#map(
+    \ 'insert',
+    \ '<esc>',
+    \ '<denite:enter_mode:normal>',
+    \ 'noremap'
+    \)
+
+call denite#custom#map(
+    \ 'insert',
+    \ '<C-n>',
+    \ '<denite:move_to_next_line>',
+    \ 'noremap'
+    \)
+
+call denite#custom#map(
+    \ 'insert',
+    \ '<C-p>',
+    \ '<denite:move_to_previous_line>',
+    \ 'noremap'
+    \)
+
+call denite#custom#map(
+    \ 'insert',
+    \ '<C-j>',
+    \ '<denite:do_action:split>',
+    \ 'noremap'
+    \)
+
+call denite#custom#map(
+    \ 'insert',
+    \ '<C-k>',
+    \ '<denite:do_action:vsplit>',
+    \ 'noremap'
+    \)
+
+call denite#custom#map(
+    \ 'normal',
+    \ '<C-j>',
+    \ '<denite:do_action:split>',
+    \ 'noremap'
+    \)
+
+call denite#custom#map(
+    \ 'normal',
+    \ '<C-k>',
+    \ '<denite:do_action:vsplit>',
+    \ 'noremap'
+    \)
+
+call denite#custom#map(
+    \ 'insert',
+    \ '<C-t>',
+    \ '<denite:do_action:tabopen>',
+    \ 'noremap'
+    \)
+
+call denite#custom#map(
+    \ 'normal',
+    \ '<C-t>',
+    \ '<denite:do_action:tabopen>',
+    \ 'noremap'
+    \)
+
+" call denite#custom#map(
+"     \ 'insert',
+"     \ '<C-d>',
+"     \ '<denite:scroll_page_forwards>',
+"     \ 'noremap'
+"     \)
+
+" }}} Denite internal mappings "
+
+" Denite mappings {{{ "
+nnoremap <silent><leader>a: :<c-u>Denite command<cr>
+nnoremap <silent><leader>a; :<c-u>Denite command_history<cr>
+nnoremap <silent><leader>aG :<c-u>Denite grep:::`expand('<cword>')`<cr>
+vnoremap <silent><leader>aG "zy:<c-u>Denite grep:::`@z`<cr>
+nnoremap <silent><leader>aa :<c-u>Denite -split=vertical outline<cr>
+nnoremap <silent><leader>aA :<c-u>Denite -split=vertical unite:outline<cr>
+nnoremap <silent><leader>ab :<c-u>Denite buffer<cr>
+nnoremap <silent><leader>ac :<c-u>Denite change<cr>
+nnoremap <silent><leader>ad :<c-u>Denite directory_rec<cr>
+nnoremap <silent><leader>ae :<c-u>Denite file_mru<cr>
+nnoremap <silent><leader>ag :<c-u>Denite grep<cr>
+nnoremap <silent><leader>ah :<c-u>Denite help<cr>
+nnoremap <silent><leader>aj :<c-u>Denite jump<cr>
+nnoremap <silent><leader>al :<c-u>Denite line<cr>
+nnoremap <silent><leader>aL :<c-u>Denite -matchers=matcher_fuzzy line<cr>
+nnoremap <silent><leader>ar :<c-u>Denite file_rec<cr>
+nnoremap <silent><leader>at :<c-u>Denite tag<cr>
+nnoremap <silent><leader>av :<c-u>Denite -resume<cr>
+nnoremap <silent><leader>ay :<c-u>Denite register<cr>
+nnoremap <silent><leader>aY :<c-u>Denite unite:history/yank<cr>
+nnoremap <silent><leader>aq :<c-u>Denite quickfix<cr>
+nnoremap <silent><leader>aQ :<c-u>Denite location_list<cr>
+nnoremap <silent><leader>a/ :<c-u>Denite history:search<cr>
+nnoremap <silent><leader>a<tab> :<c-u>Denite -split=vertical unite:ultisnips<cr>
+
+nnoremap <silent>]r :<c-u>Denite -resume -cursor-pos=+1 -immediately<cr>
+nnoremap <silent>[r :<c-u>Denite -resume -cursor-pos=-1 -immediately<cr>
+
+" Bindings
+" TODO nnoremap <silent><leader>ay :<c-u>Denite yank<cr>
+" TODO handle colons in selected text, the following doesn't quite work
+" vnoremap <silent><leader>aG "zy:<c-u>Denite grep:::`substitute(@z, ":", "\\:", "")`<cr>
+" }}} Denite mappings "
+" }}} Denite "
+
 " Rainbow-Parentheses-Improved-and2 {{{ "
 "" Rainbow-Parentheses-Improved-and2 settings
 "" http://github.com/vim-scripts/Rainbow-Parentheses-Improved-and2
