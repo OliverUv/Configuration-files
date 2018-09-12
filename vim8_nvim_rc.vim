@@ -1449,6 +1449,12 @@ nnoremap <silent> <leader>hh :<C-U>FSSplitLeft<cr>
 nnoremap <silent> <leader>hl :<C-U>FSSplitRight<cr>
 nmap     <silent> <leader>ha :<C-U>FSSplitLeft<cr><c-h>zhco4<c-l>zh
 
+" Neovim terminal settings
+nnoremap <silent> <leader>t<space> :<c-u>terminal<cr>Afish<cr>
+nnoremap <silent> <leader>tt :<c-u>tabnew<cr>:terminal<cr>Afish<cr>
+nnoremap <silent> <leader>tj :<c-u>split<cr>:terminal<cr>Afish<cr>
+nnoremap <silent> <leader>tk :<c-u>vsplit<cr>:terminal<cr>Afish<cr>
+
 " Break pane out of tabpage
 nnoremap <leader>b <c-w>s<c-w>TgT<c-w>cgt
 
