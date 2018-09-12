@@ -239,6 +239,9 @@ let g:echodoc#enable_at_startup = 1
 tnoremap <Esc> <C-\><C-n>
 tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 
+tnoremap jk <C-\><C-n>
+tnoremap kj <C-\><C-n>
+
 " }}} Terminal Mode "
 
 " Required:
