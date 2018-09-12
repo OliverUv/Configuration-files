@@ -149,10 +149,14 @@ set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 set wildignore+=*.jpg,*.jpeg,*.bmp,*.png,*.gif
 
 " Ignore bundler and sass cache
-set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
+set wildignore+=*/vendor/gems/*
+set wildignore+=*/vendor/cache/*
+set wildignore+=*/.bundle/*
+set wildignore+=*/.sass-cache/*
 
 " Ignore rails temporary asset caches
-set wildignore+=*/tmp/cache/assets/*/sprockets/*,*/tmp/cache/assets/*/sass/*
+set wildignore+=*/tmp/cache/assets/*/sprockets/*
+set wildignore+=*/tmp/cache/assets/*/sass/*
 
 " Ignore modules / components
 set wildignore+=*/node_modules/*
