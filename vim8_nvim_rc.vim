@@ -693,8 +693,8 @@ function! UltiSnipsCallUnite()
 endfunction
 
 " Bindings
-inoremap <silent><leader>l<tab> <C-R>=(pumvisible()? "\<LT>C-E>":"")<CR><C-R>=UltiSnipsCallUnite()<CR>
-nnoremap <silent><leader>l<tab> a<C-R>=(pumvisible()? "\<LT>C-E>":"")<CR><C-R>=UltiSnipsCallUnite()<CR>
+" inoremap <silent><leader>l<tab> <C-R>=(pumvisible()? "\<LT>C-E>":"")<CR><C-R>=UltiSnipsCallUnite()<CR>
+" nnoremap <silent><leader>l<tab> a<C-R>=(pumvisible()? "\<LT>C-E>":"")<CR><C-R>=UltiSnipsCallUnite()<CR>
 nnoremap <silent><leader>lr :call g:DoUniteFuzzy()<CR>
 nnoremap <silent><leader>lR :call g:DoUniteNonFuzzy()<CR>
 nnoremap <silent><leader>lq :call g:DoUniteFuzzyQuickfix()<CR>
