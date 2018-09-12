@@ -311,5 +311,57 @@ hi AleErrorSign gui=BOLD guifg=#cea662 guibg=#0b000e
 hi AleWarningSign gui=BOLD guifg=#B058B0 guibg=#0b000e
 hi AleInfoSign gui=BOLD guifg=#587BB0 guibg=#0b000e
 
+" Neovim Terminal Colors
+
+" Defaults, useful when modifying colors
+" let g:terminal_color_0 = "#000000" " black
+" let g:terminal_color_1 = "#800000" " d red
+" let g:terminal_color_2 = "#008000" " d green
+" let g:terminal_color_3 = "#808000" " d yellow
+" let g:terminal_color_4 = "#000080" " d blue
+" let g:terminal_color_5 = "#800080" " d magenta
+" let g:terminal_color_6 = "#008080" " d cyan
+" let g:terminal_color_7 = "#c0c0c0" " d white
+" let g:terminal_color_8 = "#808080" " gray
+" let g:terminal_color_9 = "#ff0000" " red
+" let g:terminal_color_10 = "#00ff00" " green
+" let g:terminal_color_11 = "#ffff00" " yellow
+" let g:terminal_color_12 = "#0000ff" " blue
+" let g:terminal_color_13 = "#ff00ff" " magenta
+" let g:terminal_color_14 = "#00ffff" " cyan
+" let g:terminal_color_15 = "#ffffff" " white
+
+let g:terminal_color_0 = "#0b000e" " black
+let g:terminal_color_1 = "#400707" " d red
+let g:terminal_color_2 = "#00a0a0" " d green
+let g:terminal_color_3 = "#cf8f53" " d yellow
+" let g:terminal_color_4 = "#47007D" " d blue
+" let g:terminal_color_4 = "#b058b0" " d blue
+let g:terminal_color_4 = "#876b99" " d blue
+let g:terminal_color_5 = "#b058b0" " d magenta
+let g:terminal_color_6 = "#6699cc" " d cyan
+let g:terminal_color_7 = "#d8d8d8" " d white
+let g:terminal_color_8 = "#707373" " gray
+let g:terminal_color_9 = "#B00058" " red
+let g:terminal_color_10 = "#60f0a8" " green
+let g:terminal_color_11 = "#f2ca03" " yellow
+let g:terminal_color_12 = "#cc99ff" " blue
+let g:terminal_color_13 = "#ff80d0" " magenta
+let g:terminal_color_14 = "#86bbee" " cyan
+let g:terminal_color_15 = "#e8e8e8" " white
+
+" let g:terminal_color_16 = "#"
+" let g:terminal_color_17 = "#"
+" let g:terminal_color_18 = "#"
+" let g:terminal_color_19 = "#"
+" let g:terminal_color_20 = "#"
+" let g:terminal_color_21 = "#"
+" let g:terminal_color_22 = "#"
+" let g:terminal_color_23 = "#"
+" let g:terminal_color_24 = "#"
+" let g:terminal_color_25 = "#"
+" let g:terminal_color_26 = "#"
+" let g:terminal_color_27 = "#"
+
 " lots more tiwddling available here:
 " https://github.com/altercation/vim-colors-solarized/commit/7a7e5c8818d717084730133ed6b84a3ffc9d0447
