@@ -777,7 +777,7 @@ if executable('rg')
 
     call denite#custom#var('grep', 'command', ['rg'])
     call denite#custom#var('grep', 'default_opts',
-                \ ['--vimgrep', '--no-heading', '--color', 'never'])
+                \ ['--vimgrep', '--no-heading', '--color', 'never', '--smart-case'])
     call denite#custom#var('grep', 'recursive_opts', [])
     call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
     call denite#custom#var('grep', 'separator', ['--'])
@@ -875,6 +875,7 @@ nnoremap <silent><leader>ac :<c-u>Denite change<cr>
 nnoremap <silent><leader>ad :<c-u>Denite directory_rec<cr>
 nnoremap <silent><leader>ae :<c-u>Denite file_mru<cr>
 nnoremap <silent><leader>ag :<c-u>Denite grep<cr>
+nnoremap <silent><leader>ai :<c-u>Denite grep:::!<cr>
 nnoremap <silent><leader>ah :<c-u>Denite help<cr>
 nnoremap <silent><leader>aj :<c-u>Denite jump<cr>
 nnoremap <silent><leader>al :<c-u>Denite line<cr>
