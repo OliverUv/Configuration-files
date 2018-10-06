@@ -32,7 +32,7 @@ hi NonText guibg=#d8d1c8 guifg=#606060 gui=none
 hi Visual guibg=#d8d1c8 guifg=#606060 gui=none
 hi Folded guibg=#d8d1c8 guifg=#606060 gui=none
 hi SpecialKey guibg=#e8e8e8 guifg=#a0a0a0 gui=none
-hi Search guibg=#808080 guifg=#ffffff gui=bold
+hi Search guibg=#B3FFD0 guifg=NONE gui=bold
 
 hi ModeMsg guibg=#f8f1e8 guifg=#304050 gui=bold
 hi MoreMsg guibg=#f8f1e8 guifg=#304050 gui=bold
