@@ -76,10 +76,10 @@ hi Special guifg=#693020 guibg=#EDDDD1 gui=italic
 hi Error gui=BOLD guifg=#f2ca03 guibg=#191919
 hi SyntasticWarningLine guibg=#f8f1e8
 
-hi DiffText guifg=#ffcc7f guibg=#a67429
-hi DiffDelete guifg=#ff7f50 guibg=#a62910
-hi DiffChange guifg=#7fbdff guibg=#425c78
-hi DiffAdd guifg=#8ae234 guibg=#4e9a06
+hi DiffText guifg=NONE guibg=#E3D6F5
+hi DiffDelete guifg=#F3C4D3 guibg=#F4DCD7
+hi DiffChange guifg=NONE guibg=#D7E8F9
+hi DiffAdd guifg=NONE guibg=#E3F6D0
 
 hi SpellBad gui=undercurl guisp=#f02020
 
