@@ -92,6 +92,16 @@ hi IndentGuidesEven gui=NONE guifg=NONE guibg=#EDE6E4
 
 hi SignColumn   gui=NONE guifg=#202020 guibg=#d8d1c8
 
+" Highlights for ALE
+hi ALEErrorLine gui=NONE guifg=NONE guibg=#F8E2E2
+hi ALEWarningLine gui=NONE guifg=NONE guibg=#FFF8C2
+
+" Typescript
+hi typescriptVariableDeclaration gui=NONE guifg=#383838 guibg=#F8DDF8
+hi typescriptObjectLabel gui=ITALIC guifg=#371559 guibg=#EDE6E4
+" not sure why it works
+" hi typescriptEndColons gui=NONE guifg=#FF0000 guibg=NONE
+
 " Highlights for interesting words, see
 " https://bitbucket.org/sjl/dotfiles/src/tip/vim/vimrc
 hi def InterestingWord1 guifg=#000000 guibg=#CC99CC
