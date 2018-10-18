@@ -81,7 +81,9 @@ hi DiffDelete guifg=#F3C4D3 guibg=#F4DCD7
 hi DiffChange guifg=NONE guibg=#D7E8F9
 hi DiffAdd guifg=NONE guibg=#E3F6D0
 
-hi SpellBad gui=undercurl guisp=#f02020
+" hi SpellBad gui=undercurl guisp=#f02020
+hi SpellBad gui=NONE guifg=NONE guibg=#FF8C8C
+" hi SpellLocal	gui=NONE guifg=#8CB586 guibg=#071E40
 
 hi UniteSelectedLine gui=NONE guifg=NONE guibg=#d8d1c8
 
@@ -97,7 +99,7 @@ hi ALEErrorLine gui=NONE guifg=NONE guibg=#F8E2E2
 hi ALEWarningLine gui=NONE guifg=NONE guibg=#FFF8C2
 
 " Typescript
-hi typescriptVariableDeclaration gui=NONE guifg=#383838 guibg=#F8DDF8
+hi typescriptVariableDeclaration gui=NONE guifg=#432843 guibg=#F8DDF8
 hi typescriptObjectLabel gui=ITALIC guifg=#371559 guibg=#EDE6E4
 " not sure why it works
 " hi typescriptEndColons gui=NONE guifg=#FF0000 guibg=NONE
