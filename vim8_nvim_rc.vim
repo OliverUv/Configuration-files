@@ -126,6 +126,10 @@ if executable('rg')
     set grepprg=rg\ --vimgrep
 endif
 
+if (v:version > 703)
+    set undofile
+endif
+
 " Make Vim able to edit crontab files again.
 set backupskip=/tmp/*,/private/tmp/*"
 " }}} Basic settings "
