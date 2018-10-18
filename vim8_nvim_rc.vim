@@ -119,6 +119,8 @@ set virtualedit=block   " Allow cursor to be moved into empty space while in vis
 set display=lastline    " Show last line at bottom of window, even if it can't be displayed entirely
 set noshowmode          " Don't show that we're in insert mode
 set concealcursor=""    " Don't do syntax based conceal when cursor is on same line
+set updatetime=90       " How long in ms to wait after stop typing to update things, use that CPU baby, burn those cycles
+set undolevels=5000     " More undo storage
 " set spellfile=$HOME/.vim/spell/ TODO
 if executable('rg')
     set grepprg=rg\ --vimgrep
