@@ -54,6 +54,7 @@ if dein#load_state(deinpath)
     call dein#add('thinca/vim-unite-history.git')
     call dein#add('tsukkee/unite-tag.git')
     call dein#add('skeept/Ultisnips-neocomplete-unite.git')
+    call dein#add('raghur/fruzzy.git') " requires :call fruzzy#install()
     " }}} Unite/Denite "
     call dein#add('OliverUv/windowing.vim.git')
     call dein#add('KabbAmine/zeavim.vim.git')

@@ -898,6 +898,11 @@ nnoremap <silent>[r :<c-u>Denite -resume -cursor-pos=-1 -immediately<cr>
 " TODO handle colons in selected text, the following doesn't quite work
 " vnoremap <silent><leader>aG "zy:<c-u>Denite grep:::`substitute(@z, ":", "\\:", "")`<cr>
 " }}} Denite mappings "
+
+" fruzzy {{{ "
+let g:fruzzy#usenative = 1
+call denite#custom#source('_', 'matchers', ['matcher/fruzzy'])
+" }}} fruzzy "
 " }}} Denite "
 
 " Rainbow-Parentheses-Improved-and2 {{{ "
