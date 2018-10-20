@@ -87,6 +87,20 @@ if dein#load_state(deinpath)
     call dein#add('kana/vim-textobj-user.git')
     call dein#add('wellle/targets.vim.git')
     call dein#add('michaeljsmith/vim-indent-object.git')
+    call dein#add('reedes/vim-textobj-sentence.git')
+    call dein#add('beloglazov/vim-textobj-quotes.git')
+    call dein#add('Julian/vim-textobj-brace.git')
+    call dein#add('beloglazov/vim-textobj-punctuation.git')
+    call dein#add('thinca/vim-textobj-between.git')
+    " Tried but found lacking {{{ "
+    " Bad ones:
+    " call dein#add('saaguero/vim-textobj-pastedtext.git')
+    " call dein#add('haya14busa/vim-textobj-function-syntax.git')
+    " Ok but found no use:
+    " call dein#add('kana/vim-textobj-syntax.git')
+    " call dein#add('kana/vim-textobj-line.git') " conflicts with
+    " targets.vim's 'last', e.g. vil'
+    " }}} Tried but found lacking "
     " }}} Text Objects "
     call dein#add('tpope/vim-abolish.git')
     call dein#add('tpope/vim-commentary.git')
