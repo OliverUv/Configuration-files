@@ -184,6 +184,7 @@ if dein#load_state(deinpath)
     call dein#add('abudden/taghighlight-automirror.git')
     call dein#add('godlygeek/csapprox.git')
     call dein#add('gerw/vim-HiLinkTrace.git')
+    " call dein#add('airblade/vim-gitgutter.git') " Didn't find it useful enough
     " }}} Bling "
 
     " Management {{{ "

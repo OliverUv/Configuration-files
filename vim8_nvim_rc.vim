@@ -565,6 +565,25 @@ endif
 
 " }}} Fugitive "
 
+" gitgutter {{{ "
+" let g:gitgutter_map_keys = 0
+" 
+" " nmap <leader>ht <Plug>GitGutterSignsToggle
+" " nmap <leader>hp <Plug>GitGutterPreviewHunk
+" " nmap <leader>hs <Plug>GitGutterStageHunk
+" " nmap <leader>hu <Plug>GitGutterUndoHunk
+" nnoremap <leader>ht :<c-u>GitGutterSignsToggle<cr>
+" nnoremap <leader>hp :<c-u>GitGutterPreviewHunk<cr>
+" nnoremap <leader>hs :<c-u>GitGutterStageHunk<cr>
+" nnoremap <leader>hu :<c-u>GitGutterUndoHunk<cr>
+" nmap [h <Plug>GitGutterPrevHunk
+" nmap ]h <Plug>GitGutterNextHunk
+" omap ih <Plug>GitGutterTextObjectInnerPending
+" omap ah <Plug>GitGutterTextObjectOuterPending
+" xmap ih <Plug>GitGutterTextObjectInnerVisual
+" xmap ah <Plug>GitGutterTextObjectOuterVisual
+" }}} gitgutter "
+
 " vim-space {{{ "
 "" http://github.com/jfelchner/vim-space
 ""
