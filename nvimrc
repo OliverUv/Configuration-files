@@ -174,6 +174,7 @@ if dein#load_state(deinpath)
     " }}} Libs "
 
     " Bling {{{ "
+    " call dein#add('jaxbot/semantic-highlight.vim.git') " too crazy + seems to not work
     call dein#add('vim-scripts/Rainbow-Parentheses-Improved-and2.git')
     call dein#add('skammer/vim-css-color.git')
     call dein#add('luochen1990/rainbow.git')
