@@ -190,7 +190,7 @@ key_bindings:
   - { key: Up,                      chars: "\x1b[A",   mode: ~AppCursor  }
   - { key: Up,                      chars: "\x1bOA",   mode: AppCursor   }
   - { key: Down,     mods: Shift,   chars: "\x1b[1;2B"                   }
-  - { key: Down,     mods: Control, chars: "\x1b[1;5B"                   }
+  # - { key: Down,     mods: Control, chars: "\x1b[1;5B"                   }
   - { key: Down,     mods: Alt,     chars: "\x1b[1;3B"                   }
   - { key: Down,                    chars: "\x1b[B",   mode: ~AppCursor  }
   - { key: Down,                    chars: "\x1bOB",   mode: AppCursor   }
