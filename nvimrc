@@ -13,6 +13,12 @@ set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 let deinpath = expand('~/.cache/dein')
 " }}} Setup "
 
+" Priority Settings {{{ "
+" only on save because of box3. This needs to happen
+" before we load ALE
+let g:ale_lint_on_text_changed = 'never'
+" }}} Priority Settings "
+
 " Dein Plugin Loading {{{ "
 " Setup {{{ "
 if dein#load_state(deinpath)
@@ -224,6 +230,8 @@ endfunction
 " }}} Deoplete "
 
 " ALE {{{ "
+" only on save because of box3
+let g:ale_lint_on_text_changed = 'never'
 let g:ale_warn_about_trailing_whitespace = 0
 let g:ale_sign_error = '-▶'
 let g:ale_sign_warning = '-◈'
