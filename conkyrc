@@ -41,7 +41,7 @@ TEXT
 	  "color" : "\#999999"
 	},
 	{ 
-	  "full_text" : "${time %A %d %B   }${time %H:%M}", 
+	  "full_text" : "${time %A %d %B   }${time %H:%M:%S}", 
 	  "separator" : false, 
 	  "separator_block_width" : 3, 
 	  "color" : "\#E17800", 
