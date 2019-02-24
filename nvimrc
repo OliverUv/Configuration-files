@@ -117,6 +117,7 @@ if dein#load_state(deinpath)
     call dein#add('AndrewRadev/switch.vim.git')
     call dein#add('AndrewRadev/splitjoin.vim.git')
     call dein#add('Raimondi/delimitMate.git')
+    " call dein#add('cohama/lexima.vim.git')
     call dein#add('godlygeek/tabular.git')
     call dein#add('tommcdo/vim-exchange.git')
     call dein#add('tristen/vim-sparkup.git')
@@ -142,7 +143,9 @@ if dein#load_state(deinpath)
     call dein#add('embear/vim-localvimrc.git')
     call dein#add('stevearc/vim-arduino.git')
     call dein#add('haya14busa/incsearch.vim.git')
+    " call dein#add('dyng/ctrlsf.vim.git') " not great
     " call dein#add('tpope/vim-dispatch.git')
+    " call dein#add('brooth/far.vim.git') " not working too well yet
     " }}} IDE "
 
     " File Types {{{ "
