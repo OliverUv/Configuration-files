@@ -1599,7 +1599,7 @@ nnoremap <silent> =oL :call g:ToggleColorScheme()<cr>
 
 " Goyo toggle
 nnoremap <silent> =og :<C-U>Goyo 85%x95%<cr>
-nnoremap <silent> =oG :<C-U>Goyo 50%x95%<cr>
+nnoremap <silent> =oG :<C-U>Goyo 75%x95%<cr>
 
 " Go to tabs with F-keys
 nnoremap <F1> 1gt
