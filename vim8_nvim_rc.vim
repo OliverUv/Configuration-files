@@ -1041,6 +1041,14 @@ let g:NERDCompactSexyComs = 1
 
 " }}} Misc "
 
+" incsearch.vim {{{ "
+
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+" }}} incsearch.vim "
+
 " clang_complete {{{ "
 " let g:clang_complete_loaded = 1 " Don't load clang_complete
 let g:clang_complete_auto = 0

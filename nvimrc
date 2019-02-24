@@ -141,6 +141,7 @@ if dein#load_state(deinpath)
     call dein#add('mbbill/undotree.git')
     call dein#add('embear/vim-localvimrc.git')
     call dein#add('stevearc/vim-arduino.git')
+    call dein#add('haya14busa/incsearch.vim.git')
     " call dein#add('tpope/vim-dispatch.git')
     " }}} IDE "
 
