@@ -1180,6 +1180,21 @@ let cmaowiki.index = 'index'
 let g:vimwiki_list = [personalwiki, cmaowiki]
 " }}} vimwiki / taskwiki / taskwarrior " 
 
+" ALE {{{ "
+let g:ale_fixers = {
+\   'typescript': [
+\       'tslint',
+\   ],
+\}
+
+" let g:ale_pattern_options = {
+" \   'fugitive:.*': {
+" \      'ale_enabled': 0,
+" \   },
+" \}
+
+" }}} ALE "
+
 " }}} Plugin settings "
 
 " VisualSearch {{{ "
