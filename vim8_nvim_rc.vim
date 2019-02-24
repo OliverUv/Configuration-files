@@ -1039,6 +1039,14 @@ let g:undotree_SetFocusWhenToggle = 1
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 
+" far {{{ "
+" if has('nvim')
+"     let g:far#source = 'rgnvim'
+" else
+"     let g:far#source = 'rg'
+" end
+" }}} far "
+
 " }}} Misc "
 
 " incsearch.vim {{{ "
