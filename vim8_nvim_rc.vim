@@ -1498,12 +1498,13 @@ nnoremap <silent> <leader>T :<C-U>tabclose<cr>
 nnoremap <silent> <leader>d :<C-U>confirm q<cr>
 nnoremap <silent> <leader>D :<C-U>confirm qa<cr>
 
-nnoremap <silent> <leader>h :<C-U>FSHere<cr>
-nnoremap <silent> <leader>hk :<C-U>FSSplitAbove<cr>
-nnoremap <silent> <leader>hj :<C-U>FSSplitBelow<cr>
-nnoremap <silent> <leader>hh :<C-U>FSSplitLeft<cr>
-nnoremap <silent> <leader>hl :<C-U>FSSplitRight<cr>
-nmap     <silent> <leader>ha :<C-U>FSSplitLeft<cr><c-h>zhco4<c-l>zh
+" Good for switching between header .h and body .cpp files in CPP
+" nnoremap <silent> <leader>h :<C-U>FSHere<cr>
+" nnoremap <silent> <leader>hk :<C-U>FSSplitAbove<cr>
+" nnoremap <silent> <leader>hj :<C-U>FSSplitBelow<cr>
+" nnoremap <silent> <leader>hh :<C-U>FSSplitLeft<cr>
+" nnoremap <silent> <leader>hl :<C-U>FSSplitRight<cr>
+" nmap     <silent> <leader>ha :<C-U>FSSplitLeft<cr><c-h>zhco4<c-l>zh
 
 " Neovim terminal settings
 nnoremap <silent> <leader>t<space> :<c-u>terminal<cr>Afish<cr>
