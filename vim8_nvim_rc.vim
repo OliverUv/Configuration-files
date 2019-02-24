@@ -1549,6 +1549,14 @@ nnoremap <leader>gR :<C-U>Git reset --hard
 nnoremap <leader>gv :<C-U>GV --all<cr>
 nnoremap <leader>gV :<C-U>GV! --all<cr>
 
+" ALE Shortcuts {{{ "
+nnoremap <leader><leader>as :<c-u>ALEFixSuggest<cr>
+nnoremap <leader><leader>af :<c-u>ALEFix<cr>
+nnoremap <leader><leader>ad :<c-u>ALEDetail<cr>
+nnoremap <leader><leader>aD :<c-u>ALEDisable<cr>
+nnoremap <leader><leader>ae :<c-u>ALEEnable<cr>
+" }}} ALE Shortcuts "
+
 " Get gittin!
 nmap <leader>gg <c-w>s<c-w>T:Gstatus<cr>/not staged<cr><c-n>:noh<cr>
 
