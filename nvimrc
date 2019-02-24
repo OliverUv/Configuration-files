@@ -38,6 +38,9 @@ if dein#load_state(deinpath)
     call dein#add('Shougo/echodoc.vim')
     call dein#add('Shougo/context_filetype.vim')
     call dein#add('mhartington/nvim-typescript')
+    " call dein#local('/home/ponder/Projects', {} , ['nvim-typecript'])
+    " let $NVIM_NODE_LOG_FILE='/home/ponder/nvim-node.log'
+    " let $NVIM_NODE_LOG_LEVEL='warn'
     call dein#add('Rip-Rip/clang_complete.git')
     call dein#add('hrsh7th/vim-neco-calc.git')
     call dein#add('ujihisa/neco-ghc.git')
