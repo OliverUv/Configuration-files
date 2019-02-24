@@ -128,6 +128,7 @@ if dein#load_state(deinpath)
     call dein#add('vim-scripts/RST-Tables.git')
     " call dein#add('tpope/vim-capslock.git')
     call dein#add('gu-fan/colorv.vim.git')
+    call dein#add('triglav/vim-visual-increment.git')
     " }}} Editing "
 
     call dein#add('tpope/vim-fugitive.git')
