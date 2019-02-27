@@ -28,7 +28,7 @@ set $redshift ~/bin/reds
 # font pango:NanumGothic Regular 10, FreeSans 10
 # font pango:DejaVu Sans Bold 11
 # font pango:WenQuanYi Micro Hei Mono Bold 9.4
-font pango:WenQuanYi Micro Hei Mono Bold 4
+font pango:WenQuanYi Micro Hei Mono Bold 11
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -310,7 +310,7 @@ bar {
         }
         position top
         tray_output primary
-        font xft:WenQuanYi Micro Hei Mono Bold 6
+        font xft:WenQuanYi Micro Hei Mono Bold 11
         status_command ~/bin/i3conky.sh
 }
 
