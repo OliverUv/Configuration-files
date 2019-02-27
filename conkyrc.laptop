@@ -32,13 +32,52 @@ short_units yes
 TEXT
 [
 	{ 
-	  "full_text" : "${fs_free /}", 
-	  "min_width": 130,
+	  "full_text" : "${if_match ${memperc} > 95} !!!WARNING WARNING LOW MEMORY WARNING WARNING!!! ${endif}", 
+	  "color" : "\#FF0000"
+	},
+	{ 
+	  "full_text" : " ", 
+	  "min_width": 70,
 	  "color" : "\#999999"
 	},
 	{ 
-	  "full_text" : "${battery}", 
-	  "min_width": 72,
+	  "full_text" : "cpu ${cpu}%", 
+	  "min_width": 70,
+	  "color" : "\#999999"
+	},
+	{ 
+	  "full_text" : " ", 
+	  "min_width": 70,
+	  "color" : "\#999999"
+	},
+	{ 
+	  "full_text" : "memory ${memperc}%", 
+	  "min_width": 70,
+	  "color" : "\#999999"
+	},
+	{ 
+	  "full_text" : " ", 
+	  "min_width": 70,
+	  "color" : "\#999999"
+	},
+	{ 
+	  "full_text" : "disk${fs_free /}", 
+	  "min_width": 100,
+	  "color" : "\#999999"
+	},
+	{ 
+	  "full_text" : " ", 
+	  "min_width": 70,
+	  "color" : "\#999999"
+	},
+	{ 
+	  "full_text" : "battery ${battery_percent}%", 
+	  "min_width": 70,
+	  "color" : "\#999999"
+	},
+	{ 
+	  "full_text" : " ", 
+	  "min_width": 70,
 	  "color" : "\#999999"
 	},
 	{ 
@@ -51,7 +90,7 @@ TEXT
 	},
 	{ 
 	  "full_text" : " ", 
-	  "min_width": 60,
+	  "min_width": 100,
 	  "color" : "\#999999"
 	}
 ],
