@@ -11,6 +11,7 @@ mkdir -p ~/.config/alacritty
 mkdir -p ~/.config/bugwarrior
 mkdir -p ~/.config/conky
 mkdir -p ~/.config/dunst
+mkdir -p ~/.config/feh
 mkdir -p ~/.config/fish
 mkdir -p ~/.config/gtk-3.0
 mkdir -p ~/.config/nvim
@@ -42,6 +43,10 @@ ln -s ~/Configuration-files/dotvim/UltiSnips ~/.config/nvim/UltiSnips
 ln -s ~/Configuration-files/dotvim/view ~/.config/nvim/view
 
 ln -s ~/Configuration-files/dunstrc ~/.config/dunst/dunstrc
+
+ln -s ~/Configuration-files/fehbuttons ~/.config/feh/buttons
+ln -s ~/Configuration-files/fehkeys ~/.config/feh/keys
+ln -s ~/Configuration-files/fehthemes ~/.config/feh/themes
 
 ln -s ~/Configuration-files/config.fish ~/.config/fish/config.fish
 ln -s ~/Configuration-files/fish-functions ~/.config/fish/functions
