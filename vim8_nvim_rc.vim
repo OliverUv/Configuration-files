@@ -1211,6 +1211,22 @@ let g:ale_fixers = {
 
 " }}} ALE "
 
+" ranger.vim {{{ "
+let g:ranger_map_keys = 0
+nnoremap <silent> <leader>r<space> :<C-U>RangerCurrentFile<cr>
+nnoremap <silent> <leader>rr :<C-U>RangerWorkingDirectory<cr>
+nnoremap <silent> <leader>rt :<c-u>tabnew<cr>:RangerCurrentFile<cr>
+nnoremap <silent> <leader>rj :<c-u>split<cr><c-w>j:RangerCurrentFile<cr>
+nnoremap <silent> <leader>rk :<c-u>split<cr>:RangerCurrentFile<cr>
+nnoremap <silent> <leader>rh :<c-u>vsplit<cr>:RangerCurrentFile<cr>
+nnoremap <silent> <leader>rl :<c-u>vsplit<cr><c-w>l:RangerCurrentFile<cr>
+nnoremap <silent> <leader>rT :<c-u>tabnew<cr>:RangerWorkingDirectory<cr>
+nnoremap <silent> <leader>rJ :<c-u>split<cr><c-w>j:RangerWorkingDirectory<cr>
+nnoremap <silent> <leader>rK :<c-u>split<cr>:RangerWorkingDirectory<cr>
+nnoremap <silent> <leader>rH :<c-u>vsplit<cr>:RangerWorkingDirectory<cr>
+nnoremap <silent> <leader>rL :<c-u>vsplit<cr><c-w>l:RangerWorkingDirectory<cr>
+" }}} ranger.vim "
+
 " }}} Plugin settings "
 
 " VisualSearch {{{ "
@@ -1523,10 +1539,13 @@ nnoremap <silent> <leader>D :<C-U>confirm qa<cr>
 " nmap     <silent> <leader>ha :<C-U>FSSplitLeft<cr><c-h>zhco4<c-l>zh
 
 " Neovim terminal settings
+
 nnoremap <silent> <leader>t<space> :<c-u>terminal<cr>Afish<cr>
 nnoremap <silent> <leader>tt :<c-u>tabnew<cr>:terminal<cr>Afish<cr>
-nnoremap <silent> <leader>tj :<c-u>split<cr>:terminal<cr>Afish<cr>
-nnoremap <silent> <leader>tk :<c-u>vsplit<cr>:terminal<cr>Afish<cr>
+nnoremap <silent> <leader>tj :<c-u>split<cr><c-w>j:terminal<cr>Afish<cr>
+nnoremap <silent> <leader>tk :<c-u>split<cr>:terminal<cr>Afish<cr>
+nnoremap <silent> <leader>th :<c-u>vsplit<cr>:terminal<cr>Afish<cr>
+nnoremap <silent> <leader>tl :<c-u>vsplit<cr><c-w>l:terminal<cr>Afish<cr>
 
 " Break pane out of tabpage
 nnoremap <leader>b <c-w>s<c-w>TgT<c-w>cgt
@@ -1537,8 +1556,8 @@ vnoremap <silent> <leader><tab> :<C-U>MaximizerToggle<cr>gv
 inoremap <silent> <leader><tab> <c-o>:MaximizerToggle<cr>
 
 " recover.vim
-nnoremap <silent> <leader>rh :<C-U>RecoveryPluginGet<cr>
-nnoremap <silent> <leader>rl :<C-U>RecoverPluginFinish<cr>
+nnoremap <silent> <leader>Rh :<C-U>RecoveryPluginGet<cr>
+nnoremap <silent> <leader>Rl :<C-U>RecoverPluginFinish<cr>
 
 " w!! -> write even if you forgot sudo
 cmap w!! w !sudo tee >/dev/null %
@@ -1586,11 +1605,6 @@ nnoremap <leader>ed :<C-U>Remove
 nnoremap <leader>em :<C-U>Move <c-r>=expand('%:p')<cr>
 " Remove DOS line endings from unix file with mixed endings
 nnoremap <leader>el :%s/\r$//<cr>
-
-" netrw things
-nnoremap <leader>ex :<C-U>Explore<cr>
-nnoremap <leader>ej :<C-U>Sexplore<cr>
-nnoremap <leader>ek :<C-U>Vexplore<cr>
 
 " Surround selected text with ${}
 vmap $ S}i$<esc>

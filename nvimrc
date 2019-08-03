@@ -147,6 +147,7 @@ if dein#load_state(deinpath)
     call dein#add('embear/vim-localvimrc.git')
     call dein#add('stevearc/vim-arduino.git')
     call dein#add('haya14busa/incsearch.vim.git')
+    call dein#add('francoiscabrol/ranger.vim.git')
     " call dein#add('dyng/ctrlsf.vim.git') " not great
     " call dein#add('tpope/vim-dispatch.git')
     " call dein#add('brooth/far.vim.git') " not working too well yet
