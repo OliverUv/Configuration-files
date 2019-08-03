@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+org=$1
+for repo in $($PP wget -O - "https://api.github.com/orgs/$org/repos?per_page=100&type=sources" 2>&1 | grep '"full_name": "*"' | cut -d':' -f2 | sed s'/,$//' | sed s'/"//g' ); do
+  filename=$(echo "$repo" | cut -d'/' -f2)
+  echo "Downloading $repo..."
+  $PP wget -O "$filename.zip" "https://github.com/$repo/archive/master.zip"
+done
