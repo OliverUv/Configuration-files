@@ -328,6 +328,11 @@ if has("autocmd")
 
     au BufWinEnter *.py call Riceoperators()
     au WinEnter *.py call Riceoperators()
+
+    au TermOpen * tmap <buffer> jk <C-\><C-n>
+    au TermOpen * tmap <buffer> kj <C-\><C-n>
+    au TermOpen term://*:ranger* tunmap <buffer> jk
+    au TermOpen term://*:ranger* tunmap <buffer> kj
     " }}} misc "
 
     augroup end
