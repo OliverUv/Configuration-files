@@ -12,6 +12,7 @@ mkdir -p ~/.config/bugwarrior
 mkdir -p ~/.config/conky
 mkdir -p ~/.config/dunst
 mkdir -p ~/.config/fish
+mkdir -p ~/.config/gtk-3.0
 mkdir -p ~/.config/nvim
 mkdir -p ~/.config/ranger
 mkdir -p ~/.i3
@@ -45,6 +46,8 @@ ln -s ~/Configuration-files/dunstrc ~/.config/dunst/dunstrc
 ln -s ~/Configuration-files/config.fish ~/.config/fish/config.fish
 ln -s ~/Configuration-files/fish-functions ~/.config/fish/functions
 ln -s ~/Configuration-files/fish-completions ~/.config/fish/completions
+
+ln -s ~/Configuration-files/gtkrc-3.0 ~/.config/gtk-3.0/settings.ini
 
 ln -s ~/Configuration-files/urxvt-perls/clipboard ~/.urxvt/ext/
 ln -s ~/Configuration-files/urxvt-perls/keyboard-select ~/.urxvt/ext/
