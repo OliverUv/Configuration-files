@@ -23,3 +23,18 @@ fi
 if [ -d "$HOME/bin.priv" ] ; then
     PATH="$HOME/bin.priv:$PATH"
 fi
+if [ -d "$HOME/.cargo/bin" ] ; then
+    PATH="$HOME/.cargo/bin:$PATH"
+fi
+if [ -d "$HOME/.g-npm/bin" ] ; then
+    PATH="$HOME/.g-npm/bin:$PATH"
+fi
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+if [ -d "$HOME/Configuration-files/floating_fzf/bin" ] ; then
+    PATH="$HOME/Configuration-files/floating_fzf/bin:$PATH"
+fi
+if [ -d "$HOME/Projects/fzf/bin" ] ; then
+    PATH="$HOME/Projects/fzf/bin:$PATH"
+fi
