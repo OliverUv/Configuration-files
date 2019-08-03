@@ -32,6 +32,9 @@ augroup MyAutoCmd
     au FilterWritePre * if &diff | setlocal nocursorcolumn | endif
     au FilterWritePre * if &diff | setlocal nocursorline | endif
     au FilterWritePre * if &diff | IndentGuidesDisable | endif
+
+    " Disable indent guide in term
+    au TermOpen * IndentGuidesDisable
 augroup end
 endif
 " }}} Automatic commands "
