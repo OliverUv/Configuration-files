@@ -6,7 +6,7 @@
 # brightness default: 1.00
 
 color="2300"
-brightness="0.7"
+brightness="1.0"
 
 linkoping="58.411975:15.559395"
 shenzhen="22.543099:114.057868"
