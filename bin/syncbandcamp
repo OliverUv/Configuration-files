@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+FILE="files.txt"
+DONE="done.txt"
+touch $FILE
+touch $DONE
+while IFS= read -r line
+do
+  if ! grep -Fxq "$line" $DONE
+  then
+      ARTIST=$(echo "$line" | sed 's#https://\(.*\)\.bandcamp.*#\1#')
+      echo "Downloading $ARTIST $line"
+      $PP youtube-dl -o "${ARTIST}_%(playlist)s/%(autonumber)s-%(title)s.%(ext)s" "$line" && echo "$line" >> $DONE && sleep 1
+  fi
+done < "$FILE"

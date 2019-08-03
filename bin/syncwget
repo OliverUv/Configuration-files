@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+FILE="files.txt"
+DONE="done.txt"
+touch $FILE
+touch $DONE
+while IFS= read -r line
+do
+  if ! grep -Fxq "$line" $DONE
+  then
+      echo Downloading "$line"
+      $PP wget "$line" && echo "$line" >> $DONE && sleep 1
+  fi
+done < "$FILE"

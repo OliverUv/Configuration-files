@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+FILE="files.txt"
+URL=`xclip -o -sel clip`
+urlregex='^(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]\.[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]$'
+touch $FILE
+if ! grep -Fxq "$URL" $FILE
+then
+  if  [[ $URL =~ $urlregex ]]
+  then
+    echo Appending "$URL"
+    echo "$URL" >> $FILE
+  fi
+fi
