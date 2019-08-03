@@ -1,2 +1,3 @@
 #!/usr/bin/env sh
-apt-cache search $* | sort | less
+apt search $*
+# apt-cache search $* | sort | less
