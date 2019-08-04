@@ -1389,6 +1389,10 @@ let mapleader="\\"
 " let maplocalleader="\\\\"
 let maplocalleader=","
 
+" j/k linewise unless count is used
+nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
+nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
+
 " Pull word under cursor into LHS of a substitute
 nnoremap <leader>z :%s#\<<c-r>=expand("<cword>")<cr>\>#<c-r>=expand("<cword>")<cr>#gc<left><left><left>
 nnoremap <leader>Z :bufdo %s#\<<c-r>=expand("<cword>")<cr>\>#<c-r>=expand("<cword>")<cr>#gce<space><bar><space>update<left><left><left><left><left><left><left><left><left><left><left><left><left>
