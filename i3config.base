@@ -45,7 +45,8 @@ bindsym $mod+Control+Return exec $term ranger
 # toggle terminal theme
 bindsym $mod+F1 exec rcm --toggle
 # safe terminal in case of failure
-bindsym $mod2+t exec urxvt
+bindsym $mod2+t exec alacritty
+bindsym $mod2+Control+t exec urxvt
 bindsym $mod2+Shift+T exec xterm
 
 # kill focused window
