@@ -1532,6 +1532,9 @@ nmap <leader>P "+P
 nnoremap <silent> <leader>fy :Ypwd<cr>
 nnoremap <silent> <leader>fY :Ypfilename<cr>
 
+" Copy entire file
+nnoremap <leader><leader><leader> mz<esc>gg"+yG`zzz
+
 " Save, quit, etc
 nnoremap <silent> <leader>s :<C-U>w<cr>
 nnoremap <silent> <leader>S :<C-U>w<cr>
