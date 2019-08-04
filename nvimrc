@@ -157,6 +157,7 @@ if dein#load_state(deinpath)
 
     " File Types {{{ "
     call dein#add('cespare/vim-toml.git')
+    call dein#add('dag/vim-fish.git')
     call dein#add('vim-scripts/rest.vim.git') " RST
     call dein#add('vim-scripts/haskell.vim.git')
     call dein#add('vim-scripts/httplog.git') " HTTP logs
