@@ -1544,6 +1544,7 @@ nnoremap <silent> <leader>X :<C-U>wqa<cr>
 nnoremap <silent> <leader>T :<C-U>tabclose<cr>
 nnoremap <silent> <leader>d :<C-U>confirm q<cr>
 nnoremap <silent> <leader>D :<C-U>confirm qa<cr>
+nnoremap <silent> <leader><leader>d :<C-U>bw!<cr>
 
 " Good for switching between header .h and body .cpp files in CPP
 " nnoremap <silent> <leader>h :<C-U>FSHere<cr>
