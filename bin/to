@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Search for files using `tmsu files <tag spec>` and display them in an
+# fzf dialog. Pressing enter with a file selected in that dialog will open
+# it with <binary>. Pressing tab will exit fzf and output the file path.
+# Usage: $(basename $0) <binary> <tag spec>
+BIN=$1
+shift
+# tmsu files $@ | fzf --preview='tmsu tags {+} | cut -f2 -d:' | xargs -IX $BIN 'X'
+# tmsu files --print0 $@ | fzf --read0 --print0 --bind="enter:execute($BIN {}),tab:accept"
+tmsu files --print0 $@ | SHELL=/bin/bash fzf --preview="tmsu tags {+} | cut -d: -f2" --preview-window=down:1 --read0 --print0 --bind="enter:execute($BIN {}),tab:accept"
