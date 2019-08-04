@@ -248,6 +248,7 @@ bindsym $mod+minus scratchpad show
 for_window [title="^Warsow$"] fullscreen
 for_window [title="^ioquake3$"] fullscreen
 for_window [title = "fzffloater"] floating enable
+for_window [title = "pwwd.nvim"] floating enable
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
