@@ -1607,7 +1607,7 @@ nnoremap <leader><leader>ae :<c-u>ALEEnable<cr>
 " }}} ALE Shortcuts "
 
 " Get gittin!
-nmap <leader>gg <c-w>s<c-w>T:Gstatus<cr>/not staged<cr><c-n>:noh<cr>
+nmap <leader>gg <c-w>s<c-w>T:Gstatus<cr>/not staged<cr><c-n>:noh<cr>:call windowing#minimize_vertically()<cr>
 
 " Close diff window, go to gstatus window, add file (or don't)
 nmap     <leader>gn :q<cr><c-k>-
