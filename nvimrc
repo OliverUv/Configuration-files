@@ -195,7 +195,7 @@ if dein#load_state(deinpath)
     " call dein#add('jaxbot/semantic-highlight.vim.git') " too crazy + seems to not work
     call dein#add('vim-scripts/Rainbow-Parentheses-Improved-and2.git')
     call dein#add('skammer/vim-css-color.git')
-    call dein#add('luochen1990/rainbow.git')
+    " call dein#add('luochen1990/rainbow.git')
     call dein#add('romainl/flattened.git')
     call dein#add('junegunn/goyo.vim.git')
     call dein#add('nathanaelkane/vim-indent-guides.git')
