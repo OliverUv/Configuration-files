@@ -37,8 +37,8 @@ if dein#load_state(deinpath)
     call dein#add('Shougo/deoplete.nvim')
     call dein#add('Shougo/echodoc.vim')
     call dein#add('Shougo/context_filetype.vim')
-    call dein#add('mhartington/nvim-typescript')
-    " call dein#local('/home/ponder/Projects', {} , ['nvim-typecript'])
+    " call dein#add('mhartington/nvim-typescript')
+    call dein#local('/home/ponder/Projects', {} , ['nvim-typecript'])
     " let $NVIM_NODE_LOG_FILE='/home/ponder/nvim-node.log'
     " let $NVIM_NODE_LOG_LEVEL='warn'
     call dein#add('Rip-Rip/clang_complete.git')
@@ -83,7 +83,7 @@ if dein#load_state(deinpath)
 
     " IDE {{{ "
     " Language Focus {{{ "
-    call dein#add('jalvesaq/Nvim-R.git') " TypeScript
+    call dein#add('jalvesaq/Nvim-R.git') " R-lang
     call dein#add('Quramy/tsuquyomi.git') " TypeScript
     call dein#add('davidhalter/jedi-vim.git') " Python
     " call dein#add('klen/python-mode.git')
@@ -167,7 +167,7 @@ if dein#load_state(deinpath)
     call dein#add('digitaltoad/vim-jade.git')
     call dein#add('groenewege/vim-less.git')
     call dein#add('kchmck/vim-coffee-script.git')
-    call dein#add('HerringtonDarkholme/yats.vim.git') " TypeScript
+    call dein#add('HerringtonDarkholme/yats.vim.git') " TypeScript syntax
     call dein#add('StanAngeloff/php.vim.git')
     call dein#add('PotatoesMaster/i3-vim-syntax.git')
     call dein#add('OliverUv/vim-lesscss.git')
