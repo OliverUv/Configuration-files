@@ -1,8 +1,13 @@
 #!/usr/bin/env sh
 
-# float=$HOME/Projects/floating_fzf/bin/fzf_selector.sh
-float=fzf_selector.sh
+float=$HOME/Projects/floating_fzf/bin/fzf_selector.sh
+# float=fzf_selector.sh
 lib=$HOME/Projects/weechat-emojis/emojis-dmenu.py
 fzfs="--margin 3%"
+
+# echo home $HOME >> ~/aaa
+# echo lib $lib >> ~/aaa
+# echo float $float >> ~/aaa
+# echo path $PATH >> ~/aaa
 
 $lib | $float $fzfs | xargs $lib | xclip -sel clip

@@ -7,8 +7,9 @@ set $mod Mod1
 set $mod2 Mod4
 
 # dmenu -i -l 20 -fn 'WenQuanYi Zen Hei Mono:bold' -sb '#E17800' -sf '#000000' -h 23
-set $quickbin python3 ~/Projects/quickswitch-for-i3/quickswitch.py
-set $quickdmenu --dmenu fzf_selector.sh
+set $fzfsel $HOME/Configuration-files/floating_fzf/bin/fzf_selector.sh
+set $quickbin python3 $HOME/Projects/quickswitch-for-i3/quickswitch.py
+set $quickdmenu --dmenu $HOME/Configuration-files/floating_fzf/bin/fzf_selector.sh
 
 set $redshift ~/bin/reds
 
@@ -55,7 +56,7 @@ bindsym $mod+Shift+W kill
 # start dmenu
 bindsym $mod+d exec fzf_launcher.sh
 # start dmenu for .desktop entries
-bindsym $mod+Shift+D exec i3-dmenu-desktop --dmenu "fzf_selector.sh"
+bindsym $mod+Shift+D exec i3-dmenu-desktop --dmenu "$fzfsel"
 # start dmenu for emoji
 # bindsym $mod+Control+e mark z ; exec $HOME/bin/floating_fzf_emoji ; [con_mark="z"] focus
 # bindsym $mod+Control+e mark z ; exec $HOME/bin/floating_fzf_emoji ; exec sleep 4 ; [con_mark="z"] focus
