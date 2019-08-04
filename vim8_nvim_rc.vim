@@ -1580,12 +1580,12 @@ cmap w!! w !sudo tee >/dev/null %
 map Q <Nop>
 
 " Mappings to interact with fugitive
-nnoremap <silent> <leader>gs :<C-U>Gstatus<cr>
+nnoremap <silent> <leader>gs :<C-U>Gstatus<cr>:call windowing#minimize_vertically()<cr>
 nnoremap <silent> <leader>gd :<C-U>Gvdiff<cr>
 nnoremap <silent> <leader>gb :<C-U>Gblame<cr>
 nnoremap <silent> <leader>gw :<C-U>Gwrite<cr>
 nnoremap <silent> <leader>gW :<C-U>Gwrite!<cr>
-nnoremap <silent> <leader>gp :<C-U>Git push
+nnoremap <silent> <leader>gp :<C-U>Git push<cr>
 nnoremap <leader>gm :<C-U>Gmove <c-r>=expand('%:p')<cr>
 nnoremap <leader>gl :<C-U>Glog --follow
 nnoremap <leader>gL :<C-U>Glog --follow -- %<cr>
