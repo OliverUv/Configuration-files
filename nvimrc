@@ -150,6 +150,11 @@ if dein#load_state(deinpath)
     call dein#add('stevearc/vim-arduino.git')
     call dein#add('haya14busa/incsearch.vim.git')
     call dein#add('francoiscabrol/ranger.vim.git')
+
+    " call dein#add('autozimu/LanguageClient-neovim.git')
+    " will be used with rls for rust in the future, when
+    " bugs are fixed
+
     " call dein#add('dyng/ctrlsf.vim.git') " not great
     " call dein#add('tpope/vim-dispatch.git')
     " call dein#add('brooth/far.vim.git') " not working too well yet
@@ -267,6 +272,14 @@ nmap <leader>ma <Plug>(ale_fix)
 nmap <silent> [w <Plug>(ale_previous_wrap)
 nmap <silent> ]w <Plug>(ale_next_wrap)
 " }}} ALE "
+
+" LanguageClient-neovim {{{ "
+let g:LanguageClient_serverComamnds = {
+    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+    \ }
+
+let g:LanguageClient_autoStart = 1
+" }}} LanguageClient-neovim "
 
 " Misc {{{ "
 let g:gutentags_ctags_exclude = ['node_modules', 'build', 'dist']

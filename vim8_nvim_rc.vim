@@ -293,6 +293,13 @@ if has("autocmd")
     au WinEnter *.ts,*.tsx call Riceoperators()
     " }}} typescript "
 
+    " rust {{{ "
+    " au FileType rust setlocal omnifunc=LanguageClient#complete
+    au FileType rust nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<cr>
+    au FileType rust nnoremap <buffer> <silent> <leader>jg :call LanguageClient#textDocument_definition()<CR>
+    au FileType rust nnoremap <buffer> <silent> <leader>jr :call LanguageClient#textDocument_rename()<CR>
+    " }}} rust "
+
     " cpp {{{ "
     au FileType cpp setlocal list expandtab shiftwidth=4 softtabstop=4
 
