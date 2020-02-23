@@ -17,13 +17,13 @@ mkdir -p ~/.config/gtk-3.0
 mkdir -p ~/.config/nvim
 mkdir -p ~/.config/ranger
 mkdir -p ~/.i3
-mkdir -p ~/.mpv
 mkdir -p ~/.proxychains
 mkdir -p ~/.tmux/plugins
 mkdir -p ~/.urxvt/ext
 mkdir -p ~/.vimperator/info/dev-edition-default
 
 ln -s ~/Configuration-files/alacritty.yml ~/.config/alacritty/
+ln -s ~/Configuration-files/mpv ~/.config/
 
 ln -s ~/Configuration-files/bugwarriorrc ~/.config/bugwarrior/
 
