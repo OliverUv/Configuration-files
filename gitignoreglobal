@@ -24,6 +24,10 @@ callgrind.out.*
 node_modules/
 #binaries
 .Python
+#vscode
+.vscode
+#node
+yarn-error.log
 
 #netrw
 .netrwhist
