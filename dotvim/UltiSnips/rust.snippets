@@ -1,0 +1,29 @@
+extends rust
+priority 15
+
+snippet c "Case clause of pattern match" w
+${1:_} => ${2:expression}
+endsnippet
+
+snippet p "Property of struct" w
+${1:_}: ${2:prop},${0}
+endsnippet
+
+snippet for "for ... in ... loop"
+for ${1:i} in ${2} {
+	${VISUAL}${3}
+}${0}
+endsnippet
+
+snippet sfn "fn name(&self, ?) -> ? {}"
+fn ${1:function_name}(&self, $2)${3/..*/ -> /}$3 {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet msfn "fn name(&mut self, ?) -> ? {}"
+fn ${1:function_name}(&self, $2)${3/..*/ -> /}$3 {
+	${VISUAL}$0
+}
+endsnippet
+
