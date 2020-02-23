@@ -307,8 +307,17 @@ filetype plugin indent on
 " Color Settings {{{ "
 set t_ut=
 set termguicolors
-colorscheme liquorice
-" colorscheme proton
+let rcmfile = '/tmp/termcolor'
+if filereadable(rcmfile)
+    let rrr = readfile(rcmfile)
+    if matchstr(rrr[0], '^1')
+        colorscheme proton
+    else
+        colorscheme liquorice
+    endif
+else
+    colorscheme liquorice
+endif
 " }}} Color Settings "
 
 let sharedrc = expand('~/Configuration-files/vim8_nvim_rc.vim')

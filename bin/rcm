@@ -210,11 +210,11 @@ def main():
 
 
 def wrap_tmux_print(t):
-    print('\x1bPtmux;\x1b' + t, end='\a\x1b\\')
+    print('\x1bPtmux;\x1b' + t, end='\a\x1b\\', file=sys.stdout)
 
 
 def wrap_print(t):
-    print(t, end='\a')
+    print(t, end='\a', file=sys.stdout)
 
 
 def hex_to_int(col):
