@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Usage: 0delimited-files | $(basename $0) <binary>
+# Usage: $(basename $0) <binary> << 0delim-files
+# Files in current directory: find -print0 -maxdepth 1 | $(basename $0) <binary>
+# With fd: fd -0 searchterm | $(basename $0) <binary>
+SHELL=/bin/bash fzf --read0 --print0 --bind="enter:execute($1 {}),tab:accept"
