@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-mpv --volume 80 $HOME/Storage/csync/misc/click.wav &> /dev/null &
+mpv --volume 80 $HOME/Storage/csync/misc/insight.ogg &> /dev/null &
 # notify-send "${*:-done}"
