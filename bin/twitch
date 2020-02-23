@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 # livestreamer -O twitch.tv/$* best | mpv --really-quiet -cache 3000 -
 # URL=`xclip -o -sel clip`
-# echo Watching "$URL"
-$PP mpv "http://twitch.tv/$@"
+URL="http://twitch.tv/$@"
+echo Watching "$URL"
+$PP mpv $URL
