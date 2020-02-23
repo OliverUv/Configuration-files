@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+URL=`xclip -o -sel clip`
+echo Checking formats for "$URL"
+$PP youtube-dl --list-formats "$URL"
