@@ -38,3 +38,5 @@ fi
 if [ -d "$HOME/Projects/fzf/bin" ] ; then
     PATH="$HOME/Projects/fzf/bin:$PATH"
 fi
+
+export PATH="$HOME/.cargo/bin:$PATH"
