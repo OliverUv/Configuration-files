@@ -288,6 +288,8 @@ let g:echodoc#enable_at_startup = 1
 
 " }}} Plugin Settings "
 
+" Neovim Config {{{ "
+
 " Terminal Mode {{{ "
 
 tnoremap <Esc> <C-\><C-n>
@@ -295,6 +297,12 @@ tnoremap <leader><Esc> <Esc>
 tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 
 " }}} Terminal Mode "
+
+set pumblend=15
+set inccommand=nosplit
+
+" }}} neovim config "
+
 
 " Required:
 filetype plugin indent on
