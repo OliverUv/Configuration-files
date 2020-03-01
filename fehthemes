@@ -1,2 +1,2 @@
-feh -nSmtime --scroll-step 100
+feh -nSmtime -Y --scroll-step 100
 thumb -FZt -nSmtime -E 512 -y 512 -W 3840 --scroll-step 100 -A ";feh -YFZ --start-at %f"
