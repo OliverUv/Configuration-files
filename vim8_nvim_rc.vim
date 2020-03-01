@@ -816,7 +816,7 @@ endif
 
 " Denite grep ripgrep config {{{ "
 if executable('rg')
-    call denite#custom#var('file_rec', 'command',
+    call denite#custom#var('file/rec', 'command',
     	\ ['rg', '--files', '--color', 'never'])
 
     call denite#custom#var('grep', 'command', ['rg'])
@@ -924,8 +924,8 @@ nnoremap <silent><leader>ah :<c-u>Denite help<cr>
 nnoremap <silent><leader>aj :<c-u>Denite jump<cr>
 nnoremap <silent><leader>al :<c-u>Denite line<cr>
 nnoremap <silent><leader>aL :<c-u>Denite -matchers=matcher_fuzzy line<cr>
-nnoremap <silent><leader>ar :<c-u>Denite file_rec<cr>
-nnoremap <silent><leader>aR :<c-u>DeniteBufferDir file_rec<cr>
+nnoremap <silent><leader>ar :<c-u>Denite file/rec<cr>
+nnoremap <silent><leader>aR :<c-u>DeniteBufferDir file/rec<cr>
 nnoremap <silent><leader>at :<c-u>Denite tag<cr>
 nnoremap <silent><leader>av :<c-u>Denite -resume<cr>
 nnoremap <silent><leader>ay :<c-u>Denite register<cr>
