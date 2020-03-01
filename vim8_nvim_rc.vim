@@ -86,6 +86,8 @@ set breakindentopt=min:20,shift:-2
 set showbreak=↳\ 
 set showcmd             " Shows current command in statusline
 set ruler               " Show cursor position information in statusline
+set cursorcolumn
+set cursorline
 set relativenumber      " Show relative line numbers by default
 set number              " Show absolute line number of current line
 set wrap                " Wrap text
