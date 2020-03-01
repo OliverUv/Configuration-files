@@ -7,6 +7,7 @@ for f in $DOTNAMED ; do
     ln -s "$HOME/Configuration-files/$f" "$HOME/.$f"
 done
 
+mkdir -p ~/.config/rua
 mkdir -p ~/.config/alacritty
 mkdir -p ~/.config/bugwarrior
 mkdir -p ~/.config/conky
@@ -26,6 +27,8 @@ ln -s ~/Configuration-files/alacritty.yml ~/.config/alacritty/
 ln -s ~/Configuration-files/mpv ~/.config/
 
 ln -s ~/Configuration-files/bugwarriorrc ~/.config/bugwarrior/
+
+ln -s ~/Configuration-files/rua_wrap ~/.config/rua/wrap_args.d
 
 ln -s ~/Configuration-files/coffeelint.json ~/.config/coffeelint.json
 ln -s ~/Configuration-files/flake8 ~/.config/flake8
