@@ -837,6 +837,13 @@ call denite#custom#option('_', 'highlight_mode_insert', 'UniteSelectedLine')
 
 call denite#custom#map(
     \ 'insert',
+    \ '<C-f>',
+    \ '<denite:quit>',
+    \ 'noremap'
+    \)
+
+call denite#custom#map(
+    \ 'insert',
     \ '<esc>',
     \ '<denite:enter_mode:normal>',
     \ 'noremap'
