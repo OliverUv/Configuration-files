@@ -29,9 +29,11 @@ augroup MyAutoCmd
     autocmd BufEnter * :syntax sync fromstart
 
     " Disable things that disturb diff-colors in diff window
-    au FilterWritePre * if &diff | setlocal nocursorcolumn | endif
-    au FilterWritePre * if &diff | setlocal nocursorline | endif
-    au FilterWritePre * if &diff | IndentGuidesDisable | endif
+    if ! has('nvim')
+        au FilterWritePre * if &diff | setlocal nocursorcolumn | endif
+        au FilterWritePre * if &diff | setlocal nocursorline | endif
+        au FilterWritePre * if &diff | IndentGuidesDisable | endif
+    endif
 
     " Disable indent guide in term
     au TermOpen * IndentGuidesDisable
