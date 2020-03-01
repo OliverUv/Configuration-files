@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+EXARGS=2
+E_BADARGS=65
+if [ $# -ne $EXARGS ] ; then
+    echo "Usage: $(basename $0) p|u|up|m sda1"
+    echo "[m]mount, [u] unmount, [p] power off"
+    lsblk -o NAME,FSTYPE,LABEL,FSAVAIL,FSUSE%,MOUNTPOINT
+    exit $E_BADARGS
+else
+    if [ "$1" == "m" ]; then
+        udisksctl mount -b "/dev/$2"
+    else
+        if [ "$1" == "up" ]; then
+            udisksctl unmount -b "/dev/$2" && udisksctl power-off -b "/dev/$2" && echo "Powered off /dev/$2."
+        else
+            udisksctl power-off -b "/dev/$2"
+            if [ "$1" == "u" ]; then
+                udisksctl unmount -b "/dev/$2"
+            else
+                udisksctl power-off -b "/dev/$2" && echo "Powered off /dev/$2".
+            fi
+        fi
+    fi
+fi
+
