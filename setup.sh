@@ -16,12 +16,13 @@ mkdir -p ~/.config/feh
 mkdir -p ~/.config/fish
 mkdir -p ~/.config/gtk-3.0
 mkdir -p ~/.config/nvim
-mkdir -p ~/.config/ranger
 mkdir -p ~/.i3
 mkdir -p ~/.proxychains
 mkdir -p ~/.tmux/plugins
 mkdir -p ~/.urxvt/ext
 mkdir -p ~/.vimperator/info/dev-edition-default
+
+ln -s ~/Configuration-files/ranger ~/.config/
 
 ln -s ~/Configuration-files/alacritty.yml ~/.config/alacritty/
 ln -s ~/Configuration-files/mpv ~/.config/
@@ -73,10 +74,6 @@ ln -s ~/Configuration-files/i3config.base ~/.i3/config.base
 ln -s ~/Configuration-files/mpv-input.conf ~/.mpv/input.conf
 
 ln -s ~/Configuration-files/proxychains.conf ~/.proxychains/proxychains.conf
-
-ln -s ~/Configuration-files/ranger.rc.conf ~/.config/ranger/rc.conf
-ln -s ~/Configuration-files/rifle.conf ~/.config/ranger/rifle.conf
-ln -s ~/Configuration-files/ranger_plugin_tmsu.py ~/.config/ranger/tmsu.py
 
 cp -r ~/Configuration-files/tmux/plugins/tpm ~/.tmux/plugins/
 
