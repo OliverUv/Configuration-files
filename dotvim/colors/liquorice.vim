@@ -62,8 +62,14 @@ hi MoreMsg      gui=BOLD guifg=#70ffc0 guibg=#8040ff
 hi Question     gui=BOLD guifg=#e8e800 guibg=NONE
 
 " Split area
-hi StatusLine   gui=ITALIC guifg=#d6d6d6 guibg=#37323B
-hi StatusLineNC gui=ITALIC guifg=#998B73 guibg=#2C272E
+" hi StatusLine   gui=ITALIC guifg=#d6d6d6 guibg=#37323B
+hi StatusLine gui=ITALIC guifg=#998B73 guibg=#2C272E
+hi StatusLineNC gui=ITALIC guifg=#8B7D65 guibg=#201C21
+if has('nvim')
+    hi MsgArea      gui=NONE guifg=#8B7D65 guibg=#201C21
+    " Doesn't seem to work??
+    " hi NormalFloat  gui=NONE guifg=#CCBDA3 guibg=#3C2442
+end
 hi VertSplit    gui=NONE guifg=#909090 guibg=#120C14
 hi WildMenu     gui=NONE guifg=#000000 guibg=#ff80c0
 
