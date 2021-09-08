@@ -71,7 +71,7 @@ command! Pass read !openssl rand -base64 32
 " Basic settings {{{ "
 syntax enable           " Enables syntax highlighting with custom colors
 filetype plugin indent on " React on filetypes with plugins and syntax
-set scrolloff=4         " Minimum number of lines to display around cursor
+set scrolloff=2         " Minimum number of lines to display around cursor
 set sidescroll=1        " Number of cols to autoscroll when reaching end of nowrap line
 set sidescrolloff=40    " Number of cols of text to show on the right of caret, minimum
 set autoread            " Files changed from outside are automatically reread
@@ -1063,7 +1063,7 @@ let g:UltiSnipsEditSplit = 'horizontal'
 let g:UltiSnipsExpandTrigger = '<c-j>'
 let g:UltiSnipsJumpForwardTrigger = '<c-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<c-e>'
-let g:UltiSnipsUsePythonVersion = 2
+" let g:UltiSnipsUsePythonVersion = 2
 " }}} UltiSnips "
 
 " Misc {{{ "
@@ -1510,6 +1510,9 @@ nnoremap <leader>mX :<c-u>%!xmllint --format --recover - <cr>
 nnoremap <leader>ms Vip:sort<cr>
 " Sort in paragraph, all but first row
 nnoremap <leader>mS {jjV}k:sort<cr>
+" Sort in indent
+nmap <leader>mi ViI:sort<cr>
+" Visual select whatever was just pasted from clipboard
 nnoremap <leader>mv V`]=
 
 " Tabularize things
@@ -1610,19 +1613,19 @@ cmap w!! w !sudo tee >/dev/null %
 map Q <Nop>
 
 " Mappings to interact with fugitive
-nnoremap <silent> <leader>gs :<C-U>Gstatus<cr>:call windowing#minimize_vertically()<cr>
+nnoremap <silent> <leader>gs :<C-U>Git<cr>:call windowing#minimize_vertically()<cr>
 nnoremap <silent> <leader>gd :<C-U>Gvdiff<cr>
 nnoremap <silent> <leader>gb :<C-U>Gblame<cr>
 nnoremap <silent> <leader>gw :<C-U>Gwrite<cr>
 nnoremap <silent> <leader>gW :<C-U>Gwrite!<cr>
 nnoremap <silent> <leader>gp :<C-U>Git push<cr>
-nnoremap <leader>gm :<C-U>Gmove <c-r>=expand('%:p')<cr>
-nnoremap <leader>gl :<C-U>Glog --follow
-nnoremap <leader>gL :<C-U>Glog --follow -- %<cr>
-nnoremap <leader>gG :<C-U>Ggrep
-nnoremap <leader>gx :<C-U>Gcommit -m ''<left>
-nnoremap <leader>gA :<C-U>Gcommit --amend --no-edit<cr>
-nnoremap <leader>ga :<C-U>Gcommit --amend<cr>
+nnoremap <leader>gm :<C-U>Git move <c-r>=expand('%:p')<cr>
+nnoremap <leader>gl :<C-U>Git log --follow
+nnoremap <leader>gL :<C-U>Git log --follow -- %<cr>
+nnoremap <leader>gG :<C-U>Git grep
+nnoremap <leader>gx :<C-U>Git commit -m ''<left>
+nnoremap <leader>gA :<C-U>Git commit --amend --no-edit<cr>
+nnoremap <leader>ga :<C-U>Git commit --amend<cr>
 nnoremap <leader>gr :<C-U>Git checkout -- %
 nnoremap <leader>gR :<C-U>Git reset --hard 
 nnoremap <leader>gv :<C-U>GV --all<cr>
