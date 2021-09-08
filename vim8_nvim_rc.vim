@@ -823,10 +823,97 @@ endif
 
 " Denite config {{{ "
 
+" Keymaps {{{ "
+autocmd FileType denite call s:denite_my_settings()
+function! s:denite_my_settings() abort
+    nnoremap <silent><buffer><expr> <CR>
+                \ denite#do_map('do_action')
+    nnoremap <silent><buffer><expr> d
+                \ denite#do_map('do_action', 'delete')
+    nnoremap <silent><buffer><expr> p
+                \ denite#do_map('do_action', 'preview')
+    nnoremap <silent><buffer><expr> <C-Space>
+                \ denite#do_map('quit')
+    nnoremap <silent><buffer><expr> q
+                \ denite#do_map('quit')
+    nnoremap <silent><buffer><expr> i
+                \ denite#do_map('open_filter_buffer')
+    nnoremap <silent><buffer><expr> I
+                \ denite#do_map('open_filter_buffer')
+    nnoremap <silent><buffer><expr> a
+                \ denite#do_map('open_filter_buffer')
+    nnoremap <silent><buffer><expr> A
+                \ denite#do_map('open_filter_buffer')
+    nnoremap <silent><buffer><expr> <esc>
+                \ denite#do_map('open_filter_buffer')
+    nnoremap <silent><buffer><expr> <Space>
+                \ denite#do_map('toggle_select').'j'
+endfunction
+
+autocmd FileType denite-filter call s:denite_filter_my_settings()
+function! s:denite_filter_my_settings() abort
+    call deoplete#custom#buffer_option('auto_complete', v:false)
+    imap <silent><buffer> <esc> <Plug>(denite_filter_quit)
+    imap <silent><buffer> <c-o> <Plug>(denite_filter_quit)
+    inoremap <silent><buffer> <C-n>
+                \ <Esc><C-w>p:call cursor(line('.')+1,0)<CR><C-w>pA
+    inoremap <silent><buffer> <C-p>
+                \ <Esc><C-w>p:call cursor(line('.')-1,0)<CR><C-w>pA
+    inoremap <silent><buffer><expr> <C-Space>
+                \ denite#do_map('quit')
+    inoremap <silent><buffer><expr> <CR>
+                \ denite#do_map('do_action')
+    inoremap <silent><buffer><expr> <C-t>
+                \ denite#do_map('do_action', 'tabopen')
+    inoremap <silent><buffer><expr> <C-k>
+                \ denite#do_map('do_action', 'vsplit')
+    inoremap <silent><buffer><expr> <C-j>
+                \ denite#do_map('do_action', 'split')
+endfunction
+" }}} Keymaps "
+
+" Default configs {{{ "
+"   auto_resize             - Auto resize the Denite window height automatically.
+"   prompt                  - Customize denite prompt
+"   direction               - Specify Denite window direction as directly below current pane
+"   winminheight            - Specify min height for Denite window
+"   highlight_mode_insert   - Specify h1-CursorLine in insert mode
+"   prompt_highlight        - Specify color of prompt
+"   highlight_matched_char  - Matched characters highlight
+"   highlight_matched_range - matched range highlight
+let s:denite_options = {'default' : {
+            \ 'split': 'horizontal',
+            \ 'start_filter': 1,
+            \ 'auto_resize': 1,
+            \ 'source_names': 'short',
+            \ 'prompt': '> ',
+            \ 'winrow': 1,
+            \ 'vertical_preview': 0,
+            \ 'winheight': 5000,
+            \ 'maxcandidates': 5000,
+            \ 'filter_split_direction': 'botright',
+            \ }}
+
+" Loop through denite options and enable them
+function! s:profile(opts) abort
+  for l:fname in keys(a:opts)
+    for l:dopt in keys(a:opts[l:fname])
+      call denite#custom#option(l:fname, l:dopt, a:opts[l:fname][l:dopt])
+    endfor
+  endfor
+endfunction
+
+call s:profile(s:denite_options)
+" }}} Default configs "
+
 " Denite grep ripgrep config {{{ "
+" if executable('fd')
+"     call denite#custom#var('file/rec', 'command',
+"             \ ['fd', '.'])
+" endif
 if executable('rg')
     call denite#custom#var('file/rec', 'command',
-    	\ ['rg', '--files', '--color', 'never'])
+            \ ['rg', '--files', '--color', 'never'])
 
     call denite#custom#var('grep', 'command', ['rg'])
     call denite#custom#var('grep', 'default_opts',
@@ -839,89 +926,6 @@ endif
 " }}} Denite grep ripgrep config "
 
 call denite#custom#option('_', 'highlight_mode_insert', 'UniteSelectedLine')
-
-" }}} Denite config "
-
-" Denite internal mappings {{{ "
-
-call denite#custom#map(
-    \ 'insert',
-    \ '<C-f>',
-    \ '<denite:quit>',
-    \ 'noremap'
-    \)
-
-call denite#custom#map(
-    \ 'insert',
-    \ '<esc>',
-    \ '<denite:enter_mode:normal>',
-    \ 'noremap'
-    \)
-
-call denite#custom#map(
-    \ 'insert',
-    \ '<C-n>',
-    \ '<denite:move_to_next_line>',
-    \ 'noremap'
-    \)
-
-call denite#custom#map(
-    \ 'insert',
-    \ '<C-p>',
-    \ '<denite:move_to_previous_line>',
-    \ 'noremap'
-    \)
-
-call denite#custom#map(
-    \ 'insert',
-    \ '<C-j>',
-    \ '<denite:do_action:split>',
-    \ 'noremap'
-    \)
-
-call denite#custom#map(
-    \ 'insert',
-    \ '<C-k>',
-    \ '<denite:do_action:vsplit>',
-    \ 'noremap'
-    \)
-
-call denite#custom#map(
-    \ 'normal',
-    \ '<C-j>',
-    \ '<denite:do_action:split>',
-    \ 'noremap'
-    \)
-
-call denite#custom#map(
-    \ 'normal',
-    \ '<C-k>',
-    \ '<denite:do_action:vsplit>',
-    \ 'noremap'
-    \)
-
-call denite#custom#map(
-    \ 'insert',
-    \ '<C-t>',
-    \ '<denite:do_action:tabopen>',
-    \ 'noremap'
-    \)
-
-call denite#custom#map(
-    \ 'normal',
-    \ '<C-t>',
-    \ '<denite:do_action:tabopen>',
-    \ 'noremap'
-    \)
-
-" call denite#custom#map(
-"     \ 'insert',
-"     \ '<C-d>',
-"     \ '<denite:scroll_page_forwards>',
-"     \ 'noremap'
-"     \)
-
-" }}} Denite internal mappings "
 
 " Denite mappings {{{ "
 nnoremap <silent><leader>a: :<c-u>Denite command<cr>
@@ -937,11 +941,11 @@ nnoremap <silent><leader>ae :<c-u>Denite file_mru<cr>
 nnoremap <silent><leader>ag :<c-u>Denite grep<cr>
 nnoremap <silent><leader>ai :<c-u>Denite grep:::!<cr>
 nnoremap <silent><leader>ah :<c-u>Denite help<cr>
-nnoremap <silent><leader>aj :<c-u>Denite jump<cr>
+nnoremap <silent><leader>aJ :<c-u>Denite jump<cr>
 nnoremap <silent><leader>al :<c-u>Denite line<cr>
 nnoremap <silent><leader>aL :<c-u>Denite -matchers=matcher_fuzzy line<cr>
-nnoremap <silent><leader>ar :<c-u>Denite file/rec<cr>
-nnoremap <silent><leader>aR :<c-u>DeniteBufferDir file/rec<cr>
+nnoremap <silent><leader>ar :<c-u>Denite -winheight=15 file/rec<cr>
+nnoremap <silent><leader>aR :<c-u>DeniteBufferDir -winheight=15 file/rec<cr>
 nnoremap <silent><leader>at :<c-u>Denite tag<cr>
 nnoremap <silent><leader>av :<c-u>Denite -resume<cr>
 nnoremap <silent><leader>ay :<c-u>Denite register<cr>
@@ -950,6 +954,8 @@ nnoremap <silent><leader>aq :<c-u>Denite quickfix<cr>
 nnoremap <silent><leader>aQ :<c-u>Denite location_list<cr>
 nnoremap <silent><leader>a/ :<c-u>Denite history:search<cr>
 nnoremap <silent><leader>a<tab> :<c-u>Denite -split=vertical unite:ultisnips<cr>
+nnoremap <silent><leader>a<space> :<c-u>Denite -split=floating contextMenu<cr>
+nnoremap <silent><leader>ajr :<c-u>Denite -split=floating contextMenu<cr>
 
 nnoremap <silent>]r :<c-u>Denite -resume -cursor-pos=+1 -immediately<cr>
 nnoremap <silent>[r :<c-u>Denite -resume -cursor-pos=-1 -immediately<cr>
@@ -959,6 +965,8 @@ nnoremap <silent>[r :<c-u>Denite -resume -cursor-pos=-1 -immediately<cr>
 " TODO handle colons in selected text, the following doesn't quite work
 " vnoremap <silent><leader>aG "zy:<c-u>Denite grep:::`substitute(@z, ":", "\\:", "")`<cr>
 " }}} Denite mappings "
+
+" }}} Denite config "
 
 " fruzzy {{{ "
 let g:fruzzy#usenative = 1
