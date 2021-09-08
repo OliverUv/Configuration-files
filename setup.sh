@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DOTNAMED="profile tmux.conf Xdefaults vimrc gvimrc ctags agignore gitconfig gitignoreglobal vimperatorrc gtkrc-2.0 dmenurc taskrc xsessionrc"
+DOTNAMED="profile tmux.conf Xdefaults vimrc gvimrc ctags agignore gitconfig gitignoreglobal vimperatorrc gtkrc-2.0 dmenurc taskrc xsessionrc pam_environment"
 HOME=~
 
 for f in $DOTNAMED ; do
@@ -23,6 +23,7 @@ mkdir -p ~/.urxvt/ext
 mkdir -p ~/.vimperator/info/dev-edition-default
 
 ln -s ~/Configuration-files/ranger ~/.config/
+ln -s ~/Configuration-files/systemd ~/.config/
 
 ln -s ~/Configuration-files/alacritty.yml ~/.config/alacritty/
 ln -s ~/Configuration-files/mpv ~/.config/
