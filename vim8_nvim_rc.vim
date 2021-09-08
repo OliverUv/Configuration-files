@@ -304,8 +304,10 @@ if has("autocmd")
     " rust {{{ "
     " au FileType rust setlocal omnifunc=LanguageClient#complete
     au FileType rust nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<cr>
+    au FileType rust nnoremap <buffer> <silent> <leader>jh :call LanguageClient#textDocument_documentHighlight()<CR>
     au FileType rust nnoremap <buffer> <silent> <leader>jg :call LanguageClient#textDocument_definition()<CR>
-    au FileType rust nnoremap <buffer> <silent> <leader>jr :call LanguageClient#textDocument_rename()<CR>
+    au FileType rust nnoremap <buffer> <silent> <leader>jr :<c-u>Denite references<cr>
+    au FileType rust nnoremap <buffer> <silent> <leader>jR :call LanguageClient#textDocument_rename()<CR>
     au BufWinEnter *.rs call Riceoperators("rust")
     au WinEnter *.rs call Riceoperators("rust")
     " }}} rust "
@@ -417,7 +419,7 @@ function! EolSetting()
 endfunction
 
 " set statusline=%<%F\ %m%r%h%w%{fugitive#statusline()}\ %Y\ %{FileEncoding()}\ %{&ff}%{EolSetting()}%=%#warningmsg#%{SyntasticStatuslineFlag()}%*\ %l/%L\,\ %c\ %p%%\ 
-set statusline=%<%F\ %m%r%h%w%{fugitive#statusline()}\ %Y\ %{FileEncoding()}\ %{&ff}%{EolSetting()}%=\ %l/%L\,\ %c\ %p%%\ 
+set statusline=%<%F\ %m%r%h%w%{fugitive#statusline()}\ %{LanguageClient#statusLine()}\ %Y\ %{FileEncoding()}\ %{&ff}%{EolSetting()}%=\ %l/%L\,\ %c\ %p%%\ 
 " <	truncation point
 " F	full path to file
 " m	modified marker
@@ -425,6 +427,7 @@ set statusline=%<%F\ %m%r%h%w%{fugitive#statusline()}\ %Y\ %{FileEncoding()}\ %{
 " h	help buffer flag
 " w	preview window flag
 " {fug..Shows branch if file is in git repo
+" {LanguageClie... shows status of LSP Client's Server
 " Y	file type
 " {FileEncoding} function defined above
 " {&ff}	current value for the fileformat (abbreviated ff) setting
