@@ -69,7 +69,6 @@ if dein#load_state(deinpath)
     call dein#add('KabbAmine/zeavim.vim.git')
     call dein#add('Shougo/neomru.vim.git')
     call dein#add('Shougo/neoyank.vim.git')
-    call dein#add('Shougo/tabpagebuffer.vim.git')
     call dein#add('bruno-/vim-man.git')
     call dein#add('ihameed/vim-togglelist.git')
     call dein#add('justinmk/vim-sneak.git')
@@ -233,7 +232,11 @@ if dein#load_state(deinpath)
 
 " Deoplete {{{ "
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#file#enable_buffer_path = 1
+
+" " file complete sources from buffer dir instead of current dir
+" " used to have it until it broke, but don't think I even want it now?
+" let g:deoplete#file#enable_buffer_path = 1
+
 " No preview window
 set completeopt-=preview
 " More completions
@@ -299,6 +302,7 @@ tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 " }}} Terminal Mode "
 
 set pumblend=15
+set winblend=0
 set inccommand=nosplit
 
 " }}} neovim config "
