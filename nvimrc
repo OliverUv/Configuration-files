@@ -150,9 +150,10 @@ if dein#load_state(deinpath)
     call dein#add('haya14busa/incsearch.vim.git')
     call dein#add('francoiscabrol/ranger.vim.git')
 
-    " call dein#add('autozimu/LanguageClient-neovim.git')
-    " will be used with rls for rust in the future, when
-    " bugs are fixed
+    call dein#add('autozimu/LanguageClient-neovim', {
+                \ 'rev': 'next',
+                \ 'build': 'bash install.sh',
+                \ })
 
     " call dein#add('dyng/ctrlsf.vim.git') " not great
     " call dein#add('tpope/vim-dispatch.git')
@@ -258,12 +259,17 @@ let g:ale_sign_warning = '-◈'
 let g:ale_sign_info = '-◇'
 let g:ale_linters = {
 \   'rust': [
-\       'rls',
+\       'rust-analyzer',
 \   ],
 \}
+
+let g:ale_rust_rls_executable = '~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/rust-analyzer'
+" let g:ale_rust_rls_executable = 'rust-analyzer'
+" let g:ale_rust_rls_toolchain = ''
+
 let g:ale_fixers = {
 \   'rust': [
-\       'rls',
+\       'analyzer',
 \   ],
 \   'typescript': [
 \       'tslint',
@@ -277,11 +283,16 @@ nmap <silent> ]w <Plug>(ale_next_wrap)
 " }}} ALE "
 
 " LanguageClient-neovim {{{ "
-let g:LanguageClient_serverComamnds = {
-    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+" '~/.cargo/bin/rust-analyzer'
+" '~/.cargo/bin/rustup', 'run', 'stable', 'rls'
+" '~/.cargo/bin/rustup', 'run', 'nightly', 'rust-analyzer'
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'nightly', 'rust-analyzer'],
     \ }
 
 let g:LanguageClient_autoStart = 1
+let g:LanguageClient_useVirtualText = "No"
+
 " }}} LanguageClient-neovim "
 
 " Misc {{{ "
