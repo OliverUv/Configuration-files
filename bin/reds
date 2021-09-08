@@ -19,4 +19,4 @@ if [ $# -gt 1 ] ; then
     brightness="$2"
 fi
 
-redshift -l $shenzhen -t "6500:$color" -b "$brightness" &
+redshift -l $linkoping -t "6500:$color" -b "$brightness" &
