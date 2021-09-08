@@ -79,7 +79,7 @@ bindsym --release $mod+Control+Shift+S exec scrot $HOME/t/scrot.png
 
 # lock X session
 bindsym $mod2+s exec lock
-bindsym $mod2+Shift+S exec suspend
+# bindsym $mod2+Shift+S exec suspend
 # bindsym $mod2+Shift+H exec nolock_suspend
 
 # nvim anywhere
