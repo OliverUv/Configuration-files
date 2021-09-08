@@ -72,17 +72,17 @@ jump_last G
 jump_fwd d
 jump_back u
 remove C-d
-scroll_left H Left u
-scroll_right L Right p
-scroll_up K Up o 
-scroll_down J Down i
+scroll_left H Left y
+scroll_right L Right o
+scroll_up K Up i 
+scroll_down J Down u
 scroll_left_page C-h
 scroll_right_page C-l
 scroll_up_page C-k
 scroll_down_page C-j
 render n
 close b
-zoom_in equal k
-zoom_out minus j
+zoom_in equal j
+zoom_out minus k
 zoom_default period
 zoom_fit slash
