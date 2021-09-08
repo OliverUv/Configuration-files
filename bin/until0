@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+while true; do
+    "$@" && break
+    # "$@"
+    # if [ $? -eq 0 ]; then
+    #     break
+    # fi
+    echo "Returned $?"
+    sleep 1
+done
+echo Returned 0
