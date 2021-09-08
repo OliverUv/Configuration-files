@@ -322,8 +322,6 @@ exec --no-startup-id $redshift
 # exec killall -q notify-osd
 # exec --no-startup-id dunst
 
-# keyboard key autorepeat rate
-exec --no-startup-id xset r rate 200 40
 # disable mouse acceleration
 exec --no-startup-id xset m 0 0
 # disable screen blanking TODO fix this
