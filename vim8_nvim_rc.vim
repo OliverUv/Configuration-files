@@ -227,21 +227,25 @@ if has("autocmd")
 
     " Rice Operators {{{ "
 
-    function Riceoperators()
+    function Riceoperators(ft)
         " if !exists('w:hasricedoperators')
             setl conceallevel=1
             " Priorities must be lower than the matches for hlsearch,
             " otherwise all hlsearch hilighted things are concealed
             " https://github.com/vim/vim/issues/2185
             " call matchadd('Conceal', '^\s*[^/][^/].*\zs!==\ze', -1, -1, {'conceal': '≠'})
-            call matchadd('Conceal', '!==', -1, -1, {'conceal': '≠'})
-            call matchadd('Conceal', '===', -1, -1, {'conceal': '≗'})
+            if a:ft == "typescript"
+                call matchadd('Conceal', '!==', -1, -1, {'conceal': '≠'})
+                call matchadd('Conceal', '===', -1, -1, {'conceal': '≗'})
+            endif
             call matchadd('Conceal', '==', -2, -1, {'conceal': '≡'})
             call matchadd('Conceal', '!=', -2, -1, {'conceal': '≢'})
             call matchadd('Conceal', '<=', -2, -1, {'conceal': '≤'})
             call matchadd('Conceal', '>=', -2, -1, {'conceal': '≥'})
-            call matchadd('Conceal', '=>', -2, -1, {'conceal': '⇒'})
-            call matchadd('Conceal', '->', -2, -1, {'conceal': '→'})
+            if a:ft == "typescript"
+                call matchadd('Conceal', '=>', -2, -1, {'conceal': '⇒'})
+                call matchadd('Conceal', '->', -2, -1, {'conceal': '→'})
+            endif
             call matchadd('Conceal', '&&', -2, -1, {'conceal': '⋀'})
             call matchadd('Conceal', '||', -2, -1, {'conceal': '⋁'})
             call matchadd('Conceal', '+=', -2, -1, {'conceal': '⊞'})
@@ -293,8 +297,8 @@ if has("autocmd")
     au FileType typescript nnoremap <silent> <leader>oO :<C-u>Neomake! tsc<cr>
     au FileType typescript nnoremap <silent> <leader>of :<C-u>TsuquyomiGeterrProject<cr>
 
-    au BufWinEnter *.ts,*.tsx call Riceoperators()
-    au WinEnter *.ts,*.tsx call Riceoperators()
+    au BufWinEnter *.ts,*.tsx call Riceoperators("typescript")
+    au WinEnter *.ts,*.tsx call Riceoperators("typescript")
     " }}} typescript "
 
     " rust {{{ "
@@ -302,6 +306,8 @@ if has("autocmd")
     au FileType rust nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<cr>
     au FileType rust nnoremap <buffer> <silent> <leader>jg :call LanguageClient#textDocument_definition()<CR>
     au FileType rust nnoremap <buffer> <silent> <leader>jr :call LanguageClient#textDocument_rename()<CR>
+    au BufWinEnter *.rs call Riceoperators("rust")
+    au WinEnter *.rs call Riceoperators("rust")
     " }}} rust "
 
     " cpp {{{ "
