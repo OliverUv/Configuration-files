@@ -1,7 +1,11 @@
 extends rust
 priority 15
 
-snippet c "Case clause of pattern match" w
+snippet ec "Empty case clause of pattern match" b
+_ => {},${0}
+endsnippet
+
+snippet c "Case clause of pattern match" b
 ${1:_} => ${2:expression}
 endsnippet
 
@@ -16,13 +20,13 @@ for ${1:i} in ${2} {
 endsnippet
 
 snippet sfn "fn name(&self, ?) -> ? {}"
-fn ${1:function_name}(&self, $2)${3/..*/ -> /}$3 {
+fn ${1:function_name}(&self, $2)${3/..*/ ->/}$3 {
 	${VISUAL}$0
 }
 endsnippet
 
 snippet msfn "fn name(&mut self, ?) -> ? {}"
-fn ${1:function_name}(&self, $2)${3/..*/ -> /}$3 {
+fn ${1:function_name}(&mut self, $2)${3/..*/ ->/}$3 {
 	${VISUAL}$0
 }
 endsnippet
