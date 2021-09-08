@@ -14,11 +14,13 @@
 # ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 # OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
-CONVERT=$(which convert)
-SCROT=$(which scrot)
-XDPYINFO=$(which xdpyinfo)
-SED=$(which sed)
-GREP=$(which grep)
+# Modified by Oliver Uvman, same license applies
+
+CONVERT=$(command -v convert)
+SCROT=$(command -v scrot)
+XDPYINFO=$(command -v xdpyinfo)
+SED=$(command -v sed)
+GREP=$(command -v grep)
 
 if
     [[ -z $CONVERT ]] ||
@@ -34,13 +36,7 @@ resolution=$(xdpyinfo | grep dimensions | sed -r 's/^[^0-9]*([0-9]+x[0-9]+).*$/\
 file1=$(mktemp --tmpdir i3lock-wrapper-XXXXXXXXXX.png)
 file2=$(mktemp --tmpdir i3lock-wrapper-XXXXXXXXXX.png)
 
-# echo "`date`: LOCK" >> ~/.log/onoff
-# killall -SIGUSR1 dunst # pause
-
-scrot -d0 "$file1"
-#convert "$file1" -blur 0x4 "$file2"
-convert "$file1" -resize 1920x1080\> -noise 2x6 -median 0x1 -fill '#E17800' -tint 50 -blur 1x1 -resize $resolution "$file2"
+scrot --overwrite --delay 0 "$file1"
+convert "$file1" -resize 1920x1080\> -noise 3x20 -median 0x3 -fill '#E17800' -tint 50 -blur 2x2 -resize $resolution "$file2"
 i3lock --nofork --image "$file2"
 rm "$file1" "$file2"
-# echo -e "`date`: UNLOCK\n" >> ~/.log/onoff
-# killall -SIGUSR2 dunst # resume
