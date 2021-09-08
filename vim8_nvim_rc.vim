@@ -1083,6 +1083,9 @@ let g:undotree_SetFocusWhenToggle = 1
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 
+let g:delimitMate_matchpairs = "(:),[:],{:},<:>"
+let g:delimitMate_quotes = "\" ' `"
+
 " far {{{ "
 " if has('nvim')
 "     let g:far#source = 'rgnvim'
