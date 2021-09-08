@@ -61,7 +61,7 @@ TEXT
 	  "color" : "\#999999"
 	},
 	{ 
-	  "full_text" : "disk${fs_free /}", 
+	  "full_text" : "root ${fs_free /}", 
 	  "min_width": 100,
 	  "color" : "\#999999"
 	},
@@ -71,7 +71,17 @@ TEXT
 	  "color" : "\#999999"
 	},
 	{ 
-	  "full_text" : "battery ${battery_percent}%", 
+	  "full_text" : "home${fs_free /home}", 
+	  "min_width": 100,
+	  "color" : "\#999999"
+	},
+	{ 
+	  "full_text" : " ", 
+	  "min_width": 70,
+	  "color" : "\#999999"
+	},
+	{ 
+	  "full_text" : "bat ${battery_percent}% ${battery_time}", 
 	  "min_width": 70,
 	  "color" : "\#999999"
 	},
