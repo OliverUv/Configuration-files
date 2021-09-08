@@ -15,8 +15,8 @@ hi Comment guibg=NONE guifg=#9098a0 gui=NONE
 hi Todo gui=UNDERLINE guifg=#99004C guibg=#d8d1c8
 
 hi Cursor guibg=#404040 guifg=#a0a0a0
-hi CursorColumn guibg=#e0e0e0 guifg=#202020
-hi CursorLine guibg=#e0e0e0 guifg=#202020
+hi CursorColumn guibg=#FFEBCC guifg=NONE
+hi CursorLine guibg=#FFEBCC guifg=NONE
 
 hi TabLineFill  gui=NONE guifg=#606060 guibg=#d8d1c8
 hi TabLine      gui=NONE guifg=#606060 guibg=#d8d1c8
