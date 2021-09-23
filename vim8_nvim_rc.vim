@@ -1612,7 +1612,7 @@ map Q <Nop>
 " Mappings to interact with fugitive
 nnoremap <silent> <leader>gs :<C-U>Git<cr>:call windowing#minimize_vertically()<cr>
 nnoremap <silent> <leader>gd :<C-U>Gvdiff<cr>
-nnoremap <silent> <leader>gb :<C-U>Gblame<cr>
+nnoremap <silent> <leader>gb :<C-U>Git blame<cr>
 nnoremap <silent> <leader>gw :<C-U>Gwrite<cr>
 nnoremap <silent> <leader>gW :<C-U>Gwrite!<cr>
 nnoremap <silent> <leader>gp :<C-U>Git push<cr>
@@ -1640,8 +1640,8 @@ nnoremap <leader><leader>ae :<c-u>ALEEnable<cr>
 nmap <leader>gg <c-w>s<c-w>T:Gstatus<cr>/not staged<cr><c-n>:noh<cr>:call windowing#minimize_vertically()<cr>
 
 " Close diff window, go to gstatus window, add file (or don't)
-nmap     <leader>gn :q<cr><c-k>-
-nmap     <leader>gN :q<cr><c-k><c-n>
+nmap     <leader>gn <c-w>h:q<cr><c-k>-
+nmap     <leader>gN <c-w>h:q<cr><c-k><c-n>
 
 " File management mappings
 nnoremap <leader>er :<C-U>Rename <c-r>=expand('%:t')<cr>
