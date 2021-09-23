@@ -418,28 +418,21 @@ function! EolSetting()
     endif
 endfunction
 
-" set statusline=%<%F\ %m%r%h%w%{fugitive#statusline()}\ %Y\ %{FileEncoding()}\ %{&ff}%{EolSetting()}%=%#warningmsg#%{SyntasticStatuslineFlag()}%*\ %l/%L\,\ %c\ %p%%\ 
-set statusline=%<%F\ %m%r%h%w%{fugitive#statusline()}\ %{LanguageClient#statusLine()}\ %Y\ %{FileEncoding()}\ %{&ff}%{EolSetting()}%=\ %l/%L\,\ %c\ %p%%\ 
-" <	truncation point
-" F	full path to file
-" m	modified marker
-" r	read-only flag
-" h	help buffer flag
-" w	preview window flag
-" {fug..Shows branch if file is in git repo
-" {LanguageClie... shows status of LSP Client's Server
-" Y	file type
-" {FileEncoding} function defined above
-" {&ff}	current value for the fileformat (abbreviated ff) setting
-" {EolSetting} function defined above
-" =	split point for left/rigth justification
-" #warningmsg#     switch to WarningMsg color
-" {SyntasticStatuslineFlag()} syntax error stuff from syntastic
-" *	switch back to normal color
-" c	column number
-" l	line number
-" L	total line numbers
-" p	percentage through file (in lines as CTRL-G
+set statusline=%<                                    " truncation point
+set statusline+=%F                                   " full path to file
+set statusline+=\ %m                                 " modified marker
+set statusline+=%r                                   " read-only flag
+set statusline+=%h                                   " help buffer flag
+set statusline+=%w                                   " preview window flag
+set statusline+=%{fugitive#statusline()}             " Shows git branch if file is in git repo
+" set statusline+=\ %{LanguageClient#statusLine()}   " shows status of LSP Client's Server
+set statusline+=\ %Y                                 " file type
+set statusline+=\ %{FileEncoding()}                  " {FileEncoding} function defined above
+set statusline+=\ %{&ff}                             " current value for the fileformat (abbreviated ff) setting
+set statusline+=%{EolSetting()}                      " {EolSetting} function defined above
+set statusline+=%=                                   " split point for left/rigth justification
+set statusline+=\ %l/%L\,\ %c                        " line/total-lines, column
+set statusline+=\ %p%%\                              " percentage through file (in lines)
 
 " change status line colour if it is in insert mode
 " if version >= 700
