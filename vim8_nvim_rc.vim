@@ -1442,6 +1442,7 @@ nnoremap gZ <c-x>
 " windowing
 nnoremap <silent> z<cr> :call windowing#minimize_vertically()<cr>
 nnoremap <silent> co4 :<c-u>vertical resize 84<cr>
+nnoremap <silent> <leader>ha :<c-u>vsplit<cr>:<c-u>vertical resize 80<cr><C-W>l
 nnoremap <silent> zh mzggzfip`z
 
 " navigating
