@@ -150,10 +150,12 @@ if dein#load_state(deinpath)
     call dein#add('haya14busa/incsearch.vim.git')
     call dein#add('francoiscabrol/ranger.vim.git')
 
-    call dein#add('autozimu/LanguageClient-neovim', {
-                \ 'rev': 'next',
-                \ 'build': 'bash install.sh',
-                \ })
+    call dein#add('neovim/nvim-lspconfig')
+
+    " call dein#add('autozimu/LanguageClient-neovim', {
+    "             \ 'rev': 'next',
+    "             \ 'build': 'bash install.sh',
+    "             \ })
 
     " call dein#add('dyng/ctrlsf.vim.git') " not great
     " call dein#add('tpope/vim-dispatch.git')
@@ -294,6 +296,31 @@ let g:LanguageClient_autoStart = 1
 let g:LanguageClient_useVirtualText = "No"
 
 " }}} LanguageClient-neovim "
+
+" nvim-lspconfig {{{ "
+
+lua << EOF
+-- this function is called when an LS server is attached
+-- to a buffer
+local on_attach = function(client, bufnr)
+    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end    
+    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end    
+
+    -- Enable completion triggered by <c-x><c-o>    
+    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')    
+
+end
+
+require'lspconfig'.rust_analyzer.setup {
+    cmd = { '/home/ponder/.cargo/bin/rustup', 'run', 'nightly', 'rust-analyzer' },
+    on_attach = on_attach,
+    -- settings = {
+    --     ["rust-analyzer"] = { }
+    -- },
+}
+EOF
+
+" }}} nvim-lspconfig "
 
 " Misc {{{ "
 let g:gutentags_ctags_exclude = ['node_modules', 'build', 'dist']
