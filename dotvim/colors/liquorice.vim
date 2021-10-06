@@ -317,6 +317,39 @@ hi AleErrorSign gui=BOLD guifg=#cea662 guibg=#0b000e
 hi AleWarningSign gui=BOLD guifg=#B058B0 guibg=#0b000e
 hi AleInfoSign gui=BOLD guifg=#587BB0 guibg=#0b000e
 
+" Highlights for nvim-lspconfig
+
+hi LspDefault gui=ITALIC guifg=#4D4347 guibg=#0b000e
+hi LspWarn gui=ITALIC guifg=#997A45 guibg=#0b000e
+hi LspError gui=ITALIC guifg=#9B4662 guibg=#0b000e
+
+hi link LspDiagnosticsDefaultError LspError
+hi link LspDiagnosticsDefaultWarning LspWarn
+hi link LspDiagnosticsDefaultInformation LspDefault
+hi link LspDiagnosticsDefaultHint LspDefault
+
+hi link LspDiagnosticsDefaultVirtualTextError LspError
+hi link LspDiagnosticsDefaultVirtualTextWarning LspWarn
+hi link LspDiagnosticsDefaultVirtualTextInformation LspDefault
+hi link LspDiagnosticsDefaultVirtualTextHint LspDefault
+
+hi link LspDiagnosticsDefaultUnderlineError LspError
+hi link LspDiagnosticsDefaultUnderlineWarning LspWarn
+hi link LspDiagnosticsDefaultUnderlineInformation LspDefault
+hi link LspDiagnosticsDefaultUnderlineHint LspDefault
+
+hi link LspDiagnosticsDefaultFloatingError LspError
+hi link LspDiagnosticsDefaultFloatingWarning LspWarn
+hi link LspDiagnosticsDefaultFloatingInformation LspDefault
+hi link LspDiagnosticsDefaultFloatingHint LspDefault
+
+hi link LspDiagnosticsDefaultSignError LspError
+hi link LspDiagnosticsDefaultSignWarning LspWarn
+hi link LspDiagnosticsDefaultSignInformation LspDefault
+hi link LspDiagnosticsDefaultSignHint LspDefault
+
+" hi link LspCodeLens LspDefault
+
 " Neovim Terminal Colors
 
 " Defaults, useful when modifying colors

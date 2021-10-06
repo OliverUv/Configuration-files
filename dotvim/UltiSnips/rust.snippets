@@ -31,3 +31,23 @@ fn ${1:function_name}(&mut self, $2)${3/..*/ ->/}$3 {
 }
 endsnippet
 
+snippet dt "doctest" b
+/// \`\`\`rust
+/// $0
+/// \`\`\`
+endsnippet
+
+snippet adt "async doctest" b
+/// \`\`\`rust
+/// tokio_test::block_on(async {
+///     $0
+/// })
+/// \`\`\`
+endsnippet
+
+snippet ttest "tokio test" b
+#[tokio::test()]
+async fn ${1:async_test}() {
+	$0
+}
+endsnippet

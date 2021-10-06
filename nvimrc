@@ -45,6 +45,7 @@ if dein#load_state(deinpath)
     call dein#add('hrsh7th/vim-neco-calc.git')
     call dein#add('ujihisa/neco-ghc.git')
     call dein#add('ujihisa/neco-look.git')
+    call dein#add('deoplete-plugins/deoplete-lsp')
     " call dein#add('Shougo/neocomplete.vim.git')
     " }}} Auto-Completion "
 
@@ -86,7 +87,7 @@ if dein#load_state(deinpath)
     call dein#add('Quramy/tsuquyomi.git') " TypeScript
     call dein#add('davidhalter/jedi-vim.git') " Python
     " call dein#add('klen/python-mode.git')
-    call dein#add('racer-rust/vim-racer.git') " Rust
+    " call dein#add('racer-rust/vim-racer.git') " Rust .. probably defunct
     call dein#add('lukerandall/haskellmode-vim.git')
     " }}} Language Focus "
     " Editing {{{ "
@@ -183,7 +184,7 @@ if dein#load_state(deinpath)
     call dein#add('OliverUv/vim-lesscss.git')
     call dein#add('Glench/Vim-Jinja2-Syntax.git')
     call dein#add('sukima/vim-tiddlywiki.git')
-    call dein#add('wting/rust.vim.git')
+    call dein#add('rust-lang/rust.vim')
     call dein#add('Shougo/neco-syntax.git') " Shougo things
     call dein#add('sudar/vim-arduino-snippets') " arduino ultisnips
     " }}} File Types "
@@ -300,6 +301,16 @@ let g:LanguageClient_useVirtualText = "No"
 " nvim-lspconfig {{{ "
 
 lua << EOF
+
+-- Only show Error signs in gutter
+local orig_set_signs = vim.lsp.diagnostic.set_signs
+local set_signs_limited = function(diagnostics, bufnr, client_id, sign_ns, opts)
+  opts = opts or {}
+  opts.severity_limit = "Error"
+  orig_set_signs(diagnostics, bufnr, client_id, sign_ns, opts)
+end
+vim.lsp.diagnostic.set_signs = set_signs_limited
+
 -- this function is called when an LS server is attached
 -- to a buffer
 local on_attach = function(client, bufnr)
@@ -308,6 +319,29 @@ local on_attach = function(client, bufnr)
 
     -- Enable completion triggered by <c-x><c-o>    
     buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')    
+
+    local opts = { noremap=true, silent=true }
+
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    buf_set_keymap('n', '<leader>jG', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+    buf_set_keymap('n', '<leader>jg', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+    buf_set_keymap('n', '<leader>jk', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+    -- buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+    -- buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+    -- buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+    buf_set_keymap('n', '<leader>jt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+    buf_set_keymap('n', '<leader>jR', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    buf_set_keymap('n', '<leader>jf', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+    buf_set_keymap('n', '<leader>jr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+    buf_set_keymap('n', '<leader>ja', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+    buf_set_keymap('n', '[w', '<cmd>lua vim.lsp.diagnostic.goto_prev({severity="Warning"})<CR>', opts)
+    buf_set_keymap('n', ']w', '<cmd>lua vim.lsp.diagnostic.goto_next({severity="Warning"})<CR>', opts)
+    buf_set_keymap('n', '[e', '<cmd>lua vim.lsp.diagnostic.goto_prev({severity="Error"})<CR>', opts)
+    buf_set_keymap('n', ']e', '<cmd>lua vim.lsp.diagnostic.goto_next({severity="Error"})<CR>', opts)
+    buf_set_keymap('n', '<leader>jq', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+    buf_set_keymap('n', '<leader>mf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
 end
 

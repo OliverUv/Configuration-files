@@ -303,11 +303,11 @@ if has("autocmd")
 
     " rust {{{ "
     " au FileType rust setlocal omnifunc=LanguageClient#complete
-    au FileType rust nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<cr>
-    au FileType rust nnoremap <buffer> <silent> <leader>jh :call LanguageClient#textDocument_documentHighlight()<CR>
-    au FileType rust nnoremap <buffer> <silent> <leader>jg :call LanguageClient#textDocument_definition()<CR>
-    au FileType rust nnoremap <buffer> <silent> <leader>jr :<c-u>Denite references<cr>
-    au FileType rust nnoremap <buffer> <silent> <leader>jR :call LanguageClient#textDocument_rename()<CR>
+    " au FileType rust nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<cr>
+    " au FileType rust nnoremap <buffer> <silent> <leader>jh :call LanguageClient#textDocument_documentHighlight()<CR>
+    " au FileType rust nnoremap <buffer> <silent> <leader>jg :call LanguageClient#textDocument_definition()<CR>
+    " au FileType rust nnoremap <buffer> <silent> <leader>jr :<c-u>Denite references<cr>
+    " au FileType rust nnoremap <buffer> <silent> <leader>jR :call LanguageClient#textDocument_rename()<CR>
     au BufWinEnter *.rs call Riceoperators("rust")
     au WinEnter *.rs call Riceoperators("rust")
     " }}} rust "
@@ -1205,7 +1205,7 @@ let g:rust_conceal = 1
 let g:rust_fold = 1
 let g:rustfmt_command = "$HOME/.cargo/bin/rustfmt"
 let g:rustfmt_autosave = 0
-let g:racer_cmd = "$HOME/.cargo/bin/racer"
+" let g:racer_cmd = "$HOME/.cargo/bin/racer"
 " let $RUST_SRC_PATH = "$HOME/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
 " }}} rust, racer "
 
@@ -1637,7 +1637,7 @@ nnoremap <leader><leader>ae :<c-u>ALEEnable<cr>
 " }}} ALE Shortcuts "
 
 " Get gittin!
-nmap <leader>gg <c-w>s<c-w>T:Gstatus<cr>/not staged<cr><c-n>:noh<cr>:call windowing#minimize_vertically()<cr>
+nmap <leader>gg <c-w>s<c-w>T:Git<cr>/not staged<cr><c-n>:noh<cr>:call windowing#minimize_vertically()<cr>
 
 " Close diff window, go to gstatus window, add file (or don't)
 nmap     <leader>gn <c-w>h:q<cr><c-k>-
