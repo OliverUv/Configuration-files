@@ -74,8 +74,9 @@ bindsym $mod+Shift+V exec gvim -S $HOME/.cache/unite/session/life.vim
 bindsym $mod+Control+y exec my
 bindsym $mod+Control+i exec mi
 # bindsym $mod2+n exec restart_dunst.sh
-bindsym --release $mod+Control+s exec scrot -s $HOME/t/scrot.png
-bindsym --release $mod+Control+Shift+S exec scrot $HOME/t/scrot.png
+# bindsym --release $mod+Control+s exec --no-startup-id scrot -o -s $HOME/t/scrot.png
+bindsym --release $mod+Control+s exec --no-startup-id screenshot
+bindsym --release $mod+Control+Shift+S exec scrot -o $HOME/t/scrot.png
 
 # lock X session
 bindsym $mod2+s exec lock
