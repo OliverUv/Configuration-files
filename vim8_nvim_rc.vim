@@ -1221,11 +1221,15 @@ let personalwiki = {}
 let personalwiki.path = '~/Storage/documents/vim_wiki'
 let personalwiki.index = 'index'
 
+let pwiki = {}
+let pwiki.path = '~/job/vim_wiki'
+let pwiki.index = 'index'
+
 let cmaowiki = {}
 let cmaowiki.path = '~/Storage/documents/codemao_wiki'
 let cmaowiki.index = 'index'
 
-let g:vimwiki_list = [personalwiki, cmaowiki]
+let g:vimwiki_list = [personalwiki, pwiki, cmaowiki]
 " }}} vimwiki / taskwiki / taskwarrior " 
 
 " ALE {{{ "
