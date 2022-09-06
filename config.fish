@@ -58,4 +58,4 @@ set -x PP ""
 
 # eval (python -m virtualfish)
 
-rcm --shade --urxvt-escape --tmux
+rcm --shade --bg-escape
