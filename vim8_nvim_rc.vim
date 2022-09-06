@@ -1663,7 +1663,7 @@ nnoremap <silent> dgl :diffget \\3<cr>
 " Misc mappings
 nnoremap <leader>I i <esc>la <esc>h
 nnoremap <silent> <leader><space> :noh<cr>
-nnoremap <silent> <leader>ee :UltiSnipsEdit<cr>
+nnoremap <silent> <leader>ee :UltiSnipsEdit!<cr>
 nnoremap <silent> <leader>u :UndotreeToggle<cr>
 nnoremap <silent> <leader>q :sign unplace *<cr>:Lclose<cr>:Cclose<cr>
 nnoremap <silent> - mz:<c-u>:Switch<cr><esc>`z
