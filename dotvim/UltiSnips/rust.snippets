@@ -1,6 +1,16 @@
 extends rust
 priority 15
 
+snippet prel "Use prelude"
+use ${1}::prelude::*;${0}
+endsnippet
+
+snippet ma "match pattern"
+match ${VISUAL}${1} {
+	${2:_} => ${3},
+}${0}
+endsnippet
+
 snippet ec "Empty case clause of pattern match" b
 _ => {},${0}
 endsnippet
@@ -50,4 +60,11 @@ snippet ttest "tokio test" b
 async fn ${1:async_test}() {
 	$0
 }
+endsnippet
+
+snippet test "test case" b
+#[test]
+fn ${1:test}() {
+	${VISUAL}${2}
+}${0}
 endsnippet
