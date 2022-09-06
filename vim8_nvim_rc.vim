@@ -1591,8 +1591,10 @@ nnoremap <silent> <leader>tk :<c-u>split<cr>:terminal<cr>Afish<cr>
 nnoremap <silent> <leader>th :<c-u>vsplit<cr>:terminal<cr>Afish<cr>
 nnoremap <silent> <leader>tl :<c-u>vsplit<cr><c-w>l:terminal<cr>Afish<cr>
 
-" Break pane out of tabpage
-nnoremap <leader>b <c-w>s<c-w>TgT<c-w>cgt
+" Break window out of tabpage
+nnoremap <leader>B <c-w>T
+" Copy window out of tabpage
+nnoremap <leader>b <c-w>s<c-w>T
 
 " Maximize buffer toggling
 nnoremap <silent> <leader><tab> :<C-U>MaximizerToggle<cr>
