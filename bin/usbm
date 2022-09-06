@@ -10,17 +10,16 @@ if [ $# -ne $EXARGS ] ; then
 else
     if [ "$1" == "m" ]; then
         udisksctl mount -b "/dev/$2"
-    else
-        if [ "$1" == "up" ]; then
-            udisksctl unmount -b "/dev/$2" && udisksctl power-off -b "/dev/$2" && echo "Powered off /dev/$2."
-        else
-            udisksctl power-off -b "/dev/$2"
-            if [ "$1" == "u" ]; then
-                udisksctl unmount -b "/dev/$2"
-            else
-                udisksctl power-off -b "/dev/$2" && echo "Powered off /dev/$2".
-            fi
-        fi
+    fi
+    if [ "$1" == "up" ]; then
+        udisksctl unmount -b "/dev/$2" && udisksctl power-off -b "/dev/$2" && echo "Powered off /dev/$2."
+    fi
+    if [ "$1" == "u" ]; then
+        udisksctl unmount -b "/dev/$2"
+    fi
+    if [ "$1" == "up" ]; then
+        udisksctl unmount -b "/dev/$2"
+        udisksctl power-off -b "/dev/$2" && echo "Powered off /dev/$2".
     fi
 fi
 
