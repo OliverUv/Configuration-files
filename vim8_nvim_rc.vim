@@ -1614,6 +1614,7 @@ map Q <Nop>
 " Mappings to interact with fugitive
 nnoremap <silent> <leader>gs :<C-U>Git<cr>:call windowing#minimize_vertically()<cr>
 nnoremap <silent> <leader>gd :<C-U>Gvdiff<cr>
+nnoremap <silent> <leader>gD :<C-U>Gvdiffsplit!<cr>
 nnoremap <silent> <leader>gb :<C-U>Git blame<cr>
 nnoremap <silent> <leader>gw :<C-U>Gwrite<cr>
 nnoremap <silent> <leader>gW :<C-U>Gwrite!<cr>
