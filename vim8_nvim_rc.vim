@@ -1046,10 +1046,10 @@ augroup end
 endif
 " }}} jedi-vim "
 
-" vim-sparkup {{{ "
-let g:sparkupExecuteMapping = '<leader>V'
-let g:sparkupNextMapping = '<leader>B'
-" }}} vim-sparkup "
+" " vim-sparkup {{{ "
+" let g:sparkupExecuteMapping = '<leader>V'
+" let g:sparkupNextMapping = '<leader>B'
+" " }}} vim-sparkup "
 
 " UltiSnips {{{ "
 let g:UltiSnipsEditSplit = 'horizontal'

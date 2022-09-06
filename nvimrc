@@ -125,7 +125,7 @@ if dein#load_state(deinpath)
     " was very good but had some annoyances compared to delimitMate
     call dein#add('godlygeek/tabular.git')
     call dein#add('tommcdo/vim-exchange.git')
-    call dein#add('tristen/vim-sparkup.git')
+    " call dein#add('tristen/vim-sparkup.git') " HTML writing plugin
     call dein#add('vim-scripts/Enter-Indent.git')
     call dein#add('vim-scripts/RST-Tables.git')
     " call dein#add('tpope/vim-capslock.git')
