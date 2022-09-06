@@ -150,6 +150,7 @@ if dein#load_state(deinpath)
     call dein#add('stevearc/vim-arduino.git')
     call dein#add('haya14busa/incsearch.vim.git')
     call dein#add('francoiscabrol/ranger.vim.git')
+    call dein#add('folke/trouble.nvim.git')
 
     call dein#add('neovim/nvim-lspconfig')
 
@@ -298,6 +299,35 @@ let g:LanguageClient_useVirtualText = "No"
 
 " }}} LanguageClient-neovim "
 
+" folke trouble.nvim {{{ "
+
+nnoremap <silent> <leader>jc :TroubleToggle workspace_diagnostics<cr>
+nnoremap <silent> <leader>jC :TroubleToggle document_diagnostics<cr>
+nnoremap <silent> <leader>je <cmd>TroubleToggle lsp_references<cr>
+nnoremap <silent> <leader>jj :TroubleToggle<cr>
+
+lua << EOF
+  require("trouble").setup {
+    position = "right",
+    width = 80,
+    height = 15,
+    padding = false,
+    icons = false,
+    fold_open = "v", -- icon used for open folds
+    fold_closed = ">", -- icon used for closed folds
+    indent_lines = false, -- add an indent guide below the fold icons
+    signs = {
+        -- icons / text used for a diagnostic
+        error = "-▶",
+        warning = "-◈",
+        hint = "-◇",
+        information = "-◇"
+    },
+    use_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
+  }
+EOF
+" }}} folke trouble.nvim "
+
 " nvim-lspconfig {{{ "
 
 lua << EOF
@@ -340,7 +370,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', ']w', '<cmd>lua vim.lsp.diagnostic.goto_next({severity="Warning"})<CR>', opts)
     buf_set_keymap('n', '[e', '<cmd>lua vim.lsp.diagnostic.goto_prev({severity="Error"})<CR>', opts)
     buf_set_keymap('n', ']e', '<cmd>lua vim.lsp.diagnostic.goto_next({severity="Error"})<CR>', opts)
-    buf_set_keymap('n', '<leader>jq', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+    -- buf_set_keymap('n', '<leader>jq', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
     buf_set_keymap('n', '<leader>mf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
 end
@@ -348,9 +378,31 @@ end
 require'lspconfig'.rust_analyzer.setup {
     cmd = { '/home/ponder/.cargo/bin/rustup', 'run', 'nightly', 'rust-analyzer' },
     on_attach = on_attach,
-    -- settings = {
-    --     ["rust-analyzer"] = { }
-    -- },
+    settings = {
+        ["rust-analyzer"] = {
+            diagnostics = {
+                enable = true,
+                disabled = {"unresolved-proc-macro", "macro-error"},
+                enableExperimental = true, -- might have false positives
+            },
+            procMacro = {
+                enable = true,
+                attributes = {
+                    enable = true
+                },
+            },
+            cargo = {
+                features = "all",
+                buildScripts = {
+                    enable = true
+                },
+            },
+            assist = {
+                importGranularity = "module",
+                importPrefix = "self",
+            },
+        }
+    },
 }
 EOF
 
