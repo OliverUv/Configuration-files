@@ -58,4 +58,6 @@ set -x PP ""
 
 # eval (python -m virtualfish)
 
-rcm --shade --bg-escape
+if status is-interactive
+    rcm --shade --bg-escape
+end
