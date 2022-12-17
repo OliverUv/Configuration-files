@@ -319,7 +319,7 @@ client.focused_inactive #000000 #000000 #dddddd #181e20
 client.unfocused        #000000 #000000 #666666 #191d1e
 client.urgent           #2f343a #900000 #ffffff #900000
 
-exec --no-startup-id $redshift
+# exec --no-startup-id $redshift
 # exec killall -q notify-osd
 # exec --no-startup-id dunst
 
