@@ -189,6 +189,7 @@ if dein#load_state(deinpath)
     call dein#add('rust-lang/rust.vim')
     call dein#add('Shougo/neco-syntax.git') " Shougo things
     call dein#add('sudar/vim-arduino-snippets') " arduino ultisnips
+    call dein#add('mracos/mermaid.vim') " .mmd .mermaid
     " }}} File Types "
 
     " Libs {{{ "
