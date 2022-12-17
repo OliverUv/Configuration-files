@@ -1576,7 +1576,6 @@ nnoremap <silent> <leader>X :<C-U>wqa<cr>
 nnoremap <silent> <leader>T :<C-U>tabclose<cr>
 nnoremap <silent> <leader>d :<C-U>confirm q<cr>
 nnoremap <silent> <leader>D :<C-U>confirm qa<cr>
-nnoremap <silent> <leader><leader>d :<C-U>bw!<cr>
 
 " Good for switching between header .h and body .cpp files in CPP
 " nnoremap <silent> <leader>h :<C-U>FSHere<cr>
@@ -1636,11 +1635,11 @@ nnoremap <leader>gv :<C-U>GV --all<cr>
 nnoremap <leader>gV :<C-U>GV! --all<cr>
 
 " ALE Shortcuts {{{ "
-nnoremap <leader><leader>as :<c-u>ALEFixSuggest<cr>
-nnoremap <leader><leader>af :<c-u>ALEFix<cr>
-nnoremap <leader><leader>ad :<c-u>ALEDetail<cr>
-nnoremap <leader><leader>aD :<c-u>ALEDisable<cr>
-nnoremap <leader><leader>ae :<c-u>ALEEnable<cr>
+nnoremap <leader><leader><leader>as :<c-u>ALEFixSuggest<cr>
+nnoremap <leader><leader><leader>af :<c-u>ALEFix<cr>
+nnoremap <leader><leader><leader>ad :<c-u>ALEDetail<cr>
+nnoremap <leader><leader><leader>aD :<c-u>ALEDisable<cr>
+nnoremap <leader><leader><leader>ae :<c-u>ALEEnable<cr>
 " }}} ALE Shortcuts "
 
 " Get gittin!
