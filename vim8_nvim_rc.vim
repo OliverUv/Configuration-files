@@ -348,8 +348,8 @@ if has("autocmd")
     au FileType vim setlocal foldmethod=marker
     au FileType {md,tex,txt,rst,text} setlocal linebreak
 
-    au BufWinEnter *.py call Riceoperators()
-    au WinEnter *.py call Riceoperators()
+    au BufWinEnter *.py call Riceoperators("python")
+    au WinEnter *.py call Riceoperators("python")
 
     au TermOpen * tmap <buffer> jk <C-\><C-n>
     au TermOpen * tmap <buffer> kj <C-\><C-n>
