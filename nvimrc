@@ -154,6 +154,13 @@ if dein#load_state(deinpath)
     call dein#add('folke/trouble.nvim.git')
 
     call dein#add('neovim/nvim-lspconfig')
+    call dein#add('mfussenegger/nvim-dap.git')
+    call dein#add("rcarriga/nvim-dap-ui.git")
+    call dein#add("theHamsta/nvim-dap-virtual-text.git")
+
+    call dein#add('nvim-treesitter/nvim-treesitter', {'hook_post_update': 'TSUpdate'})
+    " :TSInstall rust
+    " https://github.com/nvim-treesitter/nvim-treesitter#available-modules
 
     " call dein#add('autozimu/LanguageClient-neovim', {
     "             \ 'rev': 'next',
@@ -409,6 +416,158 @@ require'lspconfig'.rust_analyzer.setup {
 EOF
 
 " }}} nvim-lspconfig "
+
+" nvim-treesitter {{{ "
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = true,
+  },
+}
+EOF
+" }}} nvim-treesitter "
+
+" debug adapter protocol dap nvim-dap {{{ "
+lua << EOF
+local dap = require('dap')
+local dapui = require("dapui")
+
+dapui.setup()
+
+dap.listeners.after.event_initialized["dapui_config"] = function()
+  dapui.open()
+end
+dap.listeners.before.event_terminated["dapui_config"] = function()
+  dapui.close()
+end
+dap.listeners.before.event_exited["dapui_config"] = function()
+  dapui.close()
+end
+
+require("nvim-dap-virtual-text").setup {
+    enabled = true,                        -- enable this plugin (the default)
+    enabled_commands = true,               -- create commands DapVirtualTextEnable, DapVirtualTextDisable, DapVirtualTextToggle, (DapVirtualTextForceRefresh for refreshing when debug adapter did not notify its termination)
+    highlight_changed_variables = true,    -- highlight changed values with NvimDapVirtualTextChanged, else always NvimDapVirtualText
+    highlight_new_as_changed = false,      -- highlight new variables in the same way as changed variables (if highlight_changed_variables)
+    show_stop_reason = true,               -- show stop reason when stopped for exceptions
+    commented = false,                     -- prefix virtual text with comment string
+    only_first_definition = true,          -- only show virtual text at first definition (if there are multiple)
+    all_references = false,                -- show virtual text on all all references of the variable (not only definitions)
+    filter_references_pattern = '<module', -- filter references (not definitions) pattern when all_references is activated (Lua gmatch pattern, default filters out Python modules)
+    -- experimental features:
+    virt_text_pos = 'eol',                 -- position of virtual text, see `:h nvim_buf_set_extmark()`
+    all_frames = false,                    -- show virtual text for all stack frames not only current. Only works for debugpy on my machine.
+    virt_lines = false,                    -- show virtual lines instead of virtual text (will flicker!)
+    virt_text_win_col = nil                -- position the virtual text at a fixed window column (starting from the first text column) ,
+                                           -- e.g. 80 to position at column 80, see `:h nvim_buf_set_extmark()`
+}
+
+dap.adapters.codelldb = {
+  type = 'server',
+  port = '${port}',
+  executable = {
+    command = '/home/ponder/apps/codelldb-x86_64-linux_v1.7.4/extension/adapter/codelldb',
+    args = {'--port', '${port}'},
+
+    -- On windows you may have to uncomment this:
+    -- detached = false,
+  }
+}
+
+-- `cargo test --lib --no-run` to find the executable name of unit tests
+
+local codelldb_file = {
+    name = 'launch file',
+    type = 'codelldb',
+    request = 'launch',
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = false,
+    sourceLanguages = {'rust'}, -- supposed to help with panic catches, but doesn't
+}
+
+local codelldb_file_arg = {
+    name = 'launch file with arg',
+    type = 'codelldb',
+    request = 'launch',
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    args = function()
+      local argument_string = vim.fn.input('Program arguments: ')
+      return vim.fn.split(argument_string, " ", true)
+    end,
+    -- args = {function()
+    --     return vim.fn.input('Arg: ')
+    -- end},
+    cwd = '${workspaceFolder}',
+    stopOnEntry = false,
+    sourceLanguages = {'rust'}, -- supposed to help with panic catches, but doesn't
+}
+
+-- local codelldb_cargo = {
+--     name = 'cargo test',
+--     type = 'codelldb',
+--     request = 'launch',
+--     cargo = {
+--         args = {'test', '--no-run', '--lib'}, -- Cargo command line to build the debug target
+--         -- 'args': ['build', '--bin=foo'] is another possibility
+--         -- filter = { -- Filter applied to compilation artifacts (optional)
+--         --     name = 'mylib',
+--         --     kind = 'lib'
+--         -- }
+--     }
+-- }
+
+dap.configurations.rust = {
+    codelldb_file,
+    codelldb_file_arg,
+    -- codelldb_cargo -- should work ish but doesn't, maybe cargo isn't supported by dap
+}
+
+-- Automate better: https://www.reddit.com/r/neovim/comments/pzm3d8/nvimdap_any_way_to_configure_launch_to_ask_for/
+-- :help lua-vimscript
+
+-- *cargo/Vec not working: https://github.com/vadimcn/vscode-lldb/blob/master/MANUAL.md#rust-language-support
+-- * if I get cargo support working this looks ok: https://github.com/vadimcn/vscode-lldb/issues/35#issuecomment-613092365
+-- formatting vars when printing: `var,x` where x specifies the format: https://github.com/vadimcn/vscode-lldb/blob/v1.4.5/MANUAL.md#formatting
+--      x hex, o octa, d decimal, u unsigned decimal, b binary, f float (reinterpret bits, no cast), p pointer, s c-string, y bytes, Y bytes with ascii, [n] reinterpret as array of n elements
+
+-- -- If you want to use this for Rust and C, add something like this:
+-- dap.configurations.cpp = { codelldb_file }
+-- dap.configurations.c = { codelldb_file }
+-- dap.configurations.rust = dap.configurations.cpp
+
+-- code lens ?? https://github.com/ericpubu/lsp_codelens_extensions.nvim
+
+EOF
+
+nnoremap <silent> <leader><leader>h <Cmd>lua require'dap'.continue()<CR>
+nnoremap <silent> <leader><leader>l <Cmd>lua require'dap'.step_over()<CR>
+nnoremap <silent> <leader><leader>j <Cmd>lua require'dap'.step_into()<CR>
+nnoremap <silent> <leader><leader>k <Cmd>lua require'dap'.step_out()<CR>
+
+nnoremap <silent> <leader><leader>J <Cmd>lua require'dap'.down()<CR>
+nnoremap <silent> <leader><leader>K <Cmd>lua require'dap'.up()<CR>
+nnoremap <silent> <leader><leader>L <Cmd>lua require'dap'.run_to_cursor()<CR>
+
+nnoremap <silent> <leader><leader>q <Cmd>lua require'dap'.terminate()<CR>
+
+nnoremap <silent> <leader><leader>c <Cmd>lua require'dap'.clear_breakpoints()<CR>
+nnoremap <silent> <leader><leader>b <Cmd>lua require'dap'.toggle_breakpoint()<CR>
+nnoremap <silent> <leader><leader>B <Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
+nnoremap <silent> <leader><leader>p <Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
+nnoremap <silent> <leader><leader>r <Cmd>lua require'dap'.repl.open()<CR>
+nnoremap <silent> <leader><leader>R <Cmd>lua require'dap'.run_last()<CR>
+
+" }}} debug adapter protocol dap nvim-dap "
 
 " Misc {{{ "
 let g:gutentags_ctags_exclude = ['node_modules', 'build', 'dist']
