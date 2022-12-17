@@ -68,7 +68,7 @@ if dein#load_state(deinpath)
     call dein#add('raghur/fruzzy.git', {'hook_post_update': 'call fruzzy#install()'})
     " }}} Unite/Denite "
     call dein#add('OliverUv/windowing.vim.git')
-    call dein#add('KabbAmine/zeavim.vim.git')
+    " call dein#add('KabbAmine/zeavim.vim.git')
     call dein#add('Shougo/neomru.vim.git')
     call dein#add('Shougo/neoyank.vim.git')
     call dein#add('bruno-/vim-man.git')
@@ -76,7 +76,7 @@ if dein#load_state(deinpath)
     call dein#add('justinmk/vim-sneak.git')
     call dein#add('linktohack/vim-space.git')
     call dein#add('bkad/CamelCaseMotion.git')
-    call dein#add('thinca/vim-fontzoom.git')
+    " call dein#add('thinca/vim-fontzoom.git')
     call dein#add('szw/vim-maximizer.git')
     call dein#add('ton/vim-bufsurf.git')
     call dein#add('derekwyatt/vim-fswitch.git')
@@ -86,7 +86,7 @@ if dein#load_state(deinpath)
     " Language Focus {{{ "
     call dein#add('jalvesaq/Nvim-R.git') " R-lang
     call dein#add('Quramy/tsuquyomi.git') " TypeScript
-    call dein#add('davidhalter/jedi-vim.git') " Python
+    " call dein#add('davidhalter/jedi-vim.git') " Python
     " call dein#add('klen/python-mode.git')
     " call dein#add('racer-rust/vim-racer.git') " Rust .. probably defunct
     call dein#add('lukerandall/haskellmode-vim.git')
@@ -145,7 +145,7 @@ if dein#load_state(deinpath)
     call dein#add('chrisbra/Recover.vim.git')
     call dein#add('ludovicchabant/vim-gutentags.git')
     call dein#add('mattn/gist-vim.git')
-    call dein#add('marijnh/tern_for_vim.git')
+    " call dein#add('marijnh/tern_for_vim.git')
     call dein#add('mbbill/undotree.git')
     call dein#add('embear/vim-localvimrc.git')
     call dein#add('stevearc/vim-arduino.git')
@@ -210,9 +210,9 @@ if dein#load_state(deinpath)
     call dein#add('junegunn/goyo.vim.git')
     call dein#add('nathanaelkane/vim-indent-guides.git')
     call dein#add('morhetz/gruvbox.git')
-    call dein#add('abudden/taghighlight-automirror.git')
-    call dein#add('godlygeek/csapprox.git')
-    call dein#add('gerw/vim-HiLinkTrace.git')
+    " call dein#add('abudden/taghighlight-automirror.git')
+    " call dein#add('godlygeek/csapprox.git')
+    " call dein#add('gerw/vim-HiLinkTrace.git')
     " call dein#add('airblade/vim-gitgutter.git') " Didn't find it useful enough
     " }}} Bling "
 
