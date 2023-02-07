@@ -477,7 +477,7 @@ dap.adapters.codelldb = {
   type = 'server',
   port = '${port}',
   executable = {
-    command = '/home/ponder/apps/codelldb-x86_64-linux_v1.7.4/extension/adapter/codelldb',
+    command = '/home/ponder/apps/codelldb-x86_64-linux/extension/adapter/codelldb',
     args = {'--port', '${port}'},
 
     -- On windows you may have to uncomment this:
@@ -518,24 +518,24 @@ local codelldb_file_arg = {
     sourceLanguages = {'rust'}, -- supposed to help with panic catches, but doesn't
 }
 
--- local codelldb_cargo = {
---     name = 'cargo test',
---     type = 'codelldb',
---     request = 'launch',
---     cargo = {
---         args = {'test', '--no-run', '--lib'}, -- Cargo command line to build the debug target
---         -- 'args': ['build', '--bin=foo'] is another possibility
---         -- filter = { -- Filter applied to compilation artifacts (optional)
---         --     name = 'mylib',
---         --     kind = 'lib'
---         -- }
---     }
--- }
+local codelldb_cargo = {
+    name = 'cargo test',
+    type = 'codelldb',
+    request = 'launch',
+    cargo = {
+        args = {'test', '--no-run', '--lib'}, -- Cargo command line to build the debug target
+        -- 'args': ['build', '--bin=foo'] is another possibility
+        -- filter = { -- Filter applied to compilation artifacts (optional)
+        --     name = 'mylib',
+        --     kind = 'lib'
+        -- }
+    }
+}
 
 dap.configurations.rust = {
     codelldb_file,
     codelldb_file_arg,
-    -- codelldb_cargo -- should work ish but doesn't, maybe cargo isn't supported by dap
+    codelldb_cargo -- should work ish but doesn't, maybe cargo isn't supported by dap
 }
 
 -- Automate better: https://www.reddit.com/r/neovim/comments/pzm3d8/nvimdap_any_way_to_configure_launch_to_ask_for/
