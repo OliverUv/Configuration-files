@@ -152,12 +152,18 @@ if dein#load_state(deinpath)
     call dein#add('haya14busa/incsearch.vim.git')
     call dein#add('francoiscabrol/ranger.vim.git')
     call dein#add('folke/trouble.nvim.git')
+    call dein#add('klen/nvim-test')
 
+    " LSP
     call dein#add('neovim/nvim-lspconfig')
+    call dein#add('j-hui/fidget.nvim')
+
+    " DSP
     call dein#add('mfussenegger/nvim-dap.git')
     call dein#add("rcarriga/nvim-dap-ui.git")
     call dein#add("theHamsta/nvim-dap-virtual-text.git")
 
+    " TREESITTER
     call dein#add('nvim-treesitter/nvim-treesitter', {'hook_post_update': 'TSUpdate'})
     " :TSInstall rust
     " https://github.com/nvim-treesitter/nvim-treesitter#available-modules
@@ -572,6 +578,13 @@ nnoremap <silent> <leader><leader>R <Cmd>lua require'dap'.run_last()<CR>
 " Misc {{{ "
 let g:gutentags_ctags_exclude = ['node_modules', 'build', 'dist']
 let g:echodoc#enable_at_startup = 1
+
+lua << EOF
+require'fidget'.setup{}
+require'nvim-test'.setup()
+require('nvim-test.runners.cargo-test'):setup { package = true }
+EOF
+nnoremap <silent> <leader>ju :<C-u>TestSuite<CR>
 " }}} Misc "
 
 " }}} Plugin Settings "
