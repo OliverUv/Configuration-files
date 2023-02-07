@@ -88,7 +88,7 @@ hi TabModifiedSel  gui=BOLD guifg=#ffb0ff guibg=#602040
 " Diff
 hi DiffText     gui=BOLD guifg=NONE guibg=#1f1500
 hi DiffChange   gui=NONE guifg=#B5A586 guibg=#4A3000
-hi DiffDelete   gui=NONE guifg=#440606 guibg=#400707
+hi DiffDelete   gui=NONE guifg=#490808 guibg=#400707
 hi DiffAdd      gui=NONE guifg=NONE guibg=#042806
 
 " Autocompletion menu
@@ -141,22 +141,22 @@ hi link VisualNOS Visual
 hi Comment      gui=NONE guifg=#7A7D7D guibg=NONE
 hi Comment      gui=NONE guifg=#707373 guibg=NONE
 hi Error        gui=BOLD guifg=#f2ca03 guibg=#000000
-hi Identifier   gui=NONE guifg=#b085e1 guibg=NONE
+hi Identifier   gui=NONE guifg=#B085E1 guibg=NONE
 hi Ignore       gui=NONE guifg=bg      guibg=NONE
 hi PreProc      gui=NONE guifg=#ffa8ff guibg=NONE
 hi Constant     gui=NONE guifg=#f8bef8 guibg=NONE
 hi Special      gui=NONE guifg=#CF8F53 guibg=#0A0A0A
-hi Statement    gui=NONE guifg=#6699cc guibg=#0F080B
-hi Repeat       gui=BOLD guifg=#6699cc guibg=NONE
+hi Statement    gui=NONE guifg=#60f0a8 guibg=#0F080B
+hi Repeat       gui=BOLD guifg=#60f0a8 guibg=NONE
 hi Todo         gui=UNDERLINE,ITALIC guifg=#ff80d0 guibg=NONE
-hi Type         gui=NONE guifg=#60f0a8 guibg=NONE
+hi Type         gui=NONE guifg=#6699cc guibg=NONE
 hi Underlined   gui=UNDERLINE guifg=fg guibg=NONE
 hi String       gui=NONE guifg=#876B99 guibg=#231A23
 hi Number       gui=NONE guifg=#acdd82 guibg=NONE
-hi Conditional  gui=BOLD guifg=#86bbee guibg=NONE
+hi Conditional  gui=BOLD guifg=#60f0a8 guibg=NONE
 hi Boolean      gui=NONE guifg=#86bbee guibg=NONE
 hi Function     gui=NONE guifg=#cea662 guibg=NONE
-hi Delimiter    gui=NONE guifg=#00a0a0 guibg=NONE
+hi Delimiter    gui=NONE guifg=#85ADAD guibg=NONE
 hi Operator     gui=NONE guifg=#86BBEE guibg=NONE
 
 " TagHighlight plugin colors ( https://github.com/abudden/taghighlight-automirror )
@@ -317,36 +317,39 @@ hi AleErrorSign gui=BOLD guifg=#cea662 guibg=#0b000e
 hi AleWarningSign gui=BOLD guifg=#B058B0 guibg=#0b000e
 hi AleInfoSign gui=BOLD guifg=#587BB0 guibg=#0b000e
 
+" Highlights for fidget.nvim
+hi link FidgetTitle Variable
+
 " Highlights for nvim-lspconfig
 
-hi LspDefault gui=ITALIC guifg=#4D4347 guibg=#0b000e
-hi LspWarn gui=ITALIC guifg=#997A45 guibg=#0b000e
-hi LspError gui=ITALIC guifg=#9B4662 guibg=#0b000e
+hi LspDefault gui=ITALIC guifg=#4D4347 guibg=#181214
+hi LspWarn gui=ITALIC guifg=#997A45 guibg=#181214
+hi LspError gui=ITALIC guifg=#9B4662 guibg=#181214
 
-hi link LspDiagnosticsDefaultError LspError
-hi link LspDiagnosticsDefaultWarning LspWarn
-hi link LspDiagnosticsDefaultInformation LspDefault
-hi link LspDiagnosticsDefaultHint LspDefault
+hi link DiagnosticError LspError
+hi link DiagnosticWarn LspWarn
+hi link DiagnosticInfo LspDefault
+hi link DiagnosticHint LspDefault
 
-hi link LspDiagnosticsDefaultVirtualTextError LspError
-hi link LspDiagnosticsDefaultVirtualTextWarning LspWarn
-hi link LspDiagnosticsDefaultVirtualTextInformation LspDefault
-hi link LspDiagnosticsDefaultVirtualTextHint LspDefault
+hi link DiagnosticVirtualTextError LspError
+hi link DiagnosticVirtualTextWarn LspWarn
+hi link DiagnosticVirtualTextInfo LspDefault
+hi link DiagnosticVirtualTextHint LspDefault
 
-hi link LspDiagnosticsDefaultUnderlineError LspError
-hi link LspDiagnosticsDefaultUnderlineWarning LspWarn
-hi link LspDiagnosticsDefaultUnderlineInformation LspDefault
-hi link LspDiagnosticsDefaultUnderlineHint LspDefault
+hi link DiagnosticsDefaultUnderlineError LspError
+hi link DiagnosticsDefaultUnderlineWarning LspWarn
+hi link DiagnosticsDefaultUnderlineInformation LspDefault
+hi link DiagnosticsDefaultUnderlineHint LspDefault
 
-hi link LspDiagnosticsDefaultFloatingError LspError
-hi link LspDiagnosticsDefaultFloatingWarning LspWarn
-hi link LspDiagnosticsDefaultFloatingInformation LspDefault
-hi link LspDiagnosticsDefaultFloatingHint LspDefault
+hi link DiagnosticsDefaultFloatingError LspError
+hi link DiagnosticsDefaultFloatingWarning LspWarn
+hi link DiagnosticsDefaultFloatingInformation LspDefault
+hi link DiagnosticsDefaultFloatingHint LspDefault
 
-hi link LspDiagnosticsDefaultSignError LspError
-hi link LspDiagnosticsDefaultSignWarning LspWarn
-hi link LspDiagnosticsDefaultSignInformation LspDefault
-hi link LspDiagnosticsDefaultSignHint LspDefault
+hi link DiagnosticsDefaultSignError LspError
+hi link DiagnosticsDefaultSignWarning LspWarn
+hi link DiagnosticsDefaultSignInformation LspDefault
+hi link DiagnosticsDefaultSignHint LspDefault
 
 " hi link LspCodeLens LspDefault
 
