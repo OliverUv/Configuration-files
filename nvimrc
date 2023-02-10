@@ -157,8 +157,9 @@ if dein#load_state(deinpath)
     " LSP
     call dein#add('neovim/nvim-lspconfig')
     call dein#add('j-hui/fidget.nvim')
+    call dein#add('stevearc/aerial.nvim')
 
-    " DSP
+    " DAP
     call dein#add('mfussenegger/nvim-dap.git')
     call dein#add("rcarriga/nvim-dap-ui.git")
     call dein#add("theHamsta/nvim-dap-virtual-text.git")
@@ -437,6 +438,21 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 " }}} nvim-treesitter "
+
+" aerial.nvim {{{ "
+lua << EOF
+require('aerial').setup({
+  -- optionally use on_attach to set keymaps when aerial has attached to a buffer
+  on_attach = function(bufnr)
+    -- Jump forwards/backwards with '{' and '}'
+    vim.keymap.set('n', '[[', '<cmd>AerialPrev<CR>', {buffer = bufnr})
+    vim.keymap.set('n', ']]', '<cmd>AerialNext<CR>', {buffer = bufnr})
+  end
+})
+-- You probably also want to set a keymap to toggle aerial
+vim.keymap.set('n', '<leader>js', '<cmd>AerialToggle!<CR>')
+EOF
+" }}} aerial.nvim "
 
 " debug adapter protocol dap nvim-dap {{{ "
 lua << EOF
