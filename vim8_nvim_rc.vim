@@ -1502,6 +1502,11 @@ inoremap <c-f> <c-x><c-l>
 " Indent the entire file
 nnoremap <leader>= gg=G`'
 
+" Modifiers (<leader>m) {{{ "
+
+" Add fixme to end of line
+nnoremap <leader>mf A// FIXME: 
+
 " Pretty print entire file (if json)
 nnoremap <leader>mJ :<c-u>%!json_pp<cr>
 nnoremap <leader>mJS :<c-u>%!js-beautify -q -s 2 -f - <cr>
@@ -1542,6 +1547,8 @@ nnoremap <leader>mc $F/hhr<cr>kddpk$
 
 " RST-style header creation
 nnoremap <leader>mh yypVr
+
+" }}} Modifiers (<leader>m) "
 
 " Insertion esc conveniences
 inoremap <c-o> <esc>o

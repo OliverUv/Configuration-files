@@ -169,6 +169,8 @@ if dein#load_state(deinpath)
     " :TSInstall rust
     " https://github.com/nvim-treesitter/nvim-treesitter#available-modules
 
+    " UNUSED
+
     " call dein#add('autozimu/LanguageClient-neovim', {
     "             \ 'rev': 'next',
     "             \ 'build': 'bash install.sh',
@@ -218,13 +220,13 @@ if dein#load_state(deinpath)
 
     " Bling {{{ "
     " call dein#add('jaxbot/semantic-highlight.vim.git') " too crazy + seems to not work
-    call dein#add('vim-scripts/Rainbow-Parentheses-Improved-and2.git')
+    " call dein#add('vim-scripts/Rainbow-Parentheses-Improved-and2.git')
     call dein#add('skammer/vim-css-color.git')
     " call dein#add('luochen1990/rainbow.git')
-    call dein#add('romainl/flattened.git')
+    " call dein#add('romainl/flattened.git') " color scheme
     call dein#add('junegunn/goyo.vim.git')
     call dein#add('nathanaelkane/vim-indent-guides.git')
-    call dein#add('morhetz/gruvbox.git')
+    " call dein#add('morhetz/gruvbox.git') " color scheme
     " call dein#add('abudden/taghighlight-automirror.git')
     " call dein#add('godlygeek/csapprox.git')
     " call dein#add('gerw/vim-HiLinkTrace.git')
@@ -232,8 +234,8 @@ if dein#load_state(deinpath)
     " }}} Bling "
 
     " Management {{{ "
-    call dein#add('blindFS/vim-taskwarrior.git')
-    call dein#add('tbabej/taskwiki.git')
+    " call dein#add('blindFS/vim-taskwarrior.git')
+    " call dein#add('tbabej/taskwiki.git')
     call dein#add('vimwiki/vimwiki.git')
     " }}} Management "
 
@@ -387,7 +389,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '[e', '<cmd>lua vim.diagnostic.goto_prev({severity="ERROR"})<CR>', opts)
     buf_set_keymap('n', ']e', '<cmd>lua vim.diagnostic.goto_next({severity="ERROR"})<CR>', opts)
     -- buf_set_keymap('n', '<leader>jq', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-    buf_set_keymap('n', '<leader>mf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+    buf_set_keymap('n', '<leader>jF', '<cmd>lua vim.lsp.buf.format{ async = true }<CR>', opts)
 
 end
 
@@ -408,7 +410,8 @@ require'lspconfig'.rust_analyzer.setup {
                 },
             },
             cargo = {
-                features = "all",
+                -- features = "all", -- this is supposed to work, but doesn't
+                allFeatures = true, -- not mentioned in https://rust-analyzer.github.io/manual.html#configuration
                 buildScripts = {
                     enable = true
                 },
