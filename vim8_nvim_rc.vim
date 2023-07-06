@@ -118,7 +118,7 @@ set formatoptions=croqlj " auto formatting options
                          " l - long lines aren't broken
                          " j - remove comment leader when joining lines
 set noea                 " prevent equalizing of split sizes on closed split
-set fillchars=fold:\ ,vert:\ ,diff:╲ " fill characters for fold lines and lines between vsplits
+set fillchars=eob:\ ,fold:\ ,vert:\ ,diff:╲ " fill characters for fold lines and lines between vsplits
 set ttimeoutlen=50      " Faster twitchin' for everything
 set tildeop             " Tilde acts as an operator (no need to g~ to switch case with motions)
 set iskeyword+=å,ä,ö    " Add swedish characters to iskeyword
