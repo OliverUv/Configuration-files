@@ -114,7 +114,7 @@ hi FoldColumn   gui=NONE guifg=#c8c8c8 guibg=#0b000e
 
 " vim-indent-guides
 hi IndentGuidesOdd  gui=NONE guifg=NONE guibg=#1f141c
-hi IndentGuidesEven gui=NONE guifg=NONE guibg=#0F080B
+hi IndentGuidesEven gui=NONE guifg=NONE guibg=#110D0F
 
 " Signs
 hi SignColumn   gui=NONE guifg=#f0f0f0 guibg=#0b000e
@@ -326,6 +326,10 @@ hi LspDefault gui=ITALIC guifg=#4D4347 guibg=#181214
 hi LspWarn gui=ITALIC guifg=#997A45 guibg=#181214
 hi LspError gui=ITALIC guifg=#9B4662 guibg=#181214
 
+hi LspDefaultSign gui=ITALIC guifg=#4D4347 guibg=#0b000e
+hi LspWarnSign gui=ITALIC guifg=#997A45 guibg=#0b000e
+hi LspErrorSign gui=ITALIC guifg=#9B4662 guibg=#0b000e
+
 hi link DiagnosticError LspError
 hi link DiagnosticWarn LspWarn
 hi link DiagnosticInfo LspDefault
@@ -346,10 +350,10 @@ hi link DiagnosticsDefaultFloatingWarning LspWarn
 hi link DiagnosticsDefaultFloatingInformation LspDefault
 hi link DiagnosticsDefaultFloatingHint LspDefault
 
-hi link DiagnosticsDefaultSignError LspError
-hi link DiagnosticsDefaultSignWarning LspWarn
-hi link DiagnosticsDefaultSignInformation LspDefault
-hi link DiagnosticsDefaultSignHint LspDefault
+hi link DiagnosticsDefaultSignError LspErrorSign
+hi link DiagnosticsDefaultSignWarning LspWarnSign
+hi link DiagnosticsDefaultSignInformation LspDefaultSign
+hi link DiagnosticsDefaultSignHint LspDefaultSign
 
 " hi link LspCodeLens LspDefault
 
