@@ -219,6 +219,7 @@ if dein#load_state(deinpath)
     " }}} Libs "
 
     " Bling {{{ "
+    " call dein#add('HampusHauffman/block.nvim') " needs updated nvim probably
     " call dein#add('jaxbot/semantic-highlight.vim.git') " too crazy + seems to not work
     " call dein#add('vim-scripts/Rainbow-Parentheses-Improved-and2.git')
     call dein#add('skammer/vim-css-color.git')
@@ -457,7 +458,7 @@ vim.keymap.set('n', '<leader>js', '<cmd>AerialToggle!<CR>')
 EOF
 " }}} aerial.nvim "
 
-" debug adapter protocol dap nvim-dap {{{ "
+" debug adapter protocol dap DAP nvim-dap {{{ "
 lua << EOF
 local dap = require('dap')
 local dapui = require("dapui")
@@ -591,8 +592,30 @@ nnoremap <silent> <leader><leader>B <Cmd>lua require'dap'.set_breakpoint(vim.fn.
 nnoremap <silent> <leader><leader>p <Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
 nnoremap <silent> <leader><leader>r <Cmd>lua require'dap'.repl.open()<CR>
 nnoremap <silent> <leader><leader>R <Cmd>lua require'dap'.run_last()<CR>
+nnoremap <silent> <leader><leader>A <Cmd>lua require'dapui'.open()<CR>
+nnoremap <silent> <leader><leader>a <Cmd>lua require'dapui'.close()<CR>
 
 " }}} debug adapter protocol dap nvim-dap "
+
+" block.nvim {{{ "
+" lua << EOF
+" ---@field percent number  -- The change in color. 0.8 would change each box to be 20% darker than the last and 1.2 would be 20% brighter.
+" ---@field depth number -- De depths of changing colors. Defaults to 4. After this the colors reset. Note that the first color is taken from your "Normal" highlight so a 4 is 3 new colors.
+" ---@field automatic boolean -- Automatically turns this on when treesitter finds a parser for the current file.
+" ---@field colors string [] | nil -- A list of colors to use instead. If this is set percent and depth are not taken into account.
+" require("block").setup({
+"     percent = 0.8,
+"     depth = 4,
+"     colors = nil,
+"     automatic = false,
+" --    colors = {
+" --       "#ff0000"
+" --       "#00ff00"
+" --       "#0000ff"
+" --    }
+" })
+" EOF
+" }}} block.nvim "
 
 " Misc {{{ "
 let g:gutentags_ctags_exclude = ['node_modules', 'build', 'dist']
