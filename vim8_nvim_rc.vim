@@ -109,7 +109,6 @@ set previewheight=15    " Height of the preview window
 set switchbuf=useopen   " If switching to a buffer that is already open, go
                         " to where it is already open instead of here.
 set backspace=indent,eol,start whichwrap+=<,>,[,] " backspace functionality
-set foldopen-=search     " Don't open a fold just because a search lands on it
 set formatprg=par        " user par to format text with the gq command
 set formatoptions=croqlj " auto formatting options
                          " c - autowrap using textwidth
