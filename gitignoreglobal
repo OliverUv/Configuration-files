@@ -7,7 +7,6 @@
 *.pyc
 **/*.pyc
 *.o
-*.min.js
 #tag files
 tags
 tags.temp
