@@ -56,6 +56,7 @@ ln -s ~/Configuration-files/fehthemes ~/.config/feh/themes
 ln -s ~/Configuration-files/config.fish ~/.config/fish/config.fish
 ln -s ~/Configuration-files/fish-functions ~/.config/fish/functions
 ln -s ~/Configuration-files/fish-completions ~/.config/fish/completions
+ln -s ~/Configuration-files/fish_plugins ~/.config/fish/fish_plugins
 
 ln -s ~/Configuration-files/gtkrc-3.0 ~/.config/gtk-3.0/settings.ini
 
