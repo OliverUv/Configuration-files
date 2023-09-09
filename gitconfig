@@ -1,6 +1,7 @@
 [core]
 	excludesfile = ~/.gitignoreglobal
 	editor = nvim
+	pager = delta
 [user]
 	email = oliver.uvman@gmail.com
 	name = OliverUv
@@ -66,5 +67,14 @@
 	main-window-view = HistoryView
 [diff]
 	algorithm = patience
+	colorMoved = default
 [push]
 	default = simple
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    line-numbers = true
+    side-by-side = true
+    # true-color = always
