@@ -128,7 +128,8 @@ set concealcursor=""    " Don't do syntax based conceal when cursor is on same l
 set updatetime=90       " How long in ms to wait after stop typing to update things, use that CPU baby, burn those cycles
 set undolevels=5000     " More undo storage
 if has('nvim')
-    set diffopt+=linematch:100
+    " set diffopt+=linematch:100
+    set diffopt=internal,filler,closeoff,vertical,indent-heuristic,algorithm:patience
 end
 " set spellfile=$HOME/.vim/spell/ TODO
 if executable('rg')
