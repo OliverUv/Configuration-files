@@ -135,6 +135,7 @@ if dein#load_state(deinpath)
     " }}} Editing "
 
     call dein#add('tpope/vim-fugitive.git')
+    call dein#add('idanarye/vim-merginal.git')
     call dein#add('junegunn/gv.vim.git')
     call dein#add('w0rp/ale')
     " call dein#add('scrooloose/syntastic.git')
