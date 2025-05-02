@@ -10,9 +10,12 @@ set PATH $PATH ~/Projects/fzf/bin
 set PATH $PATH ~/bin
 set PATH $PATH ~/bin.priv
 
+# set SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
+
 set fish_greeting " "
 
 set TERM xterm-256color
+set COLORTERM "truecolor"
 
 set -x LOCATE_PATH "$HOME/.locate.db"
 set -x LC_ALL en_US.UTF-8
