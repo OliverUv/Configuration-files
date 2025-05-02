@@ -69,39 +69,74 @@ font:
   # use_thin_strokes: true
   # # [0.003057464s] [WARN ] [alacritty_config_derive] Config warning: use_thin_strokes has been removed; set the AppleFontSmoothing user default instead
 
-# Colors (Tomorrow Night Bright)
+# # Colors (Tomorrow Night Bright)
+# colors:
+#   # Default colors
+#   primary:
+#     background: '0x10070a'
+#     foreground: '0x7D716B'
+# 
+#   # Colors the cursor will use if `custom_cursor_colors` is true
+#   cursor:
+#     text: '0x000000'
+#     cursor: '0x716660'
+# 
+#   # Normal colors
+#   normal:
+#     black:   '0x303030'
+#     red:     '0xc03000'
+#     green:   '0x8AB22C'
+#     yellow:  '0xB5C865'
+#     blue:    '0x426870'
+#     magenta: '0x6D506D'
+#     cyan:    '0x4bb5c1'
+#     white:   '0xb2b2b5'
+# 
+#   # Bright colors
+#   bright:
+#     black:   '0x5F5F5F'
+#     red:     '0xFF3A78'
+#     green:   '0xA6CD07'
+#     yellow:  '0xfecf35'
+#     blue:    '0x4A7781'
+#     magenta: '0xFF3B77'
+#     cyan:    '0x4bb5c1'
+#     white:   '0xc2c2c5'
+
+
+# Kanagawa Alacritty Colors
 colors:
-  # Default colors
   primary:
-    background: '0x10070a'
-    foreground: '0x7D716B'
+    background: '0x1f1f28'
+    foreground: '0xdcd7ba'
 
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text: '0x000000'
-    cursor: '0x716660'
-
-  # Normal colors
   normal:
-    black:   '0x303030'
-    red:     '0xc03000'
-    green:   '0x8AB22C'
-    yellow:  '0xB5C865'
-    blue:    '0x426870'
-    magenta: '0x6D506D'
-    cyan:    '0x4bb5c1'
-    white:   '0xb2b2b5'
+    black:   '0x090618'
+    red:     '0xc34043'
+    green:   '0x76946a'
+    yellow:  '0xc0a36e'
+    blue:    '0x7e9cd8'
+    magenta: '0x957fb8'
+    cyan:    '0x6a9589'
+    white:   '0xc8c093'
 
-  # Bright colors
   bright:
-    black:   '0x5F5F5F'
-    red:     '0xFF3A78'
-    green:   '0xA6CD07'
-    yellow:  '0xfecf35'
-    blue:    '0x4A7781'
-    magenta: '0xFF3B77'
-    cyan:    '0x4bb5c1'
-    white:   '0xc2c2c5'
+    black:   '0x727169'
+    red:     '0xe82424'
+    green:   '0x98bb6c'
+    yellow:  '0xe6c384'
+    blue:    '0x7fb4ca'
+    magenta: '0x938aa9'
+    cyan:    '0x7aa89f'
+    white:   '0xdcd7ba'
+
+  selection:
+    background: '0x2d4f67'
+    foreground: '0xc8c093'
+
+  indexed_colors:
+    - { index: 16, color: '0xffa066' }
+    - { index: 17, color: '0xff5d62' }
 
 # Visual Bell
 #
