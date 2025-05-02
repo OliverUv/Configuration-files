@@ -1,3 +1,3 @@
-function st --wraps exa --description 'alias st exa -lsmodified'
-	exa -lsmodified $argv
+function st --wraps eza --description 'alias st eza -lsmodified'
+	eza -lsmodified $argv
 end

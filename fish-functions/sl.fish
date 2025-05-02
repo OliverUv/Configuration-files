@@ -1,3 +1,3 @@
-function sl --wraps exa --description 'alias sl exa -l'
-	exa -l $argv
+function sl --wraps eza --description 'alias sl eza -l'
+	eza -l $argv
 end

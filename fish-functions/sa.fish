@@ -1,3 +1,3 @@
-function sa --wraps exa --description 'alias sa exa -a'
-	exa -a $argv
+function sa --wraps eza --description 'alias sa eza -a'
+	eza -a $argv
 end
