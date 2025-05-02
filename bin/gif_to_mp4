@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+find ./ -type f -iname '*.gif' -print0 | xargs -I {} -r0 ffmpeg -i {} -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" {}.mp4
+find ./ -type f -iname '*.gif' -print0 | xargs -I {} -r0 rm {}
