@@ -644,6 +644,31 @@ tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 
 " }}} Terminal Mode "
 
+lua << EOF
+
+    -- <leader>jz to swap between virtualtext and virtualline diagnostics
+    vim.g.ouv_vlines = false
+    local diag_conf_default = {
+        virtual_text = {
+            virt_text_pos = 'eol_right_align',
+            hl_mode = 'replace',
+        },
+        virtual_lines = false,
+    }
+    vim.diagnostic.config(diag_conf_default)
+
+    vim.keymap.set('n', '<leader>jz', function()
+        vim.g.ouv_vlines = not vim.g.ouv_vlines
+        local new_config = vim.deepcopy(diag_conf_default, true)
+        if vim.g.ouv_vlines then
+            new_config.virtual_text = false
+            new_config.virtual_lines = true
+        end
+        vim.diagnostic.config(new_config)
+    end, { desc = 'Toggle diagnostic virtual_lines' })
+
+EOF
+
 set pumblend=15
 set winblend=0
 set inccommand=nosplit

@@ -55,7 +55,7 @@ hi IncSearch    gui=BOLD guifg=#ffffff guibg=#99004c
 hi Search       gui=BOLD guifg=#cc99ff guibg=#430075
 
 " Messages
-hi ErrorMsg     gui=BOLD guifg=#cea662 guibg=NONE
+hi ErrorMsg     gui=BOLD guifg=#0B4662 guibg=NONE
 hi WarningMsg   gui=BOLD guifg=#cea662 guibg=NONE
 hi ModeMsg      gui=BOLD guifg=#a0d0ff guibg=NONE
 hi MoreMsg      gui=BOLD guifg=#70ffc0 guibg=#8040ff
@@ -340,6 +340,11 @@ hi link DiagnosticVirtualTextWarn LspWarn
 hi link DiagnosticVirtualTextInfo LspDefault
 hi link DiagnosticVirtualTextHint LspDefault
 
+hi link DiagnosticVirtualLinesError LspError
+hi link DiagnosticVirtualLinesWarn LspWarn
+hi link DiagnosticVirtualLinesInfo LspDefault
+hi link DiagnosticVirtualLinesHint LspDefault
+
 hi link DiagnosticsDefaultUnderlineError LspError
 hi link DiagnosticsDefaultUnderlineWarning LspWarn
 hi link DiagnosticsDefaultUnderlineInformation LspDefault
@@ -356,6 +361,9 @@ hi link DiagnosticsDefaultSignInformation LspDefaultSign
 hi link DiagnosticsDefaultSignHint LspDefaultSign
 
 hi! link @variable Identifier
+hi! link @diff.plus DiffAdd
+hi! link @diff.minus DiffDelete
+hi! link @diff.delta DiffChange
 
 " hi link LspCodeLens LspDefault
 
