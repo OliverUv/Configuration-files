@@ -323,10 +323,10 @@ let g:LanguageClient_useVirtualText = "No"
 
 " folke trouble.nvim {{{ "
 
-nnoremap <silent> <leader>jc :TroubleToggle workspace_diagnostics<cr>
-nnoremap <silent> <leader>jC :TroubleToggle document_diagnostics<cr>
-nnoremap <silent> <leader>je <cmd>TroubleToggle lsp_references<cr>
-nnoremap <silent> <leader>jj :TroubleToggle<cr>
+nnoremap <silent> <leader>jc :Trouble diagnostics toggle<cr>
+nnoremap <silent> <leader>jC :Trouble diagnostics toggle filter.buf=0<cr>
+" nnoremap <silent> <leader>je :Trouble lsp toggle focus=false win.position=right<cr>
+" nnoremap <silent> <leader>jj :Trouble<cr>
 
 lua << EOF
   require("trouble").setup {
@@ -334,9 +334,20 @@ lua << EOF
     width = 80,
     height = 15,
     padding = false,
-    icons = false,
-    fold_open = "v", -- icon used for open folds
-    fold_closed = ">", -- icon used for closed folds
+    icons = {
+        indent = {
+            top           = "│ ",
+            middle        = "├╴",
+            last          = "└╴",
+            -- last          = "-╴",
+            -- last       = "╰╴", -- rounded
+            fold_open     = "v",
+            fold_closed   = ">",
+            ws            = "  ",
+        },
+        folder_open = "v",
+        folder_closed = ">",
+    },
     indent_lines = false, -- add an indent guide below the fold icons
     signs = {
         -- icons / text used for a diagnostic
