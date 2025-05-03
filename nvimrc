@@ -218,6 +218,7 @@ if dein#load_state(deinpath)
     call dein#add('Shougo/vimproc.vim.git')
     call dein#add('vim-scripts/L9.git')
     call dein#add('mattn/webapi-vim.git')
+    call dein#add("nvim-neotest/nvim-nio")
     " }}} Libs "
 
     " Bling {{{ "
