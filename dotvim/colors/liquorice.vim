@@ -355,6 +355,8 @@ hi link DiagnosticsDefaultSignWarning LspWarnSign
 hi link DiagnosticsDefaultSignInformation LspDefaultSign
 hi link DiagnosticsDefaultSignHint LspDefaultSign
 
+hi! link @variable Identifier
+
 " hi link LspCodeLens LspDefault
 
 " Neovim Terminal Colors
