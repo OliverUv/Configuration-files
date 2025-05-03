@@ -24,6 +24,7 @@ mkdir -p ~/.vimperator/info/dev-edition-default
 
 ln -s ~/Configuration-files/ranger ~/.config/
 ln -s ~/Configuration-files/systemd ~/.config/
+ln -s ~/Configuration-files/jj ~/.config/
 
 ln -s ~/Configuration-files/alacritty.yml ~/.config/alacritty/
 ln -s ~/Configuration-files/mpv ~/.config/
