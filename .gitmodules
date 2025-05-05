@@ -236,9 +236,6 @@
 [submodule "dotvim/bundle/taghighlight"]
 	path = dotvim/bundle/taghighlight
 	url = https://github.com/abudden/taghighlight-automirror.git
-[submodule "urxvt-font-size"]
-	path = urxvt-font-size
-	url = https://github.com/majutsushi/urxvt-font-size.git
 [submodule "dotvim/bundle/vim-fontzoom"]
 	path = dotvim/bundle/vim-fontzoom
 	url = https://github.com/thinca/vim-fontzoom.git
