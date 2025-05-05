@@ -233,9 +233,6 @@
 [submodule "dotvim/bundle/windowing.vim"]
 	path = dotvim/bundle/windowing.vim
 	url = git@github.com:OliverUv/windowing.vim.git
-[submodule "urxvt-perls"]
-	path = urxvt-perls
-	url = git@github.com:OliverUv/urxvt-perls.git
 [submodule "virtualfish"]
 	path = virtualfish
 	url = https://github.com/adambrenecki/virtualfish.git
