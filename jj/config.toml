@@ -1,2 +1,78 @@
 [user]
 name = "Oliver Uvman"
+email = "oliver.uvman@gmail.com"
+
+[ui]
+default-command = "ls"
+# diff.format = "git"
+
+[aliases]
+ls = ["util", "exec", "--", "sh", "-c", """
+jj log --limit 12
+echo
+jj status
+"""]
+s = ["status"]
+l = ["log"]
+e = ["edit"]
+u = ["undo"]
+d = ["describe", "-m"]
+n = ["next", "--edit"]
+p = ["new", "-B @", "-m"]
+heads = ["log", "-r", "heads(all())"]
+# description verbose, shows diff in window
+dv = ["--config=templates.draft_commit_description=commit_description_verbose", "describe"]
+mine = ["bookmark", "list", "-r", 'mine()']
+# tug = ["bookmark", "move", "--from", "closest_bookmark(@)", "--to", "closest_pushable(@)"]
+tug = ["util", "exec", "--", "sh", "-c", """
+if [ "x$1" = "x" ]; then
+  jj bookmark move --from "closest_bookmark(@)" --to "closest_pushable(@)"
+else
+  jj bookmark move --to "closest_pushable(@)" "$@"
+fi
+""", ""]
+
+
+# Scope ensures we only use delta for diffs, not for log
+[[--scope]]
+--when.commands = ["diff"]
+
+[--scope.ui]
+# https://github.com/jj-vcs/jj/blob/v0.25.0/docs/config.md#processing-contents-to-be-paged
+pager = "delta"
+# NOTE: this is required when using `delta` as a pager
+diff.format = "git"
+
+[revset-aliases]
+'closest_bookmark(to)' = 'heads(::to & bookmarks())'
+'closest_pushable(to)' = 'heads(::to & mutable() & ~description(exact:"") & (~empty() | merges()))'
+'immutable_heads()' = "builtin_immutable_heads() | remote_bookmarks()"
+
+[template-aliases]
+commit_description_verbose = '''
+concat(
+  description,
+  "\n",
+  "JJ: This commit contains the following changes:\n",
+  indent("JJ:    ", diff.stat(72)),
+  "JJ: ignore-rest\n",
+  diff.git(),
+)
+'''
+
+draft_commit_description = '''
+concat(
+  description,
+  surround(
+    "\nJJ: This commit contains the following changes:\n", "",
+    indent("JJ:     ", diff.summary()),
+  ),
+  surround(
+    "\nJJ: This commit contains the following changes:\n", "",
+    indent("JJ:     ", diff.stat(72)),
+  ),
+  "\n",
+  "JJ: ignore-rest\n",
+  diff.git(),
+)
+'''
