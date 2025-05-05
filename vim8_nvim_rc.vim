@@ -1527,6 +1527,8 @@ nnoremap <leader>mt, :Tabularize /, /r0<cr>
 
 " Clean trailing whitespace
 nnoremap <leader>mw mz:%s/\s\+$//<cr>:let @/=''<cr>`z
+" Remove DOS line endings from unix file with mixed endings
+nnoremap <leader>ml :%s/\r$//<cr>
 
 " Break up paramater list with newlines
 nnoremap <silent> <leader>mp mz:s/(/(\r/<cr>:s/, /,\r/g<cr>jmx`zj=`x:noh<cr>
@@ -1659,8 +1661,6 @@ nmap     <leader>gN <c-w>h:q<cr><c-k><c-n>
 nnoremap <leader>er :<C-U>Rename <c-r>=expand('%:t')<cr>
 nnoremap <leader>ed :<C-U>Remove
 nnoremap <leader>em :<C-U>Move <c-r>=expand('%:p')<cr>
-" Remove DOS line endings from unix file with mixed endings
-nnoremap <leader>el :%s/\r$//<cr>
 
 " Surround selected text with ${}
 vmap $ S}i$<esc>
