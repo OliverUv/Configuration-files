@@ -1,7 +1,0 @@
-# vim: ft=i3
-# Host specific settings
-
-set $audiosink 1
-
-exec --no-startup-id setxkbmap -layout us -variant altgr-intl -option 'ctrl:nocaps'
-exec --no-startup-id xrandr --output HDMI-0 --off --output DVI-I-1 --mode 1440x900 --pos 0x300 --rotate normal --output DVI-I-0 --primary --mode 1920x1200 --pos 1440x0 --rotate normal --output DVI-I-3 --off --output DVI-I-2 --off

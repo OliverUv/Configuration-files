@@ -1,6 +1,0 @@
-# vim: ft=i3
-# Host specific settings
-
-# set $audiosink 1
-
-exec --no-startup-id setxkbmap -layout us -variant altgr-intl -option 'ctrl:nocaps'
