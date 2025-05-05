@@ -18,7 +18,6 @@ mkdir -p ~/.config/nvim
 mkdir -p ~/.i3
 mkdir -p ~/.proxychains
 mkdir -p ~/.tmux/plugins
-mkdir -p ~/.urxvt/ext
 
 ln -s ~/Configuration-files/ranger ~/.config/
 ln -s ~/Configuration-files/systemd ~/.config/
@@ -52,11 +51,6 @@ ln -s ~/Configuration-files/fish-completions ~/.config/fish/completions
 ln -s ~/Configuration-files/fish_plugins ~/.config/fish/fish_plugins
 
 ln -s ~/Configuration-files/gtkrc-3.0 ~/.config/gtk-3.0/settings.ini
-
-ln -s ~/Configuration-files/urxvt-perls/clipboard ~/.urxvt/ext/
-ln -s ~/Configuration-files/urxvt-perls/keyboard-select ~/.urxvt/ext/
-ln -s ~/Configuration-files/urxvt-perls/url-select ~/.urxvt/ext/
-ln -s ~/Configuration-files/urxvt-font-size/font-size ~/.urxvt/ext/
 
 ln -s ~/Configuration-files/i3status.conf ~/.i3/status.conf
 ln -s ~/Configuration-files/i3config.base ~/.i3/config.base
