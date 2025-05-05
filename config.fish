@@ -17,6 +17,9 @@ set fish_greeting " "
 set TERM xterm-256color
 set COLORTERM "truecolor"
 
+set -x MANPAGER "vi +Man!"
+set -x MANWIDTH 999
+
 set -x LOCATE_PATH "$HOME/.locate.db"
 set -x LC_ALL en_US.UTF-8
 set -x LANG en_US.UTF-8
