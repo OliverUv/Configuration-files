@@ -305,14 +305,8 @@ if has("autocmd")
     " }}} typescript "
 
     " rust {{{ "
-    " au FileType rust setlocal omnifunc=LanguageClient#complete
-    " au FileType rust nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<cr>
-    " au FileType rust nnoremap <buffer> <silent> <leader>jh :call LanguageClient#textDocument_documentHighlight()<CR>
-    " au FileType rust nnoremap <buffer> <silent> <leader>jg :call LanguageClient#textDocument_definition()<CR>
-    " au FileType rust nnoremap <buffer> <silent> <leader>jr :<c-u>Denite references<cr>
-    " au FileType rust nnoremap <buffer> <silent> <leader>jR :call LanguageClient#textDocument_rename()<CR>
-    au BufWinEnter *.rs call Riceoperators("rust")
-    au WinEnter *.rs call Riceoperators("rust")
+    " au BufWinEnter *.rs call Riceoperators("rust")
+    " au WinEnter *.rs call Riceoperators("rust")
     " }}} rust "
 
     " cpp {{{ "
