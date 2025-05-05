@@ -56,6 +56,6 @@ ln -s ~/Configuration-files/i3config.base ~/.i3/config.base
 
 ln -s ~/Configuration-files/mpv-input.conf ~/.mpv/input.conf
 
-cp -r ~/Configuration-files/tmux/plugins/tpm ~/.tmux/plugins/
+ln -s ~/Projects/tpm ~/.tmux/plugins/
 
 echo "conkyrc .vimrc.local .tmux.conf.local i3config.local" | xargs echo "Needs manual linking:"
