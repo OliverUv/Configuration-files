@@ -39,7 +39,6 @@ ln -s ~/Configuration-files/dotvim/ftplugin ~/.config/nvim/ftplugin
 ln -s ~/Configuration-files/dotvim/spell ~/.config/nvim/spell
 ln -s ~/Configuration-files/dotvim/syntax ~/.config/nvim/syntax
 ln -s ~/Configuration-files/dotvim/UltiSnips ~/.config/nvim/UltiSnips
-ln -s ~/Configuration-files/dotvim/view ~/.config/nvim/view
 
 ln -s ~/Configuration-files/dunstrc ~/.config/dunst/dunstrc
 
