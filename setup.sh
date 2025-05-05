@@ -16,7 +16,6 @@ mkdir -p ~/.config/fish
 mkdir -p ~/.config/gtk-3.0
 mkdir -p ~/.config/nvim
 mkdir -p ~/.i3
-mkdir -p ~/.proxychains
 mkdir -p ~/.tmux/plugins
 
 ln -s ~/Configuration-files/ranger ~/.config/
@@ -56,8 +55,6 @@ ln -s ~/Configuration-files/i3status.conf ~/.i3/status.conf
 ln -s ~/Configuration-files/i3config.base ~/.i3/config.base
 
 ln -s ~/Configuration-files/mpv-input.conf ~/.mpv/input.conf
-
-ln -s ~/Configuration-files/proxychains.conf ~/.proxychains/proxychains.conf
 
 cp -r ~/Configuration-files/tmux/plugins/tpm ~/.tmux/plugins/
 
