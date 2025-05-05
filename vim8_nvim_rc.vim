@@ -349,7 +349,7 @@ if has("autocmd")
     au FileType yaml setlocal expandtab shiftwidth=2 softtabstop=2
     au FileType {make,gitconfig} set noexpandtab sw=4
     au FileType vim setlocal foldmethod=marker
-    au FileType {md,tex,txt,rst,text} setlocal linebreak
+    au FileType {md,tex,txt,rst,text,man} setlocal linebreak
 
     au BufWinEnter *.py call Riceoperators("python")
     au WinEnter *.py call Riceoperators("python")
