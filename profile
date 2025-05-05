@@ -32,8 +32,8 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
-if [ -d "$HOME/Configuration-files/floating_fzf/bin" ] ; then
-    PATH="$HOME/Configuration-files/floating_fzf/bin:$PATH"
+if [ -d "$HOME/Projects/floating_fzf/bin" ] ; then
+    PATH="$HOME/Projects/floating_fzf/bin:$PATH"
 fi
 if [ -d "$HOME/Projects/fzf/bin" ] ; then
     PATH="$HOME/Projects/fzf/bin:$PATH"

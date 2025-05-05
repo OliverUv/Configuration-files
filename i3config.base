@@ -7,9 +7,9 @@ set $mod Mod1
 set $mod2 Mod4
 
 # dmenu -i -l 20 -fn 'WenQuanYi Zen Hei Mono:bold' -sb '#E17800' -sf '#000000' -h 23
-set $fzfsel $HOME/Configuration-files/floating_fzf/bin/fzf_selector.sh
+set $fzfsel $HOME/Projects/floating_fzf/bin/fzf_selector.sh
 set $quickbin python3 $HOME/Projects/quickswitch-for-i3/quickswitch.py
-set $quickdmenu --dmenu $HOME/Configuration-files/floating_fzf/bin/fzf_selector.sh
+set $quickdmenu --dmenu $HOME/Projects/floating_fzf/bin/fzf_selector.sh
 
 set $redshift ~/bin/reds
 
