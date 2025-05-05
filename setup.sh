@@ -31,11 +31,11 @@ ln -s ~/Configuration-files/rua_wrap ~/.config/rua/wrap_args.d
 
 ln -s ~/Configuration-files/bin ~/bin
 
-ln -s ~/Configuration-files/dotvim ~/.vim
 ln -s ~/Configuration-files/nvimrc ~/.config/nvim/init.vim
 ln -s ~/Configuration-files/dotvim/colors ~/.config/nvim/colors
 ln -s ~/Configuration-files/dotvim/ftdetect ~/.config/nvim/ftdetect
 ln -s ~/Configuration-files/dotvim/ftplugin ~/.config/nvim/ftplugin
+ln -s ~/Configuration-files/dotvim/indent ~/.config/nvim/indent
 ln -s ~/Configuration-files/dotvim/spell ~/.config/nvim/spell
 ln -s ~/Configuration-files/dotvim/syntax ~/.config/nvim/syntax
 ln -s ~/Configuration-files/dotvim/UltiSnips ~/.config/nvim/UltiSnips
