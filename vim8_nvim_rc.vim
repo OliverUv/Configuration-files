@@ -1345,6 +1345,10 @@ function! g:ToggleColorColumn()
     endif
 endfunction
 
+" }}} ToggleColorColumn() "
+
+" ToggleColorScheme() {{{ "
+
 function! g:ToggleColorScheme()
     if g:colors_name == 'liquorice' || g:colors_name == 'liquorice-approx'
         let l:theme = 'proton'
@@ -1361,7 +1365,22 @@ function! g:ToggleColorScheme()
     end
 endfunction
 
-" }}} ToggleColorColumn() "
+" }}} ToggleColorScheme() "
+
+" ToggleFoldMethod() {{{ "
+
+function! g:ToggleFoldMethod()
+    if &l:foldmethod != 'manual'
+        let b:swapfoldmethod = &foldmethod
+        let &l:foldmethod = 'manual'
+    else
+        let &l:foldmethod = b:swapfoldmethod
+    endif
+endfunction
+
+nnoremap <silent> <leader>zf :call g:ToggleFoldMethod()<cr>
+
+" }}} ToggleFoldMethod() "
 
 " Map the leader keys
 let mapleader="\\"
