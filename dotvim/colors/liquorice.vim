@@ -8,16 +8,6 @@
 " Located and updated at
 " http://github.com/OliverUv/Configuration-files/blob/master/dotvim/colors/liquorice.vim
 
-" I recommend using the following colors, in order, if you're using a
-" rainbow parens plugin:
-" '#A77990', '#8DC4C4', '#C6ACC6', '#ADBCA0', '#A2B1C1', '#C6A0B3',
-" '#'#98A7B7', 7B907C', '#B7AB9B', '#96C1AC', '#79A9A9', '#96838D',
-" '#'#C6A890'
-"
-" (I personally recommend https://github.com/luochen1990/rainbow)
-" TODO: Figure out a way to get these colors, to work in 256-color
-" terminals using CSApprox.
-
 " Uncomment the following or put it in your vimrc if you feel like it!
 
 "set cursorcolumn " this theme has subtle lines, but they interfere
@@ -367,8 +357,22 @@ hi! link @diff.delta DiffChange
 
 " hi link LspCodeLens LspDefault
 
-" Neovim Terminal Colors
+" Rainbow Delimiters colors.
+hi RainbowDelimiterRed     guifg=#A77990 guibg=NONE
+hi RainbowDelimiterYellow  guifg=#8DC4C4 guibg=NONE
+hi RainbowDelimiterBlue    guifg=#C6ACC6 guibg=NONE
+hi RainbowDelimiterOrange  guifg=#ADBCA0 guibg=NONE
+hi RainbowDelimiterGreen   guifg=#A2B1C1 guibg=NONE
+hi RainbowDelimiterViolet  guifg=#C6A0B3 guibg=NONE
+hi RainbowDelimiterCyan    guifg=#98A7B7 guibg=NONE
+hi RainbowDelimiterOne     guifg=#7B907C guibg=NONE
+hi RainbowDelimiterTwo     guifg=#B7AB9B guibg=NONE
+hi RainbowDelimiterThree   guifg=#96C1AC guibg=NONE
+hi RainbowDelimiterFour    guifg=#79A9A9 guibg=NONE
+hi RainbowDelimiterFive    guifg=#96838D guibg=NONE
+hi RainbowDelimiterSix     guifg=#C6A890 guibg=NONE
 
+" Neovim Terminal Colors
 " Defaults, useful when modifying colors
 " let g:terminal_color_0 = "#000000" " black
 " let g:terminal_color_1 = "#800000" " d red

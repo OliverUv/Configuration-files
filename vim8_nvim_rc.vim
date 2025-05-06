@@ -383,7 +383,7 @@ if !has("win32") && !has("win64")
     set backupdir=/var/tmp/vi.recover.$USER/backup// " backups
     set directory=/var/tmp/vi.recover.$USER/swap//   " swap files
 
-    " Make those folders automatically if they don't already exist.
+    " Make those directories automatically if they don't already exist.
     if !isdirectory(expand(&undodir))
         call mkdir(expand(&undodir), "p", 0700)
     endif
@@ -963,53 +963,6 @@ let g:fruzzy#usenative = 1
 call denite#custom#source('_', 'matchers', ['matcher/fruzzy'])
 " }}} fruzzy "
 " }}} Denite "
-
-" Rainbow-Parentheses-Improved-and2 {{{ "
-"" Rainbow-Parentheses-Improved-and2 settings
-"" http://github.com/vim-scripts/Rainbow-Parentheses-Improved-and2
-""
-" These are so ugly
-"let g:rainbow_ctermfgs = [184, 39, 170, 162, 154, 9, 10, 11, 13, 14, 15]
-" These are alright
-"let g:rainbow_guifgs = ['#ffffff', '#000000']
-    "\   'guifgs': ['#8E8EBE', '#8E8E8E', '#BE8EBE', '#BEBE8E', '#8EBE8E', '#BE8E8E'],
-let g:rainbow_conf = {
-    \   'guifgs': ['#A77990', '#8DC4C4', '#C6ACC6', '#ADBCA0', '#A2B1C1', '#C6A0B3', '#98A7B7', '#7B907C', '#B7AB9B', '#96C1AC', '#79A9A9', '#96838D', '#C6A890'],
-    \   'ctermfgs': ['darkgray', 'darkblue', 'darkmagenta', 'darkcyan'],
-    \   'operators': '_,_',
-    \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
-    \   'separately': {
-    \       '*': {},
-    \       'lisp': {
-    \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
-    \           'ctermfgs': ['darkgray', 'darkblue', 'darkmagenta', 'darkcyan', 'darkred', 'darkgreen'],
-    \       },
-    \       'vim': {
-    \           'parentheses': [['fu\w* \s*.*)','endfu\w*'], ['for','endfor'], ['while', 'endwhile'], ['if','_elseif\|else_','endif'], ['(',')'], ['\[','\]'], ['{','}']],
-    \       },
-    \       'tex': {
-    \           'parentheses': [['(',')'], ['\[','\]'], ['\\begin{.*}','\\end{.*}']],
-    \       },
-    \       'css': 0,
-    \       'xml': {
-    \           'parentheses': [['\v\<\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'))?)*\>','</\z1>']],
-    \       },
-    \       'xhtml': {
-    \           'parentheses': [['\v\<\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'))?)*\>','</\z1>']],
-    \       },
-    \       'djangohtml': {
-    \           'guifgs': [],
-    \           'ctermfgs': [],
-    \           'parantheses': [],
-    \           'operators': []},
-    \       'html': {
-    \           'parentheses': [['\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>','</\z1>']],
-    \       },
-    \   }
-    \}
-let g:rainbow_active = 1
-let g:rainbow_operators = 1
-" }}} Rainbow-Parentheses-Improved-and2 "
 
 " vim-togglelist {{{ "
 " https://github.com/xaimus/vim-togglelist
@@ -1679,7 +1632,6 @@ nnoremap <silent> - mz:<c-u>:Switch<cr><esc>`z
 
 " Option toggles
 nnoremap =oD :IndentGuidesToggle<cr>
-nnoremap =oR :RainbowToggle<cr>
 nnoremap <silent> =oC :call g:ToggleColorColumn()<cr>
 nnoremap <silent> =oL :call g:ToggleColorScheme()<cr>
 

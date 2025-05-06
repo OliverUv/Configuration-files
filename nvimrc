@@ -224,12 +224,11 @@ if dein#load_state(deinpath)
     " Bling {{{ "
     " call dein#add('HampusHauffman/block.nvim') " needs updated nvim probably
     " call dein#add('jaxbot/semantic-highlight.vim.git') " too crazy + seems to not work
-    " call dein#add('vim-scripts/Rainbow-Parentheses-Improved-and2.git')
     call dein#add('skammer/vim-css-color.git')
-    " call dein#add('luochen1990/rainbow.git')
     " call dein#add('romainl/flattened.git') " color scheme
     call dein#add('junegunn/goyo.vim.git')
     call dein#add('nathanaelkane/vim-indent-guides.git')
+    call dein#add('HiPhish/rainbow-delimiters.nvim.git')
     " call dein#add('morhetz/gruvbox.git') " color scheme
     " call dein#add('abudden/taghighlight-automirror.git')
     " call dein#add('godlygeek/csapprox.git')
@@ -631,6 +630,26 @@ nnoremap <silent> <leader><leader>a <Cmd>lua require'dapui'.close()<CR>
 " })
 " EOF
 " }}} block.nvim "
+
+" rainbow-delimiters {{{ "
+let g:rainbow_delimiters = {
+    \ 'highlight': [
+        \ 'RainbowDelimiterRed',
+        \ 'RainbowDelimiterYellow',
+        \ 'RainbowDelimiterBlue',
+        \ 'RainbowDelimiterOrange',
+        \ 'RainbowDelimiterGreen',
+        \ 'RainbowDelimiterViolet',
+        \ 'RainbowDelimiterCyan',
+        \ 'RainbowDelimiterOne',
+        \ 'RainbowDelimiterTwo',
+        \ 'RainbowDelimiterThree',
+        \ 'RainbowDelimiterFour',
+        \ 'RainbowDelimiterFive',
+        \ 'RainbowDelimiterSix',
+    \ ],
+\ }
+" }}} rainbow-delimiters "
 
 " Misc {{{ "
 let g:gutentags_ctags_exclude = ['node_modules', 'build', 'dist']
