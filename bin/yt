@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 URL=`xclip -o -sel clip`
 echo Downloading "$URL"
-$PP youtube-dl "$URL" "$@"
+yt-dlp "$URL" "$@"

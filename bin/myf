@@ -1,4 +1,0 @@
-#!/usr/bin/env sh
-URL=`xclip -o -sel clip`
-echo "$URL"
-$PP mpv --really-quiet --ytdl-format "$@" "$URL"
