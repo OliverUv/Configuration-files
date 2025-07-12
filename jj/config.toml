@@ -5,6 +5,10 @@ email = "oliver.uvman@gmail.com"
 [ui]
 default-command = "ls"
 # diff.format = "git"
+# conflict-marker-style = "git"
+# vi is actually nvim
+diff-editor = ["vi", "-c", "DiffEditor $left $right $output"]
+editor = "vi"
 
 [aliases]
 ls = ["util", "exec", "--", "sh", "-c", """
@@ -13,12 +17,18 @@ echo
 jj status
 """]
 s = ["status"]
+sp = ["split", "--parallel", "--tool", ":builtin"]
+ss = ["split", "--tool", ":builtin"]
 l = ["log"]
+ll = ["log", "-r", "::@"]
 e = ["edit"]
 u = ["undo"]
 d = ["describe", "-m"]
+x = ["commit", "-m"]
 n = ["next", "--edit"]
-p = ["new", "-B @", "-m"]
+p = ["prev", "--edit"]
+ne = ["new", "-A @"]
+pe = ["new", "-B @"]
 heads = ["log", "-r", "heads(all())"]
 # description verbose, shows diff in window
 dv = ["--config=templates.draft_commit_description=commit_description_verbose", "describe"]
@@ -41,7 +51,7 @@ fi
 # https://github.com/jj-vcs/jj/blob/v0.25.0/docs/config.md#processing-contents-to-be-paged
 pager = "delta"
 # NOTE: this is required when using `delta` as a pager
-diff.format = "git"
+diff-formatter = ":git"
 
 [revset-aliases]
 'closest_bookmark(to)' = 'heads(::to & bookmarks())'
