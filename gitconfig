@@ -1,6 +1,6 @@
 [core]
 	excludesfile = ~/.gitignoreglobal
-	editor = nvim
+	editor = vi
 	pager = delta
 [user]
 	email = oliver.uvman@gmail.com
