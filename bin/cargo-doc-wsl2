@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -ue
+cargo doc --all-features
+cp -r ./target/doc /mnt/c/job/
