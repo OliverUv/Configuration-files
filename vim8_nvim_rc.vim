@@ -1007,6 +1007,12 @@ let g:UltiSnipsExpandTrigger = '<c-j>'
 let g:UltiSnipsJumpForwardTrigger = '<c-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<c-e>'
 " let g:UltiSnipsUsePythonVersion = 2
+
+" For some reason this hack makes things work.
+" Even if I have no .vim directory in home, and
+" it should have been correctly looking in ~/.config/nvim/UltiSnips
+" by default
+let g:UltiSnipsSnippetDirectories = [$HOME.'/.vim/UltiSnips']
 " }}} UltiSnips "
 
 " Misc {{{ "
