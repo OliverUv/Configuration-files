@@ -135,6 +135,7 @@ if dein#load_state(deinpath)
     " }}} Editing "
 
     call dein#add('tpope/vim-fugitive.git')
+    call dein#add('julienvincent/hunk.nvim.git')
     call dein#add('idanarye/vim-merginal.git')
     call dein#add('junegunn/gv.vim.git')
     call dein#add('w0rp/ale')
@@ -211,6 +212,7 @@ if dein#load_state(deinpath)
     " }}} File Types "
 
     " Libs {{{ "
+    call dein#add('MunifTanjim/nui.nvim')
     call dein#add('tpope/vim-repeat.git')
     call dein#add('Shougo/tabpagebuffer.vim.git')
     call dein#add('MarcWeber/vim-addon-mw-utils.git')
